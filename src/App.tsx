@@ -158,7 +158,7 @@ function App() {
 
   //functions
   const setQuestionNum = (questionNum: number) => {
-    setRoundNum(questionNum);
+    setRoundNum(questionNum - 1);
     nextRound();
   };
 

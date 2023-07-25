@@ -1,19 +1,21 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface Props {
   defaultValue?: number;
-  onSubmit: any;
+  onSubmit: (pageNum: number) => void;
   visibility: boolean;
 }
 
 const QuestionJump = ({ defaultValue = 0, onSubmit, visibility }: Props) => {
   const [pageNum, setPageNum] = useState<number>(defaultValue);
 
-  const handleChange = (event: any) => {
-    setPageNum(event.target.value);
+  useEffect(() => setPageNum(defaultValue), [defaultValue]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPageNum(Number(event.target.value));
   };
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubmit(pageNum);
   };
