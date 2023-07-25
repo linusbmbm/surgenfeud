@@ -1,11 +1,6 @@
 import { useEffect } from "react";
 
-interface Props {
-  callback: () => null;
-  targetKey: string;
-}
-
-const keypressHook = ({ callback, targetKey }: Props) => {
+const keypressHook = (callback: () => any, targetKey: string) => {
   useEffect(() => {
     const keyPressHandler = (event: KeyboardEvent) => {
       if (event.key === targetKey) {

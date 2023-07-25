@@ -6,7 +6,7 @@ interface Props {
 
 const QuestionCard = ({ questionNumber, questionText, visibility }: Props) => {
   if (!visibility) {
-    return null;
+    return "";
   }
 
   return (
