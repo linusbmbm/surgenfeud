@@ -9,14 +9,17 @@ import Wrong from "./components/Wrong.tsx";
 import PointsTeamCard from "./components/PointsTeamCard.tsx";
 import QuestionJump from "./components/QuestionJump.tsx";
 import keypressHook from "./hooks/keypressHook.ts";
+import { useNavigate, useParams } from "react-router-dom";
 
 function App() {
   //Variables
+  const navigate = useNavigate();
+  const roundNum: number = Number(useParams().id) ? Number(useParams().id) : 0;
+
   const team1Name: string = "Team 1";
   const team2Name: string = "Team 2";
   const numAnswers: number = 10;
 
-  const [roundNum, setRoundNum] = useState<number>(0);
   const [wrongNum, setWrongNum] = useState<number>(0);
 
   const quiz: Round[] = datajson;
@@ -63,20 +66,6 @@ function App() {
   ]);
 
   const [roundEnd, setRoundEnd] = useState<boolean>(false);
-  const nextRound = () => {
-    setVisibilityAnswers((prevVisibilityAnswers) => {
-      const updatedVisibilityAnswers = [...prevVisibilityAnswers];
-      updatedVisibilityAnswers.map((_, mapIndex) => {
-        updatedVisibilityAnswers[mapIndex] = "false";
-      });
-      return updatedVisibilityAnswers;
-    });
-    setVisibilityQuestion(false);
-    setWrongNum(0);
-    setPointsNow(0);
-    setRoundEnd(false);
-    setRoundNum((prevRoundNum) => prevRoundNum + 1);
-  };
 
   //Key-Hooks
   keypressHook(() => {
@@ -154,12 +143,31 @@ function App() {
 
   keypressHook(() => {
     nextRound();
+    navigate(`/${roundNum + 1}`);
   }, "Enter");
 
+  keypressHook(() => {
+    navigate(`/finals/${roundNum}`);
+  }, "f");
+
   //functions
+  const nextRound = () => {
+    setVisibilityAnswers((prevVisibilityAnswers) => {
+      const updatedVisibilityAnswers = [...prevVisibilityAnswers];
+      updatedVisibilityAnswers.map((_, mapIndex) => {
+        updatedVisibilityAnswers[mapIndex] = "false";
+      });
+      return updatedVisibilityAnswers;
+    });
+    setVisibilityQuestion(false);
+    setWrongNum(0);
+    setPointsNow(0);
+    setRoundEnd(false);
+  };
+
   const setQuestionNum = (questionNum: number) => {
-    setRoundNum(questionNum - 1);
     nextRound();
+    navigate(`/${questionNum}`);
   };
 
   return (
