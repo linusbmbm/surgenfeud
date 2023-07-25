@@ -1,41 +1,71 @@
 import { useEffect, useState } from "react";
 import "./index.css";
-import { Round } from "./interfaces/Round";
+import Interface_Round from "./types/Interface_Round";
 import datajson from "./data/data.json";
 import AnswerCard from "./components/AnswerCard";
 import keypressHook from "./hooks/keypressHook";
 import React from "react";
 import QuestionJump from "./components/QuestionJump";
 import PointsTeamCard from "./components/PointsTeamCard";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
+import Type_Answer from "./types/Type_Answer";
 
 function Finals() {
-  const navigate = useNavigate();
-
-  const quiz: Round[] = datajson;
-
-  const [visibilityQuestionJump, setVisibilityQuestionJump] =
-    useState<boolean>(false);
-
+  //Variables
+  const navigate: NavigateFunction = useNavigate();
   const [roundFirst, setRoundFirst] = useState<number>(Number(useParams().id));
 
+  const quiz: Interface_Round[] = datajson;
+
+  const indexKeyMap = {
+    0: "1",
+    1: "2",
+    2: "3",
+    3: "4",
+    4: "5",
+    5: "6",
+    6: "7",
+    7: "8",
+    8: "9",
+    9: "0",
+    10: "x",
+  };
+  const [answersFinals, setAnswersFinals] = useState<Type_Answer[][]>([[[""]]]);
   const [answerNums, setAnswerNums] = useState<number[]>([
     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
   ]);
 
-  const [answersFinals, setAnswersFinals] = useState<(number | string)[][][]>([
-    [[""]],
-  ]);
+  const [visibilityQuestionJump, setVisibilityQuestionJump] =
+    useState<boolean>(false);
 
   const [points, setPoints] = useState<number>(0);
 
-  keypressHook(() => {
-    if (!visibilityQuestionJump) {
-      setVisibilityQuestionJump(true);
-    } else {
-      setVisibilityQuestionJump(false);
-    }
-  }, "j");
+  //Functions
+  const setQuestionNum = (questionNum: number) => {
+    setRoundFirst(questionNum);
+  };
+
+  const fixAnswer = (
+    selectedAnswer: number,
+    possibleAnswers: Type_Answer[]
+  ) => {
+    return selectedAnswer === -1
+      ? ["", "", ""]
+      : selectedAnswer === 10
+      ? ["", "DULLE BLEIBT KNÜLLE", 0]
+      : possibleAnswers[selectedAnswer];
+  };
+
+  //Hooks
+  useEffect(() => {
+    setAnswersFinals((prevAnswersFinals) => {
+      const updatedAnswersFinals: Type_Answer[][] = [...prevAnswersFinals];
+      Array.from({ length: 5 }).map((_, index) => {
+        updatedAnswersFinals[index] = quiz[roundFirst + index]["answers"];
+      });
+      return updatedAnswersFinals;
+    });
+  }, [roundFirst]);
 
   useEffect(() => {
     setPoints(() => {
@@ -57,37 +87,23 @@ function Finals() {
     });
   }, [answerNums]);
 
-  useEffect(() => {
-    setAnswersFinals((prevAnswersFinals) => {
-      const updatedAnswersFinals = [...prevAnswersFinals];
-      Array.from({ length: 5 }).map((_, index) => {
-        updatedAnswersFinals[index] = quiz[roundFirst + index]["answers"];
-      });
-      return updatedAnswersFinals;
-    });
-  }, [roundFirst]);
-
-  const indexKeyMap = {
-    0: "1",
-    1: "2",
-    2: "3",
-    3: "4",
-    4: "5",
-    5: "6",
-    6: "7",
-    7: "8",
-    8: "9",
-    9: "0",
-    10: "x",
-  };
+  keypressHook(() => {
+    if (!visibilityQuestionJump) {
+      setVisibilityQuestionJump(true);
+    } else {
+      setVisibilityQuestionJump(false);
+    }
+  }, "j");
 
   Object.keys(indexKeyMap).map((mapIndex) => {
-    const index = Number(mapIndex) as keyof typeof indexKeyMap;
+    const index: keyof typeof indexKeyMap = Number(
+      mapIndex
+    ) as keyof typeof indexKeyMap;
 
     keypressHook(() => {
       setAnswerNums((prevAnswerNums) => {
-        const updatedAnswerNums = [...prevAnswerNums];
-        const indexFirstMinusOneValue = answerNums.findIndex(
+        const updatedAnswerNums: number[] = [...prevAnswerNums];
+        const indexFirstMinusOneValue: number = answerNums.findIndex(
           (answerNum) => answerNum === -1
         );
         updatedAnswerNums[indexFirstMinusOneValue] = index;
@@ -98,7 +114,7 @@ function Finals() {
 
   keypressHook(() => {
     setAnswerNums((prevAnswerNums) => {
-      const updatedAnswerNums = [...prevAnswerNums];
+      const updatedAnswerNums: number[] = [...prevAnswerNums];
       let indexLastNonMinusOneValue: number = 0;
       answerNums.map((answerNum, index) => {
         if (answerNum !== -1) {
@@ -109,22 +125,6 @@ function Finals() {
       return updatedAnswerNums;
     });
   }, "-");
-
-  //functions
-  const setQuestionNum = (questionNum: number) => {
-    setRoundFirst(questionNum);
-  };
-
-  const fixAnswer = (
-    selectedAnswer: number,
-    possibleAnswers: (number | string)[][]
-  ) => {
-    return selectedAnswer === -1
-      ? ["", "", ""]
-      : selectedAnswer === 10
-      ? ["", "DULLE BLEIBT KNÜLLE", 0]
-      : possibleAnswers[selectedAnswer];
-  };
 
   keypressHook(() => {
     navigate(`/${roundFirst + 5}`);

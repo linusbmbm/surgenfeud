@@ -1,7 +1,10 @@
+import Type_Answer from "../types/Type_Answer";
+import Type_Visibility from "../types/Type_Visibility";
+
 interface Props {
-  answer: (number | string)[];
+  answer: Type_Answer;
   classPrefix?: string;
-  visibility: "false" | "number" | "true";
+  visibility: Type_Visibility;
 }
 
 const AnswerCard = ({ answer, classPrefix = "", visibility }: Props) => {

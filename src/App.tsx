@@ -2,29 +2,30 @@ import "./index.css";
 import AnswerCard from "./components/AnswerCard.tsx";
 import datajson from "./data/data.json";
 import { useState } from "react";
-import { Round } from "./interfaces/Round.ts";
 import QuestionCard from "./components/QuestionCard.tsx";
 import PointsCard from "./components/PointsCard.tsx";
 import Wrong from "./components/Wrong.tsx";
 import PointsTeamCard from "./components/PointsTeamCard.tsx";
 import QuestionJump from "./components/QuestionJump.tsx";
 import keypressHook from "./hooks/keypressHook.ts";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
+import Interface_Round from "./types/Interface_Round.ts";
+import Type_Visibility from "./types/Type_Visibility.ts";
+import Type_Answer from "./types/Type_Answer.ts";
 
-function App() {
+const App = () => {
   //Variables
-  const navigate = useNavigate();
+  const navigate: NavigateFunction = useNavigate();
   const roundNum: number = Number(useParams().id) ? Number(useParams().id) : 0;
 
   const team1Name: string = "Team 1";
   const team2Name: string = "Team 2";
   const numAnswers: number = 10;
 
+  const quiz: Interface_Round[] = datajson;
+  const roundNow: Interface_Round = quiz[roundNum];
+
   const [wrongNum, setWrongNum] = useState<number>(0);
-
-  const quiz: Round[] = datajson;
-  const roundNow: Round = quiz[roundNum];
-
   const [pointsTeam1, setPointsTeam1] = useState<number>(0);
   const [pointsTeam2, setPointsTeam2] = useState<number>(0);
   const [pointsNow, setPointsNow] = useState<number>(0);
@@ -41,7 +42,7 @@ function App() {
     8: "9",
     9: "0",
   };
-  const answers = [
+  const answers: Type_Answer[] = [
     ...roundNow.answers,
     ...Array(numAnswers - roundNow.answers.length).fill(["", "", ""]),
   ];
@@ -50,24 +51,46 @@ function App() {
     useState<boolean>(false);
   const [visibilityWrong, setVisibilityWrong] = useState<boolean>(false);
   const [visibilityQuestion, setVisibilityQuestion] = useState<boolean>(false);
-  const [visibilityAnswers, setVisibilityAnswers] = useState<
-    ("false" | "number" | "true")[]
-  >([
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-  ]);
+  const [visibilityAnswers, setVisibilityAnswers] = useState<Type_Visibility[]>(
+    [
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+    ]
+  );
 
   const [roundEnd, setRoundEnd] = useState<boolean>(false);
 
-  //Key-Hooks
+  //Functions
+  const nextRound = () => {
+    setVisibilityAnswers((prevVisibilityAnswers) => {
+      const updatedVisibilityAnswers: Type_Visibility[] = [
+        ...prevVisibilityAnswers,
+      ];
+      updatedVisibilityAnswers.map((_, mapIndex) => {
+        updatedVisibilityAnswers[mapIndex] = "false";
+      });
+      return updatedVisibilityAnswers;
+    });
+    setVisibilityQuestion(false);
+    setWrongNum(0);
+    setPointsNow(0);
+    setRoundEnd(false);
+  };
+
+  const setQuestionNum = (questionNum: number) => {
+    nextRound();
+    navigate(`/${questionNum}`);
+  };
+
+  //Hooks
   keypressHook(() => {
     if (!visibilityQuestionJump) {
       setVisibilityQuestionJump(true);
@@ -93,7 +116,9 @@ function App() {
   keypressHook(() => {
     if (!roundEnd) {
       setVisibilityAnswers((prevVisibilityAnswers) => {
-        const updatedVisibilityAnswers = [...prevVisibilityAnswers];
+        const updatedVisibilityAnswers: Type_Visibility[] = [
+          ...prevVisibilityAnswers,
+        ];
         updatedVisibilityAnswers.map((_, mapIndex) => {
           updatedVisibilityAnswers[mapIndex] = "number";
         });
@@ -107,7 +132,9 @@ function App() {
   }, "q");
 
   Object.keys(indexKeyMap).map((mapIndex) => {
-    const index = Number(mapIndex) as keyof typeof indexKeyMap;
+    const index: keyof typeof indexKeyMap = Number(
+      mapIndex
+    ) as keyof typeof indexKeyMap;
 
     keypressHook(() => {
       if (roundNow.answers[index] !== undefined) {
@@ -117,7 +144,9 @@ function App() {
           );
         }
         setVisibilityAnswers((prevVisibilityAnswers) => {
-          const updatedVisibilityAnswers = [...prevVisibilityAnswers];
+          const updatedVisibilityAnswers: Type_Visibility[] = [
+            ...prevVisibilityAnswers,
+          ];
           updatedVisibilityAnswers[index] = "true";
           return updatedVisibilityAnswers;
         });
@@ -149,26 +178,6 @@ function App() {
   keypressHook(() => {
     navigate(`/finals/${roundNum}`);
   }, "f");
-
-  //functions
-  const nextRound = () => {
-    setVisibilityAnswers((prevVisibilityAnswers) => {
-      const updatedVisibilityAnswers = [...prevVisibilityAnswers];
-      updatedVisibilityAnswers.map((_, mapIndex) => {
-        updatedVisibilityAnswers[mapIndex] = "false";
-      });
-      return updatedVisibilityAnswers;
-    });
-    setVisibilityQuestion(false);
-    setWrongNum(0);
-    setPointsNow(0);
-    setRoundEnd(false);
-  };
-
-  const setQuestionNum = (questionNum: number) => {
-    nextRound();
-    navigate(`/${questionNum}`);
-  };
 
   return (
     <>
@@ -209,6 +218,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
 export default App;
