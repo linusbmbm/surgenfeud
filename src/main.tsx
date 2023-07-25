@@ -10,7 +10,11 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/finals",
+    path: "/:id",
+    element: <App />,
+  },
+  {
+    path: "/finals/:id",
     element: <Finals />,
   },
 ]);

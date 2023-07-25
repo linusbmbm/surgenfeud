@@ -7,14 +7,17 @@ import keypressHook from "./hooks/keypressHook";
 import React from "react";
 import QuestionJump from "./components/QuestionJump";
 import PointsTeamCard from "./components/PointsTeamCard";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Finals() {
+  const navigate = useNavigate();
+
   const quiz: Round[] = datajson;
 
   const [visibilityQuestionJump, setVisibilityQuestionJump] =
     useState<boolean>(false);
 
-  const [roundFirst, setRoundFirst] = useState<number>(0);
+  const [roundFirst, setRoundFirst] = useState<number>(Number(useParams().id));
 
   const [answerNums, setAnswerNums] = useState<number[]>([
     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
@@ -122,6 +125,10 @@ function Finals() {
       ? ["", "DULLE BLEIBT KNÜLLE", 0]
       : possibleAnswers[selectedAnswer];
   };
+
+  keypressHook(() => {
+    navigate(`/${roundFirst + 5}`);
+  }, "f");
 
   return (
     <>
