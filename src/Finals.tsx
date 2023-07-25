@@ -6,7 +6,7 @@ import Interface_Round from "./types/Interface_Round.ts";
 import Type_Answer from "./types/Type_Answer.ts";
 import keypressHook from "./hooks/keypressHook.ts";
 import QuestionJump from "./components/QuestionJump.tsx";
-import PointsTeamCard from "./components/PointsTeamCard.tsx";
+import PointsTeamCard from "./components/PointsTextCard.tsx";
 import AnswerCard from "./components/AnswerCard.tsx";
 
 function Finals() {
@@ -40,10 +40,6 @@ function Finals() {
   const [points, setPoints] = useState<number>(0);
 
   //Functions
-  const setQuestionNum = (questionNum: number) => {
-    setRoundFirst(questionNum);
-  };
-
   const fixAnswer = (
     selectedAnswer: number,
     possibleAnswers: Type_Answer[]
@@ -53,6 +49,10 @@ function Finals() {
       : selectedAnswer === 10
       ? ["", "DULLE BLEIBT KNÜLLE", 0]
       : possibleAnswers[selectedAnswer];
+  };
+
+  const changeRound = (changeToRoundNum: number) => {
+    navigate(`/finals/${changeToRoundNum}`);
   };
 
   //Hooks
@@ -133,7 +133,7 @@ function Finals() {
     <>
       <QuestionJump
         defaultValue={roundFirst}
-        onSubmit={setQuestionNum}
+        onSubmit={changeRound}
         visibility={visibilityQuestionJump}
       />
 
@@ -157,20 +157,20 @@ function Finals() {
       </div>
 
       <div className="finalsPoints">
-        <PointsTeamCard points={points} teamName={"TOTAL"} />
+        <PointsTeamCard points={points} text={"TOTAL"} />
       </div>
 
       <div className="finalsPinnchenGrid">
-        <PointsTeamCard points={Math.ceil(points / 15)} teamName={"Pinnchen"} />
+        <PointsTeamCard points={Math.ceil(points / 15)} text={"Pinnchen"} />
 
         <PointsTeamCard
           points={Math.floor(points / 15 / 4)}
-          teamName={"Pinnchen pro Person"}
+          text={"Pinnchen pro Person"}
         />
 
         <PointsTeamCard
           points={Math.ceil((points / 15) % 4)}
-          teamName={"Pinnchen Rest"}
+          text={"Pinnchen Rest"}
         />
       </div>
     </>

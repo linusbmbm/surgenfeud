@@ -24,13 +24,13 @@
     ]
   },
   {
-    "question": "Nenne das erste Anzeichen einer Grippe",
+    "question": "Nenne ein erste Anzeichen einer Grippe",
     "answers": [
       [1, "laufende Nase", 39],
       [2, "Niesen", 22],
       [3, "trockener Hals", 15],
       [4, "Kopfschmerzen", 5],
-      [5, "Nase verstopft", 5],
+      [5, "verstopfte Nase", 5],
       [6, "wässernde Augen", 4],
       [7, "Husten", 3],
       [8, "Gliederschmerzen", 2],
@@ -39,7 +39,7 @@
     ]
   },
   {
-    "question": "Nenne einen Ort, wo man viele Blumen sieht",
+    "question": "Wo sieht man viele Blumen?",
     "answers": [
       [1, "Blumenladen", 35],
       [2, "Beerdigung", 28],
@@ -85,7 +85,7 @@
     ]
   },
   {
-    "question": "Nenne etwas, das du mit Äypten in Verbindung brinst",
+    "question": "Nenne etwas, das du mit Äypten in Verbindung bringst",
     "answers": [
       [1, "Pyramiden", 77],
       [2, "Sphinx", 7],
@@ -98,18 +98,7 @@
     ]
   },
   {
-    "question": "Nenne einen öffentlichen Ort, der immer ein Festnetztelefon hat",
-    "answers": [
-      [1, "Restaurant", 26],
-      [2, "Tankstelle", 24],
-      [3, "Flughafen", 22],
-      [4, "Einkaufsladen", 10],
-      [5, "Krankenhaus", 7],
-      [6, "Hotel", 6]
-    ]
-  },
-  {
-    "question": "Nenne das intelligenteste Tier",
+    "question": "Nenne ein intelligentes Tier",
     "answers": [
       [1, "Hund", 29],
       [2, "Affe", 21],
@@ -121,31 +110,42 @@
     ]
   },
   {
-    "question": "Nenne etwas, das Leute tun, wenn sie mehr Zeit am Morgen haben",
+    "question": "Nenne etwas, das du tust, wenn du am Morgen mehr Zeit als erwartet hast",
     "answers": [
       [1, "Lesen", 53],
       [2, "Schlafen", 10],
       [3, "Essen", 9],
-      [4, "Trainieren", 8],
-      [5, "TV gucken", 6],
+      [4, "Sport machen", 8],
+      [5, "Fernseh schauen", 6],
       [6, "Kaffee trinken", 5],
-      [7, "Sauber machen", 3]
+      [7, "sauber machen", 3]
     ]
   },
   {
-    "question": "Nenne etwas von dir, das viel Geld kostet, um es gut aussehen zu lassen",
+    "question": "Nenne ein äußeres Merkmal eines Marsmenschen",
+    "answers": [
+      [1, "grün", 45],
+      [2, "Antenne", 35],
+      [3, "große Augen", 3],
+      [4, "spitze Ohren", 3],
+      [5, "großer Kopf", 2],
+      [6, "Glatze", 2],
+      [7, "klein", 2]
+    ]
+  },
+  {
+    "question": "Nenne etwas von dir, das viel Geld kostet, damit es gut aussieht",
     "answers": [
       [1, "Auto", 35],
       [2, "Haus", 33],
       [3, "Haare", 15],
-      [4, "Gesicht", 3],
-      [5, "Körper", 2],
-      [6, "Kleidung", 2],
-      [7, "Garten", 2]
+      [4, "Körper", 5],
+      [5, "Kleidung", 2],
+      [6, "Garten", 2]
     ]
   },
   {
-    "question": "Nenne etwas, das Leute tun, um ein Baby zu unterhalten",
+    "question": "Nenne etwas, was du machst, um ein Baby zu unterhalten",
     "answers": [
       [1, "Singen", 34],
       [2, "Grimassen ziehen", 23],
@@ -163,7 +163,7 @@
     "question": "Nenne einen Beruf, der eher nach Spiel als nach Arbeit aussieht",
     "answers": [
       [1, "Sportler", 46],
-      [2, "Rettungsschwimmer", 13],
+      [2, "Bademeister", 13],
       [3, "Schauspieler", 10],
       [4, "Moderator", 8],
       [5, "Musiker", 3],
@@ -174,7 +174,7 @@
     ]
   },
   {
-    "question": "Nenne etwas, das du bei kaltem Wetter nicht oft machst",
+    "question": "Nenne etwas, das du bei schlechtem Wetter nicht machst",
     "answers": [
       [1, "Gartenarbeit", 26],
       [2, "Schwimmen", 24],
@@ -187,7 +187,7 @@
     ]
   },
   {
-    "question": "Nenne Essen, das du nicht mit den Fingern essen würdest oder könntest",
+    "question": "Nenne ein Essen, das du nicht mit den Fingern vergenussfertigen würdest",
     "answers": [
       [1, "Spaghetti", 34],
       [2, "Suppe", 23],
@@ -199,12 +199,12 @@
     ]
   },
   {
-    "question": "Nenne einen Ort, an dem normalerweise die längsten Warteschlangen sind",
+    "question": "Nenne den Ort, an dem die längsten Warteschlangen sind",
     "answers": [
       [1, "Freizeitpark", 23],
       [2, "Supermarkt", 18],
       [3, "Kino", 16],
-      [4, "Post", 5],
+      [4, "Postbüro", 5],
       [5, "Restaurant", 5],
       [6, "Konzert", 4],
       [7, "Stadion", 3],
@@ -212,13 +212,13 @@
     ]
   },
   {
-    "question": "Nenne den Grund, warum du single bist",
+    "question": "Nenne eine Eigenschaft von dir, warum du single bist",
     "answers": [
       [1, "Übergewichtig", 18],
       [2, "keine Ausstrahlung", 17],
       [3, "Faulheit", 10],
       [4, "Glatze", 9],
-      [5, "Hässlichkeit", 9],
+      [5, "Aussehen", 9],
       [6, "Arbeitstier", 9],
       [7, "Alter", 7]
     ]
@@ -249,11 +249,11 @@
     ]
   },
   {
-    "question": "Nenne ein Beruf, dessen Leute ein großes Ego haben",
+    "question": "Nenne einen Beruf, in dem die Menschen ein ausgeprägtes Ego haben",
     "answers": [
       [1, "Schauspieler", 30],
       [2, "Anwalt", 23],
-      [3, "Physiker", 9],
+      [3, "Wissenschaftler", 9],
       [4, "Politiker", 8],
       [5, "Sportler", 7],
       [6, "Model", 6],
@@ -269,13 +269,11 @@
       [2, "Vincent Van Gogh", 20],
       [3, "Leonardo Da Vinci", 19],
       [4, "Michelangelo", 10],
-      [5, "Rembrandt Van Rijn", 9],
-      [6, "Auguste Renoir", 3],
-      [7, "Normal Rockwell", 3]
+      [5, "Rembrandt Van Rijn", 9]
     ]
   },
   {
-    "question": "Nenne etwas, das du dir gewünscht und bekommen hast",
+    "question": "Nenne etwas, das du dir ersehnt und tatsächlich erhalten hast",
     "answers": [
       [1, "Auto", 17],
       [2, "Geld", 12],
@@ -302,7 +300,7 @@
     ]
   },
   {
-    "question": "Nenne etwas, wovon es bei dir zuhause nie genug gibt",
+    "question": "Nenne etwas, wovon es bei dir Zuhause nie genug gibt",
     "answers": [
       [1, "Geld", 45],
       [2, "Essen", 26],
@@ -312,7 +310,7 @@
     ]
   },
   {
-    "question": "Nenne ein US-Staat mit zwei Wörtern im Namen",
+    "question": "Nenne einen US-Staat bestehend aus zwei Wörtern",
     "answers": [
       [1, "New York", 46],
       [2, "North Carolina", 11],
@@ -340,10 +338,10 @@
     ]
   },
   {
-    "question": "Nenne etwas, das beim ersten Mal schwierig ist",
+    "question": "Nenne etwas, das beim ersten Versuch schwierig ist",
     "answers": [
-      [1, "Fahrrad", 24],
-      [2, "Ski", 21],
+      [1, "Fahrrad fahren", 24],
+      [2, "Ski fahren", 21],
       [3, "Auto fahren", 18],
       [4, "Skaten", 7],
       [5, "Schwimmen", 6]
@@ -370,18 +368,17 @@
       [4, "Donner", 13],
       [5, "Dynamit", 6],
       [6, "Ballon", 5],
-      [7, "Auto-Rückschuss", 4],
-      [8, "Trommel", 4]
+      [7, "Trommel", 4]
     ]
   },
   {
-    "question": "Nenne ein Tier, das in deinem Müll wühlt",
+    "question": "Nenne ein Tier, das bekannt dafür ist Müll zu essen",
     "answers": [
-      [1, "Waschbär", 38],
-      [2, "Hund", 23],
-      [3, "Katze", 19],
-      [4, "Opossum", 11],
-      [5, "Stinktier", 5]
+      [1, "Waschbär", 31],
+      [2, "Ratte", 25],
+      [3, "Hund", 14],
+      [4, "Schwein", 13],
+      [5, "Bär", 13]
     ]
   },
   {
@@ -400,13 +397,13 @@
   {
     "question": "Was ist das Erste, das du machst nachdem von einem Nickerchen aufwachst?",
     "answers": [
-      [1, "Toilette", 21],
-      [2, "Uhrzeit", 18],
-      [3, "Recken", 15],
+      [1, "aufs Klo gehen", 21],
+      [2, "Uhrzeit checken", 18],
+      [3, "recken und strecken", 15],
       [4, "Gähnen", 9],
-      [5, "Trinken", 8],
+      [5, "etwas trinken", 8],
       [6, "Gesicht waschen", 8],
-      [7, "Essen", 4],
+      [7, "etwas essen", 4],
       [8, "Haare bürsten", 3]
     ]
   },
@@ -419,21 +416,21 @@
       [4, "Zucker", 11],
       [5, "Toilettenpapier", 10],
       [6, "Energie", 3],
-      [7, "Gedult", 3]
+      [7, "Geduld", 3]
     ]
   },
   {
-    "question": "Nenne etwas, das Leute zum schlafen bringt",
+    "question": "Nenne etwas, das Leute zum Schlafen bringt",
     "answers": [
       [1, "Medizin", 22],
-      [2, "Lesen", 16],
+      [2, "lesen", 16],
       [3, "Musik", 14],
-      [4, "TV", 12],
-      [5, "Milch", 8],
+      [4, "Fernseher", 12],
+      [5, "warme Milch", 8],
       [6, "Narkose", 5],
-      [7, "Langweiliger Film", 5],
+      [7, "langweiliger Film", 5],
       [8, "Vortrag", 4],
-      [9, "Predigt", 4]
+      [9, "Gottesdienst", 4]
     ]
   },
   {
@@ -442,22 +439,22 @@
       [1, "Aufstehen", 31],
       [2, "Rasieren", 16],
       [3, "Arbeiten", 14],
-      [4, "Trainieren", 10],
-      [5, "Putzen", 9],
+      [4, "Sport", 10],
+      [5, "sauber machen", 9],
       [6, "Zähne putzen", 6]
     ]
   },
   {
     "question": "Nenne etwas, was eine Mutter immer wieder zu ihrem Kind sagt",
     "answers": [
-      [1, "Nein", 30],
-      [2, "Nicht", 15],
-      [3, "Ich liebe dich", 10],
-      [4, "Sei leise", 8],
-      [5, "Räum Zimmer auf", 7],
-      [6, "Nicht anfassen", 7],
-      [7, "Putz Zähne", 3],
-      [8, "Wasch Hände", 2]
+      [1, "Nein!", 30],
+      [2, "Nicht!", 15],
+      [3, "Ich liebe dich!", 10],
+      [4, "Sei leise!", 8],
+      [5, "Räum Zimmer auf!", 7],
+      [6, "Nicht anfassen!", 7],
+      [7, "Putz deine Zähne!", 3],
+      [8, "Wasch deine Hände!", 2]
     ]
   },
   {
@@ -468,7 +465,7 @@
       [3, "Sofa", 12],
       [4, "Bett", 9],
       [5, "Schrank", 5],
-      [6, "TV", 5],
+      [6, "Fernseher", 5],
       [7, "Herd", 3]
     ]
   },
@@ -492,7 +489,7 @@
       [5, "Steuerbüro", 6],
       [6, "Hochzeit", 3],
       [7, "Flughafen", 2],
-      [8, "Job Interview", 2]
+      [8, "Vorstellungsgespräch", 2]
     ]
   },
   {
@@ -516,12 +513,12 @@
       [3, "Fahren", 14],
       [4, "Schreiben", 11],
       [5, "Skaten", 10],
-      [6, "Fahrrad", 9],
+      [6, "Fahrrad fahren", 9],
       [7, "Sprechen", 4]
     ]
   },
   {
-    "question": "Nenne etwas, was kleine Mädchen bei Spielen vorgeben zu sein",
+    "question": "Nenne etwas, was kleine Mädchen beim Spielen vorgeben zu sein",
     "answers": [
       [1, "Mutter", 51],
       [2, "Prinzessin", 13],
@@ -538,11 +535,10 @@
       [1, "Picknick", 36],
       [2, "Decke", 21],
       [3, "Buch", 17],
-      [4, "Radio", 8],
+      [4, "Musikbox", 8],
       [5, "Frisbee", 4],
       [6, "Sonnenbrille", 3],
-      [7, "Kamera", 2],
-      [8, "Stuhl", 2]
+      [8, "Klappstuhl", 2]
     ]
   },
   {
@@ -561,13 +557,13 @@
     ]
   },
   {
-    "question": "Nenne das Erste, was morgens Geräusche macht, außer Wecker",
+    "question": "Nenne das Erste, was morgens Geräusche macht, außer dein Wecker",
     "answers": [
       [1, "Kaffeemaschine", 25],
       [2, "Vögel", 23],
       [3, "Kinder", 19],
       [4, "Radio", 13],
-      [5, "TV", 6],
+      [5, "Fernseher", 6],
       [6, "Dusche", 4],
       [7, "Toilette", 3],
       [8, "Ehepartner", 3],
@@ -591,10 +587,10 @@
       [1, "Kerzen auspusten", 25],
       [2, "Kuchen essen", 19],
       [3, "Geburtstagslied", 18],
-      [4, "Dinge verschütten", 16],
+      [4, "Sauerei", 16],
       [5, "Spiele", 13],
       [6, "Geschenke öffnen", 5],
-      [7, "Jemand weint", 3]
+      [7, "jemand weint", 3]
     ]
   },
   {
@@ -604,7 +600,7 @@
       [2, "Suppe", 20],
       [3, "Kartoffeln", 13],
       [4, "Hähnchen", 7],
-      [5, "Mais", 7],
+      [5, "Maiskolben", 7],
       [6, "Hummer", 6],
       [7, "Eintopf", 5]
     ]
@@ -634,13 +630,13 @@
     ]
   },
   {
-    "question": "Nenne den kältesten Raum im Haus",
+    "question": "Nenne den Raum im Haus, der immer zu kalt ist",
     "answers": [
       [1, "Schlafzimmer", 34],
       [2, "Badezimmer", 33],
       [3, "Keller", 14],
       [4, "Wohnzimmer", 8],
-      [5, "Essenszimmer", 3],
+      [5, "Esszimmer", 3],
       [6, "Garage", 2]
     ]
   },
@@ -650,7 +646,7 @@
       [1, "Beruf", 28],
       [2, "Sport", 18],
       [3, "Familie", 16],
-      [4, "TV", 6],
+      [4, "Fernseher", 6],
       [5, "Auto", 4],
       [6, "Geld", 4],
       [7, "Essen", 3]
@@ -678,8 +674,7 @@
       [4, "Socke", 6],
       [5, "Bowlingball", 5],
       [6, "Schwamm", 4],
-      [7, "Bagel", 2],
-      [8, "Papier", 2]
+      [7, "Bagel", 2]
     ]
   },
   {
@@ -699,10 +694,10 @@
     "answers": [
       [1, "Möbel bewegen", 29],
       [2, "Fußboden putzen", 23],
-      [3, "Saugen", 10],
+      [3, "Staubsaugen", 10],
       [4, "Ofen putzen", 9],
       [5, "Müll rausbringen", 8],
-      [6, "Wanne putzen", 5],
+      [6, "Badewanne putzen", 5],
       [7, "Fenster putzen", 5]
     ]
   },
@@ -761,7 +756,7 @@
     ]
   },
   {
-    "question": "Nenne eine Stadt, an die du denkst, wenn du an Spionfilme denkst",
+    "question": "Nenne eine Stadt, die dir in den Kopf kommt, wenn du an Spionfilme denkst",
     "answers": [
       [1, "London", 33],
       [2, "Paris", 19],
@@ -786,16 +781,6 @@
     ]
   },
   {
-    "question": "Nenne etwas, das Dampf ablässt",
-    "answers": [
-      [1, "Teekessel", 51],
-      [2, "Bügeleisen", 17],
-      [3, "Zug", 12],
-      [4, "Schnellkochtopf", 8],
-      [5, "Dampfmaschine", 4]
-    ]
-  },
-  {
     "question": "Nenne etwas, das Leute von ihren Eltern genetisch erben können",
     "answers": [
       [1, "Augenfarbe", 39],
@@ -815,7 +800,7 @@
       [3, "Zug", 14],
       [4, "Sirene", 13],
       [5, "Kuh", 11],
-      [6, "Waffe", 5],
+      [6, "Pistole", 5],
       [7, "Katze", 4],
       [8, "Flugzeug", 3],
       [9, "Motorrad", 2]
@@ -838,11 +823,11 @@
     "answers": [
       [1, "Abnehmen", 24],
       [2, "Komplimente", 19],
-      [3, "Neue Kleidung", 11],
-      [4, "Neue Frisur", 8],
+      [3, "neue Kleidung", 11],
+      [4, "neue Frisur", 8],
       [5, "Sport", 7],
       [6, "Erfolg", 6],
-      [7, "Gute Tat", 5],
+      [7, "gute Tat", 5],
       [8, "Aussehen", 4]
     ]
   },
@@ -859,7 +844,7 @@
     ]
   },
   {
-    "question": "Nenne etwas, gegenüber dem deine Haut übersensibel sein könnte",
+    "question": "Nenne etwas, gegenüber dem deine Haut sensibel sein könnte",
     "answers": [
       [1, "Sonne", 58],
       [2, "Seife", 15],
@@ -873,11 +858,11 @@
   {
     "question": "Nenne etwas, das dich reizbar macht",
     "answers": [
-      [1, "Kein Schlaf", 20],
-      [2, "Schlechtes Wetter", 12],
+      [1, "kein Schlaf", 20],
+      [2, "schlechtes Wetter", 12],
       [3, "Kinder", 12],
-      [4, "Verkehr", 10],
-      [5, "Rauchen", 5],
+      [4, "viel Verkehr", 10],
+      [5, "nicht geraucht", 5],
       [6, "Lautstärke", 3],
       [7, "Warten", 3]
     ]
@@ -898,18 +883,6 @@
     ]
   },
   {
-    "question": "Nenne ein äußeres Merkmal eines Marsmenschen",
-    "answers": [
-      [1, "Grün", 45],
-      [2, "Antenne", 35],
-      [3, "Große Augen", 3],
-      [4, "Spitze Ohren", 3],
-      [5, "Großer Kopf", 2],
-      [6, "Glatze", 2],
-      [7, "Klein", 2]
-    ]
-  },
-  {
     "question": "Nenne etwas mit dem Hunde gerne spielen",
     "answers": [
       [1, "Ball", 51],
@@ -927,7 +900,7 @@
     "answers": [
       [1, "Nudeln", 21],
       [2, "Hähnchen", 20],
-      [3, "Hamburger", 20],
+      [3, "Burger", 20],
       [4, "Kartoffeln", 11],
       [5, "Pizza", 6],
       [6, "Steak", 3],
@@ -984,19 +957,6 @@
     ]
   },
   {
-    "question": "Nenne jemanden mit dem du sprichst, wenn du viel im Kopf hast",
-    "answers": [
-      [1, "Freund", 37],
-      [2, "Ehepartner", 28],
-      [3, "Geschwister", 6],
-      [4, "Pastor", 5],
-      [5, "Gott", 5],
-      [6, "Sich selbst", 5],
-      [7, "Mutter", 4],
-      [8, "Haustier", 3]
-    ]
-  },
-  {
     "question": "Nenne etwas, das Leute herumschieben können",
     "answers": [
       [1, "Eiskaufswagen", 62],
@@ -1013,7 +973,7 @@
       [1, "Wasser", 62],
       [2, "Essen", 13],
       [3, "Sauerstoff", 7],
-      [4, "Training", 5],
+      [4, "Sport", 5],
       [5, "Kalzium", 3],
       [6, "Hygiene", 3],
       [7, "Eisen", 2],
@@ -1021,7 +981,7 @@
     ]
   },
   {
-    "question": "Nenne mir ein Gerät, das man ohne Anleitung bedienen kann",
+    "question": "Nenne mir ein Gerät, das man auch ohne Anleitung bedienen kann",
     "answers": [
       [1, "Toaster", 48],
       [2, "Ofen", 15],
@@ -1034,7 +994,7 @@
     ]
   },
   {
-    "question": "Nenne jemanden außer dir selbst, der einen Schlüssel zu deinem Haus hat",
+    "question": "Nenne jemanden, außer dir selbst, der einen Schlüssel zu deinem Haus hat",
     "answers": [
       [1, "Kind", 25],
       [2, "Eltern", 22],
@@ -1046,9 +1006,9 @@
     ]
   },
   {
-    "question": "Nenne ein Haushaltsgerät mit dem Leute manchmal sprechen",
+    "question": "Nenne ein Haushaltsgegenstand mit dem Leute manchmal sprechen",
     "answers": [
-      [1, "TV", 47],
+      [1, "Fernseher", 47],
       [2, "Pflanze", 31],
       [3, "Spiegel", 5],
       [4, "Staubsauger", 5],
@@ -1058,27 +1018,13 @@
     ]
   },
   {
-    "question": "Nenne einen Ort, in dem man mehr Kinder als Erwachsene sieht",
-    "answers": [
-      [1, "Schule", 34],
-      [2, "Park", 14],
-      [3, "Arcade-Spielhalle", 13],
-      [4, "Freizeitpark", 11],
-      [5, "Konzert", 5],
-      [6, "Schwimmbad", 5],
-      [7, "Zirkus", 4],
-      [8, "Kino", 4],
-      [9, "Skatepark", 4]
-    ]
-  },
-  {
     "question": "Nenne etwas, das Leute benutzen, um ein Schloss zu knacken",
     "answers": [
       [1, "Haarnadel", 63],
       [2, "Kreditkarte", 13],
       [3, "Feile", 7],
       [4, "Messer", 4],
-      [5, "Schraubendreher", 3],
+      [5, "Schraubenzieher", 3],
       [6, "Kleiderhaken", 2],
       [7, "Büroklammer", 2]
     ]
@@ -1116,15 +1062,15 @@
       [4, "Neoprenanzug", 8],
       [5, "Ohrstöpsel", 7],
       [6, "Taucherflossen", 5],
-      [7, "Schwimmweste", 4]
+      [7, "Schwimmflügel", 4]
     ]
   },
   {
-    "question": "Nenne etwas, das eine wählerische Frau an ihrem Date zu merkern hat",
+    "question": "Nenne etwas, das eine wählerische Frau an ihrem Date auszusetzen hat",
     "answers": [
       [1, "Kleidung", 37],
       [2, "Aussehen", 19],
-      [3, "Billig", 10],
+      [3, "zu billig", 10],
       [4, "Manieren", 7],
       [5, "Haare", 5],
       [6, "Auto", 4],
@@ -1164,9 +1110,8 @@
       [4, "Mund", 9],
       [5, "Kühlschrank", 9],
       [6, "Gläser", 7],
-      [7, "Bankkonto", 6],
-      [8, "Box", 5],
-      [9, "Geschenke", 4]
+      [7, "Paket", 5],
+      [8, "Geschenke", 4]
     ]
   },
   {
@@ -1207,7 +1152,7 @@
     ]
   },
   {
-    "question": "Nenne ein am Geruch erkennbares Essen",
+    "question": "Nenne ein Essen, das du am Geruch erkennst",
     "answers": [
       [1, "Zwiebeln", 32],
       [2, "Fisch", 23],
@@ -1219,19 +1164,7 @@
     ]
   },
   {
-    "question": "Nenne etwas mit dem Erwachsene schlafen, um sich sicher zu fühlen",
-    "answers": [
-      [1, "Waffe", 40],
-      [2, "Ehepartner", 23],
-      [3, "Hund", 6],
-      [4, "Nachtlicht", 6],
-      [5, "Kuscheltier", 6],
-      [6, "Kissen", 5],
-      [7, "Taschenlampe", 4]
-    ]
-  },
-  {
-    "question": "Wovon hast du zwei oder drei verschiedene Sachen im Kühlschrank?",
+    "question": "Wovon hast du zwei oder drei verschiedene Sorten im Kühlschrank?",
     "answers": [
       [1, "Salatsoße", 28],
       [2, "Käse", 25],
@@ -1243,7 +1176,7 @@
     ]
   },
   {
-    "question": "Nenne das Musikinstrument, das sich, von einem Anfänger gespielt, am Schlechtesten anhört",
+    "question": "Nenne ein Musikinstrument, das sich, von einem Anfänger gespielt, schrecklich anhört",
     "answers": [
       [1, "Geige", 51],
       [2, "Trompete", 13],
@@ -1272,7 +1205,7 @@
       [1, "Rasierer", 33],
       [2, "Werkzeug", 24],
       [3, "Sofa", 9],
-      [4, "TV", 9],
+      [4, "Fernseher", 9],
       [5, "Dusche", 6],
       [6, "Toilette", 5]
     ]
@@ -1290,7 +1223,7 @@
     ]
   },
   {
-    "question": "Welche Sprache ist die schwierigste zu lernen?",
+    "question": "Welche Sprache ist die Schwierigste zu lernen?",
     "answers": [
       [1, "Chinesisch", 43],
       [2, "Russisch", 20],

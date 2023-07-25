@@ -1,28 +1,30 @@
 :root {
-  --primary-color: #b7c0ee;
-  --secondary-color: #013dc4;
-  --secondary-color-gradient: #002781;
-  --tertiary-color: #746c6c;
+  --text-color: #b7c0ee;
+  --div-background-color: #013dc4;
+  --div-background-color-gradient: #002781;
+  --background-color: #151314;
 
-  --primary-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --text-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
-  background-color: var(--tertiary-color);
+  text-shadow: 2px 2px 10px black;
+  background-color: var(--background-color);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239C92AC' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   text-align: center;
 }
 
 div {
-  color: var(--primary-color);
-  font-family: var(--primary-font);
+  color: var(--text-color);
+  font-family: var(--text-font);
 }
 
 /*Main*/
 div.answerCard {
   background-image: linear-gradient(
-    var(--secondary-color),
-    var(--secondary-color-gradient)
+    var(--div-background-color),
+    var(--div-background-color-gradient)
   );
   border: 5px solid;
   font-size: 40px;
@@ -32,14 +34,28 @@ div.answerCard {
 }
 
 div.answerCardGrid {
+  border: 5px solid;
+  background-color: var(--text-color);
+  column-gap: 5px;
   display: grid;
   grid-template-columns: 1fr 75px;
-  height: 75px;
+  height: 65px;
+}
+
+div.answerCardGridElement {
+  background-image: linear-gradient(
+    var(--div-background-color),
+    var(--div-background-color-gradient)
+  );
+  font-size: 40px;
+  font-weight: bold;
+  height: 45px;
+  padding: 10px;
 }
 
 div.answerGrid {
   align-items: center;
-  background-color: var(--secondary-color);
+  background-color: var(--div-background-color);
   border: 7px solid;
   border-radius: 15px;
   display: grid;
@@ -55,8 +71,8 @@ div.answerGrid {
 
 div.pointsCard {
   background-image: linear-gradient(
-    var(--secondary-color),
-    var(--secondary-color-gradient)
+    var(--div-background-color),
+    var(--div-background-color-gradient)
   );
   border: 5px solid;
   font-size: 65px;
@@ -73,10 +89,10 @@ div.pointsGrid {
   margin-top: 100px;
 }
 
-div.pointsTeamCard {
+div.pointsTextCard {
   background-image: linear-gradient(
-    var(--secondary-color),
-    var(--secondary-color-gradient)
+    var(--div-background-color),
+    var(--div-background-color-gradient)
   );
   border: 5px solid;
   font-size: 33px;
@@ -84,23 +100,23 @@ div.pointsTeamCard {
 
 div.questionBlock {
   background-image: linear-gradient(
-    var(--secondary-color),
-    var(--secondary-color-gradient)
+    var(--div-background-color),
+    var(--div-background-color-gradient)
   );
   border: 3px solid;
   border-radius: 15px;
   height: auto;
   margin-left: 20%;
   margin-right: 20%;
-  margin-top: 80px;
-  min-height: 100px;
+  margin-top: 50px;
+  min-height: 130px;
 }
 
 div.questionCard {
   font-size: 30px;
   font-weight: bold;
   height: auto;
-  width: auto;
+  width: 1fr;
 }
 
 div.questionJump {
@@ -126,9 +142,9 @@ div.wrongFlex {
 }
 
 /*Finals*/
-div.finalsanswerCard {
+div.finalsanswerCardGridElement {
   background-color: black;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--text-color);
   border-radius: 10px;
   color: white;
   font-size: 40px;
@@ -145,7 +161,7 @@ div.finalsanswerCardGrid {
 }
 
 div.finalsAnswerGrid {
-  background-color: var(--secondary-color);
+  background-color: var(--div-background-color);
   border: 7px solid;
   border-radius: 15px;
   column-gap: 20px;

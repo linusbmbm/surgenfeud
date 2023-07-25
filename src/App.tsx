@@ -8,7 +8,7 @@ import Type_Answer from "./types/Type_Answer.ts";
 import keypressHook from "./hooks/keypressHook.ts";
 import QuestionJump from "./components/QuestionJump.tsx";
 import Wrong from "./components/Wrong.tsx";
-import PointsTeamCard from "./components/PointsTeamCard.tsx";
+import PointsTeamCard from "./components/PointsTextCard.tsx";
 import PointsCard from "./components/PointsCard.tsx";
 import QuestionCard from "./components/QuestionCard.tsx";
 import AnswerCard from "./components/AnswerCard.tsx";
@@ -85,9 +85,9 @@ const App = () => {
     setRoundEnd(false);
   };
 
-  const setQuestionNum = (questionNum: number) => {
+  const changeRound = (changeToRoundNum: number) => {
     nextRound();
-    navigate(`/${questionNum}`);
+    navigate(`/${changeToRoundNum}`);
   };
 
   //Hooks
@@ -183,7 +183,7 @@ const App = () => {
     <>
       <QuestionJump
         defaultValue={roundNum}
-        onSubmit={setQuestionNum}
+        onSubmit={changeRound}
         visibility={visibilityQuestionJump}
       />
 
@@ -194,9 +194,9 @@ const App = () => {
       </div>
 
       <div className="pointsGrid">
-        <PointsTeamCard points={pointsTeam1} teamName={team1Name} />
+        <PointsTeamCard points={pointsTeam1} text={team1Name} />
         <PointsCard points={pointsNow} />
-        <PointsTeamCard points={pointsTeam2} teamName={team2Name} />
+        <PointsTeamCard points={pointsTeam2} text={team2Name} />
       </div>
 
       <div className="questionBlock">
