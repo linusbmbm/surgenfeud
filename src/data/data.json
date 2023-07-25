@@ -212,6 +212,18 @@
     ]
   },
   {
+    "question": "Nenne den Grund, warum du single bist",
+    "answers": [
+      [1, "Übergewichtig", 18],
+      [2, "keine Ausstrahlung", 17],
+      [3, "Faulheit", 10],
+      [4, "Glatze", 9],
+      [5, "Hässlichkeit", 9],
+      [6, "Arbeitstier", 9],
+      [7, "Alter", 7]
+    ]
+  },
+  {
     "question": "Nenne einen Gegenstand, den Leute aus dem Büro mit nach Hause schmuggeln",
     "answers": [
       [1, "Stift", 56],
