@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
 import "./index.css";
-import Interface_Round from "./types/Interface_Round";
-import datajson from "./data/data.json";
-import AnswerCard from "./components/AnswerCard";
-import keypressHook from "./hooks/keypressHook";
-import React from "react";
-import QuestionJump from "./components/QuestionJump";
-import PointsTeamCard from "./components/PointsTeamCard";
+import React, { useEffect, useState } from "react";
 import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
-import Type_Answer from "./types/Type_Answer";
+import datajson from "./data/data.json";
+import Interface_Round from "./types/Interface_Round.ts";
+import Type_Answer from "./types/Type_Answer.ts";
+import keypressHook from "./hooks/keypressHook.ts";
+import QuestionJump from "./components/QuestionJump.tsx";
+import PointsTeamCard from "./components/PointsTeamCard.tsx";
+import AnswerCard from "./components/AnswerCard.tsx";
 
 function Finals() {
   //Variables

@@ -1,5 +1,5 @@
-import Type_Answer from "../types/Type_Answer";
-import Type_Visibility from "../types/Type_Visibility";
+import Type_Answer from "../types/Type_Answer.ts";
+import Type_Visibility from "../types/Type_Visibility.ts";
 
 interface Props {
   answer: Type_Answer;

@@ -1,17 +1,17 @@
 import "./index.css";
-import AnswerCard from "./components/AnswerCard.tsx";
-import datajson from "./data/data.json";
 import { useState } from "react";
-import QuestionCard from "./components/QuestionCard.tsx";
-import PointsCard from "./components/PointsCard.tsx";
-import Wrong from "./components/Wrong.tsx";
-import PointsTeamCard from "./components/PointsTeamCard.tsx";
-import QuestionJump from "./components/QuestionJump.tsx";
-import keypressHook from "./hooks/keypressHook.ts";
 import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
+import datajson from "./data/data.json";
 import Interface_Round from "./types/Interface_Round.ts";
 import Type_Visibility from "./types/Type_Visibility.ts";
 import Type_Answer from "./types/Type_Answer.ts";
+import keypressHook from "./hooks/keypressHook.ts";
+import QuestionJump from "./components/QuestionJump.tsx";
+import Wrong from "./components/Wrong.tsx";
+import PointsTeamCard from "./components/PointsTeamCard.tsx";
+import PointsCard from "./components/PointsCard.tsx";
+import QuestionCard from "./components/QuestionCard.tsx";
+import AnswerCard from "./components/AnswerCard.tsx";
 
 const App = () => {
   //Variables
