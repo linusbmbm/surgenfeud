@@ -48,7 +48,7 @@ function Finals() {
     return selectedAnswer === -1
       ? ["", "", ""]
       : selectedAnswer === 10
-      ? ["", "DULLE BLEIBT KNÜLLE", 0]
+      ? ["", "Nein, nein, nein!", 0]
       : possibleAnswers[selectedAnswer];
   };
 
@@ -137,50 +137,53 @@ function Finals() {
 
   return (
     <>
-      <QuestionJump
-        defaultValue={roundFirst}
-        onSubmit={changeRound}
-        visibility={visibilityQuestionJump}
-      />
-
-      <div className="finalsAnswerGrid">
-        {answersFinals.map((round, index) => (
-          <React.Fragment key={index}>
-            <AnswerCard
-              key={`1.${index}`}
-              answer={fixAnswer(answerNums[index], round)}
-              classPrefix="finals"
-              visibility={"true"}
-            />
-            <AnswerCard
-              key={`2.${index}`}
-              answer={fixAnswer(answerNums[index + 5], round)}
-              classPrefix="finals"
-              visibility={"true"}
-            />
-          </React.Fragment>
-        ))}
-      </div>
-
-      <div className="finalsPoints">
-        <PointsCard points={pointsTotal} />
-      </div>
-
-      <div className="finalsPinnchenGrid">
-        <PointsTextCard
-          points={Math.ceil(pointsTotal / 15)}
-          text={"Pinnchen"}
+      <span>{roundFirst}</span>
+      <div className="wrapper">
+        <QuestionJump
+          defaultValue={roundFirst}
+          onSubmit={changeRound}
+          visibility={visibilityQuestionJump}
         />
 
-        <PointsTextCard
-          points={Math.floor(pointsTotal / 15 / 4)}
-          text={"Pinnchen pro Person"}
-        />
+        <div className="finalsAnswerGrid">
+          {answersFinals.map((round, index) => (
+            <React.Fragment key={index}>
+              <AnswerCard
+                key={`1.${index}`}
+                answer={fixAnswer(answerNums[index], round)}
+                classPrefix="finals"
+                visibility={"true"}
+              />
+              <AnswerCard
+                key={`2.${index}`}
+                answer={fixAnswer(answerNums[index + 5], round)}
+                classPrefix="finals"
+                visibility={"true"}
+              />
+            </React.Fragment>
+          ))}
+        </div>
 
-        <PointsTextCard
-          points={Math.ceil((pointsTotal / 15) % 4)}
-          text={"Pinnchen Rest"}
-        />
+        <div className="finalsPoints">
+          <PointsCard points={pointsTotal} />
+        </div>
+
+        <div className="finalsPinnchenGrid">
+          <PointsTextCard
+            points={Math.ceil(pointsTotal / 15)}
+            text={"Pinnchen Gesamt"}
+          />
+
+          <PointsTextCard
+            points={Math.floor(pointsTotal / 15 / 4)}
+            text={"Pinnchen pro Person"}
+          />
+
+          <PointsTextCard
+            points={Math.ceil((pointsTotal / 15) % 4)}
+            text={"übrige Pinnchen"}
+          />
+        </div>
       </div>
     </>
   );

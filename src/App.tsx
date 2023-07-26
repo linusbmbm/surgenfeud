@@ -247,42 +247,45 @@ const App = () => {
 
   return (
     <>
-      <TeamName onSubmit={changeTeamName} visibility={visibilityTeamNames} />
+      <span>{roundNum}</span>
+      <div className="wrapper">
+        <TeamName onSubmit={changeTeamName} visibility={visibilityTeamNames} />
 
-      <QuestionJump
-        defaultValue={roundNum}
-        onSubmit={changeRound}
-        visibility={visibilityQuestionJump}
-      />
-
-      <div className="wrongFlex">
-        {Array.from({ length: wrongNum }).map((_, mapIndex) => (
-          <Wrong key={mapIndex} visibility={visibilityWrong} />
-        ))}
-      </div>
-
-      <div className="pointsGrid">
-        <PointsTeamCard points={pointsTeam1} text={team1} />
-        <PointsCard points={pointsNow} />
-        <PointsTeamCard points={pointsTeam2} text={team2} />
-      </div>
-
-      <div className="question">
-        <QuestionCard
-          questionNumber={roundNum}
-          questionText={roundNow.question}
-          visibility={visibilityQuestion}
+        <QuestionJump
+          defaultValue={roundNum}
+          onSubmit={changeRound}
+          visibility={visibilityQuestionJump}
         />
-      </div>
 
-      <div className="answerGrid">
-        {answers.map((answer, index) => (
-          <AnswerCard
-            key={index}
-            answer={answer}
-            visibility={visibilityAnswers[index]}
+        <div className="wrongFlex">
+          {Array.from({ length: wrongNum }).map((_, mapIndex) => (
+            <Wrong key={mapIndex} visibility={visibilityWrong} />
+          ))}
+        </div>
+
+        <div className="pointsGrid">
+          <PointsTeamCard points={pointsTeam1} text={team1} />
+          <PointsCard points={pointsNow} />
+          <PointsTeamCard points={pointsTeam2} text={team2} />
+        </div>
+
+        <div className="question">
+          <QuestionCard
+            questionNumber={roundNum}
+            questionText={roundNow.question}
+            visibility={visibilityQuestion}
           />
-        ))}
+        </div>
+
+        <div className="answerGrid">
+          {answers.map((answer, index) => (
+            <AnswerCard
+              key={index}
+              answer={answer}
+              visibility={visibilityAnswers[index]}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
