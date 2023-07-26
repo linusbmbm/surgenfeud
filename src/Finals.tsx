@@ -37,7 +37,7 @@ function Finals() {
   const [visibilityQuestionJump, setVisibilityQuestionJump] =
     useState<boolean>(false);
 
-  const [points, setPoints] = useState<number>(0);
+  const [pointsTotal, setPointsTotal] = useState<number>(0);
 
   //Functions
   const fixAnswer = (
@@ -67,22 +67,22 @@ function Finals() {
   }, [roundFirst]);
 
   useEffect(() => {
-    setPoints(() => {
-      let updatedPoints: number = 0;
+    setPointsTotal(() => {
+      let updatedPointsTotal: number = 0;
       answersFinals.map((answerRound, index) => {
-        updatedPoints +=
+        updatedPointsTotal +=
           answerNums[index] >= 0 && answerNums[index] <= 9
             ? Number(answerRound[answerNums[index]][2])
             : 0;
       });
       answersFinals.map((answerRound, index) => {
         const doubleIndex: number = index + answersFinals.length;
-        updatedPoints +=
+        updatedPointsTotal +=
           answerNums[doubleIndex] >= 0 && answerNums[doubleIndex] <= 9
             ? Number(answerRound[answerNums[doubleIndex]][2])
             : 0;
       });
-      return updatedPoints;
+      return updatedPointsTotal;
     });
   }, [answerNums]);
 
@@ -157,19 +157,22 @@ function Finals() {
       </div>
 
       <div className="finalsPoints">
-        <PointsTeamCard points={points} text={"TOTAL"} />
+        <PointsTeamCard points={pointsTotal} text={"TOTAL"} />
       </div>
 
       <div className="finalsPinnchenGrid">
-        <PointsTeamCard points={Math.ceil(points / 15)} text={"Pinnchen"} />
+        <PointsTeamCard
+          points={Math.ceil(pointsTotal / 15)}
+          text={"Pinnchen"}
+        />
 
         <PointsTeamCard
-          points={Math.floor(points / 15 / 4)}
+          points={Math.floor(pointsTotal / 15 / 4)}
           text={"Pinnchen pro Person"}
         />
 
         <PointsTeamCard
-          points={Math.ceil((points / 15) % 4)}
+          points={Math.ceil((pointsTotal / 15) % 4)}
           text={"Pinnchen Rest"}
         />
       </div>

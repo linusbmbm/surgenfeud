@@ -1,5 +1,5 @@
 import "./index.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
 import datajson from "./data/data.json";
 import Interface_Round from "./types/Interface_Round.ts";
@@ -90,7 +90,6 @@ const App = () => {
     });
     setVisibilityQuestion(false);
     setWrongNum(0);
-    setPointsNow(0);
     setRoundEnd(false);
   };
 
@@ -101,6 +100,22 @@ const App = () => {
   };
 
   //Hooks
+  useEffect(() => {
+    setPointsNow(() => {
+      if (roundEnd) {
+        return 0;
+      } else {
+        let updatedPointsNow: number = 0;
+        visibilityAnswers.map((visibilityAnswer, index) => {
+          if (visibilityAnswer === "true") {
+            updatedPointsNow += Number(answers[index][2]);
+          }
+        });
+        return updatedPointsNow;
+      }
+    });
+  }, [visibilityAnswers, roundEnd]);
+
   keypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump) {
       setVisibilityTeamNames(true);
@@ -132,16 +147,30 @@ const App = () => {
   }, "y");
 
   keypressHook(() => {
-    if (!visibilityTeamNames && !visibilityQuestionJump) {
-      if (!roundEnd) {
-        setVisibilityAnswers((prevVisibilityAnswers) => {
-          const updatedVisibilityAnswers: Type_Visibility[] = [
-            ...prevVisibilityAnswers,
-          ];
-          updatedVisibilityAnswers.map((_, mapIndex) => {
-            updatedVisibilityAnswers[mapIndex] = "number";
+    if (!visibilityTeamNames && !visibilityQuestionJump && !roundEnd) {
+      if (
+        visibilityAnswers.every(
+          (visibilityAnswer) => visibilityAnswer === "number"
+        )
+      ) {
+        visibilityAnswers.map((_, mapIndex) => {
+          setVisibilityAnswers((prevVisibilityAnswers) => {
+            const updatedVisibilityAnswers: Type_Visibility[] = [
+              ...prevVisibilityAnswers,
+            ];
+            updatedVisibilityAnswers[mapIndex] = "false";
+            return updatedVisibilityAnswers;
           });
-          return updatedVisibilityAnswers;
+        });
+      } else {
+        visibilityAnswers.map((_, mapIndex) => {
+          setVisibilityAnswers((prevVisibilityAnswers) => {
+            const updatedVisibilityAnswers: Type_Visibility[] = [
+              ...prevVisibilityAnswers,
+            ];
+            updatedVisibilityAnswers[mapIndex] = "number";
+            return updatedVisibilityAnswers;
+          });
         });
       }
     }
@@ -149,7 +178,11 @@ const App = () => {
 
   keypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump) {
-      setVisibilityQuestion(true);
+      if (!visibilityQuestion) {
+        setVisibilityQuestion(true);
+      } else {
+        setVisibilityQuestion(false);
+      }
     }
   }, "q");
 
@@ -159,18 +192,25 @@ const App = () => {
     ) as keyof typeof indexKeyMap;
 
     keypressHook(() => {
-      if (!visibilityTeamNames && !visibilityQuestionJump) {
-        if (roundNow.answers[index] !== undefined) {
-          if (!roundEnd && visibilityAnswers[index] !== "true") {
-            setPointsNow(
-              (prevPoints) => prevPoints + Number(roundNow.answers[index][2])
-            );
-          }
+      if (
+        !visibilityTeamNames &&
+        !visibilityQuestionJump &&
+        roundNow.answers[index] !== undefined
+      ) {
+        if (visibilityAnswers[index] !== "true") {
           setVisibilityAnswers((prevVisibilityAnswers) => {
             const updatedVisibilityAnswers: Type_Visibility[] = [
               ...prevVisibilityAnswers,
             ];
             updatedVisibilityAnswers[index] = "true";
+            return updatedVisibilityAnswers;
+          });
+        } else {
+          setVisibilityAnswers((prevVisibilityAnswers) => {
+            const updatedVisibilityAnswers: Type_Visibility[] = [
+              ...prevVisibilityAnswers,
+            ];
+            updatedVisibilityAnswers[index] = "number";
             return updatedVisibilityAnswers;
           });
         }
@@ -180,14 +220,7 @@ const App = () => {
 
   keypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump) {
-      setPointsNow(0);
-    }
-  }, "-");
-
-  keypressHook(() => {
-    if (!visibilityTeamNames && !visibilityQuestionJump) {
       setPointsTeam1((prevPoints) => prevPoints + pointsNow);
-      setPointsNow(0);
       setRoundEnd(true);
     }
   }, "ArrowLeft");
@@ -195,7 +228,6 @@ const App = () => {
   keypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump) {
       setPointsTeam2((prevPoints) => prevPoints + pointsNow);
-      setPointsNow(0);
       setRoundEnd(true);
     }
   }, "ArrowRight");

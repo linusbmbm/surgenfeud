@@ -15,15 +15,6 @@
     ]
   },
   {
-    "question": "Nenne eine Frucht, die gut mit Eis schmeckt",
-    "answers": [
-      [1, "Erdbeeren", 60],
-      [2, "Pfirsich", 19],
-      [3, "Kirschen", 4],
-      [4, "Himbeeren", 2]
-    ]
-  },
-  {
     "question": "Nenne ein erste Anzeichen einer Grippe",
     "answers": [
       [1, "laufende Nase", 39],
