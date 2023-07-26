@@ -12,14 +12,15 @@ import PointsTeamCard from "./components/PointsTextCard.tsx";
 import PointsCard from "./components/PointsCard.tsx";
 import QuestionCard from "./components/QuestionCard.tsx";
 import AnswerCard from "./components/AnswerCard.tsx";
+import TeamName from "./components/TeamName.tsx";
 
 const App = () => {
   //Variables
   const navigate: NavigateFunction = useNavigate();
   const roundNum: number = Number(useParams().id) ? Number(useParams().id) : 0;
 
-  const team1Name: string = "Team 1";
-  const team2Name: string = "Team 2";
+  const [team1, setTeam1] = useState<string>("Team 1");
+  const [team2, setTeam2] = useState<string>("Team 2");
   const numAnswers: number = 10;
 
   const quiz: Interface_Round[] = datajson;
@@ -47,6 +48,8 @@ const App = () => {
     ...Array(numAnswers - roundNow.answers.length).fill(["", "", ""]),
   ];
 
+  const [visibilityTeamNames, setVisibilityTeamNames] =
+    useState<boolean>(false);
   const [visibilityQuestionJump, setVisibilityQuestionJump] =
     useState<boolean>(false);
   const [visibilityWrong, setVisibilityWrong] = useState<boolean>(false);
@@ -69,6 +72,12 @@ const App = () => {
   const [roundEnd, setRoundEnd] = useState<boolean>(false);
 
   //Functions
+  const changeTeamName = (newTeam1Name: string, newTeam2Name: string) => {
+    setTeam1(newTeam1Name);
+    setTeam2(newTeam2Name);
+    setVisibilityTeamNames(false);
+  };
+
   const nextRound = () => {
     setVisibilityAnswers((prevVisibilityAnswers) => {
       const updatedVisibilityAnswers: Type_Visibility[] = [
@@ -85,50 +94,63 @@ const App = () => {
     setRoundEnd(false);
   };
 
-  const changeRound = (changeToRoundNum: number) => {
+  const changeRound = (newRoundNum: number) => {
     nextRound();
-    navigate(`/${changeToRoundNum}`);
+    navigate(`/${newRoundNum}`);
+    setVisibilityQuestionJump(false);
   };
 
   //Hooks
   keypressHook(() => {
-    if (!visibilityQuestionJump) {
+    if (!visibilityTeamNames && !visibilityQuestionJump) {
+      setVisibilityTeamNames(true);
+    }
+  }, "t");
+
+  keypressHook(() => {
+    if (!visibilityTeamNames && !visibilityQuestionJump) {
       setVisibilityQuestionJump(true);
-    } else {
-      setVisibilityQuestionJump(false);
     }
   }, "j");
 
   keypressHook(() => {
-    if (!visibilityWrong) {
-      setWrongNum((prevWrongNum) => prevWrongNum + 1);
-      setVisibilityWrong(true);
-    } else {
-      setVisibilityWrong(false);
+    if (!visibilityTeamNames && !visibilityQuestionJump) {
+      if (!visibilityWrong) {
+        setWrongNum((prevWrongNum) => prevWrongNum + 1);
+        setVisibilityWrong(true);
+      } else {
+        setVisibilityWrong(false);
+      }
     }
   }, "x");
 
   keypressHook(() => {
-    setWrongNum(0);
-    setVisibilityWrong(false);
+    if (!visibilityTeamNames && !visibilityQuestionJump) {
+      setWrongNum(0);
+      setVisibilityWrong(false);
+    }
   }, "y");
 
   keypressHook(() => {
-    if (!roundEnd) {
-      setVisibilityAnswers((prevVisibilityAnswers) => {
-        const updatedVisibilityAnswers: Type_Visibility[] = [
-          ...prevVisibilityAnswers,
-        ];
-        updatedVisibilityAnswers.map((_, mapIndex) => {
-          updatedVisibilityAnswers[mapIndex] = "number";
+    if (!visibilityTeamNames && !visibilityQuestionJump) {
+      if (!roundEnd) {
+        setVisibilityAnswers((prevVisibilityAnswers) => {
+          const updatedVisibilityAnswers: Type_Visibility[] = [
+            ...prevVisibilityAnswers,
+          ];
+          updatedVisibilityAnswers.map((_, mapIndex) => {
+            updatedVisibilityAnswers[mapIndex] = "number";
+          });
+          return updatedVisibilityAnswers;
         });
-        return updatedVisibilityAnswers;
-      });
+      }
     }
   }, "a");
 
   keypressHook(() => {
-    setVisibilityQuestion(true);
+    if (!visibilityTeamNames && !visibilityQuestionJump) {
+      setVisibilityQuestion(true);
+    }
   }, "q");
 
   Object.keys(indexKeyMap).map((mapIndex) => {
@@ -137,50 +159,64 @@ const App = () => {
     ) as keyof typeof indexKeyMap;
 
     keypressHook(() => {
-      if (roundNow.answers[index] !== undefined) {
-        if (!roundEnd && visibilityAnswers[index] !== "true") {
-          setPointsNow(
-            (prevPoints) => prevPoints + Number(roundNow.answers[index][2])
-          );
+      if (!visibilityTeamNames && !visibilityQuestionJump) {
+        if (roundNow.answers[index] !== undefined) {
+          if (!roundEnd && visibilityAnswers[index] !== "true") {
+            setPointsNow(
+              (prevPoints) => prevPoints + Number(roundNow.answers[index][2])
+            );
+          }
+          setVisibilityAnswers((prevVisibilityAnswers) => {
+            const updatedVisibilityAnswers: Type_Visibility[] = [
+              ...prevVisibilityAnswers,
+            ];
+            updatedVisibilityAnswers[index] = "true";
+            return updatedVisibilityAnswers;
+          });
         }
-        setVisibilityAnswers((prevVisibilityAnswers) => {
-          const updatedVisibilityAnswers: Type_Visibility[] = [
-            ...prevVisibilityAnswers,
-          ];
-          updatedVisibilityAnswers[index] = "true";
-          return updatedVisibilityAnswers;
-        });
       }
     }, indexKeyMap[index]);
   });
 
   keypressHook(() => {
-    setPointsNow(0);
+    if (!visibilityTeamNames && !visibilityQuestionJump) {
+      setPointsNow(0);
+    }
   }, "-");
 
   keypressHook(() => {
-    setPointsTeam1((prevPoints) => prevPoints + pointsNow);
-    setPointsNow(0);
-    setRoundEnd(true);
+    if (!visibilityTeamNames && !visibilityQuestionJump) {
+      setPointsTeam1((prevPoints) => prevPoints + pointsNow);
+      setPointsNow(0);
+      setRoundEnd(true);
+    }
   }, "ArrowLeft");
 
   keypressHook(() => {
-    setPointsTeam2((prevPoints) => prevPoints + pointsNow);
-    setPointsNow(0);
-    setRoundEnd(true);
+    if (!visibilityTeamNames && !visibilityQuestionJump) {
+      setPointsTeam2((prevPoints) => prevPoints + pointsNow);
+      setPointsNow(0);
+      setRoundEnd(true);
+    }
   }, "ArrowRight");
 
   keypressHook(() => {
-    nextRound();
-    navigate(`/${roundNum + 1}`);
+    if (!visibilityTeamNames && !visibilityQuestionJump) {
+      nextRound();
+      navigate(`/${roundNum + 1}`);
+    }
   }, "Enter");
 
   keypressHook(() => {
-    navigate(`/finals/${roundNum}`);
+    if (!visibilityTeamNames && !visibilityQuestionJump) {
+      navigate(`/finals/${roundNum}`);
+    }
   }, "f");
 
   return (
     <>
+      <TeamName onSubmit={changeTeamName} visibility={visibilityTeamNames} />
+
       <QuestionJump
         defaultValue={roundNum}
         onSubmit={changeRound}
@@ -194,9 +230,9 @@ const App = () => {
       </div>
 
       <div className="pointsGrid">
-        <PointsTeamCard points={pointsTeam1} text={team1Name} />
+        <PointsTeamCard points={pointsTeam1} text={team1} />
         <PointsCard points={pointsNow} />
-        <PointsTeamCard points={pointsTeam2} text={team2Name} />
+        <PointsTeamCard points={pointsTeam2} text={team2} />
       </div>
 
       <div className="questionBlock">

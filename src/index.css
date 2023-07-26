@@ -83,10 +83,10 @@ div.pointsGrid {
   font-weight: bold;
   gap: 10%;
   grid-template-columns: 1fr 1fr 1fr;
-  height: 100px;
+  min-height: 140px;
   margin-left: 17%;
   margin-right: 17%;
-  margin-top: 100px;
+  margin-top: 70px;
 }
 
 div.pointsTextCard {
