@@ -138,10 +138,12 @@ div.questionCard {
 
 div.questionJump {
   position: absolute;
+  left: 2%;
 }
 
 div.teamName {
   position: absolute;
+  left: 2%;
 }
 
 div.wrapper {

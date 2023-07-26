@@ -248,15 +248,16 @@ const App = () => {
   return (
     <>
       <span>{roundNum}</span>
+
+      <TeamName onSubmit={changeTeamName} visibility={visibilityTeamNames} />
+
+      <QuestionJump
+        defaultValue={roundNum}
+        onSubmit={changeRound}
+        visibility={visibilityQuestionJump}
+      />
+
       <div className="wrapper">
-        <TeamName onSubmit={changeTeamName} visibility={visibilityTeamNames} />
-
-        <QuestionJump
-          defaultValue={roundNum}
-          onSubmit={changeRound}
-          visibility={visibilityQuestionJump}
-        />
-
         <div className="wrongFlex">
           {Array.from({ length: wrongNum }).map((_, mapIndex) => (
             <Wrong key={mapIndex} visibility={visibilityWrong} />

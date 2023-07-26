@@ -138,13 +138,14 @@ function Finals() {
   return (
     <>
       <span>{roundFirst}</span>
-      <div className="wrapper">
-        <QuestionJump
-          defaultValue={roundFirst}
-          onSubmit={changeRound}
-          visibility={visibilityQuestionJump}
-        />
 
+      <QuestionJump
+        defaultValue={roundFirst}
+        onSubmit={changeRound}
+        visibility={visibilityQuestionJump}
+      />
+
+      <div className="wrapper">
         <div className="finalsAnswerGrid">
           {answersFinals.map((round, index) => (
             <React.Fragment key={index}>
