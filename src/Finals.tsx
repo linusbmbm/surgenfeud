@@ -6,13 +6,14 @@ import Interface_Round from "./types/Interface_Round.ts";
 import Type_Answer from "./types/Type_Answer.ts";
 import keypressHook from "./hooks/keypressHook.ts";
 import QuestionJump from "./components/QuestionJump.tsx";
-import PointsTeamCard from "./components/PointsTextCard.tsx";
+import PointsTextCard from "./components/PointsTextCard.tsx";
 import AnswerCard from "./components/AnswerCard.tsx";
+import PointsCard from "./components/PointsCard.tsx";
 
 function Finals() {
   //Variables
   const navigate: NavigateFunction = useNavigate();
-  const [roundFirst, setRoundFirst] = useState<number>(Number(useParams().id));
+  const roundFirst = Number(useParams().id);
 
   const quiz: Interface_Round[] = datajson;
 
@@ -53,6 +54,7 @@ function Finals() {
 
   const changeRound = (changeToRoundNum: number) => {
     navigate(`/finals/${changeToRoundNum}`);
+    setVisibilityQuestionJump(false);
   };
 
   //Hooks
@@ -89,8 +91,6 @@ function Finals() {
   keypressHook(() => {
     if (!visibilityQuestionJump) {
       setVisibilityQuestionJump(true);
-    } else {
-      setVisibilityQuestionJump(false);
     }
   }, "j");
 
@@ -100,33 +100,39 @@ function Finals() {
     ) as keyof typeof indexKeyMap;
 
     keypressHook(() => {
-      setAnswerNums((prevAnswerNums) => {
-        const updatedAnswerNums: number[] = [...prevAnswerNums];
-        const indexFirstMinusOneValue: number = answerNums.findIndex(
-          (answerNum) => answerNum === -1
-        );
-        updatedAnswerNums[indexFirstMinusOneValue] = index;
-        return updatedAnswerNums;
-      });
+      if (!visibilityQuestionJump) {
+        setAnswerNums((prevAnswerNums) => {
+          const updatedAnswerNums: number[] = [...prevAnswerNums];
+          const indexFirstMinusOneValue: number = answerNums.findIndex(
+            (answerNum) => answerNum === -1
+          );
+          updatedAnswerNums[indexFirstMinusOneValue] = index;
+          return updatedAnswerNums;
+        });
+      }
     }, indexKeyMap[index]);
   });
 
   keypressHook(() => {
-    setAnswerNums((prevAnswerNums) => {
-      const updatedAnswerNums: number[] = [...prevAnswerNums];
-      let indexLastNonMinusOneValue: number = 0;
-      answerNums.map((answerNum, index) => {
-        if (answerNum !== -1) {
-          indexLastNonMinusOneValue = index;
-        }
+    if (!visibilityQuestionJump) {
+      setAnswerNums((prevAnswerNums) => {
+        const updatedAnswerNums: number[] = [...prevAnswerNums];
+        let indexLastNonMinusOneValue: number = 0;
+        answerNums.map((answerNum, index) => {
+          if (answerNum !== -1) {
+            indexLastNonMinusOneValue = index;
+          }
+        });
+        updatedAnswerNums[indexLastNonMinusOneValue] = -1;
+        return updatedAnswerNums;
       });
-      updatedAnswerNums[indexLastNonMinusOneValue] = -1;
-      return updatedAnswerNums;
-    });
+    }
   }, "-");
 
   keypressHook(() => {
-    navigate(`/${roundFirst + 5}`);
+    if (!visibilityQuestionJump) {
+      navigate(`/${roundFirst + 5}`);
+    }
   }, "f");
 
   return (
@@ -157,21 +163,21 @@ function Finals() {
       </div>
 
       <div className="finalsPoints">
-        <PointsTeamCard points={pointsTotal} text={"TOTAL"} />
+        <PointsCard points={pointsTotal} />
       </div>
 
       <div className="finalsPinnchenGrid">
-        <PointsTeamCard
+        <PointsTextCard
           points={Math.ceil(pointsTotal / 15)}
           text={"Pinnchen"}
         />
 
-        <PointsTeamCard
+        <PointsTextCard
           points={Math.floor(pointsTotal / 15 / 4)}
           text={"Pinnchen pro Person"}
         />
 
-        <PointsTeamCard
+        <PointsTextCard
           points={Math.ceil((pointsTotal / 15) % 4)}
           text={"Pinnchen Rest"}
         />

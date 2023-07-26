@@ -28,6 +28,7 @@ const QuestionJump = ({ defaultValue = 0, onSubmit, visibility }: Props) => {
     <div className="questionJump">
       <form onSubmit={handleSubmit}>
         <input type="number" value={pageNum} onChange={handleChange} min={0} />
+        <br />
         <button type="submit">Dulle</button>
       </form>
     </div>

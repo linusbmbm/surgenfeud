@@ -4,8 +4,8 @@
   --div-background-color-gradient: #002781;
   --background-color: #151314;
 
-  --text-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --text-font: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 body {
@@ -22,14 +22,17 @@ div {
 
 /*Main*/
 div.answerCard {
+  align-items: center;
   background-image: linear-gradient(
     var(--div-background-color),
     var(--div-background-color-gradient)
   );
   border: 5px solid;
+  display: flex;
   font-size: 40px;
   font-weight: bold;
   height: 45px;
+  justify-content: center;
   padding: 10px;
 }
 
@@ -43,18 +46,20 @@ div.answerCardGrid {
 }
 
 div.answerCardGridElement {
+  align-items: center;
   background-image: linear-gradient(
     var(--div-background-color),
     var(--div-background-color-gradient)
   );
+  display: flex;
   font-size: 40px;
   font-weight: bold;
   height: 45px;
+  justify-content: center;
   padding: 10px;
 }
 
 div.answerGrid {
-  align-items: center;
   background-color: var(--div-background-color);
   border: 7px solid;
   border-radius: 15px;
@@ -70,12 +75,15 @@ div.answerGrid {
 }
 
 div.pointsCard {
+  align-items: center;
   background-image: linear-gradient(
     var(--div-background-color),
     var(--div-background-color-gradient)
   );
   border: 5px solid;
+  display: flex;
   font-size: 65px;
+  justify-content: center;
 }
 
 div.pointsGrid {
@@ -90,22 +98,27 @@ div.pointsGrid {
 }
 
 div.pointsTextCard {
+  align-items: center;
   background-image: linear-gradient(
     var(--div-background-color),
     var(--div-background-color-gradient)
   );
   border: 5px solid;
+  display: flex;
   font-size: 33px;
+  justify-content: center;
 }
 
-div.questionBlock {
+div.question {
+  align-items: center;
   background-image: linear-gradient(
     var(--div-background-color),
     var(--div-background-color-gradient)
   );
   border: 3px solid;
   border-radius: 15px;
-  height: auto;
+  display: flex;
+  justify-content: center;
   margin-left: 20%;
   margin-right: 20%;
   margin-top: 50px;
@@ -113,9 +126,11 @@ div.questionBlock {
 }
 
 div.questionCard {
+  align-items: center;
+  display: flex;
   font-size: 30px;
   font-weight: bold;
-  height: auto;
+  justify-content: center;
   width: 1fr;
 }
 
@@ -123,14 +138,22 @@ div.questionJump {
   position: absolute;
 }
 
+div.teamName {
+  position: absolute;
+}
+
 div.wrong {
+  align-items: center;
   background-color: #ff000059;
   border: 30px solid;
   color: red;
-  font-size: 200px;
+  display: flex;
+  font-size: 350px;
   font-weight: bold;
-  height: 250px;
-  width: 250px;
+  justify-content: center;
+  min-height: 350px;
+  max-height: 350px;
+  width: 350px;
 }
 
 div.wrongFlex {
@@ -143,13 +166,16 @@ div.wrongFlex {
 
 /*Finals*/
 div.finalsanswerCardGridElement {
+  align-items: center;
   background-color: black;
   border: 1px solid var(--text-color);
   border-radius: 10px;
   color: white;
+  display: flex;
   font-size: 40px;
   font-weight: bold;
   height: 45px;
+  justify-content: center;
   padding: 10px;
 }
 
@@ -176,8 +202,8 @@ div.finalsAnswerGrid {
 }
 
 div.finalsPoints {
-  margin-left: 45%;
-  margin-right: 45%;
+  margin-left: 42%;
+  margin-right: 42%;
   margin-top: 20px;
 }
 

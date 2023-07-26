@@ -30,7 +30,9 @@ const TeamName = ({ onSubmit, visibility }: Props) => {
     <div className="teamName">
       <form onSubmit={handleSubmit}>
         <input type="text" value={newTeam1Name} onChange={handleChangeTeam1} />
+        <br />
         <input type="text" value={newTeam2Name} onChange={handleChangeTeam2} />
+        <br />
         <button type="submit">Dulle</button>
       </form>
     </div>

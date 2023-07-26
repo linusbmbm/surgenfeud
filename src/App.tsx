@@ -267,7 +267,7 @@ const App = () => {
         <PointsTeamCard points={pointsTeam2} text={team2} />
       </div>
 
-      <div className="questionBlock">
+      <div className="question">
         <QuestionCard
           questionNumber={roundNum}
           questionText={roundNow.question}
