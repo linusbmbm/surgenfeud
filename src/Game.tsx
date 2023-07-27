@@ -2,19 +2,19 @@ import "./index.css";
 import { useEffect, useMemo, useState } from "react";
 import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
 import datajson from "./data/data.json";
-import Interface_Round from "./types/Interface_Round.ts";
-import Type_Visibility from "./types/Type_Visibility.ts";
-import Type_Answer from "./types/Type_Answer.ts";
-import KeypressHook from "./hooks/KeypressHook.ts";
-import QuestionJump from "./components/QuestionJump.tsx";
-import Wrong from "./components/Wrong.tsx";
-import PointsTeamCard from "./components/PointsTextCard.tsx";
-import PointsCard from "./components/PointsCard.tsx";
-import QuestionCard from "./components/QuestionCard.tsx";
-import AnswerCard from "./components/AnswerCard.tsx";
-import TeamName from "./components/TeamName.tsx";
+import Interface_Round from "./types/Interface_Round";
+import Type_Visibility from "./types/Type_Visibility";
+import Type_Answer from "./types/Type_Answer";
+import KeypressHook from "./hooks/KeypressHook";
+import QuestionJump from "./components/QuestionJump";
+import Wrong from "./components/Wrong";
+import PointsTeamCard from "./components/PointsTextCard";
+import PointsCard from "./components/PointsCard";
+import QuestionCard from "./components/QuestionCard";
+import AnswerCard from "./components/AnswerCard";
+import TeamName from "./components/TeamName";
 
-const App = () => {
+const Game = () => {
   //Variables
   const navigate: NavigateFunction = useNavigate();
   const { id } = useParams();
@@ -102,7 +102,7 @@ const App = () => {
       ...roundNow.answers,
       ...Array(numAnswers - roundNow.answers.length).fill(["", "", ""]),
     ];
-  }, [roundNow]);
+  }, [roundNow.answers, numAnswers]);
 
   useEffect(() => {
     setPointsNow(() => {
@@ -261,7 +261,7 @@ const App = () => {
         visibility={visibilityQuestionJump}
       />
 
-      <div className="wrapper">
+      <div className="wrapperGame">
         <div className="wrongFlex">
           {Array.from({ length: wrongNum }).map((_, mapIndex) => (
             <Wrong key={mapIndex} visibility={visibilityWrong} />
@@ -296,4 +296,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Game;

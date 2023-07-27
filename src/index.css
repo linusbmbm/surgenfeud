@@ -26,7 +26,33 @@ span {
   color: #616161;
 }
 
-/*Main*/
+/*Preview*/
+div.headline {
+  background-color: var(--div-background-color);
+  border: 10px solid;
+  border-radius: 250px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 220px;
+}
+
+div.subHeadline {
+  margin-top: 50px;
+  font-size: 50px;
+}
+
+div.subSubHeadline {
+  margin-top: -10px;
+  font-size: 70px;
+}
+
+div.wrapperPreview {
+  margin-top: 100px;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 1%;
+}
+
+/*Game*/
 div.answerCard {
   align-items: center;
   background-image: linear-gradient(
@@ -146,7 +172,7 @@ div.teamName {
   left: 2%;
 }
 
-div.wrapper {
+div.wrapperGame {
   margin-top: 70px;
   margin-left: 15%;
   margin-right: 15%;
@@ -205,7 +231,6 @@ div.finalsAnswerGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  margin-top: 100px;
   padding: 15px;
   row-gap: 10px;
 }
@@ -224,4 +249,11 @@ div.finalsPinnchenGrid {
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 30px;
+}
+
+div.wrapperFinals {
+  margin-top: 100px;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 1%;
 }

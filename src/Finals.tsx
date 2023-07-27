@@ -146,7 +146,7 @@ function Finals() {
         visibility={visibilityQuestionJump}
       />
 
-      <div className="wrapper">
+      <div className="wrapperFinals">
         <div className="finalsAnswerGrid">
           {answersFinals.map((round, index) => (
             <React.Fragment key={index}>
