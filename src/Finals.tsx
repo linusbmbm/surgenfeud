@@ -9,6 +9,7 @@ import QuestionJump from "./components/QuestionJump.tsx";
 import PointsTextCard from "./components/PointsTextCard.tsx";
 import AnswerCard from "./components/AnswerCard.tsx";
 import PointsCard from "./components/PointsCard.tsx";
+import Type_Visibility from "./types/Type_Visibility.ts";
 
 function Finals() {
   //Variables
@@ -35,9 +36,10 @@ function Finals() {
   const [answerNums, setAnswerNums] = useState<number[]>([
     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
   ]);
-
   const [visibilityQuestionJump, setVisibilityQuestionJump] =
     useState<boolean>(false);
+  const [visibilityAnswersLeft, setVisibilityAnswersLeft] =
+    useState<Type_Visibility>("true");
 
   const [pointsTotal, setPointsTotal] = useState<number>(0);
 
@@ -132,6 +134,16 @@ function Finals() {
 
   KeypressHook(() => {
     if (!visibilityQuestionJump) {
+      if (visibilityAnswersLeft === "true") {
+        setVisibilityAnswersLeft("hidden");
+      } else {
+        setVisibilityAnswersLeft("true");
+      }
+    }
+  }, "y");
+
+  KeypressHook(() => {
+    if (!visibilityQuestionJump) {
       navigate(`/${roundNum + 5}`);
     }
   }, "f");
@@ -154,7 +166,7 @@ function Finals() {
                 key={`1.${index}`}
                 answer={fixAnswer(answerNums[index], round)}
                 classPrefix="finals"
-                visibility={"true"}
+                visibility={visibilityAnswersLeft}
               />
               <AnswerCard
                 key={`2.${index}`}

@@ -19,6 +19,15 @@ const AnswerCard = ({ answer, classPrefix = "", visibility }: Props) => {
     return <div className="answerCard">{answer[0]}</div>;
   }
 
+  if (visibility === "hidden") {
+    return (
+      <div className={answerCardGridClass}>
+        <div className={answerCardGridElementClass}>???</div>
+        <div className={answerCardGridElementClass}>?</div>
+      </div>
+    );
+  }
+
   return (
     <div className={answerCardGridClass}>
       <div className={answerCardGridElementClass}>{answer[1]}</div>

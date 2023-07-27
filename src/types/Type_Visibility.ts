@@ -1,3 +1,3 @@
-type visibility = "false" | "number" | "true";
+type visibility = "false" | "number" | "hidden" | "true";
 
 export default visibility;
