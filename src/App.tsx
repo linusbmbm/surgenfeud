@@ -1,11 +1,11 @@
 import "./index.css";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
 import datajson from "./data/data.json";
 import Interface_Round from "./types/Interface_Round.ts";
 import Type_Visibility from "./types/Type_Visibility.ts";
 import Type_Answer from "./types/Type_Answer.ts";
-import keypressHook from "./hooks/keypressHook.ts";
+import KeypressHook from "./hooks/KeypressHook.ts";
 import QuestionJump from "./components/QuestionJump.tsx";
 import Wrong from "./components/Wrong.tsx";
 import PointsTeamCard from "./components/PointsTextCard.tsx";
@@ -17,7 +17,8 @@ import TeamName from "./components/TeamName.tsx";
 const App = () => {
   //Variables
   const navigate: NavigateFunction = useNavigate();
-  const roundNum: number = Number(useParams().id) ? Number(useParams().id) : 0;
+  const { id } = useParams();
+  const roundNum: number = id ? Number(id) : 0;
 
   const [team1, setTeam1] = useState<string>("Team 1");
   const [team2, setTeam2] = useState<string>("Team 2");
@@ -43,10 +44,6 @@ const App = () => {
     8: "9",
     9: "0",
   };
-  const answers: Type_Answer[] = [
-    ...roundNow.answers,
-    ...Array(numAnswers - roundNow.answers.length).fill(["", "", ""]),
-  ];
 
   const [visibilityTeamNames, setVisibilityTeamNames] =
     useState<boolean>(false);
@@ -100,6 +97,13 @@ const App = () => {
   };
 
   //Hooks
+  const answers: Type_Answer[] = useMemo(() => {
+    return [
+      ...roundNow.answers,
+      ...Array(numAnswers - roundNow.answers.length).fill(["", "", ""]),
+    ];
+  }, [roundNow]);
+
   useEffect(() => {
     setPointsNow(() => {
       if (roundEnd) {
@@ -114,21 +118,21 @@ const App = () => {
         return updatedPointsNow;
       }
     });
-  }, [visibilityAnswers, roundEnd]);
+  }, [answers, visibilityAnswers, roundEnd]);
 
-  keypressHook(() => {
+  KeypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump) {
       setVisibilityTeamNames(true);
     }
   }, "t");
 
-  keypressHook(() => {
+  KeypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump) {
       setVisibilityQuestionJump(true);
     }
   }, "j");
 
-  keypressHook(() => {
+  KeypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump) {
       if (!visibilityWrong) {
         setWrongNum((prevWrongNum) => prevWrongNum + 1);
@@ -139,14 +143,14 @@ const App = () => {
     }
   }, "x");
 
-  keypressHook(() => {
+  KeypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump) {
       setWrongNum(0);
       setVisibilityWrong(false);
     }
   }, "y");
 
-  keypressHook(() => {
+  KeypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump && !roundEnd) {
       if (
         visibilityAnswers.every(
@@ -176,7 +180,7 @@ const App = () => {
     }
   }, "a");
 
-  keypressHook(() => {
+  KeypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump) {
       if (!visibilityQuestion) {
         setVisibilityQuestion(true);
@@ -191,7 +195,7 @@ const App = () => {
       mapIndex
     ) as keyof typeof indexKeyMap;
 
-    keypressHook(() => {
+    KeypressHook(() => {
       if (
         !visibilityTeamNames &&
         !visibilityQuestionJump &&
@@ -218,28 +222,28 @@ const App = () => {
     }, indexKeyMap[index]);
   });
 
-  keypressHook(() => {
+  KeypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump) {
       setPointsTeam1((prevPoints) => prevPoints + pointsNow);
       setRoundEnd(true);
     }
   }, "ArrowLeft");
 
-  keypressHook(() => {
+  KeypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump) {
       setPointsTeam2((prevPoints) => prevPoints + pointsNow);
       setRoundEnd(true);
     }
   }, "ArrowRight");
 
-  keypressHook(() => {
+  KeypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump) {
       nextRound();
       navigate(`/${roundNum + 1}`);
     }
   }, "Enter");
 
-  keypressHook(() => {
+  KeypressHook(() => {
     if (!visibilityTeamNames && !visibilityQuestionJump) {
       navigate(`/finals/${roundNum}`);
     }

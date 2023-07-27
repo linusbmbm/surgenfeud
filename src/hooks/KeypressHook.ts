@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const keypressHook = (callback: () => any, targetKey: string) => {
+const KeypressHook = (callback: () => void, targetKey: string) => {
   useEffect(() => {
     const keyPressHandler = (event: KeyboardEvent) => {
       if (event.key === targetKey) {
@@ -14,4 +14,4 @@ const keypressHook = (callback: () => any, targetKey: string) => {
   }, [callback, targetKey]);
 };
 
-export default keypressHook;
+export default KeypressHook;

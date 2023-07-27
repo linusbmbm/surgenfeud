@@ -4,7 +4,7 @@ import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
 import datajson from "./data/data.json";
 import Interface_Round from "./types/Interface_Round.ts";
 import Type_Answer from "./types/Type_Answer.ts";
-import keypressHook from "./hooks/keypressHook.ts";
+import KeypressHook from "./hooks/KeypressHook.ts";
 import QuestionJump from "./components/QuestionJump.tsx";
 import PointsTextCard from "./components/PointsTextCard.tsx";
 import AnswerCard from "./components/AnswerCard.tsx";
@@ -13,7 +13,8 @@ import PointsCard from "./components/PointsCard.tsx";
 function Finals() {
   //Variables
   const navigate: NavigateFunction = useNavigate();
-  const roundFirst = Number(useParams().id);
+  const { id } = useParams();
+  const roundNum: number = id ? Number(id) : 0;
 
   const quiz: Interface_Round[] = datajson;
 
@@ -62,11 +63,11 @@ function Finals() {
     setAnswersFinals((prevAnswersFinals) => {
       const updatedAnswersFinals: Type_Answer[][] = [...prevAnswersFinals];
       Array.from({ length: 5 }).map((_, index) => {
-        updatedAnswersFinals[index] = quiz[roundFirst + index]["answers"];
+        updatedAnswersFinals[index] = quiz[roundNum + index]["answers"];
       });
       return updatedAnswersFinals;
     });
-  }, [roundFirst]);
+  }, [quiz, roundNum]);
 
   useEffect(() => {
     setPointsTotal(() => {
@@ -86,9 +87,9 @@ function Finals() {
       });
       return updatedPointsTotal;
     });
-  }, [answerNums]);
+  }, [answersFinals, answerNums]);
 
-  keypressHook(() => {
+  KeypressHook(() => {
     if (!visibilityQuestionJump) {
       setVisibilityQuestionJump(true);
     }
@@ -99,7 +100,7 @@ function Finals() {
       mapIndex
     ) as keyof typeof indexKeyMap;
 
-    keypressHook(() => {
+    KeypressHook(() => {
       if (!visibilityQuestionJump) {
         setAnswerNums((prevAnswerNums) => {
           const updatedAnswerNums: number[] = [...prevAnswerNums];
@@ -113,7 +114,7 @@ function Finals() {
     }, indexKeyMap[index]);
   });
 
-  keypressHook(() => {
+  KeypressHook(() => {
     if (!visibilityQuestionJump) {
       setAnswerNums((prevAnswerNums) => {
         const updatedAnswerNums: number[] = [...prevAnswerNums];
@@ -129,18 +130,18 @@ function Finals() {
     }
   }, "-");
 
-  keypressHook(() => {
+  KeypressHook(() => {
     if (!visibilityQuestionJump) {
-      navigate(`/${roundFirst + 5}`);
+      navigate(`/${roundNum + 5}`);
     }
   }, "f");
 
   return (
     <>
-      <span>{roundFirst}</span>
+      <span>{roundNum}</span>
 
       <QuestionJump
-        defaultValue={roundFirst}
+        defaultValue={roundNum}
         onSubmit={changeRound}
         visibility={visibilityQuestionJump}
       />
