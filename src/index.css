@@ -20,125 +20,88 @@ div {
   font-family: var(--text-font);
 }
 
-span {
+p {
   position: absolute;
   left: 99%;
   color: #616161;
 }
 
 /*Preview*/
-div.headline {
+.wrapperPreview {
+  margin-bottom: 1%;
+  margin-left: 15%;
+  margin-top: 100px;
+  margin-right: 15%;
+}
+
+.headline {
   background-color: var(--div-background-color);
   border: 10px solid;
   border-radius: 250px;
   font-family: "Times New Roman", Times, serif;
   font-size: 220px;
+  line-height: 80%;
+  padding: 50px;
 }
 
-div.subHeadline {
+.headline span {
+  position: relative;
+  display: inline-block;
+  animation: waviy 5s infinite;
+  animation-delay: calc(0.1s * var(--jumpNr));
+}
+
+.subHeadline {
   margin-top: 50px;
   font-size: 50px;
 }
 
-div.subSubHeadline {
+.subSubHeadline {
   margin-top: -10px;
   font-size: 70px;
 }
 
-div.wrapperPreview {
-  margin-top: 100px;
+/*Game*/
+.wrapperGame {
+  margin-top: 70px;
   margin-left: 15%;
   margin-right: 15%;
   margin-bottom: 1%;
 }
 
-/*Game*/
-div.answerCard {
-  align-items: center;
-  background-image: linear-gradient(
-    var(--div-background-color),
-    var(--div-background-color-gradient)
-  );
-  border: 5px solid;
+.questionJump {
+  position: absolute;
+  left: 2%;
+}
+
+.teamName {
+  position: absolute;
+  left: 2%;
+}
+
+.wrongFlex {
   display: flex;
-  font-size: 40px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrong {
+  align-items: center;
+  background-color: #ff000059;
+  border: 30px solid;
+  color: red;
+  display: flex;
+  font-size: 350px;
   font-weight: bold;
-  height: 45px;
   justify-content: center;
-  padding: 10px;
+  min-height: 350px;
+  max-height: 350px;
+  width: 350px;
 }
 
-div.answerCardGrid {
-  border: 5px solid;
-  background-color: var(--text-color);
-  column-gap: 5px;
-  display: grid;
-  grid-template-columns: 1fr 75px;
-  height: 65px;
-}
-
-div.answerCardGridElement {
-  align-items: center;
-  background-image: linear-gradient(
-    var(--div-background-color),
-    var(--div-background-color-gradient)
-  );
-  display: flex;
-  font-size: 40px;
-  font-weight: bold;
-  height: 45px;
-  justify-content: center;
-  padding: 10px;
-}
-
-div.answerGrid {
-  background-color: var(--div-background-color);
-  border: 7px solid;
-  border-radius: 15px;
-  display: grid;
-  gap: 10px;
-  grid-auto-flow: column;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  margin-top: 50px;
-  padding: 15px;
-}
-
-div.pointsCard {
-  align-items: center;
-  background-image: linear-gradient(
-    var(--div-background-color),
-    var(--div-background-color-gradient)
-  );
-  border: 5px solid;
-  display: flex;
-  font-size: 65px;
-  justify-content: center;
-}
-
-div.pointsGrid {
-  display: grid;
-  font-weight: bold;
-  gap: 10%;
-  grid-template-columns: 1fr 1fr 1fr;
-  min-height: 140px;
-  margin-left: 4%;
-  margin-right: 4%;
-}
-
-div.pointsTextCard {
-  align-items: center;
-  background-image: linear-gradient(
-    var(--div-background-color),
-    var(--div-background-color-gradient)
-  );
-  border: 5px solid;
-  display: flex;
-  font-size: 33px;
-  justify-content: center;
-}
-
-div.question {
+.question {
   align-items: center;
   background-image: linear-gradient(
     var(--div-background-color),
@@ -154,7 +117,7 @@ div.question {
   min-height: 130px;
 }
 
-div.questionCard {
+.questionCard {
   align-items: center;
   display: flex;
   font-size: 30px;
@@ -162,52 +125,60 @@ div.questionCard {
   justify-content: center;
 }
 
-div.questionJump {
-  position: absolute;
-  left: 2%;
-}
-
-div.teamName {
-  position: absolute;
-  left: 2%;
-}
-
-div.wrapperGame {
-  margin-top: 70px;
-  margin-left: 15%;
-  margin-right: 15%;
-  margin-bottom: 1%;
-}
-
-div.wrong {
-  align-items: center;
-  background-color: #ff000059;
-  border: 30px solid;
-  color: red;
-  display: flex;
-  font-size: 350px;
+.pointsGrid {
+  display: grid;
   font-weight: bold;
-  justify-content: center;
-  min-height: 350px;
-  max-height: 350px;
-  width: 350px;
+  gap: 10%;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-height: 140px;
+  margin-left: 4%;
+  margin-right: 4%;
 }
 
-div.wrongFlex {
-  display: flex;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/*Finals*/
-div.finalsanswerCardGridElement {
+.pointsCard {
   align-items: center;
-  background-color: black;
-  border: 1px solid var(--text-color);
-  border-radius: 10px;
-  color: white;
+  background-image: linear-gradient(
+    var(--div-background-color),
+    var(--div-background-color-gradient)
+  );
+  border: 5px solid;
+  display: flex;
+  font-size: 65px;
+  justify-content: center;
+}
+
+.pointsTextCard {
+  align-items: center;
+  background-image: linear-gradient(
+    var(--div-background-color),
+    var(--div-background-color-gradient)
+  );
+  border: 5px solid;
+  display: flex;
+  font-size: 33px;
+  justify-content: center;
+}
+
+.answerGrid {
+  background-color: var(--div-background-color);
+  border: 7px solid;
+  border-radius: 15px;
+  display: grid;
+  gap: 10px;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  margin-top: 50px;
+  padding: 15px;
+}
+
+.answerCard {
+  align-items: center;
+  background-image: linear-gradient(
+    var(--div-background-color),
+    var(--div-background-color-gradient)
+  );
+  border: 5px solid;
   display: flex;
   font-size: 40px;
   font-weight: bold;
@@ -216,14 +187,29 @@ div.finalsanswerCardGridElement {
   padding: 10px;
 }
 
-div.finalsanswerCardGrid {
+.answerCardGrid {
+  border: 5px solid;
+  background-color: var(--text-color);
+  column-gap: 5px;
   display: grid;
-  column-gap: 10px;
   grid-template-columns: 1fr 75px;
-  height: 75px;
+  height: 65px;
 }
 
-div.finalsAnswerGrid {
+.answerCardGridElement {
+  border: none;
+  overflow: hidden;
+}
+
+/*Finals*/
+.wrapperFinals {
+  margin-top: 100px;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 1%;
+}
+
+.finalsAnswerGrid {
   background-color: var(--div-background-color);
   border: 7px solid;
   border-radius: 15px;
@@ -235,13 +221,28 @@ div.finalsAnswerGrid {
   row-gap: 10px;
 }
 
-div.finalsPoints {
+.finalsanswerCardGrid {
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns: 1fr 75px;
+  height: 75px;
+}
+
+.finalsanswerCardGridElement {
+  background-color: black;
+  background-image: none;
+  border: 1px solid var(--text-color);
+  border-radius: 10px;
+  color: white;
+}
+
+.finalsPoints {
   margin-left: 40%;
   margin-right: 40%;
   margin-top: 20px;
 }
 
-div.finalsPinnchenGrid {
+.finalsPinnchenGrid {
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
@@ -251,9 +252,50 @@ div.finalsPinnchenGrid {
   margin-top: 30px;
 }
 
-div.wrapperFinals {
-  margin-top: 100px;
-  margin-left: 15%;
-  margin-right: 15%;
-  margin-bottom: 1%;
+/* Animations */
+
+.animate--number span {
+  position: relative;
+  display: inline-block;
+  animation: inLeft 0.1s both;
+  animation-delay: calc(0.1s * var(--inLeftNr));
+}
+
+.animate--fadeIn span {
+  animation: fadeIn 1s;
+}
+
+/* Keyframes */
+
+@keyframes waviy {
+  0%,
+  20%,
+  100% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes inLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0%;
+  }
+
+  to {
+    transform: translateX(0px);
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
 }

@@ -251,7 +251,7 @@ const Game = () => {
 
   return (
     <>
-      <span>{roundNum}</span>
+      <p>{roundNum}</p>
 
       <TeamName onSubmit={changeTeamName} visibility={visibilityTeamNames} />
 
@@ -276,7 +276,6 @@ const Game = () => {
 
         <div className="question">
           <QuestionCard
-            questionNumber={roundNum}
             questionText={roundNow.question}
             visibility={visibilityQuestion}
           />

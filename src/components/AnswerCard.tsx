@@ -1,6 +1,12 @@
 import Type_Answer from "../types/Type_Answer.ts";
 import Type_Visibility from "../types/Type_Visibility.ts";
 
+declare module "react" {
+  interface CSSProperties {
+    "--inLeftNr"?: number;
+  }
+}
+
 interface Props {
   answer: Type_Answer;
   classPrefix?: string;
@@ -9,14 +15,18 @@ interface Props {
 
 const AnswerCard = ({ answer, classPrefix = "", visibility }: Props) => {
   const answerCardGridClass = `${classPrefix}answerCardGrid`;
-  const answerCardGridElementClass = `${classPrefix}answerCardGridElement`;
+  const answerCardGridElementClass = `answerCard ${classPrefix}answerCardGridElement`;
 
   if (visibility === "false") {
     return <div className="answerCard" />;
   }
 
   if (visibility === "number") {
-    return <div className="answerCard">{answer[0]}</div>;
+    return (
+      <div className="answerCard animate--number">
+        <span style={{ "--inLeftNr": Number(answer[0]) }}>{answer[0]}</span>
+      </div>
+    );
   }
 
   if (visibility === "hidden") {
@@ -30,8 +40,12 @@ const AnswerCard = ({ answer, classPrefix = "", visibility }: Props) => {
 
   return (
     <div className={answerCardGridClass}>
-      <div className={answerCardGridElementClass}>{answer[1]}</div>
-      <div className={answerCardGridElementClass}>{answer[2]}</div>
+      <div className={answerCardGridElementClass + " animate--fadeIn"}>
+        <span>{answer[1]}</span>
+      </div>
+      <div className={answerCardGridElementClass + " animate--fadeIn"}>
+        <span>{answer[2]}</span>
+      </div>
     </div>
   );
 };
