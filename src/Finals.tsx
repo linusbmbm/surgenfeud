@@ -10,7 +10,6 @@ import PointsTextCard from "./components/PointsTextCard.tsx";
 import AnswerCard from "./components/AnswerCard.tsx";
 import PointsCard from "./components/PointsCard.tsx";
 import Type_Visibility from "./types/Type_Visibility.ts";
-import { render } from "react-dom";
 
 function Finals() {
   //Variables
