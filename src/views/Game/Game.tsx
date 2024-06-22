@@ -1,18 +1,18 @@
-import "./index.css";
+import "./Game.css";
 import { useEffect, useMemo, useState } from "react";
 import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
-import datajson from "./data/data.json";
-import Interface_Round from "./types/Interface_Round";
-import Type_Visibility from "./types/Type_Visibility";
-import Type_Answer from "./types/Type_Answer";
-import KeypressHook from "./hooks/KeypressHook";
-import QuestionJump from "./components/QuestionJump";
-import Wrong from "./components/Wrong";
-import PointsTeamCard from "./components/PointsTextCard";
-import PointsCard from "./components/PointsCard";
-import QuestionCard from "./components/QuestionCard";
-import AnswerCard from "./components/AnswerCard";
-import TeamName from "./components/TeamName";
+import datajson from "../../data/data.json";
+import Interface_Round from "../../types/Interface_Round";
+import Type_Visibility from "../../types/Type_Visibility";
+import Type_Answer from "../../types/Type_Answer";
+import KeypressHook from "../../hooks/KeypressHook";
+import QuestionJump from "../../components/QuestionJump/QuestionJump";
+import Wrong from "../../components/Wrong/Wrong";
+import PointsTextCard from "../../components/PointsTextCard/PointsTextCard";
+import PointsCard from "../../components/PointsCard/PointsCard";
+import QuestionCard from "../../components/QuestionCard/QuestionCard";
+import AnswerCard from "../../components/AnswerCard/AnswerCard";
+import TeamName from "../../components/TeamName/TeamName";
 
 const Game = () => {
   //Variables
@@ -121,37 +121,35 @@ const Game = () => {
   }, [answers, visibilityAnswers, roundEnd]);
 
   KeypressHook(() => {
-    if (!visibilityTeamNames && !visibilityQuestionJump) {
+    if (!visibilityTeamNames) {
       setVisibilityTeamNames(true);
     }
   }, "t");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames && !visibilityQuestionJump) {
+    if (!visibilityTeamNames) {
       setVisibilityQuestionJump(true);
     }
   }, "j");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames && !visibilityQuestionJump) {
+    if (!visibilityTeamNames) {
       if (!visibilityWrong) {
         setWrongNum((prevWrongNum) => prevWrongNum + 1);
-        setVisibilityWrong(true);
-      } else {
-        setVisibilityWrong(false);
       }
+      setVisibilityWrong(!visibilityWrong);
     }
   }, "x");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames && !visibilityQuestionJump) {
+    if (!visibilityTeamNames) {
       setWrongNum(0);
       setVisibilityWrong(false);
     }
   }, "y");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames && !visibilityQuestionJump && !roundEnd) {
+    if (!visibilityTeamNames && !roundEnd) {
       if (
         visibilityAnswers.every(
           (visibilityAnswer) => visibilityAnswer === "number"
@@ -181,12 +179,8 @@ const Game = () => {
   }, "a");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames && !visibilityQuestionJump) {
-      if (!visibilityQuestion) {
-        setVisibilityQuestion(true);
-      } else {
-        setVisibilityQuestion(false);
-      }
+    if (!visibilityTeamNames) {
+      setVisibilityQuestion(!visibilityQuestion);
     }
   }, "q");
 
@@ -223,72 +217,78 @@ const Game = () => {
   });
 
   KeypressHook(() => {
-    if (!visibilityTeamNames && !visibilityQuestionJump) {
+    if (!visibilityTeamNames) {
       setPointsTeam1((prevPoints) => prevPoints + pointsNow);
       setRoundEnd(true);
     }
   }, "ArrowLeft");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames && !visibilityQuestionJump) {
+    if (!visibilityTeamNames) {
       setPointsTeam2((prevPoints) => prevPoints + pointsNow);
       setRoundEnd(true);
     }
   }, "ArrowRight");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames && !visibilityQuestionJump) {
+    if (!visibilityTeamNames) {
       nextRound();
       navigate(`/${roundNum + 1}`);
     }
   }, "Enter");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames && !visibilityQuestionJump) {
+    if (!visibilityTeamNames) {
       navigate(`/finals/${roundNum}`);
     }
   }, "f");
 
   return (
     <>
-      <p>{roundNum}</p>
+      <div className="game">
+        <TeamName onSubmit={changeTeamName} visibility={visibilityTeamNames} />
 
-      <TeamName onSubmit={changeTeamName} visibility={visibilityTeamNames} />
+        <QuestionJump
+          defaultValue={roundNum}
+          onSubmit={changeRound}
+          visibility={visibilityQuestionJump}
+        />
 
-      <QuestionJump
-        defaultValue={roundNum}
-        onSubmit={changeRound}
-        visibility={visibilityQuestionJump}
-      />
-
-      <div className="wrapperGame">
-        <div className="wrongFlex">
+        <div className="wrongs">
           {Array.from({ length: wrongNum }).map((_, mapIndex) => (
             <Wrong key={mapIndex} visibility={visibilityWrong} />
           ))}
         </div>
 
-        <div className="pointsGrid">
-          <PointsTeamCard points={pointsTeam1} text={team1} />
-          <PointsCard points={pointsNow} />
-          <PointsTeamCard points={pointsTeam2} text={team2} />
-        </div>
+        <div className="game-elements">
+          <div className="game-element pointsTeam1">
+            <PointsTextCard points={pointsTeam1} text={team1} />
+          </div>
 
-        <div className="question">
-          <QuestionCard
-            questionText={roundNow.question}
-            visibility={visibilityQuestion}
-          />
-        </div>
+          <div className="game-element pointsNow">
+            <PointsCard points={pointsNow} />
+          </div>
 
-        <div className="answerGrid">
-          {answers.map((answer, index) => (
-            <AnswerCard
-              key={index}
-              answer={answer}
-              visibility={visibilityAnswers[index]}
+          <div className="game-element pointsTeam2">
+            <PointsTextCard points={pointsTeam2} text={team2} />
+          </div>
+
+          <div className="game-element question">
+            <QuestionCard
+              questionText={roundNow.question}
+              visibility={visibilityQuestion}
             />
-          ))}
+          </div>
+
+          <div className="game-element answers">
+            {answers.map((answer, index) => (
+              <AnswerCard
+                key={index}
+                answer={answer}
+                visibility={visibilityAnswers[index]}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>

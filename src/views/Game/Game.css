@@ -1,0 +1,69 @@
+.game {
+  --dulle-color: rgba(255, 255, 255, 0.1);
+  height: 100%;
+}
+
+.roundNum {
+  position: absolute;
+}
+
+.wrongs {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.game-elements {
+  height: calc(100% - 200px);
+  margin: 50px;
+  padding: 50px;
+  border: var(--dulle-color) 2px solid;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 2fr 1fr 4fr;
+  grid-template-areas:
+    "pointsTeam1 pointsNow pointsTeam2"
+    "question    question  question"
+    "answers     answers   answers";
+  grid-gap: 20px;
+}
+
+.game-element {
+  border-radius: 20px;
+  background-color: var(--dulle-color);
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.pointsTeam1 {
+  grid-area: pointsTeam1;
+}
+
+.pointsNow {
+  grid-area: pointsNow;
+}
+
+.pointsTeam2 {
+  grid-area: pointsTeam2;
+}
+
+.question {
+  grid-area: question;
+}
+
+.answers {
+  grid-area: answers;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-auto-flow: column;
+  padding: 20px;
+  grid-gap: 15px;
+}

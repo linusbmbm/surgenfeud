@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import "./QuestionJump.css";
+
 interface Props {
   defaultValue?: number;
   onSubmit: (pageNum: number) => void;
@@ -21,15 +23,13 @@ const QuestionJump = ({ defaultValue = 0, onSubmit, visibility }: Props) => {
   };
 
   if (!visibility) {
-    return null;
+    return <></>;
   }
 
   return (
     <div className="questionJump">
       <form onSubmit={handleSubmit}>
-        <input type="number" value={pageNum} onChange={handleChange} min={0} />
-        <br />
-        <button type="submit">Dulle</button>
+        <input type="text" value={pageNum} onChange={handleChange} />
       </form>
     </div>
   );

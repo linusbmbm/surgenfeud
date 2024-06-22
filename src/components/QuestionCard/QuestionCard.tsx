@@ -1,3 +1,5 @@
+import "./QuestionCard.css";
+
 interface Props {
   questionText: string;
   visibility: boolean;
@@ -5,11 +7,11 @@ interface Props {
 
 const QuestionCard = ({ questionText, visibility }: Props) => {
   if (!visibility) {
-    return "";
+    return <></>;
   }
 
   return (
-    <div className="questionCard animate--fadeIn">
+    <div className="questionCard">
       <span>{questionText}</span>
     </div>
   );

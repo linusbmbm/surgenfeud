@@ -1,3 +1,5 @@
+import "./PointsCard.css";
+
 interface Props {
   points: number;
 }

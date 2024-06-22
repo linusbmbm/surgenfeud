@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Preview from "./Preview.tsx";
-import Game from "./Game.tsx";
-import Finals from "./Finals.tsx";
+import Preview from "./views/Preview/Preview";
+import Game from "./views/Game/Game";
+import Finals from "./views/Finals/Finals";
 
 const router = createBrowserRouter([
   {

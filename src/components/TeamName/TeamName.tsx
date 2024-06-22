@@ -1,3 +1,4 @@
+import "./TeamName.css";
 import React, { useState } from "react";
 
 interface Props {
@@ -29,11 +30,11 @@ const TeamName = ({ onSubmit, visibility }: Props) => {
   return (
     <div className="teamName">
       <form onSubmit={handleSubmit}>
+        <label>Team 1 Name:</label>
         <input type="text" value={newTeam1Name} onChange={handleChangeTeam1} />
-        <br />
+        <label>Team 2 Name:</label>
         <input type="text" value={newTeam2Name} onChange={handleChangeTeam2} />
-        <br />
-        <button type="submit">Dulle</button>
+        <input type="submit" style={{ display: "none" }} />
       </form>
     </div>
   );

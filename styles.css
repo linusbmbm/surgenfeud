@@ -1,0 +1,14 @@
+body {
+  background-color: rgb(20, 20, 20);
+  color: rgb(255, 255, 255);
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  height: 100vh;
+  margin: 0;
+  overflow-y: hidden;
+}
+
+#root {
+  height: 100%;
+}

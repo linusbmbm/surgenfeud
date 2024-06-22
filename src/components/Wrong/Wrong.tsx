@@ -1,3 +1,5 @@
+import "./Wrong.css";
+
 interface Props {
   visibility: boolean;
 }
@@ -7,7 +9,7 @@ const Wrong = ({ visibility }: Props) => {
     return null;
   }
 
-  return <div className={"wrong"}>X</div>;
+  return <div className="wrong">X</div>;
 };
 
 export default Wrong;

@@ -1,3 +1,5 @@
+import "./PointsTextCard.css";
+
 interface Props {
   points: number;
   text: string;

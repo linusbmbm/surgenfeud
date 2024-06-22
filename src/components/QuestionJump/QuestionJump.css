@@ -1,0 +1,21 @@
+.questionJump {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.questionJump input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px white solid;
+  color: white;
+  font-size: 20px;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.questionJump input:focus {
+  outline: none;
+}

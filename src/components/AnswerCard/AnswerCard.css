@@ -1,0 +1,29 @@
+.answer {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 20%;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgb(0, 0, 0, 0.3);
+  padding: 5px;
+}
+
+.answer-text {
+  padding: 5px;
+  text-align: center;
+}
+
+.answer-value {
+  padding: 5px;
+  border-left: 2px rgba(255, 255, 255, 0.2) solid;
+  text-align: center;
+}
+
+.answer-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: rgb(0, 0, 0, 0.3);
+  padding: 5px;
+}

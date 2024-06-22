@@ -1,0 +1,10 @@
+.wrong {
+  font-size: 256px;
+  text-align: center;
+  justify-content: center;
+  line-height: 300px;
+  padding-left: 50px;
+  padding-right: 50px;
+  color: rgb(87, 15, 22);
+  border: 10px rgb(87, 15, 22) solid;
+}
