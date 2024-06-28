@@ -7,12 +7,12 @@ interface Props {
 
 const QuestionCard = ({ questionText, visibility }: Props) => {
   if (!visibility) {
-    return <></>;
+    return <div className="question-card" />;
   }
 
   return (
-    <div className="questionCard">
-      <span>{questionText}</span>
+    <div className="question-card">
+      <span className="question-text">{questionText}</span>
     </div>
   );
 };

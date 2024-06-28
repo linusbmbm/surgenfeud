@@ -1,3 +1,4 @@
+import "../../../styles.css";
 import "./Game.css";
 import { useEffect, useMemo, useState } from "react";
 import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
@@ -8,11 +9,26 @@ import Type_Answer from "../../types/Type_Answer";
 import KeypressHook from "../../hooks/KeypressHook";
 import QuestionJump from "../../components/QuestionJump/QuestionJump";
 import Wrong from "../../components/Wrong/Wrong";
-import PointsTextCard from "../../components/PointsTextCard/PointsTextCard";
 import PointsCard from "../../components/PointsCard/PointsCard";
 import QuestionCard from "../../components/QuestionCard/QuestionCard";
 import AnswerCard from "../../components/AnswerCard/AnswerCard";
 import TeamName from "../../components/TeamName/TeamName";
+
+declare module "react" {
+  interface CSSProperties {
+    "--team-color-alpha"?: number;
+    "--team1-color-red"?: number;
+    "--team1-color-green"?: number;
+    "--team1-color-blue"?: number;
+    "--team1-points-percent"?: number;
+    "--team1-points-percent-gradient"?: number;
+    "--team2-color-red"?: number;
+    "--team2-color-green"?: number;
+    "--team2-color-blue"?: number;
+    "--team2-points-percent"?: number;
+    "--team2-points-percent-gradient"?: number;
+  }
+}
 
 const Game = () => {
   //Variables
@@ -20,8 +36,19 @@ const Game = () => {
   const { id } = useParams();
   const roundNum: number = id ? Number(id) : 0;
 
-  const [team1, setTeam1] = useState<string>("Team 1");
-  const [team2, setTeam2] = useState<string>("Team 2");
+  const [team1Color, setTeam1Color] = useState<[number, number, number]>([
+    255, 255, 255,
+  ]);
+  const [team1PointsPercent, setTeam1PointsPercent] = useState<number>(0);
+  const [team1PointsPercentGradient, setTeam1PointsPercentGradient] =
+    useState<number>(0);
+  const [team2Color, setTeam2Color] = useState<[number, number, number]>([
+    255, 255, 255,
+  ]);
+  const [team2PointsPercent, setTeam2PointsPercent] = useState<number>(0);
+  const [team2PointsPercentGradient, setTeam2PointsPercentGradient] =
+    useState<number>(0);
+
   const numAnswers: number = 10;
 
   const quiz: Interface_Round[] = datajson;
@@ -45,7 +72,7 @@ const Game = () => {
     9: "0",
   };
 
-  const [visibilityTeamNames, setVisibilityTeamNames] =
+  const [visibilityTeamColors, setvisibilityTeamColors] =
     useState<boolean>(false);
   const [visibilityQuestionJump, setVisibilityQuestionJump] =
     useState<boolean>(false);
@@ -69,13 +96,16 @@ const Game = () => {
   const [roundEnd, setRoundEnd] = useState<boolean>(false);
 
   //Functions
-  const changeTeamName = (newTeam1Name: string, newTeam2Name: string) => {
-    setTeam1(newTeam1Name);
-    setTeam2(newTeam2Name);
-    setVisibilityTeamNames(false);
+  const changeTeamName = (
+    newTeam1Color: string,
+    newTeam2Color: string
+  ): void => {
+    setTeam1Color(hexToRgb(newTeam1Color));
+    setTeam2Color(hexToRgb(newTeam2Color));
+    setvisibilityTeamColors(false);
   };
 
-  const nextRound = () => {
+  const nextRound = (): void => {
     setVisibilityAnswers((prevVisibilityAnswers) => {
       const updatedVisibilityAnswers: Type_Visibility[] = [
         ...prevVisibilityAnswers,
@@ -90,10 +120,18 @@ const Game = () => {
     setRoundEnd(false);
   };
 
-  const changeRound = (newRoundNum: number) => {
+  const changeRound = (newRoundNum: number): void => {
     nextRound();
     navigate(`/${newRoundNum}`);
     setVisibilityQuestionJump(false);
+  };
+
+  const hexToRgb = (hex: string): [number, number, number] => {
+    return [
+      parseInt(hex.slice(1, 3), 16),
+      parseInt(hex.slice(3, 5), 16),
+      parseInt(hex.slice(5, 7), 16),
+    ];
   };
 
   //Hooks
@@ -118,38 +156,34 @@ const Game = () => {
         return updatedPointsNow;
       }
     });
+    setTeam1PointsPercent(Math.min(pointsTeam1 / 2, 100));
+    setTeam1PointsPercentGradient(
+      Math.min(pointsTeam1 / 2, 100) +
+        (pointsTeam1 >= 200 || pointsTeam1 === 0 ? 0 : 5)
+    );
+    setTeam2PointsPercent(Math.min(pointsTeam2 / 2, 100));
+    setTeam2PointsPercentGradient(
+      Math.min(pointsTeam2 / 2, 100) +
+        (pointsTeam2 >= 200 || pointsTeam2 === 0 ? 0 : 5)
+    );
   }, [answers, visibilityAnswers, roundEnd]);
 
   KeypressHook(() => {
-    if (!visibilityTeamNames) {
-      setVisibilityTeamNames(true);
-    }
+    setvisibilityTeamColors(!visibilityTeamColors);
   }, "t");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames) {
-      setVisibilityQuestionJump(true);
-    }
+    setVisibilityQuestionJump(!visibilityQuestionJump);
   }, "j");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames) {
-      if (!visibilityWrong) {
-        setWrongNum((prevWrongNum) => prevWrongNum + 1);
-      }
-      setVisibilityWrong(!visibilityWrong);
-    }
+    setWrongNum((prevWrongNum) => (wrongNum >= 3 ? 1 : prevWrongNum + 1));
+    setVisibilityWrong(true);
+    setTimeout(() => setVisibilityWrong(false), 1000);
   }, "x");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames) {
-      setWrongNum(0);
-      setVisibilityWrong(false);
-    }
-  }, "y");
-
-  KeypressHook(() => {
-    if (!visibilityTeamNames && !roundEnd) {
+    if (!roundEnd) {
       if (
         visibilityAnswers.every(
           (visibilityAnswer) => visibilityAnswer === "number"
@@ -179,9 +213,7 @@ const Game = () => {
   }, "a");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames) {
-      setVisibilityQuestion(!visibilityQuestion);
-    }
+    setVisibilityQuestion(!visibilityQuestion);
   }, "q");
 
   Object.keys(indexKeyMap).map((mapIndex) => {
@@ -190,11 +222,7 @@ const Game = () => {
     ) as keyof typeof indexKeyMap;
 
     KeypressHook(() => {
-      if (
-        !visibilityTeamNames &&
-        !visibilityQuestionJump &&
-        roundNow.answers[index] !== undefined
-      ) {
+      if (!visibilityQuestionJump && roundNow.answers[index] !== undefined) {
         if (visibilityAnswers[index] !== "true") {
           setVisibilityAnswers((prevVisibilityAnswers) => {
             const updatedVisibilityAnswers: Type_Visibility[] = [
@@ -217,36 +245,30 @@ const Game = () => {
   });
 
   KeypressHook(() => {
-    if (!visibilityTeamNames) {
-      setPointsTeam1((prevPoints) => prevPoints + pointsNow);
-      setRoundEnd(true);
-    }
+    setPointsTeam1((prevPoints) => prevPoints + pointsNow);
+    setRoundEnd(true);
   }, "ArrowLeft");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames) {
-      setPointsTeam2((prevPoints) => prevPoints + pointsNow);
-      setRoundEnd(true);
-    }
+    setPointsTeam2((prevPoints) => prevPoints + pointsNow);
+    setRoundEnd(true);
   }, "ArrowRight");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames) {
-      nextRound();
-      navigate(`/${roundNum + 1}`);
-    }
+    nextRound();
+    navigate(`/${roundNum + 1}`);
   }, "Enter");
 
   KeypressHook(() => {
-    if (!visibilityTeamNames) {
-      navigate(`/finals/${roundNum}`);
-    }
+    const winnerColor: [number, number, number] =
+      pointsTeam1 > pointsTeam2 ? team1Color : team2Color;
+    navigate(`/finals/${roundNum}/${winnerColor}`);
   }, "f");
 
   return (
     <>
       <div className="game">
-        <TeamName onSubmit={changeTeamName} visibility={visibilityTeamNames} />
+        <TeamName onSubmit={changeTeamName} visibility={visibilityTeamColors} />
 
         <QuestionJump
           defaultValue={roundNum}
@@ -260,9 +282,28 @@ const Game = () => {
           ))}
         </div>
 
-        <div className="game-elements">
+        <div
+          className="game-elements"
+          style={{
+            "--team-color-alpha":
+              team1Color.every((color) => color === 255) &&
+              team2Color.every((color) => color === 255)
+                ? 0.1
+                : 0.3,
+            "--team1-color-red": team1Color[0],
+            "--team1-color-green": team1Color[1],
+            "--team1-color-blue": team1Color[2],
+            "--team1-points-percent": team1PointsPercent,
+            "--team1-points-percent-gradient": team1PointsPercentGradient,
+            "--team2-color-red": team2Color[0],
+            "--team2-color-green": team2Color[1],
+            "--team2-color-blue": team2Color[2],
+            "--team2-points-percent": team2PointsPercent,
+            "--team2-points-percent-gradient": team2PointsPercentGradient,
+          }}
+        >
           <div className="game-element pointsTeam1">
-            <PointsTextCard points={pointsTeam1} text={team1} />
+            <PointsCard points={pointsTeam1} />
           </div>
 
           <div className="game-element pointsNow">
@@ -270,7 +311,7 @@ const Game = () => {
           </div>
 
           <div className="game-element pointsTeam2">
-            <PointsTextCard points={pointsTeam2} text={team2} />
+            <PointsCard points={pointsTeam2} />
           </div>
 
           <div className="game-element question">

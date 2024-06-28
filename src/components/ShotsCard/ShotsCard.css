@@ -1,0 +1,23 @@
+.shots-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+
+  .shot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fallIn 0.5s ease-out;
+  }
+}
+
+@keyframes fallIn {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

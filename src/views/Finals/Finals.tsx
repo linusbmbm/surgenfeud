@@ -1,3 +1,4 @@
+import "../../../styles.css";
 import "./Finals.css";
 import React, { useEffect, useState } from "react";
 import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
@@ -6,7 +7,7 @@ import Interface_Round from "../../types/Interface_Round";
 import Type_Answer from "../../types/Type_Answer";
 import KeypressHook from "../../hooks/KeypressHook";
 import QuestionJump from "../../components/QuestionJump/QuestionJump";
-import PointsTextCard from "../../components/PointsTextCard/PointsTextCard";
+import ShotsCard from "../../components/ShotsCard/ShotsCard";
 import AnswerCard from "../../components/AnswerCard/AnswerCard";
 import PointsCard from "../../components/PointsCard/PointsCard";
 import Type_Visibility from "../../types/Type_Visibility";
@@ -14,8 +15,11 @@ import Type_Visibility from "../../types/Type_Visibility";
 function Finals() {
   //Variables
   const navigate: NavigateFunction = useNavigate();
-  const { id } = useParams();
+  const { id, finalsColor } = useParams();
   const roundNum: number = id ? Number(id) : 0;
+  const finalsBackground: number[] = finalsColor
+    ? finalsColor.split(",").map(Number)
+    : [255, 255, 255];
 
   const quiz: Interface_Round[] = datajson;
 
@@ -47,26 +51,26 @@ function Finals() {
   const fixAnswer = (
     selectedAnswer: number,
     possibleAnswers: Type_Answer[]
-  ) => {
+  ): Type_Answer => {
     return selectedAnswer === -1
       ? ["", "", ""]
       : selectedAnswer === 10
-      ? ["", "Nein, nein, nein!", 0]
+      ? ["", "Nein, nein, nein!", "0"]
       : possibleAnswers[selectedAnswer];
   };
 
-  const changeRound = (changeToRoundNum: number) => {
+  const changeRound = (changeToRoundNum: number): void => {
     navigate(`/finals/${changeToRoundNum}`);
     setVisibilityQuestionJump(false);
   };
 
   //Hooks
   useEffect(() => {
-    setAnswersFinals((prevAnswersFinals) => {
-      const updatedAnswersFinals: Type_Answer[][] = [...prevAnswersFinals];
-      Array.from({ length: 5 }).map((_, index) => {
+    setAnswersFinals(() => {
+      const updatedAnswersFinals: Type_Answer[][] = [[[""]]];
+      for (let index = 0; index < 5; index++) {
         updatedAnswersFinals[index] = quiz[roundNum + index]["answers"];
-      });
+      }
       return updatedAnswersFinals;
     });
   }, [quiz, roundNum]);
@@ -101,16 +105,29 @@ function Finals() {
     ) as keyof typeof indexKeyMap;
 
     KeypressHook(() => {
-      setAnswerNums((prevAnswerNums) => {
-        const updatedAnswerNums: number[] = [...prevAnswerNums];
-        const indexFirstMinusOneValue: number = answerNums.findIndex(
-          (answerNum) => answerNum === -1
-        );
-        updatedAnswerNums[indexFirstMinusOneValue]
-          ? (updatedAnswerNums[indexFirstMinusOneValue] = index)
-          : null;
-        return updatedAnswerNums;
-      });
+      if (!visibilityQuestionJump) {
+        setAnswerNums((prevAnswerNums) => {
+          const updatedAnswerNums: number[] = [...prevAnswerNums];
+          const indexFirstMinusOneValue: number = answerNums.findIndex(
+            (answerNum) => answerNum === -1
+          );
+          if (indexFirstMinusOneValue !== -1) {
+            if (
+              answersFinals[
+                indexFirstMinusOneValue < 5
+                  ? indexFirstMinusOneValue
+                  : indexFirstMinusOneValue - 5
+              ][index] !== undefined ||
+              index === 10
+            ) {
+              updatedAnswerNums[indexFirstMinusOneValue]
+                ? (updatedAnswerNums[indexFirstMinusOneValue] = index)
+                : null;
+            }
+          }
+          return updatedAnswerNums;
+        });
+      }
     }, indexKeyMap[index]);
   });
 
@@ -140,9 +157,16 @@ function Finals() {
     navigate(`/${roundNum + 5}`);
   }, "f");
 
+  console.log(answerNums);
+
   return (
     <>
-      <div className="finals">
+      <div
+        className="finals"
+        style={{
+          background: `radial-gradient(circle 130vh at 50% 20%, rgba(${finalsBackground}, 0.3), transparent)`,
+        }}
+      >
         <QuestionJump
           defaultValue={roundNum}
           onSubmit={changeRound}
@@ -172,22 +196,16 @@ function Finals() {
           </div>
 
           <div className="finals-element finals-shots-total">
-            <PointsTextCard
-              points={Math.ceil(pointsTotal / 15)}
-              text={"Pinnchen Gesamt"}
-            />
+            <ShotsCard num={Math.ceil(pointsTotal / 15)} type="total" />
           </div>
           <div className="finals-element finals-shots-person">
-            <PointsTextCard
-              points={Math.floor(pointsTotal / 15 / 4)}
-              text={"Pinnchen pro Person"}
+            <ShotsCard
+              num={Math.floor(Math.ceil(pointsTotal / 15) / 3)}
+              type="person"
             />
           </div>
           <div className="finals-element finals-shots-rest">
-            <PointsTextCard
-              points={Math.ceil((pointsTotal / 15) % 4)}
-              text={"übrige Pinnchen"}
-            />
+            <ShotsCard num={Math.ceil(pointsTotal / 15) % 3} type="rest" />
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 .game {
   --dulle-color: rgba(255, 255, 255, 0.1);
-  height: 100%;
+  height: 88%;
+  padding: 3%;
 }
 
 .roundNum {
@@ -18,11 +19,25 @@
 }
 
 .game-elements {
-  height: calc(100% - 200px);
-  margin: 50px;
-  padding: 50px;
+  height: 88%;
+  padding: 3%;
   border: var(--dulle-color) 2px solid;
-  border-radius: 20px;
+  border-image: linear-gradient(
+      to right,
+      rgba(
+        var(--team1-color-red),
+        var(--team1-color-green),
+        var(--team1-color-blue),
+        0.3
+      ),
+      rgba(
+        var(--team2-color-red),
+        var(--team2-color-green),
+        var(--team2-color-blue),
+        0.3
+      )
+    )
+    1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 2fr 1fr 4fr;
@@ -35,7 +50,21 @@
 
 .game-element {
   border-radius: 20px;
-  background-color: var(--dulle-color);
+  background: linear-gradient(
+    to right,
+    rgba(
+      var(--team1-color-red),
+      var(--team1-color-green),
+      var(--team1-color-blue),
+      var(--team-color-alpha)
+    ),
+    rgba(
+      var(--team2-color-red),
+      var(--team2-color-green),
+      var(--team2-color-blue),
+      var(--team-color-alpha)
+    )
+  );
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -44,6 +73,22 @@
 
 .pointsTeam1 {
   grid-area: pointsTeam1;
+  background: linear-gradient(
+    to top,
+    rgb(
+        var(--team1-color-red),
+        var(--team1-color-green),
+        var(--team1-color-blue)
+      )
+      calc(var(--team1-points-percent) * 1%),
+    var(--dulle-color) calc(var(--team1-points-percent-gradient) * 1%)
+  );
+  border: 2px solid
+    rgb(
+      var(--team1-color-red),
+      var(--team1-color-green),
+      var(--team1-color-blue)
+    );
 }
 
 .pointsNow {
@@ -52,6 +97,22 @@
 
 .pointsTeam2 {
   grid-area: pointsTeam2;
+  background: linear-gradient(
+    to top,
+    rgb(
+        var(--team2-color-red),
+        var(--team2-color-green),
+        var(--team2-color-blue)
+      )
+      calc(var(--team2-points-percent) * 1%),
+    var(--dulle-color) calc(var(--team2-points-percent-gradient) * 1%)
+  );
+  border: 2px solid
+    rgb(
+      var(--team2-color-red),
+      var(--team2-color-green),
+      var(--team2-color-blue)
+    );
 }
 
 .question {

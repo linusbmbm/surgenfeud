@@ -1,26 +1,28 @@
 import "./TeamName.css";
 import React, { useState } from "react";
+import { CirclePicker } from "react-color";
+import KeypressHook from "../../hooks/KeypressHook";
 
 interface Props {
-  onSubmit: (newTeam1Name: string, newTeam2Name: string) => void;
+  onSubmit: (newTeam1Color: string, newTeam2Color: string) => void;
   visibility: boolean;
 }
 
 const TeamName = ({ onSubmit, visibility }: Props) => {
-  const [newTeam1Name, setNewTeam1Name] = useState<string>("");
-  const [newTeam2Name, setNewTeam2Name] = useState<string>("");
+  const [newTeam1Color, setNewTeam1Color] = useState<string>("");
+  const [newTeam2Color, setNewTeam2Color] = useState<string>("");
 
-  const handleChangeTeam1 = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNewTeam1Name(String(event.target.value));
+  const handleChangeCompleteTeam1Color = (color: any) => {
+    setNewTeam1Color(color.hex);
   };
 
-  const handleChangeTeam2 = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNewTeam2Name(String(event.target.value));
+  const handleChangeCompleteTeam2Color = (color: any) => {
+    setNewTeam2Color(color.hex);
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSubmit(newTeam1Name, newTeam2Name);
+    onSubmit(newTeam1Color, newTeam2Color);
   };
 
   if (!visibility) {
@@ -28,15 +30,23 @@ const TeamName = ({ onSubmit, visibility }: Props) => {
   }
 
   return (
-    <div className="teamName">
-      <form onSubmit={handleSubmit}>
-        <label>Team 1 Name:</label>
-        <input type="text" value={newTeam1Name} onChange={handleChangeTeam1} />
-        <label>Team 2 Name:</label>
-        <input type="text" value={newTeam2Name} onChange={handleChangeTeam2} />
-        <input type="submit" style={{ display: "none" }} />
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className="team-colors">
+        <div className="team1-color">
+          <CirclePicker
+            color={newTeam1Color}
+            onChangeComplete={handleChangeCompleteTeam1Color}
+          />
+        </div>
+        <div className="team2-color">
+          <CirclePicker
+            color={newTeam2Color}
+            onChangeComplete={handleChangeCompleteTeam2Color}
+          />
+        </div>
+      </div>
+      <input type="submit" value="Farben ändern" />
+    </form>
   );
 };
 

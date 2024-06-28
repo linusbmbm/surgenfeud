@@ -1,21 +1,22 @@
 .finals {
   --dulle-color: rgba(255, 255, 255, 0.1);
-  height: 100%;
+  height: 88%;
+  padding: 3%;
+  margin: 0;
 }
 
 .finals-elements {
-  height: calc(100% - 200px);
-  margin: 50px;
-  padding: 50px;
+  height: 88%;
+  padding: 3%;
   border: var(--dulle-color) 2px solid;
   border-radius: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 4fr 2fr;
+  grid-template-columns: 5fr 1fr;
+  grid-template-rows: 3fr 3fr 8fr;
   grid-template-areas:
-    "finals-points      finals-points       finals-points"
-    "finals-answers     finals-answers      finals-answers"
-    "finals-shots-total finals-shots-person finals-shots-rest";
+    "finals-shots-total  finals-points"
+    "finals-shots-person finals-shots-rest"
+    "finals-answers      finals-answers";
   grid-gap: 20px;
 }
 
@@ -24,12 +25,25 @@
   background-color: var(--dulle-color);
   width: 100%;
   height: 100%;
+  align-content: center;
   box-sizing: border-box;
   overflow: hidden;
 }
 
+.finals-shots-total {
+  grid-area: finals-shots-total;
+}
+
 .finals-points {
   grid-area: finals-points;
+}
+
+.finals-shots-person {
+  grid-area: finals-shots-person;
+}
+
+.finals-shots-rest {
+  grid-area: finals-shots-rest;
 }
 
 .finals-answers {
@@ -39,16 +53,4 @@
   grid-template-rows: repeat(5, 1fr);
   padding: 20px;
   grid-gap: 15px;
-}
-
-.finals-shots-total {
-  grid-area: finals-shots-total;
-}
-
-.finals-shots-person {
-  grid-area: finals-shots-person;
-}
-
-.finals-shots-rest {
-  grid-area: finals-shots-rest;
 }

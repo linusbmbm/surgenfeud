@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import "./QuestionJump.css";
 
@@ -29,7 +29,12 @@ const QuestionJump = ({ defaultValue = 0, onSubmit, visibility }: Props) => {
   return (
     <div className="questionJump">
       <form onSubmit={handleSubmit}>
-        <input type="text" value={pageNum} onChange={handleChange} />
+        <input
+          type="number"
+          value={pageNum}
+          onChange={handleChange}
+          autoFocus
+        />
       </form>
     </div>
   );
