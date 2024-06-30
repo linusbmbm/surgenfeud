@@ -13,6 +13,7 @@ import PointsCard from "../../components/PointsCard/PointsCard";
 import QuestionCard from "../../components/QuestionCard/QuestionCard";
 import AnswerCard from "../../components/AnswerCard/AnswerCard";
 import TeamName from "../../components/TeamName/TeamName";
+import PointsFillCard from "../../components/PointsFillCard/PointsFillCard";
 
 declare module "react" {
   interface CSSProperties {
@@ -20,13 +21,9 @@ declare module "react" {
     "--team1-color-red"?: number;
     "--team1-color-green"?: number;
     "--team1-color-blue"?: number;
-    "--team1-points-percent"?: number;
-    "--team1-points-percent-gradient"?: number;
     "--team2-color-red"?: number;
     "--team2-color-green"?: number;
     "--team2-color-blue"?: number;
-    "--team2-points-percent"?: number;
-    "--team2-points-percent-gradient"?: number;
   }
 }
 
@@ -39,15 +36,9 @@ const Game = () => {
   const [team1Color, setTeam1Color] = useState<[number, number, number]>([
     255, 255, 255,
   ]);
-  const [team1PointsPercent, setTeam1PointsPercent] = useState<number>(0);
-  const [team1PointsPercentGradient, setTeam1PointsPercentGradient] =
-    useState<number>(0);
   const [team2Color, setTeam2Color] = useState<[number, number, number]>([
     255, 255, 255,
   ]);
-  const [team2PointsPercent, setTeam2PointsPercent] = useState<number>(0);
-  const [team2PointsPercentGradient, setTeam2PointsPercentGradient] =
-    useState<number>(0);
 
   const numAnswers: number = 10;
 
@@ -93,6 +84,7 @@ const Game = () => {
     ]
   );
 
+  const [roundPoints, setRoundPoints] = useState<number>(0);
   const [roundEnd, setRoundEnd] = useState<boolean>(false);
 
   //Functions
@@ -117,6 +109,7 @@ const Game = () => {
     });
     setVisibilityQuestion(false);
     setWrongNum(0);
+    setRoundPoints(0);
     setRoundEnd(false);
   };
 
@@ -156,16 +149,6 @@ const Game = () => {
         return updatedPointsNow;
       }
     });
-    setTeam1PointsPercent(Math.min(pointsTeam1 / 2, 100));
-    setTeam1PointsPercentGradient(
-      Math.min(pointsTeam1 / 2, 100) +
-        (pointsTeam1 >= 200 || pointsTeam1 === 0 ? 0 : 5)
-    );
-    setTeam2PointsPercent(Math.min(pointsTeam2 / 2, 100));
-    setTeam2PointsPercentGradient(
-      Math.min(pointsTeam2 / 2, 100) +
-        (pointsTeam2 >= 200 || pointsTeam2 === 0 ? 0 : 5)
-    );
   }, [answers, visibilityAnswers, roundEnd]);
 
   KeypressHook(() => {
@@ -245,13 +228,29 @@ const Game = () => {
   });
 
   KeypressHook(() => {
-    setPointsTeam1((prevPoints) => prevPoints + pointsNow);
-    setRoundEnd(true);
+    if (!roundEnd) {
+      setPointsTeam1((prevPoints) => prevPoints + pointsNow);
+      setRoundPoints(pointsNow);
+      setRoundEnd(true);
+    } else {
+      setRoundEnd(false);
+      setPointsTeam1((prevPoints) => prevPoints - roundPoints);
+      setPointsNow(roundPoints);
+      setRoundPoints(0);
+    }
   }, "ArrowLeft");
 
   KeypressHook(() => {
-    setPointsTeam2((prevPoints) => prevPoints + pointsNow);
-    setRoundEnd(true);
+    if (!roundEnd) {
+      setPointsTeam2((prevPoints) => prevPoints + pointsNow);
+      setRoundPoints(pointsNow);
+      setRoundEnd(true);
+    } else {
+      setRoundEnd(false);
+      setPointsTeam2((prevPoints) => prevPoints - roundPoints);
+      setPointsNow(roundPoints);
+      setRoundPoints(0);
+    }
   }, "ArrowRight");
 
   KeypressHook(() => {
@@ -293,25 +292,21 @@ const Game = () => {
             "--team1-color-red": team1Color[0],
             "--team1-color-green": team1Color[1],
             "--team1-color-blue": team1Color[2],
-            "--team1-points-percent": team1PointsPercent,
-            "--team1-points-percent-gradient": team1PointsPercentGradient,
             "--team2-color-red": team2Color[0],
             "--team2-color-green": team2Color[1],
             "--team2-color-blue": team2Color[2],
-            "--team2-points-percent": team2PointsPercent,
-            "--team2-points-percent-gradient": team2PointsPercentGradient,
           }}
         >
-          <div className="game-element pointsTeam1">
-            <PointsCard points={pointsTeam1} />
+          <div className="pointsTeam1">
+            <PointsFillCard points={pointsTeam1} color={team1Color} />
           </div>
 
           <div className="game-element pointsNow">
             <PointsCard points={pointsNow} />
           </div>
 
-          <div className="game-element pointsTeam2">
-            <PointsCard points={pointsTeam2} />
+          <div className="pointsTeam2">
+            <PointsFillCard points={pointsTeam2} color={team2Color} />
           </div>
 
           <div className="game-element question">

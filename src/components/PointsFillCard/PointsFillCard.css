@@ -1,0 +1,52 @@
+@property --points {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --points-percent {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --points-percent-gradient {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes counter {
+  from {
+    --points: var(--points-before);
+    --points-percent: var(--points-before-percent);
+    --points-percent-gradient: var(--points-before-percent-gradient);
+  }
+  to {
+    --points: var(--points-after);
+    --points-percent: var(--points-after-percent);
+    --points-percent-gradient: var(--points-after-percent-gradient);
+  }
+}
+
+.points-fill-card-number {
+  height: 100%;
+  text-align: center;
+  align-content: center;
+  background: linear-gradient(
+    to top,
+    rgb(var(--fill-color-red), var(--fill-color-green), var(--fill-color-blue))
+      calc(var(--points-percent) * 1%),
+    var(--dulle-color) calc(var(--points-percent-gradient) * 1%)
+  );
+  border: 2px solid
+    rgb(var(--fill-color-red), var(--fill-color-green), var(--fill-color-blue));
+  border-radius: 20px;
+  font-size: 64px;
+  animation: counter var(--counter-duration) ease-in-out forwards;
+  counter-reset: points var(--points);
+}
+
+.points-fill-card-number::after {
+  content: counter(points);
+}

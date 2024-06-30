@@ -1,6 +1,27 @@
-.pointsCard {
+@property --points {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes counter {
+  from {
+    --points: var(--points-before);
+  }
+  to {
+    --points: var(--points-after);
+  }
+}
+
+.points-card {
   height: 100%;
   text-align: center;
   align-content: center;
   font-size: 64px;
+  animation: counter var(--counter-duration) ease-in-out forwards;
+  counter-reset: points var(--points);
+}
+
+.points-card::after {
+  content: counter(points);
 }

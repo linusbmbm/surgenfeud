@@ -11,12 +11,12 @@
   border: var(--dulle-color) 2px solid;
   border-radius: 20px;
   display: grid;
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: 4fr repeat(2, 1fr);
   grid-template-rows: 3fr 3fr 8fr;
   grid-template-areas:
-    "finals-shots-total  finals-points"
-    "finals-shots-person finals-shots-rest"
-    "finals-answers      finals-answers";
+    "finals-shots-total  finals-shots-total finals-points"
+    "finals-shots-person finals-shots-rest  finals-shots-rest"
+    "finals-answers      finals-answers     finals-answers";
   grid-gap: 20px;
 }
 

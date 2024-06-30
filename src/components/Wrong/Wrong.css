@@ -1,5 +1,5 @@
 .wrong {
-  --wrong-color: rgb(87, 15, 22);
+  --wrong-color: red;
   font-size: 256px;
   text-align: center;
   justify-content: center;

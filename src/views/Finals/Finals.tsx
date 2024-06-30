@@ -157,14 +157,12 @@ function Finals() {
     navigate(`/${roundNum + 5}`);
   }, "f");
 
-  console.log(answerNums);
-
   return (
     <>
       <div
         className="finals"
         style={{
-          background: `radial-gradient(circle 130vh at 50% 20%, rgba(${finalsBackground}, 0.3), transparent)`,
+          background: `radial-gradient(circle 130vh at 50% 20%, rgba(${finalsBackground}, 0.8), transparent)`,
         }}
       >
         <QuestionJump

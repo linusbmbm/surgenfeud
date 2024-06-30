@@ -73,22 +73,6 @@
 
 .pointsTeam1 {
   grid-area: pointsTeam1;
-  background: linear-gradient(
-    to top,
-    rgb(
-        var(--team1-color-red),
-        var(--team1-color-green),
-        var(--team1-color-blue)
-      )
-      calc(var(--team1-points-percent) * 1%),
-    var(--dulle-color) calc(var(--team1-points-percent-gradient) * 1%)
-  );
-  border: 2px solid
-    rgb(
-      var(--team1-color-red),
-      var(--team1-color-green),
-      var(--team1-color-blue)
-    );
 }
 
 .pointsNow {
@@ -97,22 +81,6 @@
 
 .pointsTeam2 {
   grid-area: pointsTeam2;
-  background: linear-gradient(
-    to top,
-    rgb(
-        var(--team2-color-red),
-        var(--team2-color-green),
-        var(--team2-color-blue)
-      )
-      calc(var(--team2-points-percent) * 1%),
-    var(--dulle-color) calc(var(--team2-points-percent-gradient) * 1%)
-  );
-  border: 2px solid
-    rgb(
-      var(--team2-color-red),
-      var(--team2-color-green),
-      var(--team2-color-blue)
-    );
 }
 
 .question {
