@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   row-gap: 20px;
-  cursor: pointer;
+  cursor: default;
 }
 
 .game-name {
@@ -204,7 +204,6 @@
     transform: translateY(-200px);
   }
 }
-
 
 @keyframes iconGrowRotate {
   30%,

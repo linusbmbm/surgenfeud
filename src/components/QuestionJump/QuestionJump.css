@@ -1,11 +1,12 @@
-.questionJump {
+.question-jump {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, 0%);
+  z-index: 3;
 }
 
-.questionJump input {
+.question-jump input {
   background-color: black;
   border: 1px white solid;
   color: white;
@@ -23,6 +24,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.questionJump input:focus {
+.question-jump input:focus {
   outline: none;
 }

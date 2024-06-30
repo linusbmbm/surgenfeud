@@ -9,6 +9,7 @@ form {
   display: flex;
   flex-direction: column;
   row-gap: 50px;
+  z-index: 2;
 
   .team-colors {
     display: flex;

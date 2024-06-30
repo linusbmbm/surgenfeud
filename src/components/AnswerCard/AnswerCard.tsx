@@ -15,20 +15,6 @@ interface Props {
 }
 
 const AnswerCard = ({ answer, visibility }: Props) => {
-  if (visibility === "false" || answer.every((element) => element === "")) {
-    return <div className="answer" />;
-  }
-
-  if (visibility === "number") {
-    return (
-      <div className="answer-number">
-        <span style={{ "--animation-delay": Number(answer[0]) }}>
-          {answer[0]}
-        </span>
-      </div>
-    );
-  }
-
   const [answerText, setAnswerText] = useState(answer[1]);
   const [answerValue, setAnswerValue] = useState(answer[2]);
   const [animationCorrectOrIncorrect, setAnimationCorrectOrIncorrect] =
@@ -47,7 +33,21 @@ const AnswerCard = ({ answer, visibility }: Props) => {
       setTimeout(() => setAnswerText("???"), 500);
       setTimeout(() => setAnswerValue("?"), 500);
     }
-  }, [visibility]);
+  }, [answer, visibility]);
+
+  if (visibility === "false" || answer.every((element) => element === "")) {
+    return <div className="answer" />;
+  }
+
+  if (visibility === "number") {
+    return (
+      <div className="answer-number">
+        <span style={{ "--animation-delay": Number(answer[0]) }}>
+          {answer[0]}
+        </span>
+      </div>
+    );
+  }
 
   if (visibility === "hidden") {
     return (

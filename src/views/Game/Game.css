@@ -4,6 +4,10 @@
   padding: 3%;
 }
 
+.wrongs {
+  z-index: 1;
+}
+
 .roundNum {
   position: absolute;
 }

@@ -3,14 +3,19 @@ import "./Preview.css";
 import { useNavigate } from "react-router-dom";
 import LogoImage from "../../images/Logo.png";
 import PearImage from "../../images/Pear.png";
+import KeypressHook from "../../hooks/KeypressHook";
 
 const Preview = () => {
   const navigate = useNavigate();
   const firstWord: string[] = ["S", "U", "R", "G", "E", "N"];
   const secondWord: string[] = ["F", "E", "U", "D"];
 
+  KeypressHook(() => {
+    navigate("/game/0");
+  }, "Enter");
+
   return (
-    <div className="preview" onClick={() => navigate("/0")}>
+    <div className="preview">
       <div className="game-name">
         <div className="game-name-text">
           <div className="game-name-text-first-word">

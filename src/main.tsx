@@ -11,11 +11,11 @@ const router = createBrowserRouter([
     element: <Preview />,
   },
   {
-    path: "/:id",
+    path: "/game/:id",
     element: <Game />,
   },
   {
-    path: "/finals/:id/:finalsColor?",
+    path: "/finals/:id/",
     element: <Finals />,
   },
 ]);

@@ -1,7 +1,12 @@
 import "../../../styles.css";
 import "./Finals.css";
 import React, { useEffect, useState } from "react";
-import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
+import {
+  NavigateFunction,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import datajson from "../../data/data.json";
 import Interface_Round from "../../types/Interface_Round";
 import Type_Answer from "../../types/Type_Answer";
@@ -15,10 +20,12 @@ import Type_Visibility from "../../types/Type_Visibility";
 function Finals() {
   //Variables
   const navigate: NavigateFunction = useNavigate();
-  const { id, finalsColor } = useParams();
+  const { id } = useParams();
   const roundNum: number = id ? Number(id) : 0;
-  const finalsBackground: number[] = finalsColor
-    ? finalsColor.split(",").map(Number)
+
+  const location = useLocation();
+  const finalsColor: number[] = location.state.winnerColor
+    ? location.state.winnerColor
     : [255, 255, 255];
 
   const quiz: Interface_Round[] = datajson;
@@ -154,7 +161,7 @@ function Finals() {
   }, "y");
 
   KeypressHook(() => {
-    navigate(`/${roundNum + 5}`);
+    navigate(`/game/${roundNum + 5}`);
   }, "f");
 
   return (
@@ -162,7 +169,7 @@ function Finals() {
       <div
         className="finals"
         style={{
-          background: `radial-gradient(circle 130vh at 50% 20%, rgba(${finalsBackground}, 0.8), transparent)`,
+          background: `radial-gradient(circle 130vh at 50% 20%, rgba(${finalsColor}, 0.8), transparent)`,
         }}
       >
         <QuestionJump

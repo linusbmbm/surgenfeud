@@ -1,11 +1,11 @@
 .wrong {
-  --wrong-color: red;
-  font-size: 256px;
-  text-align: center;
+  height: 350px;
+  width: 350px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  line-height: 300px;
-  padding-left: 50px;
-  padding-right: 50px;
-  color: var(--wrong-color);
-  border: 10px var(--wrong-color) solid;
+  font-size: 256px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
 }

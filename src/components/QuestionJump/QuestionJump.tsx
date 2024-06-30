@@ -23,11 +23,11 @@ const QuestionJump = ({ defaultValue = 0, onSubmit, visibility }: Props) => {
   };
 
   if (!visibility) {
-    return <></>;
+    return null;
   }
 
   return (
-    <div className="questionJump">
+    <div className="question-jump">
       <form onSubmit={handleSubmit}>
         <input
           type="number"

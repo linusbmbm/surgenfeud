@@ -115,7 +115,7 @@ const Game = () => {
 
   const changeRound = (newRoundNum: number): void => {
     nextRound();
-    navigate(`/${newRoundNum}`);
+    navigate(`/game/${newRoundNum}`);
     setVisibilityQuestionJump(false);
   };
 
@@ -255,25 +255,25 @@ const Game = () => {
 
   KeypressHook(() => {
     nextRound();
-    navigate(`/${roundNum + 1}`);
+    navigate(`/game/${roundNum + 1}`);
   }, "Enter");
 
   KeypressHook(() => {
     const winnerColor: [number, number, number] =
       pointsTeam1 > pointsTeam2 ? team1Color : team2Color;
-    navigate(`/finals/${roundNum}/${winnerColor}`);
+    navigate(`/finals/${roundNum}`, { state: { winnerColor } });
   }, "f");
 
   return (
     <>
       <div className="game">
-        <TeamName onSubmit={changeTeamName} visibility={visibilityTeamColors} />
-
         <QuestionJump
           defaultValue={roundNum}
           onSubmit={changeRound}
           visibility={visibilityQuestionJump}
         />
+
+        <TeamName onSubmit={changeTeamName} visibility={visibilityTeamColors} />
 
         <div className="wrongs">
           {Array.from({ length: wrongNum }).map((_, mapIndex) => (
