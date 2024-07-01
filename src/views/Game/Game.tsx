@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
 import datajson from "../../data/data.json";
 import Interface_Round from "../../types/Interface_Round";
-import Type_Visibility from "../../types/Type_Visibility";
 import Type_Answer from "../../types/Type_Answer";
 import KeypressHook from "../../hooks/KeypressHook";
 import QuestionJump from "../../components/QuestionJump/QuestionJump";
@@ -14,6 +13,7 @@ import QuestionCard from "../../components/QuestionCard/QuestionCard";
 import AnswerCard from "../../components/AnswerCard/AnswerCard";
 import TeamName from "../../components/TeamName/TeamName";
 import PointsFillCard from "../../components/PointsFillCard/PointsFillCard";
+import AnswerVisibility from "../../types/Enum_AnswerVisibility";
 
 declare module "react" {
   interface CSSProperties {
@@ -69,20 +69,20 @@ const Game = () => {
     useState<boolean>(false);
   const [visibilityWrong, setVisibilityWrong] = useState<boolean>(false);
   const [visibilityQuestion, setVisibilityQuestion] = useState<boolean>(false);
-  const [visibilityAnswers, setVisibilityAnswers] = useState<Type_Visibility[]>(
-    [
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-    ]
-  );
+  const [visibilityAnswers, setVisibilityAnswers] = useState<
+    AnswerVisibility[]
+  >([
+    AnswerVisibility.false,
+    AnswerVisibility.false,
+    AnswerVisibility.false,
+    AnswerVisibility.false,
+    AnswerVisibility.false,
+    AnswerVisibility.false,
+    AnswerVisibility.false,
+    AnswerVisibility.false,
+    AnswerVisibility.false,
+    AnswerVisibility.false,
+  ]);
 
   const [roundPoints, setRoundPoints] = useState<number>(0);
   const [roundEnd, setRoundEnd] = useState<boolean>(false);
@@ -99,11 +99,11 @@ const Game = () => {
 
   const nextRound = (): void => {
     setVisibilityAnswers((prevVisibilityAnswers) => {
-      const updatedVisibilityAnswers: Type_Visibility[] = [
+      const updatedVisibilityAnswers: AnswerVisibility[] = [
         ...prevVisibilityAnswers,
       ];
       updatedVisibilityAnswers.map((_, mapIndex) => {
-        updatedVisibilityAnswers[mapIndex] = "false";
+        updatedVisibilityAnswers[mapIndex] = AnswerVisibility.false;
       });
       return updatedVisibilityAnswers;
     });
@@ -142,7 +142,7 @@ const Game = () => {
       } else {
         let updatedPointsNow: number = 0;
         visibilityAnswers.map((visibilityAnswer, index) => {
-          if (visibilityAnswer === "true") {
+          if (visibilityAnswer === AnswerVisibility.true) {
             updatedPointsNow += Number(answers[index][2]);
           }
         });
@@ -169,25 +169,25 @@ const Game = () => {
     if (!roundEnd) {
       if (
         visibilityAnswers.every(
-          (visibilityAnswer) => visibilityAnswer === "number"
+          (visibilityAnswer) => visibilityAnswer === AnswerVisibility.number
         )
       ) {
         visibilityAnswers.map((_, mapIndex) => {
           setVisibilityAnswers((prevVisibilityAnswers) => {
-            const updatedVisibilityAnswers: Type_Visibility[] = [
+            const updatedVisibilityAnswers: AnswerVisibility[] = [
               ...prevVisibilityAnswers,
             ];
-            updatedVisibilityAnswers[mapIndex] = "false";
+            updatedVisibilityAnswers[mapIndex] = AnswerVisibility.false;
             return updatedVisibilityAnswers;
           });
         });
       } else {
         visibilityAnswers.map((_, mapIndex) => {
           setVisibilityAnswers((prevVisibilityAnswers) => {
-            const updatedVisibilityAnswers: Type_Visibility[] = [
+            const updatedVisibilityAnswers: AnswerVisibility[] = [
               ...prevVisibilityAnswers,
             ];
-            updatedVisibilityAnswers[mapIndex] = "number";
+            updatedVisibilityAnswers[mapIndex] = AnswerVisibility.number;
             return updatedVisibilityAnswers;
           });
         });
@@ -206,20 +206,20 @@ const Game = () => {
 
     KeypressHook(() => {
       if (!visibilityQuestionJump && roundNow.answers[index] !== undefined) {
-        if (visibilityAnswers[index] !== "true") {
+        if (visibilityAnswers[index] !== AnswerVisibility.true) {
           setVisibilityAnswers((prevVisibilityAnswers) => {
-            const updatedVisibilityAnswers: Type_Visibility[] = [
+            const updatedVisibilityAnswers: AnswerVisibility[] = [
               ...prevVisibilityAnswers,
             ];
-            updatedVisibilityAnswers[index] = "true";
+            updatedVisibilityAnswers[index] = AnswerVisibility.true;
             return updatedVisibilityAnswers;
           });
         } else {
           setVisibilityAnswers((prevVisibilityAnswers) => {
-            const updatedVisibilityAnswers: Type_Visibility[] = [
+            const updatedVisibilityAnswers: AnswerVisibility[] = [
               ...prevVisibilityAnswers,
             ];
-            updatedVisibilityAnswers[index] = "number";
+            updatedVisibilityAnswers[index] = AnswerVisibility.number;
             return updatedVisibilityAnswers;
           });
         }

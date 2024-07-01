@@ -15,7 +15,8 @@ import QuestionJump from "../../components/QuestionJump/QuestionJump";
 import ShotsCard from "../../components/ShotsCard/ShotsCard";
 import AnswerCard from "../../components/AnswerCard/AnswerCard";
 import PointsCard from "../../components/PointsCard/PointsCard";
-import Type_Visibility from "../../types/Type_Visibility";
+import AnswerVisibility from "../../types/Enum_AnswerVisibility";
+import ShotType from "../../types/Enum_ShotType";
 
 function Finals() {
   //Variables
@@ -50,7 +51,7 @@ function Finals() {
   const [visibilityQuestionJump, setVisibilityQuestionJump] =
     useState<boolean>(false);
   const [visibilityAnswersLeft, setVisibilityAnswersLeft] =
-    useState<Type_Visibility>("true");
+    useState<AnswerVisibility>(AnswerVisibility.true);
 
   const [pointsTotal, setPointsTotal] = useState<number>(0);
 
@@ -153,10 +154,10 @@ function Finals() {
   }, "-");
 
   KeypressHook(() => {
-    if (visibilityAnswersLeft === "true") {
-      setVisibilityAnswersLeft("hidden");
+    if (visibilityAnswersLeft === AnswerVisibility.true) {
+      setVisibilityAnswersLeft(AnswerVisibility.hidden);
     } else {
-      setVisibilityAnswersLeft("true");
+      setVisibilityAnswersLeft(AnswerVisibility.true);
     }
   }, "y");
 
@@ -194,23 +195,29 @@ function Finals() {
                 <AnswerCard
                   key={`2.${index}`}
                   answer={fixAnswer(answerNums[index + 5], round)}
-                  visibility={"true"}
+                  visibility={AnswerVisibility.true}
                 />
               </React.Fragment>
             ))}
           </div>
 
           <div className="finals-element finals-shots-total">
-            <ShotsCard num={Math.ceil(pointsTotal / 15)} type="total" />
+            <ShotsCard
+              num={Math.ceil(pointsTotal / 15)}
+              type={ShotType.total}
+            />
           </div>
           <div className="finals-element finals-shots-person">
             <ShotsCard
               num={Math.floor(Math.ceil(pointsTotal / 15) / 3)}
-              type="person"
+              type={ShotType.person}
             />
           </div>
           <div className="finals-element finals-shots-rest">
-            <ShotsCard num={Math.ceil(pointsTotal / 15) % 3} type="rest" />
+            <ShotsCard
+              num={Math.ceil(pointsTotal / 15) % 3}
+              type={ShotType.rest}
+            />
           </div>
         </div>
       </div>

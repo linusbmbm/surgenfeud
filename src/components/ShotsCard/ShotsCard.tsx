@@ -3,9 +3,10 @@ import shotImage from "../../images/Shot.png";
 import drinkingPersonImage from "../../images/DrinkingPerson.png";
 import BlessLeftImage from "../../images/BlessLeft.png";
 import BlessRightImage from "../../images/BlessRight.png";
+import ShotType from "../../types/Enum_ShotType";
 
 interface Props {
-  type: "total" | "person" | "rest";
+  type: ShotType;
   num: number;
 }
 
@@ -23,13 +24,15 @@ const PointsTextCard = ({ type, num }: Props) => {
 
   return (
     <div className="shots-card">
-      {type === "person" ? (
+      {type === ShotType.person ? (
         <img src={drinkingPersonImage} height="70px" />
-      ) : type === "rest" ? (
+      ) : type === ShotType.rest ? (
         <img src={BlessLeftImage} height="70px" />
       ) : null}
       {shots}
-      {type === "rest" ? <img src={BlessRightImage} height="70px" /> : null}
+      {type === ShotType.rest ? (
+        <img src={BlessRightImage} height="70px" />
+      ) : null}
     </div>
   );
 };

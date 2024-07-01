@@ -1,7 +1,7 @@
 import "./AnswerCard.css";
 import Type_Answer from "../../types/Type_Answer";
-import Type_Visibility from "../../types/Type_Visibility";
 import { useState, useEffect } from "react";
+import AnswerVisibility from "../../types/Enum_AnswerVisibility";
 
 declare module "react" {
   interface CSSProperties {
@@ -11,7 +11,7 @@ declare module "react" {
 
 interface Props {
   answer: Type_Answer;
-  visibility: Type_Visibility;
+  visibility: AnswerVisibility;
 }
 
 const AnswerCard = ({ answer, visibility }: Props) => {
@@ -22,12 +22,12 @@ const AnswerCard = ({ answer, visibility }: Props) => {
   const [animationHide, setAnimationHide] = useState(false);
 
   useEffect(() => {
-    if (visibility === "true") {
+    if (visibility === AnswerVisibility.true) {
       setAnswerText(answer[1]);
       setAnswerValue(answer[2]);
       setAnimationCorrectOrIncorrect(true);
       setTimeout(() => setAnimationCorrectOrIncorrect(false), 700);
-    } else if (visibility === "hidden") {
+    } else if (visibility === AnswerVisibility.hidden) {
       setAnimationHide(true);
       setTimeout(() => setAnimationHide(false), 700);
       setTimeout(() => setAnswerText("???"), 500);
@@ -35,11 +35,14 @@ const AnswerCard = ({ answer, visibility }: Props) => {
     }
   }, [answer, visibility]);
 
-  if (visibility === "false" || answer.every((element) => element === "")) {
+  if (
+    visibility === AnswerVisibility.false ||
+    answer.every((element) => element === "")
+  ) {
     return <div className="answer" />;
   }
 
-  if (visibility === "number") {
+  if (visibility === AnswerVisibility.number) {
     return (
       <div className="answer-number">
         <span style={{ "--animation-delay": Number(answer[0]) }}>
@@ -49,7 +52,7 @@ const AnswerCard = ({ answer, visibility }: Props) => {
     );
   }
 
-  if (visibility === "hidden") {
+  if (visibility === AnswerVisibility.hidden) {
     return (
       <div className="answer">
         <div className={`answer-text ${animationHide ? "animationHide" : ""}`}>
@@ -62,7 +65,7 @@ const AnswerCard = ({ answer, visibility }: Props) => {
     );
   }
 
-  if (visibility === "true") {
+  if (visibility === AnswerVisibility.true) {
     return (
       <div
         className={`answer ${
