@@ -1,14 +1,13 @@
-import "./TeamName.css";
+import "./TeamColors.css";
 import React, { useState } from "react";
 import { CirclePicker } from "react-color";
-import KeypressHook from "../../hooks/KeypressHook";
 
 interface Props {
   onSubmit: (newTeam1Color: string, newTeam2Color: string) => void;
   visibility: boolean;
 }
 
-const TeamName = ({ onSubmit, visibility }: Props) => {
+const TeamColors = ({ onSubmit, visibility }: Props) => {
   const [newTeam1Color, setNewTeam1Color] = useState<string>("");
   const [newTeam2Color, setNewTeam2Color] = useState<string>("");
 
@@ -34,12 +33,14 @@ const TeamName = ({ onSubmit, visibility }: Props) => {
       <div className="team-colors">
         <div className="team1-color">
           <CirclePicker
+            circleSize={50}
             color={newTeam1Color}
             onChangeComplete={handleChangeCompleteTeam1Color}
           />
         </div>
         <div className="team2-color">
           <CirclePicker
+            circleSize={50}
             color={newTeam2Color}
             onChangeComplete={handleChangeCompleteTeam2Color}
           />
@@ -50,4 +51,4 @@ const TeamName = ({ onSubmit, visibility }: Props) => {
   );
 };
 
-export default TeamName;
+export default TeamColors;

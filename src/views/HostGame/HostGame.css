@@ -1,0 +1,68 @@
+.host-game {
+  height: 88%;
+  padding: 3%;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr) 4fr;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "points-left-team  points-left-team   points-now         points-now    points-right-team points-right-team"
+    "set-team-color    show-answer-number show-answer-number show-wrongs   show-wrongs       go-to-finals"
+    "previous-question show-question      show-question      show-question show-question     next-question"
+    "answers           answers            answers            answers       answers           answers";
+  grid-gap: 20px;
+
+  input {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.points-left-team {
+  grid-area: points-left-team;
+}
+
+.points-now {
+  grid-area: points-now;
+}
+
+.points-right-team {
+  grid-area: points-right-team;
+}
+
+.set-team-color {
+  grid-area: set-team-color;
+}
+
+.show-answer-number {
+  grid-area: show-answer-number;
+}
+
+.show-wrongs {
+  grid-area: show-wrongs;
+}
+
+.go-to-finals {
+  grid-area: go-to-finals;
+}
+
+.previous-question {
+  grid-area: previous-question;
+}
+
+.show-question {
+  grid-area: show-question;
+}
+
+.next-question {
+  grid-area: next-question;
+}
+
+.answers {
+  grid-area: answers;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-auto-flow: column;
+  padding: 20px;
+  grid-gap: 15px;
+}

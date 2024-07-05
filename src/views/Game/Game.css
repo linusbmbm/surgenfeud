@@ -29,15 +29,15 @@
   border-image: linear-gradient(
       to right,
       rgba(
-        var(--team1-color-red),
-        var(--team1-color-green),
-        var(--team1-color-blue),
+        var(--teamLeft-color-red),
+        var(--teamLeft-color-green),
+        var(--teamLeft-color-blue),
         0.3
       ),
       rgba(
-        var(--team2-color-red),
-        var(--team2-color-green),
-        var(--team2-color-blue),
+        var(--teamRight-color-red),
+        var(--teamRight-color-green),
+        var(--teamRight-color-blue),
         0.3
       )
     )
@@ -46,9 +46,9 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 2fr 1fr 4fr;
   grid-template-areas:
-    "pointsTeam1 pointsNow pointsTeam2"
-    "question    question  question"
-    "answers     answers   answers";
+    "pointsTeamLeft pointsNow pointsTeamRight"
+    "question       question  question"
+    "answers        answers   answers";
   grid-gap: 20px;
 }
 
@@ -57,15 +57,15 @@
   background: linear-gradient(
     to right,
     rgba(
-      var(--team1-color-red),
-      var(--team1-color-green),
-      var(--team1-color-blue),
+      var(--teamLeft-color-red),
+      var(--teamLeft-color-green),
+      var(--teamLeft-color-blue),
       var(--team-color-alpha)
     ),
     rgba(
-      var(--team2-color-red),
-      var(--team2-color-green),
-      var(--team2-color-blue),
+      var(--teamRight-color-red),
+      var(--teamRight-color-green),
+      var(--teamRight-color-blue),
       var(--team-color-alpha)
     )
   );
@@ -75,16 +75,16 @@
   overflow: hidden;
 }
 
-.pointsTeam1 {
-  grid-area: pointsTeam1;
+.pointsTeamLeft {
+  grid-area: pointsTeamLeft;
 }
 
 .pointsNow {
   grid-area: pointsNow;
 }
 
-.pointsTeam2 {
-  grid-area: pointsTeam2;
+.pointsTeamRight {
+  grid-area: pointsTeamRight;
 }
 
 .question {

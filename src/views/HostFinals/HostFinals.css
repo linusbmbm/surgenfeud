@@ -1,0 +1,70 @@
+.host-finals {
+  height: 88%;
+  padding: 3%;
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr 2fr;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-areas:
+    "finals-points        finals-points        shots-total          shots-total          shots-person         shots-person         shots-rest            shots-rest"
+    "finals-answers-given finals-answers-given finals-answers-given finals-answers-given finals-answers-given finals-answers-given finals-answers-given  finals-answers-given"
+    "go-to-game           finals-question      finals-question      finals-question      finals-question      wrong-finals-answer  delete-finals-answer  hide-finals-answers"
+    "finals-answers       finals-answers       finals-answers       finals-answers       finals-answers       finals-answers       finals-answers        finals-answers";
+  grid-gap: 20px;
+
+  input {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.finals-points {
+  grid-area: finals-points;
+}
+
+.shots-total {
+  grid-area: shots-total;
+}
+
+.shots-person {
+  grid-area: shots-person;
+}
+
+.shots-rest {
+  grid-area: shots-rest;
+}
+
+.finals-answers-given {
+  grid-area: finals-answers-given;
+  display: flex;
+  justify-content: space-evenly;
+
+  .finals-answers-given-person {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+.go-to-game {
+  grid-area: go-to-game;
+}
+
+.finals-question {
+  grid-area: finals-question;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-finals-answer {
+  grid-area: delete-finals-answer;
+}
+
+.hide-finals-answers {
+  grid-area: hide-finals-answers;
+}
+
+.host-finals-answers {
+  grid-area: finals-answers;
+  display: flex;
+}

@@ -1,1227 +1,930 @@
-[
-  {
-    "question": "Nenne etwas vor dem du als Kind Angst hattest",
-    "answers": [
-      [1, "Dunkelheit", 30],
-      [2, "Schlangen", 15],
-      [3, "Gewitter", 11],
-      [4, "Spinnen", 9],
-      [5, "Höhen", 8],
-      [6, "Hunde", 3],
-      [7, "Tod", 3],
-      [8, "Fledermäuse", 2],
-      [9, "Feuer", 2],
-      [10, "Pferde", 2]
-    ]
-  },
-  {
-    "question": "Nenne ein erste Anzeichen einer Grippe",
-    "answers": [
-      [1, "laufende Nase", 39],
-      [2, "Niesen", 22],
-      [3, "trockener Hals", 15],
-      [4, "Kopfschmerzen", 5],
-      [5, "verstopfte Nase", 5],
-      [6, "wässernde Augen", 4],
-      [7, "Husten", 3],
-      [8, "Gliederschmerzen", 2],
-      [9, "Schüttelfrost", 2],
-      [10, "Fieber", 2]
-    ]
-  },
-  {
-    "question": "Wo sieht man viele Blumen?",
-    "answers": [
-      [1, "Blumenladen", 35],
-      [2, "Beerdigung", 28],
-      [3, "Garten", 13],
-      [4, "Hochzeit", 8],
-      [5, "Park", 5],
-      [6, "Kirche", 3],
-      [7, "Gewächshaus", 2],
-      [8, "Krankenzimmer", 2]
-    ]
-  },
-  {
-    "question": "Nenne jemanden, zu dem Kinder aufschauen, außer ihren Eltern",
-    "answers": [
-      [1, "Lehrer", 55],
-      [2, "Sportler", 11],
-      [3, "Großeltern", 11],
-      [4, "Geschwister", 7],
-      [5, "Polizist", 4],
-      [6, "Trainer", 3]
-    ]
-  },
-  {
-    "question": "Nenne eine Art von Netz",
-    "answers": [
-      [1, "Fischnetz", 54],
-      [2, "Haarnetz", 24],
-      [3, "Tennisnetz", 8],
-      [4, "Volleyballnetz", 4],
-      [5, "Basketballnetz", 3]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das du mehr als ein Mal verloren hast",
-    "answers": [
-      [1, "Schlüssel", 63],
-      [2, "Geld", 7],
-      [3, "Gewicht", 5],
-      [4, "Kontaktlinsen", 4],
-      [5, "Brille", 4],
-      [6, "Portemonnaie", 3],
-      [7, "Ohrring", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das du mit Äypten in Verbindung bringst",
-    "answers": [
-      [1, "Pyramiden", 77],
-      [2, "Sphinx", 7],
-      [3, "Kamele", 4],
-      [4, "Nil", 3],
-      [5, "Wüste", 3],
-      [6, "Cleopatra", 2],
-      [7, "Pharaoh", 2],
-      [8, "Mumie", 1]
-    ]
-  },
-  {
-    "question": "Nenne ein intelligentes Tier",
-    "answers": [
-      [1, "Hund", 29],
-      [2, "Affe", 21],
-      [3, "Delfin", 16],
-      [4, "Katze", 14],
-      [5, "Fuchs", 5],
-      [6, "Pferd", 4],
-      [7, "Papagei", 3]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das du tust, wenn du am Morgen mehr Zeit als erwartet hast",
-    "answers": [
-      [1, "Lesen", 53],
-      [2, "Schlafen", 10],
-      [3, "Essen", 9],
-      [4, "Sport machen", 8],
-      [5, "Fernseh schauen", 6],
-      [6, "Kaffee trinken", 5],
-      [7, "sauber machen", 3]
-    ]
-  },
-  {
-    "question": "Nenne ein äußeres Merkmal eines Marsmenschen",
-    "answers": [
-      [1, "grün", 45],
-      [2, "Antenne", 35],
-      [3, "große Augen", 3],
-      [4, "spitze Ohren", 3],
-      [5, "großer Kopf", 2],
-      [6, "Glatze", 2],
-      [7, "klein", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas von dir, das viel Geld kostet, damit es gut aussieht",
-    "answers": [
-      [1, "Auto", 35],
-      [2, "Haus", 33],
-      [3, "Haare", 15],
-      [4, "Körper", 5],
-      [5, "Kleidung", 2],
-      [6, "Garten", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, was du machst, um ein Baby zu unterhalten",
-    "answers": [
-      [1, "Singen", 34],
-      [2, "Grimassen ziehen", 23],
-      [3, "Spielen", 9],
-      [4, "Reden", 8],
-      [5, "Wiegen", 6],
-      [6, "Lustige Geräusche", 5],
-      [7, "Rassel schütteln", 4],
-      [8, "Hoppe Reiter", 3],
-      [9, "Kitzeln", 2],
-      [10, "Wo bin ich", 2]
-    ]
-  },
-  {
-    "question": "Nenne einen Beruf, der eher nach Spiel als nach Arbeit aussieht",
-    "answers": [
-      [1, "Sportler", 46],
-      [2, "Bademeister", 13],
-      [3, "Schauspieler", 10],
-      [4, "Moderator", 8],
-      [5, "Musiker", 3],
-      [6, "Klown", 2],
-      [7, "Sportlehrer", 2],
-      [8, "Trainer", 2],
-      [9, "Fremdenführer", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das du bei schlechtem Wetter nicht machst",
-    "answers": [
-      [1, "Gartenarbeit", 26],
-      [2, "Schwimmen", 24],
-      [3, "Spazieren", 14],
-      [4, "Grillen", 6],
-      [5, "Sonnen", 5],
-      [6, "Fahrrad", 4],
-      [7, "Picknick", 3],
-      [8, "Golf", 3]
-    ]
-  },
-  {
-    "question": "Nenne ein Essen, das du nicht mit den Fingern vergenussfertigen würdest",
-    "answers": [
-      [1, "Spaghetti", 34],
-      [2, "Suppe", 23],
-      [3, "Kartoffelbrei", 13],
-      [4, "Eis", 10],
-      [5, "Pudding", 8],
-      [6, "Erbsen", 4],
-      [7, "Steak", 2]
-    ]
-  },
-  {
-    "question": "Nenne den Ort, an dem die längsten Warteschlangen sind",
-    "answers": [
-      [1, "Freizeitpark", 23],
-      [2, "Supermarkt", 18],
-      [3, "Kino", 16],
-      [4, "Postbüro", 5],
-      [5, "Restaurant", 5],
-      [6, "Konzert", 4],
-      [7, "Stadion", 3],
-      [8, "Flughafen", 2]
-    ]
-  },
-  {
-    "question": "Nenne eine Eigenschaft von dir, warum du single bist",
-    "answers": [
-      [1, "Übergewichtig", 18],
-      [2, "keine Ausstrahlung", 17],
-      [3, "Faulheit", 10],
-      [4, "Glatze", 9],
-      [5, "Aussehen", 9],
-      [6, "Arbeitstier", 9],
-      [7, "Alter", 7]
-    ]
-  },
-  {
-    "question": "Nenne einen Gegenstand, den Leute aus dem Büro mit nach Hause schmuggeln",
-    "answers": [
-      [1, "Stift", 56],
-      [2, "Büroklammer", 14],
-      [3, "Papier", 11],
-      [4, "Umschläge", 10],
-      [5, "Stempel", 3],
-      [6, "Tesafilm", 3],
-      [7, "Gummibänder", 2],
-      [8, "Tacker", 1]
-    ]
-  },
-  {
-    "question": "Nenne etwas, wo Leute durchlinsen",
-    "answers": [
-      [1, "Schlüsselloch", 36],
-      [2, "Fenster", 14],
-      [3, "Türspion", 10],
-      [4, "Vorhang", 9],
-      [5, "Zaun", 9],
-      [6, "Türspalt", 6],
-      [7, "Umschlag", 3]
-    ]
-  },
-  {
-    "question": "Nenne einen Beruf, in dem die Menschen ein ausgeprägtes Ego haben",
-    "answers": [
-      [1, "Schauspieler", 30],
-      [2, "Anwalt", 23],
-      [3, "Wissenschaftler", 9],
-      [4, "Politiker", 8],
-      [5, "Sportler", 7],
-      [6, "Model", 6],
-      [7, "Broker", 4],
-      [8, "Polizist", 3],
-      [9, "Musiker", 2]
-    ]
-  },
-  {
-    "question": "Nenne einen berühmten Maler",
-    "answers": [
-      [1, "Pablo Picasso", 27],
-      [2, "Vincent Van Gogh", 20],
-      [3, "Leonardo Da Vinci", 19],
-      [4, "Michelangelo", 10],
-      [5, "Rembrandt Van Rijn", 9]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das du dir ersehnt und tatsächlich erhalten hast",
-    "answers": [
-      [1, "Auto", 17],
-      [2, "Geld", 12],
-      [3, "Baby", 9],
-      [4, "Schmuck", 6],
-      [5, "Job", 6],
-      [6, "Urlaub", 6],
-      [7, "Haus", 5],
-      [8, "Freunde", 4],
-      [9, "Gehaltserhöhung", 3]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das du in einem Restaurant vergessen könntest",
-    "answers": [
-      [1, "Handtasche", 27],
-      [2, "Jacke", 15],
-      [3, "Trinkgeld", 14],
-      [4, "Hut", 13],
-      [5, "Regenschirm", 11],
-      [6, "Schlüssel", 5],
-      [7, "Brille", 4],
-      [8, "eingepackte Reste", 3]
-    ]
-  },
-  {
-    "question": "Nenne etwas, wovon es bei dir Zuhause nie genug gibt",
-    "answers": [
-      [1, "Geld", 45],
-      [2, "Essen", 26],
-      [3, "Getränke", 4],
-      [4, "Zeit", 4],
-      [5, "Toilettenpapier", 4]
-    ]
-  },
-  {
-    "question": "Nenne einen US-Staat bestehend aus zwei Wörtern",
-    "answers": [
-      [1, "New York", 46],
-      [2, "North Carolina", 11],
-      [3, "Rhode Island", 9],
-      [4, "New Mexico", 8],
-      [5, "New Jersey", 6],
-      [6, "West Virginia", 6],
-      [7, "North Dakota", 5],
-      [8, "New Hampshire", 4],
-      [9, "South Dakota", 3],
-      [10, "South Carolina", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das du in einen Korb packst",
-    "answers": [
-      [1, "Blumen", 21],
-      [2, "Früchte", 20],
-      [3, "Kleidung", 18],
-      [4, "Eier", 13],
-      [5, "Brot", 9],
-      [6, "Müll", 4],
-      [7, "Mittagessen", 3],
-      [8, "Süßigkeiten", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das beim ersten Versuch schwierig ist",
-    "answers": [
-      [1, "Fahrrad fahren", 24],
-      [2, "Ski fahren", 21],
-      [3, "Auto fahren", 18],
-      [4, "Skaten", 7],
-      [5, "Schwimmen", 6]
-    ]
-  },
-  {
-    "question": "Nenne etwas, dem Frauen nur schwer widerstehen können",
-    "answers": [
-      [1, "Shopping", 27],
-      [2, "Süßigkeiten", 20],
-      [3, "Männer", 17],
-      [4, "Schmuck", 13],
-      [5, "Kleidung", 10],
-      [6, "Lästern", 2],
-      [7, "Geld", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das Bumm macht",
-    "answers": [
-      [1, "Kanone", 23],
-      [2, "Bombe", 22],
-      [3, "Feuerwerk", 18],
-      [4, "Donner", 13],
-      [5, "Dynamit", 6],
-      [6, "Ballon", 5],
-      [7, "Trommel", 4]
-    ]
-  },
-  {
-    "question": "Nenne ein Tier, das bekannt dafür ist Müll zu essen",
-    "answers": [
-      [1, "Waschbär", 31],
-      [2, "Ratte", 25],
-      [3, "Hund", 14],
-      [4, "Schwein", 13],
-      [5, "Bär", 13]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das du jeden Tag benutzt",
-    "answers": [
-      [1, "Zahnbürste", 41],
-      [2, "Seife", 10],
-      [3, "Auto", 8],
-      [4, "Telefon", 7],
-      [5, "Wasser", 5],
-      [6, "Badezimmer", 3],
-      [7, "Deo", 3],
-      [8, "Bürste", 3]
-    ]
-  },
-  {
-    "question": "Was ist das Erste, das du machst nachdem von einem Nickerchen aufwachst?",
-    "answers": [
-      [1, "aufs Klo gehen", 21],
-      [2, "Uhrzeit checken", 18],
-      [3, "recken und strecken", 15],
-      [4, "Gähnen", 9],
-      [5, "etwas trinken", 8],
-      [6, "Gesicht waschen", 8],
-      [7, "etwas essen", 4],
-      [8, "Haare bürsten", 3]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das Leuten ausgeht",
-    "answers": [
-      [1, "Milch", 26],
-      [2, "Geld", 22],
-      [3, "Benzin", 16],
-      [4, "Zucker", 11],
-      [5, "Toilettenpapier", 10],
-      [6, "Energie", 3],
-      [7, "Geduld", 3]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das Leute zum Schlafen bringt",
-    "answers": [
-      [1, "Medizin", 22],
-      [2, "lesen", 16],
-      [3, "Musik", 14],
-      [4, "Fernseher", 12],
-      [5, "warme Milch", 8],
-      [6, "Narkose", 5],
-      [7, "langweiliger Film", 5],
-      [8, "Vortrag", 4],
-      [9, "Gottesdienst", 4]
-    ]
-  },
-  {
-    "question": "Nenne etwas, wozu sich ein Mann zwingen muss, um es täglich zu tun",
-    "answers": [
-      [1, "Aufstehen", 31],
-      [2, "Rasieren", 16],
-      [3, "Arbeiten", 14],
-      [4, "Sport", 10],
-      [5, "sauber machen", 9],
-      [6, "Zähne putzen", 6]
-    ]
-  },
-  {
-    "question": "Nenne etwas, was eine Mutter immer wieder zu ihrem Kind sagt",
-    "answers": [
-      [1, "Nein!", 30],
-      [2, "Nicht!", 15],
-      [3, "Ich liebe dich!", 10],
-      [4, "Sei leise!", 8],
-      [5, "Räum Zimmer auf!", 7],
-      [6, "Nicht anfassen!", 7],
-      [7, "Putz deine Zähne!", 3],
-      [8, "Wasch deine Hände!", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas im Haus, das schwierig zu verschieben ist",
-    "answers": [
-      [1, "Kühlschrank", 42],
-      [2, "Klavier", 14],
-      [3, "Sofa", 12],
-      [4, "Bett", 9],
-      [5, "Schrank", 5],
-      [6, "Fernseher", 5],
-      [7, "Herd", 3]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das du gefroren kaufst",
-    "answers": [
-      [1, "Eis", 45],
-      [2, "Gemüse", 21],
-      [3, "Fertiggerichte", 16],
-      [4, "Pizza", 6],
-      [5, "Fisch", 5]
-    ]
-  },
-  {
-    "question": "Nenne einen Ort, an dem du nervöse Menschen siehst",
-    "answers": [
-      [1, "Zahnarzt", 34],
-      [2, "Krankenhaus", 20],
-      [3, "Arzt", 18],
-      [4, "Gericht", 8],
-      [5, "Steuerbüro", 6],
-      [6, "Hochzeit", 3],
-      [7, "Flughafen", 2],
-      [8, "Vorstellungsgespräch", 2]
-    ]
-  },
-  {
-    "question": "Nenne einen Adelstitel, außer König und Königin",
-    "answers": [
-      [1, "Prinz", 32],
-      [2, "Herzog", 23],
-      [3, "Prinzessin", 17],
-      [4, "Lord", 11],
-      [5, "Herzogin", 9],
-      [6, "Ser", 4],
-      [7, "Graf", 1],
-      [8, "Lady", 1]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das vorwärts einfach, aber rückwärts schwierig ist",
-    "answers": [
-      [1, "Gehen", 24],
-      [2, "Rennen", 19],
-      [3, "Fahren", 14],
-      [4, "Schreiben", 11],
-      [5, "Skaten", 10],
-      [6, "Fahrrad fahren", 9],
-      [7, "Sprechen", 4]
-    ]
-  },
-  {
-    "question": "Nenne etwas, was kleine Mädchen beim Spielen vorgeben zu sein",
-    "answers": [
-      [1, "Mutter", 51],
-      [2, "Prinzessin", 13],
-      [3, "Krankenschwester", 11],
-      [4, "Lehrerin", 8],
-      [5, "Braut", 7],
-      [6, "Schauspielerin", 4],
-      [7, "Ballerina", 3]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das du nachmittags mit in den Park nimmst",
-    "answers": [
-      [1, "Picknick", 36],
-      [2, "Decke", 21],
-      [3, "Buch", 17],
-      [4, "Musikbox", 8],
-      [5, "Frisbee", 4],
-      [6, "Sonnenbrille", 3],
-      [8, "Klappstuhl", 2]
-    ]
-  },
-  {
-    "question": "Nenne ein großes Tier mit einem kleinen Schwanz",
-    "answers": [
-      [1, "Elefant", 39],
-      [2, "Bär", 24],
-      [3, "Giraffe", 8],
-      [4, "Schwein", 7],
-      [5, "Nashorn", 5],
-      [6, "Nilpferd", 4],
-      [7, "Puma", 4],
-      [8, "Reh", 3],
-      [9, "Kamel", 2],
-      [10, "Elch", 2]
-    ]
-  },
-  {
-    "question": "Nenne das Erste, was morgens Geräusche macht, außer dein Wecker",
-    "answers": [
-      [1, "Kaffeemaschine", 25],
-      [2, "Vögel", 23],
-      [3, "Kinder", 19],
-      [4, "Radio", 13],
-      [5, "Fernseher", 6],
-      [6, "Dusche", 4],
-      [7, "Toilette", 3],
-      [8, "Ehepartner", 3],
-      [9, "Verkehr", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das leicht schmilzt",
-    "answers": [
-      [1, "Eis", 43],
-      [2, "Butter", 36],
-      [3, "Käse", 8],
-      [4, "Schokolade", 8],
-      [5, "Schnee", 3],
-      [6, "Wachs", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das auf jedem Kindergeburtstag passiert",
-    "answers": [
-      [1, "Kerzen auspusten", 25],
-      [2, "Kuchen essen", 19],
-      [3, "Geburtstagslied", 18],
-      [4, "Sauerei", 16],
-      [5, "Spiele", 13],
-      [6, "Geschenke öffnen", 5],
-      [7, "jemand weint", 3]
-    ]
-  },
-  {
-    "question": "Nenne Essen, das du in einem großen Topf kochst",
-    "answers": [
-      [1, "Nudeln", 28],
-      [2, "Suppe", 20],
-      [3, "Kartoffeln", 13],
-      [4, "Hähnchen", 7],
-      [5, "Maiskolben", 7],
-      [6, "Hummer", 6],
-      [7, "Eintopf", 5]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das für den Mund gemacht ist",
-    "answers": [
-      [1, "Zahnspange", 21],
-      [2, "Zahnbürste", 19],
-      [3, "Zahnersatz", 18],
-      [4, "Lippenstift", 17],
-      [5, "Zahnpasta", 11],
-      [6, "Mundspühlung", 6],
-      [7, "Zahnseide", 3]
-    ]
-  },
-  {
-    "question": "Nenne einen Beruf, bei dem man Herz-Lungen-Wiederbelebung beherrschen sollte",
-    "answers": [
-      [1, "Sanitäter", 24],
-      [2, "Krankenschwester", 20],
-      [3, "Feuerwehrmann", 16],
-      [4, "Krankenwagenfahrer", 12],
-      [5, "Rettungsschwimmer", 12],
-      [6, "Bauarbeiter", 3],
-      [7, "Polizist", 3]
-    ]
-  },
-  {
-    "question": "Nenne den Raum im Haus, der immer zu kalt ist",
-    "answers": [
-      [1, "Schlafzimmer", 34],
-      [2, "Badezimmer", 33],
-      [3, "Keller", 14],
-      [4, "Wohnzimmer", 8],
-      [5, "Esszimmer", 3],
-      [6, "Garage", 2]
-    ]
-  },
-  {
-    "question": "Was scheint das Wichtigste im Leben deines Ehemanns zu sein",
-    "answers": [
-      [1, "Beruf", 28],
-      [2, "Sport", 18],
-      [3, "Familie", 16],
-      [4, "Fernseher", 6],
-      [5, "Auto", 4],
-      [6, "Geld", 4],
-      [7, "Essen", 3]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das mit Schokolade überzogen ist, außer Süßigkeiten",
-    "answers": [
-      [1, "Kuchen", 23],
-      [2, "Eis", 20],
-      [3, "Kekse", 14],
-      [4, "Nüsse", 11],
-      [5, "Rosinen", 9],
-      [6, "Bretzeln", 7],
-      [7, "Kirschen", 5],
-      [8, "Donuts", 4]
-    ]
-  },
-  {
-    "question": "Nenne etwas mit Löchern drin",
-    "answers": [
-      [1, "Käse", 45],
-      [2, "Donut", 18],
-      [3, "Sieb", 9],
-      [4, "Socke", 6],
-      [5, "Bowlingball", 5],
-      [6, "Schwamm", 4],
-      [7, "Bagel", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das Leute in ihrer Hand tragen, wenn sie ein Flugzeug boarden",
-    "answers": [
-      [1, "Ticket", 49],
-      [2, "Handgepäck", 25],
-      [3, "Buch", 10],
-      [4, "Kamera", 5],
-      [5, "Handtasche", 5],
-      [6, "Kind", 3],
-      [7, "Jacke", 2]
-    ]
-  },
-  {
-    "question": "Nenne eine Arbeit im Haus, die Muskeln erfordert",
-    "answers": [
-      [1, "Möbel bewegen", 29],
-      [2, "Fußboden putzen", 23],
-      [3, "Staubsaugen", 10],
-      [4, "Ofen putzen", 9],
-      [5, "Müll rausbringen", 8],
-      [6, "Badewanne putzen", 5],
-      [7, "Fenster putzen", 5]
-    ]
-  },
-  {
-    "question": "Nenne ein knackiges Essen",
-    "answers": [
-      [1, "Chips", 41],
-      [2, "Sellerie", 15],
-      [3, "Möhre", 11],
-      [4, "Müsli", 10],
-      [5, "Popcorn", 5],
-      [6, "Apfel", 4],
-      [7, "Nuss", 3],
-      [8, "Kekse", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas mit einer hohen Lebenserwartung",
-    "answers": [
-      [1, "Schildkröte", 23],
-      [2, "Baum", 18],
-      [3, "Elefant", 12],
-      [4, "Batterie", 10],
-      [5, "Mensch", 6],
-      [6, "Kühlschrank", 5],
-      [7, "Auto", 4],
-      [8, "Katze", 4],
-      [9, "Haus", 4],
-      [10, "Hund", 4]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das du gerne schneller machen würdest",
-    "answers": [
-      [1, "Tippen", 22],
-      [2, "Arbeiten", 21],
-      [3, "Lesen", 16],
-      [4, "Rennen", 13],
-      [5, "Abnehmen", 9],
-      [6, "Gehen", 4],
-      [7, "Geld machen", 3],
-      [8, "Denken", 3],
-      [9, "Fahren", 2]
-    ]
-  },
-  {
-    "question": "Wenn du in Schokolade beißt, auf welche Füllung hoffst du",
-    "answers": [
-      [1, "Karamell", 47],
-      [2, "Nüsse", 17],
-      [3, "Schokolade", 7],
-      [4, "Kirsche", 7],
-      [5, "Kokusnuss", 6],
-      [6, "Vanille", 5],
-      [7, "Buttercreme", 4]
-    ]
-  },
-  {
-    "question": "Nenne eine Stadt, die dir in den Kopf kommt, wenn du an Spionfilme denkst",
-    "answers": [
-      [1, "London", 33],
-      [2, "Paris", 19],
-      [3, "New York", 12],
-      [4, "Moskau", 6],
-      [5, "Washington D.C.", 6],
-      [6, "Berlin", 5],
-      [7, "Rom", 3],
-      [8, "San Francisco", 3]
-    ]
-  },
-  {
-    "question": "Nenne einen romantischen Ort",
-    "answers": [
-      [1, "Strand", 35],
-      [2, "Rastaurant", 25],
-      [3, "Tropische Insel", 6],
-      [4, "Schiff", 5],
-      [5, "Park", 5],
-      [6, "Schlafzimmer", 4],
-      [7, "Kamin", 4]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das Leute von ihren Eltern genetisch erben können",
-    "answers": [
-      [1, "Augenfarbe", 39],
-      [2, "Haarfarbe", 33],
-      [3, "Größe", 5],
-      [4, "Nase", 4],
-      [5, "Herzprobleme", 3],
-      [6, "Haarausfall", 2],
-      [7, "Hautfarbe", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, wovon Kinder das Geräusch nachahmen",
-    "answers": [
-      [1, "Hund", 21],
-      [2, "Auto", 19],
-      [3, "Zug", 14],
-      [4, "Sirene", 13],
-      [5, "Kuh", 11],
-      [6, "Pistole", 5],
-      [7, "Katze", 4],
-      [8, "Flugzeug", 3],
-      [9, "Motorrad", 2]
-    ]
-  },
-  {
-    "question": "Nenne einen Sport, der ein Netz benötigt",
-    "answers": [
-      [1, "Tennis", 56],
-      [2, "Volleyball", 23],
-      [3, "Basketball", 12],
-      [4, "Angeln", 4],
-      [5, "Badminton", 2],
-      [6, "Fußball", 2],
-      [7, "Tischtennis", 1]
-    ]
-  },
-  {
-    "question": "Nenne etwas, wovon Leute sich besser fühlen",
-    "answers": [
-      [1, "Abnehmen", 24],
-      [2, "Komplimente", 19],
-      [3, "neue Kleidung", 11],
-      [4, "neue Frisur", 8],
-      [5, "Sport", 7],
-      [6, "Erfolg", 6],
-      [7, "gute Tat", 5],
-      [8, "Aussehen", 4]
-    ]
-  },
-  {
-    "question": "Nenne etwas, womit kleine Kinder spielen, das Unordnung veranstaltet",
-    "answers": [
-      [1, "Farbe", 37],
-      [2, "Knete", 37],
-      [3, "Wachsmalstifte", 7],
-      [4, "Essen", 6],
-      [5, "Lego", 4],
-      [6, "Schlamm", 3],
-      [7, "Sand", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, gegenüber dem deine Haut sensibel sein könnte",
-    "answers": [
-      [1, "Sonne", 58],
-      [2, "Seife", 15],
-      [3, "Schminke", 7],
-      [4, "Parfüm", 3],
-      [5, "Wolle", 3],
-      [6, "Rasieren", 2],
-      [7, "Giftefeu", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das dich reizbar macht",
-    "answers": [
-      [1, "kein Schlaf", 20],
-      [2, "schlechtes Wetter", 12],
-      [3, "Kinder", 12],
-      [4, "viel Verkehr", 10],
-      [5, "nicht geraucht", 5],
-      [6, "Lautstärke", 3],
-      [7, "Warten", 3]
-    ]
-  },
-  {
-    "question": "Nenne ein Land mit unverwechselbarer Musik",
-    "answers": [
-      [1, "Mexiko", 26],
-      [2, "Spanien", 11],
-      [3, "Deutschland", 10],
-      [4, "Japan", 8],
-      [5, "Irland", 6],
-      [6, "Polen", 6],
-      [7, "Italien", 5],
-      [8, "Indien", 4],
-      [9, "Russland", 4],
-      [10, "China", 3]
-    ]
-  },
-  {
-    "question": "Nenne etwas mit dem Hunde gerne spielen",
-    "answers": [
-      [1, "Ball", 51],
-      [2, "Knochen", 14],
-      [3, "Schuhe", 14],
-      [4, "Socken", 5],
-      [5, "Menschen", 3],
-      [6, "Stock", 3],
-      [7, "Katzen", 3],
-      [8, "Frisbee", 2]
-    ]
-  },
-  {
-    "question": "Nenne ein Gericht, das du deiner Familie mindestens einmal pro Woche servierst",
-    "answers": [
-      [1, "Nudeln", 21],
-      [2, "Hähnchen", 20],
-      [3, "Burger", 20],
-      [4, "Kartoffeln", 11],
-      [5, "Pizza", 6],
-      [6, "Steak", 3],
-      [7, "Eier", 2]
-    ]
-  },
-  {
-    "question": "Nenne ein Gerät, das du in einem Schrank aufbewahrst und nur zur Nutzung rausholst",
-    "answers": [
-      [1, "Mixer", 60],
-      [2, "Bügeleisen", 6],
-      [3, "Schongarer", 6],
-      [4, "Popcornmaschine", 5],
-      [5, "Waffeleisen", 5],
-      [6, "Elektrisches Messer", 4],
-      [7, "Toaster", 3]
-    ]
-  },
-  {
-    "question": "Nenne ein Land, das aus einer oder mehreren Inseln besteht",
-    "answers": [
-      [1, "Australien", 31],
-      [2, "Kuba", 22],
-      [3, "Großbritannien", 16],
-      [4, "Japan", 13],
-      [5, "Philippinen", 6],
-      [6, "Island", 3],
-      [7, "Taiwan", 3],
-      [8, "Neuseeland", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das du an einem heißen Tag nicht im Auto lassen solltest",
-    "answers": [
-      [1, "Haustier", 57],
-      [2, "Schokolade", 11],
-      [3, "Kind", 6],
-      [4, "Eis", 6],
-      [5, "Kamera", 4],
-      [6, "Wachsmalstift", 4],
-      [7, "Schminke", 3]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das in deine Augen kommt und brennt",
-    "answers": [
-      [1, "Seife", 40],
-      [2, "Rauch", 21],
-      [3, "Zwiebeldunst", 12],
-      [4, "Staub", 10],
-      [5, "Chlor", 3],
-      [6, "Salzwasser", 3],
-      [7, "Schweiß", 3]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das Leute herumschieben können",
-    "answers": [
-      [1, "Eiskaufswagen", 62],
-      [2, "Rasenmäher", 13],
-      [3, "Kinderwagen", 11],
-      [4, "Staubsauger", 5],
-      [5, "Rollstuhl", 3],
-      [6, "Besen", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, was dein Körper braucht",
-    "answers": [
-      [1, "Wasser", 62],
-      [2, "Essen", 13],
-      [3, "Sauerstoff", 7],
-      [4, "Sport", 5],
-      [5, "Kalzium", 3],
-      [6, "Hygiene", 3],
-      [7, "Eisen", 2],
-      [8, "Eiweiß", 2]
-    ]
-  },
-  {
-    "question": "Nenne mir ein Gerät, das man auch ohne Anleitung bedienen kann",
-    "answers": [
-      [1, "Toaster", 48],
-      [2, "Ofen", 15],
-      [3, "Kühlschrank", 13],
-      [4, "Mixer", 8],
-      [5, "Dosenöffner", 5],
-      [6, "Bügeleisen", 2],
-      [7, "Spülmaschine", 2],
-      [8, "Waschmaschine", 2]
-    ]
-  },
-  {
-    "question": "Nenne jemanden, außer dir selbst, der einen Schlüssel zu deinem Haus hat",
-    "answers": [
-      [1, "Kind", 25],
-      [2, "Eltern", 22],
-      [3, "Nachbar", 18],
-      [4, "Vermieter", 9],
-      [5, "Ehepartner", 8],
-      [6, "Geschwister", 4],
-      [7, "Freund", 3]
-    ]
-  },
-  {
-    "question": "Nenne ein Haushaltsgegenstand mit dem Leute manchmal sprechen",
-    "answers": [
-      [1, "Fernseher", 47],
-      [2, "Pflanze", 31],
-      [3, "Spiegel", 5],
-      [4, "Staubsauger", 5],
-      [5, "Kühlschrank", 3],
-      [6, "Haustier", 2],
-      [7, "Radio", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das Leute benutzen, um ein Schloss zu knacken",
-    "answers": [
-      [1, "Haarnadel", 63],
-      [2, "Kreditkarte", 13],
-      [3, "Feile", 7],
-      [4, "Messer", 4],
-      [5, "Schraubenzieher", 3],
-      [6, "Kleiderhaken", 2],
-      [7, "Büroklammer", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, wovon Leute Ersatz aufbewahren",
-    "answers": [
-      [1, "Reifen", 73],
-      [2, "Glühbirne", 9],
-      [3, "Batterien", 4],
-      [4, "Schlüssel", 4],
-      [5, "Strumpfhose", 4],
-      [6, "Toilettenpapier", 3],
-      [7, "Sicherungen", 2]
-    ]
-  },
-  {
-    "question": "Nenne ein Tier, das mehr als eine halbe Tonne wiegen könnte",
-    "answers": [
-      [1, "Elefant", 76],
-      [2, "Nashorn", 5],
-      [3, "Wahl", 5],
-      [4, "Nilpferd", 4],
-      [5, "Bär", 2],
-      [6, "Kuh", 2],
-      [7, "Pferd", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das Leute im Wasser tragen, außer Badekleidung",
-    "answers": [
-      [1, "Schwimmbrille", 23],
-      [2, "Badekappe", 20],
-      [3, "Shorts", 14],
-      [4, "Neoprenanzug", 8],
-      [5, "Ohrstöpsel", 7],
-      [6, "Taucherflossen", 5],
-      [7, "Schwimmflügel", 4]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das eine wählerische Frau an ihrem Date auszusetzen hat",
-    "answers": [
-      [1, "Kleidung", 37],
-      [2, "Aussehen", 19],
-      [3, "zu billig", 10],
-      [4, "Manieren", 7],
-      [5, "Haare", 5],
-      [6, "Auto", 4],
-      [7, "Persönlichkeit", 4]
-    ]
-  },
-  {
-    "question": "Nenne etwas im Badezimmer, das sich ein Ehepaar teilt",
-    "answers": [
-      [1, "Zahnpasta", 37],
-      [2, "Seife", 18],
-      [3, "Shampoo", 9],
-      [4, "Föhn", 6],
-      [5, "Rasierer", 6],
-      [6, "Handtuch", 5],
-      [7, "Toilettenpapier", 4]
-    ]
-  },
-  {
-    "question": "Nenne etwas, wo du drüberstreichst, weil es sich so gut anfühlt",
-    "answers": [
-      [1, "Fell", 30],
-      [2, "Samt", 22],
-      [3, "Satin", 12],
-      [4, "Seide", 11],
-      [5, "Baby", 8],
-      [6, "Geld", 2],
-      [7, "Leder", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das Leute öffnen, außer Türen und Fenster",
-    "answers": [
-      [1, "Post", 20],
-      [2, "Dosen", 17],
-      [3, "Schubladen", 9],
-      [4, "Mund", 9],
-      [5, "Kühlschrank", 9],
-      [6, "Gläser", 7],
-      [7, "Paket", 5],
-      [8, "Geschenke", 4]
-    ]
-  },
-  {
-    "question": "Nenne eine Frucht, die du mit einem Löffel isst",
-    "answers": [
-      [1, "Grapefruit", 51],
-      [2, "Melone", 21],
-      [3, "Erdbeeren", 11],
-      [4, "Pfirsich", 7],
-      [5, "Blaubeeren", 3],
-      [6, "Schwarzbeeren", 2],
-      [7, "Pflaumen", 2]
-    ]
-  },
-  {
-    "question": "Nenne ein äußeres Merkmal, was ein Zeuge der Polizei beschreibt",
-    "answers": [
-      [1, "Größe", 59],
-      [2, "Haare", 19],
-      [3, "Gewicht", 6],
-      [4, "Augen", 5],
-      [5, "Narben", 3],
-      [6, "Hautfarbe", 3],
-      [7, "Alter", 2]
-    ]
-  },
-  {
-    "question": "Nenne ein Tier, nach dem manche Leute beim Lachen klingen",
-    "answers": [
-      [1, "Hyäne", 36],
-      [2, "Esel", 17],
-      [3, "Pferd", 14],
-      [4, "Schwein", 10],
-      [5, "Affe", 8],
-      [6, "Robbe", 5],
-      [7, "Huhn", 4],
-      [8, "Vogel", 2]
-    ]
-  },
-  {
-    "question": "Nenne ein Essen, das du am Geruch erkennst",
-    "answers": [
-      [1, "Zwiebeln", 32],
-      [2, "Fisch", 23],
-      [3, "Knoblauch", 11],
-      [4, "Pizza", 8],
-      [5, "Kohl", 6],
-      [6, "Popcorn", 4],
-      [7, "Käse", 3]
-    ]
-  },
-  {
-    "question": "Wovon hast du zwei oder drei verschiedene Sorten im Kühlschrank?",
-    "answers": [
-      [1, "Salatsoße", 28],
-      [2, "Käse", 25],
-      [3, "Getränke", 14],
-      [4, "Marmelade", 6],
-      [5, "Früchte", 5],
-      [6, "Senf", 5],
-      [7, "Gemüse", 5]
-    ]
-  },
-  {
-    "question": "Nenne ein Musikinstrument, das sich, von einem Anfänger gespielt, schrecklich anhört",
-    "answers": [
-      [1, "Geige", 51],
-      [2, "Trompete", 13],
-      [3, "Klarinette", 9],
-      [4, "Tuba", 6],
-      [5, "Klavier", 5],
-      [6, "Trommeln", 4],
-      [7, "Horn", 4],
-      [8, "Saxofon", 3],
-      [9, "Dudelsack", 2]
-    ]
-  },
-  {
-    "question": "Nenne etwas, das eine Frau neben ihrem Bett aufbewahrt",
-    "answers": [
-      [1, "Wecker", 26],
-      [2, "Taschentücher", 22],
-      [3, "Buch", 19],
-      [4, "Telefon", 14],
-      [5, "Lampe", 3]
-    ]
-  },
-  {
-    "question": "Nenne etwas im Haus, das Männer öfter als Frauen benutzen",
-    "answers": [
-      [1, "Rasierer", 33],
-      [2, "Werkzeug", 24],
-      [3, "Sofa", 9],
-      [4, "Fernseher", 9],
-      [5, "Dusche", 6],
-      [6, "Toilette", 5]
-    ]
-  },
-  {
-    "question": "Nenne ein Lebensmittel, was man vor dem Essen wäscht",
-    "answers": [
-      [1, "Apfel", 53],
-      [2, "Salat", 18],
-      [3, "Weintrauben", 13],
-      [4, "Kartoffeln", 5],
-      [5, "Tomaten", 4],
-      [6, "Pfirsich", 3],
-      [7, "Möhre", 2]
-    ]
-  },
-  {
-    "question": "Welche Sprache ist die Schwierigste zu lernen?",
-    "answers": [
-      [1, "Chinesisch", 43],
-      [2, "Russisch", 20],
-      [3, "Japanisch", 19],
-      [4, "Französisch", 7],
-      [5, "Latein", 3],
-      [6, "Deutsch", 3]
-    ]
-  }
-]
+{
+  "Nenne etwas vor dem du als Kind Angst hattest": [
+    { "answerText": "Dunkelheit", "answerValue": 30 },
+    { "answerText": "Schlangen", "answerValue": 15 },
+    { "answerText": "Gewitter", "answerValue": 11 },
+    { "answerText": "Spinnen", "answerValue": 9 },
+    { "answerText": "Höhen", "answerValue": 8 },
+    { "answerText": "Hunde", "answerValue": 3 },
+    { "answerText": "Tod", "answerValue": 3 },
+    { "answerText": "Fledermäuse", "answerValue": 2 },
+    { "answerText": "Feuer", "answerValue": 2 },
+    { "answerText": "Pferde", "answerValue": 2 }
+  ],
+  "Nenne ein erste Anzeichen einer Grippe": [
+    { "answerText": "laufende Nase", "answerValue": 39 },
+    { "answerText": "Niesen", "answerValue": 22 },
+    { "answerText": "trockener Hals", "answerValue": 15 },
+    { "answerText": "Kopfschmerzen", "answerValue": 5 },
+    { "answerText": "verstopfte Nase", "answerValue": 5 },
+    { "answerText": "wässernde Augen", "answerValue": 4 },
+    { "answerText": "Husten", "answerValue": 3 },
+    { "answerText": "Gliederschmerzen", "answerValue": 2 },
+    { "answerText": "Schüttelfrost", "answerValue": 2 },
+    { "answerText": "Fieber", "answerValue": 2 }
+  ],
+  "Wo sieht man viele Blumen?": [
+    { "answerText": "Blumenladen", "answerValue": 35 },
+    { "answerText": "Beerdigung", "answerValue": 28 },
+    { "answerText": "Garten", "answerValue": 13 },
+    { "answerText": "Hochzeit", "answerValue": 8 },
+    { "answerText": "Park", "answerValue": 5 },
+    { "answerText": "Kirche", "answerValue": 3 },
+    { "answerText": "Gewächshaus", "answerValue": 2 },
+    { "answerText": "Krankenzimmer", "answerValue": 2 }
+  ],
+  "Nenne jemanden, zu dem Kinder aufschauen, außer ihren Eltern": [
+    { "answerText": "Lehrer", "answerValue": 55 },
+    { "answerText": "Sportler", "answerValue": 11 },
+    { "answerText": "Großeltern", "answerValue": 11 },
+    { "answerText": "Geschwister", "answerValue": 7 },
+    { "answerText": "Polizist", "answerValue": 4 },
+    { "answerText": "Trainer", "answerValue": 3 }
+  ],
+  "Nenne eine Art von Netz": [
+    { "answerText": "Fischnetz", "answerValue": 54 },
+    { "answerText": "Haarnetz", "answerValue": 24 },
+    { "answerText": "Tennisnetz", "answerValue": 8 },
+    { "answerText": "Volleyballnetz", "answerValue": 4 },
+    { "answerText": "Basketballnetz", "answerValue": 3 }
+  ],
+  "Nenne etwas, das du mehr als ein Mal verloren hast": [
+    { "answerText": "Schlüssel", "answerValue": 63 },
+    { "answerText": "Geld", "answerValue": 7 },
+    { "answerText": "Gewicht", "answerValue": 5 },
+    { "answerText": "Kontaktlinsen", "answerValue": 4 },
+    { "answerText": "Brille", "answerValue": 4 },
+    { "answerText": "Portemonnaie", "answerValue": 3 },
+    { "answerText": "Ohrring", "answerValue": 2 }
+  ],
+  "Nenne etwas, das du mit Äypten in Verbindung bringst": [
+    { "answerText": "Pyramiden", "answerValue": 77 },
+    { "answerText": "Sphinx", "answerValue": 7 },
+    { "answerText": "Kamele", "answerValue": 4 },
+    { "answerText": "Nil", "answerValue": 3 },
+    { "answerText": "Wüste", "answerValue": 3 },
+    { "answerText": "Cleopatra", "answerValue": 2 },
+    { "answerText": "Pharaoh", "answerValue": 2 },
+    { "answerText": "Mumie", "answerValue": 1 }
+  ],
+  "Nenne ein intelligentes Tier": [
+    { "answerText": "Hund", "answerValue": 29 },
+    { "answerText": "Affe", "answerValue": 21 },
+    { "answerText": "Delfin", "answerValue": 16 },
+    { "answerText": "Katze", "answerValue": 14 },
+    { "answerText": "Fuchs", "answerValue": 5 },
+    { "answerText": "Pferd", "answerValue": 4 },
+    { "answerText": "Papagei", "answerValue": 3 }
+  ],
+  "Nenne etwas, das du tust, wenn du am Morgen mehr Zeit als erwartet hast": [
+    { "answerText": "Lesen", "answerValue": 53 },
+    { "answerText": "Schlafen", "answerValue": 10 },
+    { "answerText": "Essen", "answerValue": 9 },
+    { "answerText": "Sport machen", "answerValue": 8 },
+    { "answerText": "Fernseh schauen", "answerValue": 6 },
+    { "answerText": "Kaffee trinken", "answerValue": 5 },
+    { "answerText": "sauber machen", "answerValue": 3 }
+  ],
+  "Nenne ein äußeres Merkmal eines Marsmenschen": [
+    { "answerText": "grün", "answerValue": 45 },
+    { "answerText": "Antenne", "answerValue": 35 },
+    { "answerText": "große Augen", "answerValue": 3 },
+    { "answerText": "spitze Ohren", "answerValue": 3 },
+    { "answerText": "großer Kopf", "answerValue": 2 },
+    { "answerText": "Glatze", "answerValue": 2 },
+    { "answerText": "klein", "answerValue": 2 }
+  ],
+  "Nenne etwas von dir, das viel Geld kostet, damit es gut aussieht": [
+    { "answerText": "Auto", "answerValue": 35 },
+    { "answerText": "Haus", "answerValue": 33 },
+    { "answerText": "Haare", "answerValue": 15 },
+    { "answerText": "Körper", "answerValue": 5 },
+    { "answerText": "Kleidung", "answerValue": 2 },
+    { "answerText": "Garten", "answerValue": 2 }
+  ],
+  "Nenne etwas, was du machst, um ein Baby zu unterhalten": [
+    { "answerText": "Singen", "answerValue": 34 },
+    { "answerText": "Grimassen ziehen", "answerValue": 23 },
+    { "answerText": "Spielen", "answerValue": 9 },
+    { "answerText": "Reden", "answerValue": 8 },
+    { "answerText": "Wiegen", "answerValue": 6 },
+    { "answerText": "Lustige Geräusche", "answerValue": 5 },
+    { "answerText": "Rassel schütteln", "answerValue": 4 },
+    { "answerText": "Hoppe Reiter", "answerValue": 3 },
+    { "answerText": "Kitzeln", "answerValue": 2 },
+    { "answerText": "Wo bin ich", "answerValue": 2 }
+  ],
+  "Nenne einen Beruf, der eher nach Spiel als nach Arbeit aussieht": [
+    { "answerText": "Sportler", "answerValue": 46 },
+    { "answerText": "Bademeister", "answerValue": 13 },
+    { "answerText": "Schauspieler", "answerValue": 10 },
+    { "answerText": "Moderator", "answerValue": 8 },
+    { "answerText": "Musiker", "answerValue": 3 },
+    { "answerText": "Klown", "answerValue": 2 },
+    { "answerText": "Sportlehrer", "answerValue": 2 },
+    { "answerText": "Trainer", "answerValue": 2 },
+    { "answerText": "Fremdenführer", "answerValue": 2 }
+  ],
+  "Nenne etwas, das du bei schlechtem Wetter nicht machst": [
+    { "answerText": "Gartenarbeit", "answerValue": 26 },
+    { "answerText": "Schwimmen", "answerValue": 24 },
+    { "answerText": "Spazieren", "answerValue": 14 },
+    { "answerText": "Grillen", "answerValue": 6 },
+    { "answerText": "Sonnen", "answerValue": 5 },
+    { "answerText": "Fahrrad", "answerValue": 4 },
+    { "answerText": "Picknick", "answerValue": 3 },
+    { "answerText": "Golf", "answerValue": 3 }
+  ],
+  "Nenne ein Essen, das du nicht mit den Fingern vergenussfertigen würdest": [
+    { "answerText": "Spaghetti", "answerValue": 34 },
+    { "answerText": "Suppe", "answerValue": 23 },
+    { "answerText": "Kartoffelbrei", "answerValue": 13 },
+    { "answerText": "Eis", "answerValue": 10 },
+    { "answerText": "Pudding", "answerValue": 8 },
+    { "answerText": "Erbsen", "answerValue": 4 },
+    { "answerText": "Steak", "answerValue": 2 }
+  ],
+  "Nenne den Ort, an dem die längsten Warteschlangen sind": [
+    { "answerText": "Freizeitpark", "answerValue": 23 },
+    { "answerText": "Supermarkt", "answerValue": 18 },
+    { "answerText": "Kino", "answerValue": 16 },
+    { "answerText": "Postbüro", "answerValue": 5 },
+    { "answerText": "Restaurant", "answerValue": 5 },
+    { "answerText": "Konzert", "answerValue": 4 },
+    { "answerText": "Stadion", "answerValue": 3 },
+    { "answerText": "Flughafen", "answerValue": 2 }
+  ],
+  "Nenne eine Eigenschaft von dir, warum du single bist": [
+    { "answerText": "Übergewichtig", "answerValue": 18 },
+    { "answerText": "keine Ausstrahlung", "answerValue": 17 },
+    { "answerText": "Faulheit", "answerValue": 10 },
+    { "answerText": "Glatze", "answerValue": 9 },
+    { "answerText": "Aussehen", "answerValue": 9 },
+    { "answerText": "Arbeitstier", "answerValue": 9 },
+    { "answerText": "Alter", "answerValue": 7 }
+  ],
+  "Nenne einen Gegenstand, den Leute aus dem Büro mit nach Hause schmuggeln": [
+    { "answerText": "Stift", "answerValue": 56 },
+    { "answerText": "Büroklammer", "answerValue": 14 },
+    { "answerText": "Papier", "answerValue": 11 },
+    { "answerText": "Umschläge", "answerValue": 10 },
+    { "answerText": "Stempel", "answerValue": 3 },
+    { "answerText": "Tesafilm", "answerValue": 3 },
+    { "answerText": "Gummibänder", "answerValue": 2 },
+    { "answerText": "Tacker", "answerValue": 1 }
+  ],
+  "Nenne etwas, wo Leute durchlinsen": [
+    { "answerText": "Schlüsselloch", "answerValue": 36 },
+    { "answerText": "Fenster", "answerValue": 14 },
+    { "answerText": "Türspion", "answerValue": 10 },
+    { "answerText": "Vorhang", "answerValue": 9 },
+    { "answerText": "Zaun", "answerValue": 9 },
+    { "answerText": "Türspalt", "answerValue": 6 },
+    { "answerText": "Umschlag", "answerValue": 3 }
+  ],
+  "Nenne einen Beruf, in dem die Menschen ein ausgeprägtes Ego haben": [
+    { "answerText": "Schauspieler", "answerValue": 30 },
+    { "answerText": "Anwalt", "answerValue": 23 },
+    { "answerText": "Wissenschaftler", "answerValue": 9 },
+    { "answerText": "Politiker", "answerValue": 8 },
+    { "answerText": "Sportler", "answerValue": 7 },
+    { "answerText": "Model", "answerValue": 6 },
+    { "answerText": "Broker", "answerValue": 4 },
+    { "answerText": "Polizist", "answerValue": 3 },
+    { "answerText": "Musiker", "answerValue": 2 }
+  ],
+  "Nenne einen berühmten Maler": [
+    { "answerText": "Pablo Picasso", "answerValue": 27 },
+    { "answerText": "Vincent Van Gogh", "answerValue": 20 },
+    { "answerText": "Leonardo Da Vinci", "answerValue": 19 },
+    { "answerText": "Michelangelo", "answerValue": 10 },
+    { "answerText": "Rembrandt Van Rijn", "answerValue": 9 }
+  ],
+  "Nenne etwas, das du dir ersehnt und tatsächlich erhalten hast": [
+    { "answerText": "Auto", "answerValue": 17 },
+    { "answerText": "Geld", "answerValue": 12 },
+    { "answerText": "Baby", "answerValue": 9 },
+    { "answerText": "Schmuck", "answerValue": 6 },
+    { "answerText": "Job", "answerValue": 6 },
+    { "answerText": "Urlaub", "answerValue": 6 },
+    { "answerText": "Haus", "answerValue": 5 },
+    { "answerText": "Freunde", "answerValue": 4 },
+    { "answerText": "Gehaltserhöhung", "answerValue": 3 }
+  ],
+  "Nenne etwas, das du in einem Restaurant vergessen könntest": [
+    { "answerText": "Handtasche", "answerValue": 27 },
+    { "answerText": "Jacke", "answerValue": 15 },
+    { "answerText": "Trinkgeld", "answerValue": 14 },
+    { "answerText": "Hut", "answerValue": 13 },
+    { "answerText": "Regenschirm", "answerValue": 11 },
+    { "answerText": "Schlüssel", "answerValue": 5 },
+    { "answerText": "Brille", "answerValue": 4 },
+    { "answerText": "eingepackte Reste", "answerValue": 3 }
+  ],
+  "Nenne etwas, wovon es bei dir Zuhause nie genug gibt": [
+    { "answerText": "Geld", "answerValue": 45 },
+    { "answerText": "Essen", "answerValue": 26 },
+    { "answerText": "Getränke", "answerValue": 4 },
+    { "answerText": "Zeit", "answerValue": 4 },
+    { "answerText": "Toilettenpapier", "answerValue": 4 }
+  ],
+  "Nenne einen US-Staat bestehend aus zwei Wörtern": [
+    { "answerText": "New York", "answerValue": 46 },
+    { "answerText": "North Carolina", "answerValue": 11 },
+    { "answerText": "Rhode Island", "answerValue": 9 },
+    { "answerText": "New Mexico", "answerValue": 8 },
+    { "answerText": "New Jersey", "answerValue": 6 },
+    { "answerText": "West Virginia", "answerValue": 6 },
+    { "answerText": "North Dakota", "answerValue": 5 },
+    { "answerText": "New Hampshire", "answerValue": 4 },
+    { "answerText": "South Dakota", "answerValue": 3 },
+    { "answerText": "South Carolina", "answerValue": 2 }
+  ],
+  "Nenne etwas, das du in einen Korb packst": [
+    { "answerText": "Blumen", "answerValue": 21 },
+    { "answerText": "Früchte", "answerValue": 20 },
+    { "answerText": "Kleidung", "answerValue": 18 },
+    { "answerText": "Eier", "answerValue": 13 },
+    { "answerText": "Brot", "answerValue": 9 },
+    { "answerText": "Müll", "answerValue": 4 },
+    { "answerText": "Mittagessen", "answerValue": 3 },
+    { "answerText": "Süßigkeiten", "answerValue": 2 }
+  ],
+  "Nenne etwas, das beim ersten Versuch schwierig ist": [
+    { "answerText": "Fahrrad fahren", "answerValue": 24 },
+    { "answerText": "Ski fahren", "answerValue": 21 },
+    { "answerText": "Auto fahren", "answerValue": 18 },
+    { "answerText": "Skaten", "answerValue": 7 },
+    { "answerText": "Schwimmen", "answerValue": 6 }
+  ],
+  "Nenne etwas, dem Frauen nur schwer widerstehen können": [
+    { "answerText": "Shopping", "answerValue": 27 },
+    { "answerText": "Süßigkeiten", "answerValue": 20 },
+    { "answerText": "Männer", "answerValue": 17 },
+    { "answerText": "Schmuck", "answerValue": 13 },
+    { "answerText": "Kleidung", "answerValue": 10 },
+    { "answerText": "Lästern", "answerValue": 2 },
+    { "answerText": "Geld", "answerValue": 2 }
+  ],
+  "Nenne etwas, das Bumm macht": [
+    { "answerText": "Kanone", "answerValue": 23 },
+    { "answerText": "Bombe", "answerValue": 22 },
+    { "answerText": "Feuerwerk", "answerValue": 18 },
+    { "answerText": "Donner", "answerValue": 13 },
+    { "answerText": "Dynamit", "answerValue": 6 },
+    { "answerText": "Ballon", "answerValue": 5 },
+    { "answerText": "Trommel", "answerValue": 4 }
+  ],
+  "Nenne ein Tier, das bekannt dafür ist Müll zu essen": [
+    { "answerText": "Waschbär", "answerValue": 31 },
+    { "answerText": "Ratte", "answerValue": 25 },
+    { "answerText": "Hund", "answerValue": 14 },
+    { "answerText": "Schwein", "answerValue": 13 },
+    { "answerText": "Bär", "answerValue": 13 }
+  ],
+  "Nenne etwas, das du jeden Tag benutzt": [
+    { "answerText": "Zahnbürste", "answerValue": 41 },
+    { "answerText": "Seife", "answerValue": 10 },
+    { "answerText": "Auto", "answerValue": 8 },
+    { "answerText": "Telefon", "answerValue": 7 },
+    { "answerText": "Wasser", "answerValue": 5 },
+    { "answerText": "Badezimmer", "answerValue": 3 },
+    { "answerText": "Deo", "answerValue": 3 },
+    { "answerText": "Bürste", "answerValue": 3 }
+  ],
+  "Was ist das Erste, das du machst nachdem von einem Nickerchen aufwachst?": [
+    { "answerText": "aufs Klo gehen", "answerValue": 21 },
+    { "answerText": "Uhrzeit checken", "answerValue": 18 },
+    { "answerText": "recken und strecken", "answerValue": 15 },
+    { "answerText": "Gähnen", "answerValue": 9 },
+    { "answerText": "etwas trinken", "answerValue": 8 },
+    { "answerText": "Gesicht waschen", "answerValue": 8 },
+    { "answerText": "etwas essen", "answerValue": 4 },
+    { "answerText": "Haare bürsten", "answerValue": 3 }
+  ],
+  "Nenne etwas, das Leuten ausgeht": [
+    { "answerText": "Milch", "answerValue": 26 },
+    { "answerText": "Geld", "answerValue": 22 },
+    { "answerText": "Benzin", "answerValue": 16 },
+    { "answerText": "Zucker", "answerValue": 11 },
+    { "answerText": "Toilettenpapier", "answerValue": 10 },
+    { "answerText": "Energie", "answerValue": 3 },
+    { "answerText": "Geduld", "answerValue": 3 }
+  ],
+  "Nenne etwas, das Leute zum Schlafen bringt": [
+    { "answerText": "Medizin", "answerValue": 22 },
+    { "answerText": "lesen", "answerValue": 16 },
+    { "answerText": "Musik", "answerValue": 14 },
+    { "answerText": "Fernseher", "answerValue": 12 },
+    { "answerText": "warme Milch", "answerValue": 8 },
+    { "answerText": "Narkose", "answerValue": 5 },
+    { "answerText": "langweiliger Film", "answerValue": 5 },
+    { "answerText": "Vortrag", "answerValue": 4 },
+    { "answerText": "Gottesdienst", "answerValue": 4 }
+  ],
+  "Nenne etwas, wozu sich ein Mann zwingen muss, um es täglich zu tun": [
+    { "answerText": "Aufstehen", "answerValue": 31 },
+    { "answerText": "Rasieren", "answerValue": 16 },
+    { "answerText": "Arbeiten", "answerValue": 14 },
+    { "answerText": "Sport", "answerValue": 10 },
+    { "answerText": "sauber machen", "answerValue": 9 },
+    { "answerText": "Zähne putzen", "answerValue": 6 }
+  ],
+  "Nenne etwas, was eine Mutter immer wieder zu ihrem Kind sagt": [
+    { "answerText": "Nein!", "answerValue": 30 },
+    { "answerText": "Nicht!", "answerValue": 15 },
+    { "answerText": "Ich liebe dich!", "answerValue": 10 },
+    { "answerText": "Sei leise!", "answerValue": 8 },
+    { "answerText": "Räum Zimmer auf!", "answerValue": 7 },
+    { "answerText": "Nicht anfassen!", "answerValue": 7 },
+    { "answerText": "Putz deine Zähne!", "answerValue": 3 },
+    { "answerText": "Wasch deine Hände!", "answerValue": 2 }
+  ],
+  "Nenne etwas im Haus, das schwierig zu verschieben ist": [
+    { "answerText": "Kühlschrank", "answerValue": 42 },
+    { "answerText": "Klavier", "answerValue": 14 },
+    { "answerText": "Sofa", "answerValue": 12 },
+    { "answerText": "Bett", "answerValue": 9 },
+    { "answerText": "Schrank", "answerValue": 5 },
+    { "answerText": "Fernseher", "answerValue": 5 },
+    { "answerText": "Herd", "answerValue": 3 }
+  ],
+  "Nenne etwas, das du gefroren kaufst": [
+    { "answerText": "Eis", "answerValue": 45 },
+    { "answerText": "Gemüse", "answerValue": 21 },
+    { "answerText": "Fertiggerichte", "answerValue": 16 },
+    { "answerText": "Pizza", "answerValue": 6 },
+    { "answerText": "Fisch", "answerValue": 5 }
+  ],
+  "Nenne einen Ort, an dem du nervöse Menschen siehst": [
+    { "answerText": "Zahnarzt", "answerValue": 34 },
+    { "answerText": "Krankenhaus", "answerValue": 20 },
+    { "answerText": "Arzt", "answerValue": 18 },
+    { "answerText": "Gericht", "answerValue": 8 },
+    { "answerText": "Steuerbüro", "answerValue": 6 },
+    { "answerText": "Hochzeit", "answerValue": 3 },
+    { "answerText": "Flughafen", "answerValue": 2 },
+    { "answerText": "Vorstellungsgespräch", "answerValue": 2 }
+  ],
+  "Nenne einen Adelstitel, außer König und Königin": [
+    { "answerText": "Prinz", "answerValue": 32 },
+    { "answerText": "Herzog", "answerValue": 23 },
+    { "answerText": "Prinzessin", "answerValue": 17 },
+    { "answerText": "Lord", "answerValue": 11 },
+    { "answerText": "Herzogin", "answerValue": 9 },
+    { "answerText": "Ser", "answerValue": 4 },
+    { "answerText": "Graf", "answerValue": 1 },
+    { "answerText": "Lady", "answerValue": 1 }
+  ],
+  "Nenne etwas, das vorwärts einfach, aber rückwärts schwierig ist": [
+    { "answerText": "Gehen", "answerValue": 24 },
+    { "answerText": "Rennen", "answerValue": 19 },
+    { "answerText": "Fahren", "answerValue": 14 },
+    { "answerText": "Schreiben", "answerValue": 11 },
+    { "answerText": "Skaten", "answerValue": 10 },
+    { "answerText": "Fahrrad fahren", "answerValue": 9 },
+    { "answerText": "Sprechen", "answerValue": 4 }
+  ],
+  "Nenne etwas, was kleine Mädchen beim Spielen vorgeben zu sein": [
+    { "answerText": "Mutter", "answerValue": 51 },
+    { "answerText": "Prinzessin", "answerValue": 13 },
+    { "answerText": "Krankenschwester", "answerValue": 11 },
+    { "answerText": "Lehrerin", "answerValue": 8 },
+    { "answerText": "Braut", "answerValue": 7 },
+    { "answerText": "Schauspielerin", "answerValue": 4 },
+    { "answerText": "Ballerina", "answerValue": 3 }
+  ],
+  "Nenne etwas, das du nachmittags mit in den Park nimmst": [
+    { "answerText": "Picknick", "answerValue": 36 },
+    { "answerText": "Decke", "answerValue": 21 },
+    { "answerText": "Buch", "answerValue": 17 },
+    { "answerText": "Musikbox", "answerValue": 8 },
+    { "answerText": "Frisbee", "answerValue": 4 },
+    { "answerText": "Sonnenbrille", "answerValue": 3 },
+    { "answerText": "Klappstuhl", "answerValue": 2 }
+  ],
+  "Nenne ein großes Tier mit einem kleinen Schwanz": [
+    { "answerText": "Elefant", "answerValue": 39 },
+    { "answerText": "Bär", "answerValue": 24 },
+    { "answerText": "Giraffe", "answerValue": 8 },
+    { "answerText": "Schwein", "answerValue": 7 },
+    { "answerText": "Nashorn", "answerValue": 5 },
+    { "answerText": "Nilpferd", "answerValue": 4 },
+    { "answerText": "Puma", "answerValue": 4 },
+    { "answerText": "Reh", "answerValue": 3 },
+    { "answerText": "Kamel", "answerValue": 2 },
+    { "answerText": "Elch", "answerValue": 2 }
+  ],
+  "Nenne das Erste, was morgens Geräusche macht, außer dein Wecker": [
+    { "answerText": "Kaffeemaschine", "answerValue": 25 },
+    { "answerText": "Vögel", "answerValue": 23 },
+    { "answerText": "Kinder", "answerValue": 19 },
+    { "answerText": "Radio", "answerValue": 13 },
+    { "answerText": "Fernseher", "answerValue": 6 },
+    { "answerText": "Dusche", "answerValue": 4 },
+    { "answerText": "Toilette", "answerValue": 3 },
+    { "answerText": "Ehepartner", "answerValue": 3 },
+    { "answerText": "Verkehr", "answerValue": 2 }
+  ],
+  "Nenne etwas, das leicht schmilzt": [
+    { "answerText": "Eis", "answerValue": 43 },
+    { "answerText": "Butter", "answerValue": 36 },
+    { "answerText": "Käse", "answerValue": 8 },
+    { "answerText": "Schokolade", "answerValue": 8 },
+    { "answerText": "Schnee", "answerValue": 3 },
+    { "answerText": "Wachs", "answerValue": 2 }
+  ],
+  "Nenne etwas, das auf jedem Kindergeburtstag passiert": [
+    { "answerText": "Kerzen auspusten", "answerValue": 25 },
+    { "answerText": "Kuchen essen", "answerValue": 19 },
+    { "answerText": "Geburtstagslied", "answerValue": 18 },
+    { "answerText": "Sauerei", "answerValue": 16 },
+    { "answerText": "Spiele", "answerValue": 13 },
+    { "answerText": "Geschenke öffnen", "answerValue": 5 },
+    { "answerText": "jemand weint", "answerValue": 3 }
+  ],
+  "Nenne Essen, das du in einem großen Topf kochst": [
+    { "answerText": "Nudeln", "answerValue": 28 },
+    { "answerText": "Suppe", "answerValue": 20 },
+    { "answerText": "Kartoffeln", "answerValue": 13 },
+    { "answerText": "Hähnchen", "answerValue": 7 },
+    { "answerText": "Maiskolben", "answerValue": 7 },
+    { "answerText": "Hummer", "answerValue": 6 },
+    { "answerText": "Eintopf", "answerValue": 5 }
+  ],
+  "Nenne etwas, das für den Mund gemacht ist": [
+    { "answerText": "Zahnspange", "answerValue": 21 },
+    { "answerText": "Zahnbürste", "answerValue": 19 },
+    { "answerText": "Zahnersatz", "answerValue": 18 },
+    { "answerText": "Lippenstift", "answerValue": 17 },
+    { "answerText": "Zahnpasta", "answerValue": 11 },
+    { "answerText": "Mundspühlung", "answerValue": 6 },
+    { "answerText": "Zahnseide", "answerValue": 3 }
+  ],
+  "Nenne einen Beruf, bei dem man Herz-Lungen-Wiederbelebung beherrschen sollte": [
+    { "answerText": "Sanitäter", "answerValue": 24 },
+    { "answerText": "Krankenschwester", "answerValue": 20 },
+    { "answerText": "Feuerwehrmann", "answerValue": 16 },
+    { "answerText": "Krankenwagenfahrer", "answerValue": 12 },
+    { "answerText": "Rettungsschwimmer", "answerValue": 12 },
+    { "answerText": "Bauarbeiter", "answerValue": 3 },
+    { "answerText": "Polizist", "answerValue": 3 }
+  ],
+  "Nenne den Raum im Haus, der immer zu kalt ist": [
+    { "answerText": "Schlafzimmer", "answerValue": 34 },
+    { "answerText": "Badezimmer", "answerValue": 33 },
+    { "answerText": "Keller", "answerValue": 14 },
+    { "answerText": "Wohnzimmer", "answerValue": 8 },
+    { "answerText": "Esszimmer", "answerValue": 3 },
+    { "answerText": "Garage", "answerValue": 2 }
+  ],
+  "Was scheint das Wichtigste im Leben deines Ehemanns zu sein": [
+    { "answerText": "Beruf", "answerValue": 28 },
+    { "answerText": "Sport", "answerValue": 18 },
+    { "answerText": "Familie", "answerValue": 16 },
+    { "answerText": "Fernseher", "answerValue": 6 },
+    { "answerText": "Auto", "answerValue": 4 },
+    { "answerText": "Geld", "answerValue": 4 },
+    { "answerText": "Essen", "answerValue": 3 }
+  ],
+  "Nenne etwas, das mit Schokolade überzogen ist, außer Süßigkeiten": [
+    { "answerText": "Kuchen", "answerValue": 23 },
+    { "answerText": "Eis", "answerValue": 20 },
+    { "answerText": "Kekse", "answerValue": 14 },
+    { "answerText": "Nüsse", "answerValue": 11 },
+    { "answerText": "Rosinen", "answerValue": 9 },
+    { "answerText": "Bretzeln", "answerValue": 7 },
+    { "answerText": "Kirschen", "answerValue": 5 },
+    { "answerText": "Donuts", "answerValue": 4 }
+  ],
+  "Nenne etwas mit Löchern drin": [
+    { "answerText": "Käse", "answerValue": 45 },
+    { "answerText": "Donut", "answerValue": 18 },
+    { "answerText": "Sieb", "answerValue": 9 },
+    { "answerText": "Socke", "answerValue": 6 },
+    { "answerText": "Bowlingball", "answerValue": 5 },
+    { "answerText": "Schwamm", "answerValue": 4 },
+    { "answerText": "Bagel", "answerValue": 2 }
+  ],
+  "Nenne etwas, das Leute in ihrer Hand tragen, wenn sie ein Flugzeug boarden": [
+    { "answerText": "Ticket", "answerValue": 49 },
+    { "answerText": "Handgepäck", "answerValue": 25 },
+    { "answerText": "Buch", "answerValue": 10 },
+    { "answerText": "Kamera", "answerValue": 5 },
+    { "answerText": "Handtasche", "answerValue": 5 },
+    { "answerText": "Kind", "answerValue": 3 },
+    { "answerText": "Jacke", "answerValue": 2 }
+  ],
+  "Nenne eine Arbeit im Haus, die Muskeln erfordert": [
+    { "answerText": "Möbel bewegen", "answerValue": 29 },
+    { "answerText": "Fußboden putzen", "answerValue": 23 },
+    { "answerText": "Staubsaugen", "answerValue": 10 },
+    { "answerText": "Ofen putzen", "answerValue": 9 },
+    { "answerText": "Müll rausbringen", "answerValue": 8 },
+    { "answerText": "Badewanne putzen", "answerValue": 5 },
+    { "answerText": "Fenster putzen", "answerValue": 5 }
+  ],
+  "Nenne ein knackiges Essen": [
+    { "answerText": "Chips", "answerValue": 41 },
+    { "answerText": "Sellerie", "answerValue": 15 },
+    { "answerText": "Möhre", "answerValue": 11 },
+    { "answerText": "Müsli", "answerValue": 10 },
+    { "answerText": "Popcorn", "answerValue": 5 },
+    { "answerText": "Apfel", "answerValue": 4 },
+    { "answerText": "Nuss", "answerValue": 3 },
+    { "answerText": "Kekse", "answerValue": 2 }
+  ],
+  "Nenne etwas mit einer hohen Lebenserwartung": [
+    { "answerText": "Schildkröte", "answerValue": 23 },
+    { "answerText": "Baum", "answerValue": 18 },
+    { "answerText": "Elefant", "answerValue": 12 },
+    { "answerText": "Batterie", "answerValue": 10 },
+    { "answerText": "Mensch", "answerValue": 6 },
+    { "answerText": "Kühlschrank", "answerValue": 5 },
+    { "answerText": "Auto", "answerValue": 4 },
+    { "answerText": "Katze", "answerValue": 4 },
+    { "answerText": "Haus", "answerValue": 4 },
+    { "answerText": "Hund", "answerValue": 4 }
+  ],
+  "Nenne etwas, das du gerne schneller machen würdest": [
+    { "answerText": "Tippen", "answerValue": 22 },
+    { "answerText": "Arbeiten", "answerValue": 21 },
+    { "answerText": "Lesen", "answerValue": 16 },
+    { "answerText": "Rennen", "answerValue": 13 },
+    { "answerText": "Abnehmen", "answerValue": 9 },
+    { "answerText": "Gehen", "answerValue": 4 },
+    { "answerText": "Geld machen", "answerValue": 3 },
+    { "answerText": "Denken", "answerValue": 3 },
+    { "answerText": "Fahren", "answerValue": 2 }
+  ],
+  "Wenn du in Schokolade beißt, auf welche Füllung hoffst du": [
+    { "answerText": "Karamell", "answerValue": 47 },
+    { "answerText": "Nüsse", "answerValue": 17 },
+    { "answerText": "Schokolade", "answerValue": 7 },
+    { "answerText": "Kirsche", "answerValue": 7 },
+    { "answerText": "Kokusnuss", "answerValue": 6 },
+    { "answerText": "Vanille", "answerValue": 5 },
+    { "answerText": "Buttercreme", "answerValue": 4 }
+  ],
+  "Nenne eine Stadt, die dir in den Kopf kommt, wenn du an Spionfilme denkst": [
+    { "answerText": "London", "answerValue": 33 },
+    { "answerText": "Paris", "answerValue": 19 },
+    { "answerText": "New York", "answerValue": 12 },
+    { "answerText": "Moskau", "answerValue": 6 },
+    { "answerText": "Washington D.C.", "answerValue": 6 },
+    { "answerText": "Berlin", "answerValue": 5 },
+    { "answerText": "Rom", "answerValue": 3 },
+    { "answerText": "San Francisco", "answerValue": 3 }
+  ],
+  "Nenne einen romantischen Ort": [
+    { "answerText": "Strand", "answerValue": 35 },
+    { "answerText": "Rastaurant", "answerValue": 25 },
+    { "answerText": "Tropische Insel", "answerValue": 6 },
+    { "answerText": "Schiff", "answerValue": 5 },
+    { "answerText": "Park", "answerValue": 5 },
+    { "answerText": "Schlafzimmer", "answerValue": 4 },
+    { "answerText": "Kamin", "answerValue": 4 }
+  ],
+  "Nenne etwas, das Leute von ihren Eltern genetisch erben können": [
+    { "answerText": "Augenfarbe", "answerValue": 39 },
+    { "answerText": "Haarfarbe", "answerValue": 33 },
+    { "answerText": "Größe", "answerValue": 5 },
+    { "answerText": "Nase", "answerValue": 4 },
+    { "answerText": "Herzprobleme", "answerValue": 3 },
+    { "answerText": "Haarausfall", "answerValue": 2 },
+    { "answerText": "Hautfarbe", "answerValue": 2 }
+  ],
+  "Nenne etwas, wovon Kinder das Geräusch nachahmen": [
+    { "answerText": "Hund", "answerValue": 21 },
+    { "answerText": "Auto", "answerValue": 19 },
+    { "answerText": "Zug", "answerValue": 14 },
+    { "answerText": "Sirene", "answerValue": 13 },
+    { "answerText": "Kuh", "answerValue": 11 },
+    { "answerText": "Pistole", "answerValue": 5 },
+    { "answerText": "Katze", "answerValue": 4 },
+    { "answerText": "Flugzeug", "answerValue": 3 },
+    { "answerText": "Motorrad", "answerValue": 2 }
+  ],
+  "Nenne einen Sport, der ein Netz benötigt": [
+    { "answerText": "Tennis", "answerValue": 56 },
+    { "answerText": "Volleyball", "answerValue": 23 },
+    { "answerText": "Basketball", "answerValue": 12 },
+    { "answerText": "Angeln", "answerValue": 4 },
+    { "answerText": "Badminton", "answerValue": 2 },
+    { "answerText": "Fußball", "answerValue": 2 },
+    { "answerText": "Tischtennis", "answerValue": 1 }
+  ],
+  "Nenne etwas, wovon Leute sich besser fühlen": [
+    { "answerText": "Abnehmen", "answerValue": 24 },
+    { "answerText": "Komplimente", "answerValue": 19 },
+    { "answerText": "neue Kleidung", "answerValue": 11 },
+    { "answerText": "neue Frisur", "answerValue": 8 },
+    { "answerText": "Sport", "answerValue": 7 },
+    { "answerText": "Erfolg", "answerValue": 6 },
+    { "answerText": "gute Tat", "answerValue": 5 },
+    { "answerText": "Aussehen", "answerValue": 4 }
+  ],
+  "Nenne etwas, womit kleine Kinder spielen, das Unordnung veranstaltet": [
+    { "answerText": "Farbe", "answerValue": 37 },
+    { "answerText": "Knete", "answerValue": 37 },
+    { "answerText": "Wachsmalstifte", "answerValue": 7 },
+    { "answerText": "Essen", "answerValue": 6 },
+    { "answerText": "Lego", "answerValue": 4 },
+    { "answerText": "Schlamm", "answerValue": 3 },
+    { "answerText": "Sand", "answerValue": 2 }
+  ],
+  "Nenne etwas, gegenüber dem deine Haut sensibel sein könnte": [
+    { "answerText": "Sonne", "answerValue": 58 },
+    { "answerText": "Seife", "answerValue": 15 },
+    { "answerText": "Schminke", "answerValue": 7 },
+    { "answerText": "Parfüm", "answerValue": 3 },
+    { "answerText": "Wolle", "answerValue": 3 },
+    { "answerText": "Rasieren", "answerValue": 2 },
+    { "answerText": "Giftefeu", "answerValue": 2 }
+  ],
+  "Nenne etwas, das dich reizbar macht": [
+    { "answerText": "kein Schlaf", "answerValue": 20 },
+    { "answerText": "schlechtes Wetter", "answerValue": 12 },
+    { "answerText": "Kinder", "answerValue": 12 },
+    { "answerText": "viel Verkehr", "answerValue": 10 },
+    { "answerText": "nicht geraucht", "answerValue": 5 },
+    { "answerText": "Lautstärke", "answerValue": 3 },
+    { "answerText": "Warten", "answerValue": 3 }
+  ],
+  "Nenne ein Land mit unverwechselbarer Musik": [
+    { "answerText": "Mexiko", "answerValue": 26 },
+    { "answerText": "Spanien", "answerValue": 11 },
+    { "answerText": "Deutschland", "answerValue": 10 },
+    { "answerText": "Japan", "answerValue": 8 },
+    { "answerText": "Irland", "answerValue": 6 },
+    { "answerText": "Polen", "answerValue": 6 },
+    { "answerText": "Italien", "answerValue": 5 },
+    { "answerText": "Indien", "answerValue": 4 },
+    { "answerText": "Russland", "answerValue": 4 },
+    { "answerText": "China", "answerValue": 3 }
+  ],
+  "Nenne etwas mit dem Hunde gerne spielen": [
+    { "answerText": "Ball", "answerValue": 51 },
+    { "answerText": "Knochen", "answerValue": 14 },
+    { "answerText": "Schuhe", "answerValue": 14 },
+    { "answerText": "Socken", "answerValue": 5 },
+    { "answerText": "Menschen", "answerValue": 3 },
+    { "answerText": "Stock", "answerValue": 3 },
+    { "answerText": "Katzen", "answerValue": 3 },
+    { "answerText": "Frisbee", "answerValue": 2 }
+  ],
+  "Nenne ein Gericht, das du deiner Familie mindestens einmal pro Woche servierst": [
+    { "answerText": "Nudeln", "answerValue": 21 },
+    { "answerText": "Hähnchen", "answerValue": 20 },
+    { "answerText": "Burger", "answerValue": 20 },
+    { "answerText": "Kartoffeln", "answerValue": 11 },
+    { "answerText": "Pizza", "answerValue": 6 },
+    { "answerText": "Steak", "answerValue": 3 },
+    { "answerText": "Eier", "answerValue": 2 }
+  ],
+  "Nenne ein Gerät, das du in einem Schrank aufbewahrst und nur zur Nutzung rausholst": [
+    { "answerText": "Mixer", "answerValue": 60 },
+    { "answerText": "Bügeleisen", "answerValue": 6 },
+    { "answerText": "Schongarer", "answerValue": 6 },
+    { "answerText": "Popcornmaschine", "answerValue": 5 },
+    { "answerText": "Waffeleisen", "answerValue": 5 },
+    { "answerText": "Elektrisches Messer", "answerValue": 4 },
+    { "answerText": "Toaster", "answerValue": 3 }
+  ],
+  "Nenne ein Land, das aus einer oder mehreren Inseln besteht": [
+    { "answerText": "Australien", "answerValue": 31 },
+    { "answerText": "Kuba", "answerValue": 22 },
+    { "answerText": "Großbritannien", "answerValue": 16 },
+    { "answerText": "Japan", "answerValue": 13 },
+    { "answerText": "Philippinen", "answerValue": 6 },
+    { "answerText": "Island", "answerValue": 3 },
+    { "answerText": "Taiwan", "answerValue": 3 },
+    { "answerText": "Neuseeland", "answerValue": 2 }
+  ],
+  "Nenne etwas, das du an einem heißen Tag nicht im Auto lassen solltest": [
+    { "answerText": "Haustier", "answerValue": 57 },
+    { "answerText": "Schokolade", "answerValue": 11 },
+    { "answerText": "Kind", "answerValue": 6 },
+    { "answerText": "Eis", "answerValue": 6 },
+    { "answerText": "Kamera", "answerValue": 4 },
+    { "answerText": "Wachsmalstift", "answerValue": 4 },
+    { "answerText": "Schminke", "answerValue": 3 }
+  ],
+  "Nenne etwas, das in deine Augen kommt und brennt": [
+    { "answerText": "Seife", "answerValue": 40 },
+    { "answerText": "Rauch", "answerValue": 21 },
+    { "answerText": "Zwiebeldunst", "answerValue": 12 },
+    { "answerText": "Staub", "answerValue": 10 },
+    { "answerText": "Chlor", "answerValue": 3 },
+    { "answerText": "Salzwasser", "answerValue": 3 },
+    { "answerText": "Schweiß", "answerValue": 3 }
+  ],
+  "Nenne etwas, das Leute herumschieben können": [
+    { "answerText": "Eiskaufswagen", "answerValue": 62 },
+    { "answerText": "Rasenmäher", "answerValue": 13 },
+    { "answerText": "Kinderwagen", "answerValue": 11 },
+    { "answerText": "Staubsauger", "answerValue": 5 },
+    { "answerText": "Rollstuhl", "answerValue": 3 },
+    { "answerText": "Besen", "answerValue": 2 }
+  ],
+  "Nenne etwas, was dein Körper braucht": [
+    { "answerText": "Wasser", "answerValue": 62 },
+    { "answerText": "Essen", "answerValue": 13 },
+    { "answerText": "Sauerstoff", "answerValue": 7 },
+    { "answerText": "Sport", "answerValue": 5 },
+    { "answerText": "Kalzium", "answerValue": 3 },
+    { "answerText": "Hygiene", "answerValue": 3 },
+    { "answerText": "Eisen", "answerValue": 2 },
+    { "answerText": "Eiweiß", "answerValue": 2 }
+  ],
+  "Nenne mir ein Gerät, das man auch ohne Anleitung bedienen kann": [
+    { "answerText": "Toaster", "answerValue": 48 },
+    { "answerText": "Ofen", "answerValue": 15 },
+    { "answerText": "Kühlschrank", "answerValue": 13 },
+    { "answerText": "Mixer", "answerValue": 8 },
+    { "answerText": "Dosenöffner", "answerValue": 5 },
+    { "answerText": "Bügeleisen", "answerValue": 2 },
+    { "answerText": "Spülmaschine", "answerValue": 2 },
+    { "answerText": "Waschmaschine", "answerValue": 2 }
+  ],
+  "Nenne jemanden, außer dir selbst, der einen Schlüssel zu deinem Haus hat": [
+    { "answerText": "Kind", "answerValue": 25 },
+    { "answerText": "Eltern", "answerValue": 22 },
+    { "answerText": "Nachbar", "answerValue": 18 },
+    { "answerText": "Vermieter", "answerValue": 9 },
+    { "answerText": "Ehepartner", "answerValue": 8 },
+    { "answerText": "Geschwister", "answerValue": 4 },
+    { "answerText": "Freund", "answerValue": 3 }
+  ],
+  "Nenne ein Haushaltsgegenstand mit dem Leute manchmal sprechen": [
+    { "answerText": "Fernseher", "answerValue": 47 },
+    { "answerText": "Pflanze", "answerValue": 31 },
+    { "answerText": "Spiegel", "answerValue": 5 },
+    { "answerText": "Staubsauger", "answerValue": 5 },
+    { "answerText": "Kühlschrank", "answerValue": 3 },
+    { "answerText": "Haustier", "answerValue": 2 },
+    { "answerText": "Radio", "answerValue": 2 }
+  ],
+  "Nenne etwas, das Leute benutzen, um ein Schloss zu knacken": [
+    { "answerText": "Haarnadel", "answerValue": 63 },
+    { "answerText": "Kreditkarte", "answerValue": 13 },
+    { "answerText": "Feile", "answerValue": 7 },
+    { "answerText": "Messer", "answerValue": 4 },
+    { "answerText": "Schraubenzieher", "answerValue": 3 },
+    { "answerText": "Kleiderhaken", "answerValue": 2 },
+    { "answerText": "Büroklammer", "answerValue": 2 }
+  ],
+  "Nenne etwas, wovon Leute Ersatz aufbewahren": [
+    { "answerText": "Reifen", "answerValue": 73 },
+    { "answerText": "Glühbirne", "answerValue": 9 },
+    { "answerText": "Batterien", "answerValue": 4 },
+    { "answerText": "Schlüssel", "answerValue": 4 },
+    { "answerText": "Strumpfhose", "answerValue": 4 },
+    { "answerText": "Toilettenpapier", "answerValue": 3 },
+    { "answerText": "Sicherungen", "answerValue": 2 }
+  ],
+  "Nenne ein Tier, das mehr als eine halbe Tonne wiegen könnte": [
+    { "answerText": "Elefant", "answerValue": 76 },
+    { "answerText": "Nashorn", "answerValue": 5 },
+    { "answerText": "Wahl", "answerValue": 5 },
+    { "answerText": "Nilpferd", "answerValue": 4 },
+    { "answerText": "Bär", "answerValue": 2 },
+    { "answerText": "Kuh", "answerValue": 2 },
+    { "answerText": "Pferd", "answerValue": 2 }
+  ],
+  "Nenne etwas, das Leute im Wasser tragen, außer Badekleidung": [
+    { "answerText": "Schwimmbrille", "answerValue": 23 },
+    { "answerText": "Badekappe", "answerValue": 20 },
+    { "answerText": "Shorts", "answerValue": 14 },
+    { "answerText": "Neoprenanzug", "answerValue": 8 },
+    { "answerText": "Ohrstöpsel", "answerValue": 7 },
+    { "answerText": "Taucherflossen", "answerValue": 5 },
+    { "answerText": "Schwimmflügel", "answerValue": 4 }
+  ],
+  "Nenne etwas, das eine wählerische Frau an ihrem Date auszusetzen hat": [
+    { "answerText": "Kleidung", "answerValue": 37 },
+    { "answerText": "Aussehen", "answerValue": 19 },
+    { "answerText": "zu billig", "answerValue": 10 },
+    { "answerText": "Manieren", "answerValue": 7 },
+    { "answerText": "Haare", "answerValue": 5 },
+    { "answerText": "Auto", "answerValue": 4 },
+    { "answerText": "Persönlichkeit", "answerValue": 4 }
+  ],
+  "Nenne etwas im Badezimmer, das sich ein Ehepaar teilt": [
+    { "answerText": "Zahnpasta", "answerValue": 37 },
+    { "answerText": "Seife", "answerValue": 18 },
+    { "answerText": "Shampoo", "answerValue": 9 },
+    { "answerText": "Föhn", "answerValue": 6 },
+    { "answerText": "Rasierer", "answerValue": 6 },
+    { "answerText": "Handtuch", "answerValue": 5 },
+    { "answerText": "Toilettenpapier", "answerValue": 4 }
+  ],
+  "Nenne etwas, wo du drüberstreichst, weil es sich so gut anfühlt": [
+    { "answerText": "Fell", "answerValue": 30 },
+    { "answerText": "Samt", "answerValue": 22 },
+    { "answerText": "Satin", "answerValue": 12 },
+    { "answerText": "Seide", "answerValue": 11 },
+    { "answerText": "Baby", "answerValue": 8 },
+    { "answerText": "Geld", "answerValue": 2 },
+    { "answerText": "Leder", "answerValue": 2 }
+  ],
+  "Nenne etwas, das Leute öffnen, außer Türen und Fenster": [
+    { "answerText": "Post", "answerValue": 20 },
+    { "answerText": "Dosen", "answerValue": 17 },
+    { "answerText": "Schubladen", "answerValue": 9 },
+    { "answerText": "Mund", "answerValue": 9 },
+    { "answerText": "Kühlschrank", "answerValue": 9 },
+    { "answerText": "Gläser", "answerValue": 7 },
+    { "answerText": "Paket", "answerValue": 5 },
+    { "answerText": "Geschenke", "answerValue": 4 }
+  ],
+  "Nenne eine Frucht, die du mit einem Löffel isst": [
+    { "answerText": "Grapefruit", "answerValue": 51 },
+    { "answerText": "Melone", "answerValue": 21 },
+    { "answerText": "Erdbeeren", "answerValue": 11 },
+    { "answerText": "Pfirsich", "answerValue": 7 },
+    { "answerText": "Blaubeeren", "answerValue": 3 },
+    { "answerText": "Schwarzbeeren", "answerValue": 2 },
+    { "answerText": "Pflaumen", "answerValue": 2 }
+  ],
+  "Nenne ein äußeres Merkmal, was ein Zeuge der Polizei beschreibt": [
+    { "answerText": "Größe", "answerValue": 59 },
+    { "answerText": "Haare", "answerValue": 19 },
+    { "answerText": "Gewicht", "answerValue": 6 },
+    { "answerText": "Augen", "answerValue": 5 },
+    { "answerText": "Narben", "answerValue": 3 },
+    { "answerText": "Hautfarbe", "answerValue": 3 },
+    { "answerText": "Alter", "answerValue": 2 }
+  ],
+  "Nenne ein Tier, nach dem manche Leute beim Lachen klingen": [
+    { "answerText": "Hyäne", "answerValue": 36 },
+    { "answerText": "Esel", "answerValue": 17 },
+    { "answerText": "Pferd", "answerValue": 14 },
+    { "answerText": "Schwein", "answerValue": 10 },
+    { "answerText": "Affe", "answerValue": 8 },
+    { "answerText": "Robbe", "answerValue": 5 },
+    { "answerText": "Huhn", "answerValue": 4 },
+    { "answerText": "Vogel", "answerValue": 2 }
+  ],
+  "Nenne ein Essen, das du am Geruch erkennst": [
+    { "answerText": "Zwiebeln", "answerValue": 32 },
+    { "answerText": "Fisch", "answerValue": 23 },
+    { "answerText": "Knoblauch", "answerValue": 11 },
+    { "answerText": "Pizza", "answerValue": 8 },
+    { "answerText": "Kohl", "answerValue": 6 },
+    { "answerText": "Popcorn", "answerValue": 4 },
+    { "answerText": "Käse", "answerValue": 3 }
+  ],
+  "Wovon hast du zwei oder drei verschiedene Sorten im Kühlschrank?": [
+    { "answerText": "Salatsoße", "answerValue": 28 },
+    { "answerText": "Käse", "answerValue": 25 },
+    { "answerText": "Getränke", "answerValue": 14 },
+    { "answerText": "Marmelade", "answerValue": 6 },
+    { "answerText": "Früchte", "answerValue": 5 },
+    { "answerText": "Senf", "answerValue": 5 },
+    { "answerText": "Gemüse", "answerValue": 5 }
+  ],
+  "Nenne ein Musikinstrument, das sich, von einem Anfänger gespielt, schrecklich anhört": [
+    { "answerText": "Geige", "answerValue": 51 },
+    { "answerText": "Trompete", "answerValue": 13 },
+    { "answerText": "Klarinette", "answerValue": 9 },
+    { "answerText": "Tuba", "answerValue": 6 },
+    { "answerText": "Klavier", "answerValue": 5 },
+    { "answerText": "Trommeln", "answerValue": 4 },
+    { "answerText": "Horn", "answerValue": 4 },
+    { "answerText": "Saxofon", "answerValue": 3 },
+    { "answerText": "Dudelsack", "answerValue": 2 }
+  ],
+  "Nenne etwas, das eine Frau neben ihrem Bett aufbewahrt": [
+    { "answerText": "Wecker", "answerValue": 26 },
+    { "answerText": "Taschentücher", "answerValue": 22 },
+    { "answerText": "Buch", "answerValue": 19 },
+    { "answerText": "Telefon", "answerValue": 14 },
+    { "answerText": "Lampe", "answerValue": 3 }
+  ],
+  "Nenne etwas im Haus, das Männer öfter als Frauen benutzen": [
+    { "answerText": "Rasierer", "answerValue": 33 },
+    { "answerText": "Werkzeug", "answerValue": 24 },
+    { "answerText": "Sofa", "answerValue": 9 },
+    { "answerText": "Fernseher", "answerValue": 9 },
+    { "answerText": "Dusche", "answerValue": 6 },
+    { "answerText": "Toilette", "answerValue": 5 }
+  ],
+  "Nenne ein Lebensmittel, was man vor dem Essen wäscht": [
+    { "answerText": "Apfel", "answerValue": 53 },
+    { "answerText": "Salat", "answerValue": 18 },
+    { "answerText": "Weintrauben", "answerValue": 13 },
+    { "answerText": "Kartoffeln", "answerValue": 5 },
+    { "answerText": "Tomaten", "answerValue": 4 },
+    { "answerText": "Pfirsich", "answerValue": 3 },
+    { "answerText": "Möhre", "answerValue": 2 }
+  ],
+  "Welche Sprache ist die Schwierigste zu lernen?": [
+    { "answerText": "Chinesisch", "answerValue": 43 },
+    { "answerText": "Russisch", "answerValue": 20 },
+    { "answerText": "Japanisch", "answerValue": 19 },
+    { "answerText": "Französisch", "answerValue": 7 },
+    { "answerText": "Latein", "answerValue": 3 },
+    { "answerText": "Deutsch", "answerValue": 3 }
+  ]
+}

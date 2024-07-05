@@ -1,4 +1,6 @@
 form {
+  height: 90%;
+  width: 90%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7,9 +9,11 @@ form {
   padding: 50px;
   border-radius: 20px;
   display: flex;
+  align-items: center;
+  justify-items: center;
   flex-direction: column;
   row-gap: 50px;
-  z-index: 2;
+  z-index: 1;
 
   .team-colors {
     display: flex;
@@ -22,14 +26,12 @@ form {
     background-color: black;
     border: 1px white solid;
     color: white;
-    font-size: 20px;
-    height: 40px;
+    font-size: 64px;
     border-radius: 5px;
     cursor: pointer;
   }
 
   input:hover {
-    background-color: white;
-    color: black;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }

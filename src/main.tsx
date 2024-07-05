@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Preview from "./views/Preview/Preview";
 import Game from "./views/Game/Game";
 import Finals from "./views/Finals/Finals";
+import HostGame from "./views/HostGame/HostGame";
+import HostFinals from "./views/HostFinals/HostFinals";
 
 const router = createBrowserRouter([
   {
@@ -11,12 +13,20 @@ const router = createBrowserRouter([
     element: <Preview />,
   },
   {
-    path: "/game/:id",
+    path: "/game/",
     element: <Game />,
   },
   {
-    path: "/finals/:id/",
+    path: "/finals/",
     element: <Finals />,
+  },
+  {
+    path: "/host/game/",
+    element: <HostGame />,
+  },
+  {
+    path: "/host/finals/",
+    element: <HostFinals />,
   },
 ]);
 

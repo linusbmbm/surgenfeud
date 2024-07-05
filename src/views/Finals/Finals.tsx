@@ -1,169 +1,57 @@
 import "../../../styles.css";
 import "./Finals.css";
-import React, { useEffect, useState } from "react";
-import {
-  NavigateFunction,
-  useLocation,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
-import datajson from "../../data/data.json";
-import Interface_Round from "../../types/Interface_Round";
-import Type_Answer from "../../types/Type_Answer";
-import KeypressHook from "../../hooks/KeypressHook";
-import QuestionJump from "../../components/QuestionJump/QuestionJump";
+import React, { useEffect } from "react";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import ShotsCard from "../../components/ShotsCard/ShotsCard";
 import AnswerCard from "../../components/AnswerCard/AnswerCard";
 import PointsCard from "../../components/PointsCard/PointsCard";
 import AnswerVisibility from "../../types/Enum_AnswerVisibility";
 import ShotType from "../../types/Enum_ShotType";
+import useLocalStorageRead from "../../helpers/useLocalStorageRead";
+import Interface_Answer from "../../types/Interface_Answer";
 
 function Finals() {
   //Variables
-  const navigate: NavigateFunction = useNavigate();
-  const { id } = useParams();
-  const roundNum: number = id ? Number(id) : 0;
+  const finalsColor = useLocalStorageRead<[number, number, number]>(
+    "finalsColor",
+    [255, 255, 255]
+  );
 
-  const location = useLocation();
-  const finalsColor: number[] = location.state.winnerColor
-    ? location.state.winnerColor
-    : [255, 255, 255];
+  const answersFinals = useLocalStorageRead<Interface_Answer[][]>(
+    "answersFinals",
+    [[{ answerText: "", answerValue: 0 }]]
+  );
+  const answersFinalsNumGiven = useLocalStorageRead<number[]>(
+    "answersFinalsNumGiven",
+    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+  );
+  const visibilityAnswersFinalsOfFirstPerson =
+    useLocalStorageRead<AnswerVisibility>(
+      "visibilityAnswersFinalsOfFirstPerson",
+      AnswerVisibility.true
+    );
 
-  const quiz: Interface_Round[] = datajson;
+  const pointsFinals = useLocalStorageRead<number>("pointsFinals", 0);
 
-  const indexKeyMap = {
-    0: "1",
-    1: "2",
-    2: "3",
-    3: "4",
-    4: "5",
-    5: "6",
-    6: "7",
-    7: "8",
-    8: "9",
-    9: "0",
-    10: "x",
-  };
-  const [answersFinals, setAnswersFinals] = useState<Type_Answer[][]>([[[""]]]);
-  const [answerNums, setAnswerNums] = useState<number[]>([
-    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-  ]);
-  const [visibilityQuestionJump, setVisibilityQuestionJump] =
-    useState<boolean>(false);
-  const [visibilityAnswersLeft, setVisibilityAnswersLeft] =
-    useState<AnswerVisibility>(AnswerVisibility.true);
-
-  const [pointsTotal, setPointsTotal] = useState<number>(0);
+  const navigate = useLocalStorageRead<string>("navigate", "");
+  const navigator: NavigateFunction = useNavigate();
 
   //Functions
   const fixAnswer = (
-    selectedAnswer: number,
-    possibleAnswers: Type_Answer[]
-  ): Type_Answer => {
-    return selectedAnswer === -1
-      ? ["", "", ""]
-      : selectedAnswer === 10
-      ? ["", "Nein, nein, nein!", "0"]
-      : possibleAnswers[selectedAnswer];
-  };
-
-  const changeRound = (changeToRoundNum: number): void => {
-    navigate(`/finals/${changeToRoundNum}`);
-    setVisibilityQuestionJump(false);
+    answerNumGiven: number,
+    answers: Interface_Answer[]
+  ): Interface_Answer => {
+    return answerNumGiven === -1
+      ? { answerText: "", answerValue: 0 }
+      : answerNumGiven === 10
+      ? { answerText: "Nein, nein, nein!", answerValue: 0 }
+      : answers[answerNumGiven];
   };
 
   //Hooks
   useEffect(() => {
-    setAnswersFinals(() => {
-      const updatedAnswersFinals: Type_Answer[][] = [[[""]]];
-      for (let index = 0; index < 5; index++) {
-        updatedAnswersFinals[index] = quiz[roundNum + index]["answers"];
-      }
-      return updatedAnswersFinals;
-    });
-  }, [quiz, roundNum]);
-
-  useEffect(() => {
-    setPointsTotal(() => {
-      let updatedPointsTotal: number = 0;
-      answersFinals.map((answerRound, index) => {
-        updatedPointsTotal +=
-          answerNums[index] >= 0 && answerNums[index] <= 9
-            ? Number(answerRound[answerNums[index]][2])
-            : 0;
-      });
-      answersFinals.map((answerRound, index) => {
-        const doubleIndex: number = index + answersFinals.length;
-        updatedPointsTotal +=
-          answerNums[doubleIndex] >= 0 && answerNums[doubleIndex] <= 9
-            ? Number(answerRound[answerNums[doubleIndex]][2])
-            : 0;
-      });
-      return updatedPointsTotal;
-    });
-  }, [answersFinals, answerNums]);
-
-  KeypressHook(() => {
-    setVisibilityQuestionJump(!visibilityQuestionJump);
-  }, "j");
-
-  Object.keys(indexKeyMap).map((mapIndex) => {
-    const index: keyof typeof indexKeyMap = Number(
-      mapIndex
-    ) as keyof typeof indexKeyMap;
-
-    KeypressHook(() => {
-      if (!visibilityQuestionJump) {
-        setAnswerNums((prevAnswerNums) => {
-          const updatedAnswerNums: number[] = [...prevAnswerNums];
-          const indexFirstMinusOneValue: number = answerNums.findIndex(
-            (answerNum) => answerNum === -1
-          );
-          if (indexFirstMinusOneValue !== -1) {
-            if (
-              answersFinals[
-                indexFirstMinusOneValue < 5
-                  ? indexFirstMinusOneValue
-                  : indexFirstMinusOneValue - 5
-              ][index] !== undefined ||
-              index === 10
-            ) {
-              updatedAnswerNums[indexFirstMinusOneValue]
-                ? (updatedAnswerNums[indexFirstMinusOneValue] = index)
-                : null;
-            }
-          }
-          return updatedAnswerNums;
-        });
-      }
-    }, indexKeyMap[index]);
-  });
-
-  KeypressHook(() => {
-    setAnswerNums((prevAnswerNums) => {
-      const updatedAnswerNums: number[] = [...prevAnswerNums];
-      let indexLastNonMinusOneValue: number = 0;
-      answerNums.map((answerNum, index) => {
-        if (answerNum !== -1) {
-          indexLastNonMinusOneValue = index;
-        }
-      });
-      updatedAnswerNums[indexLastNonMinusOneValue] = -1;
-      return updatedAnswerNums;
-    });
-  }, "-");
-
-  KeypressHook(() => {
-    if (visibilityAnswersLeft === AnswerVisibility.true) {
-      setVisibilityAnswersLeft(AnswerVisibility.hidden);
-    } else {
-      setVisibilityAnswersLeft(AnswerVisibility.true);
-    }
-  }, "y");
-
-  KeypressHook(() => {
-    navigate(`/game/${roundNum + 5}`);
-  }, "f");
+    navigator(navigate);
+  }, [navigate]);
 
   return (
     <>
@@ -173,15 +61,9 @@ function Finals() {
           background: `radial-gradient(circle 130vh at 50% 20%, rgba(${finalsColor}, 0.8), transparent)`,
         }}
       >
-        <QuestionJump
-          defaultValue={roundNum}
-          onSubmit={changeRound}
-          visibility={visibilityQuestionJump}
-        />
-
         <div className="finals-elements">
           <div className="finals-element finals-points">
-            <PointsCard points={pointsTotal} />
+            <PointsCard points={pointsFinals} />
           </div>
 
           <div className="finals-element finals-answers">
@@ -189,12 +71,12 @@ function Finals() {
               <React.Fragment key={index}>
                 <AnswerCard
                   key={`1.${index}`}
-                  answer={fixAnswer(answerNums[index], round)}
-                  visibility={visibilityAnswersLeft}
+                  answer={fixAnswer(answersFinalsNumGiven[index], round)}
+                  visibility={visibilityAnswersFinalsOfFirstPerson}
                 />
                 <AnswerCard
                   key={`2.${index}`}
-                  answer={fixAnswer(answerNums[index + 5], round)}
+                  answer={fixAnswer(answersFinalsNumGiven[index + 5], round)}
                   visibility={AnswerVisibility.true}
                 />
               </React.Fragment>
@@ -203,19 +85,19 @@ function Finals() {
 
           <div className="finals-element finals-shots-total">
             <ShotsCard
-              num={Math.ceil(pointsTotal / 15)}
+              num={Math.ceil(pointsFinals / 15)}
               type={ShotType.total}
             />
           </div>
           <div className="finals-element finals-shots-person">
             <ShotsCard
-              num={Math.floor(Math.ceil(pointsTotal / 15) / 3)}
+              num={Math.floor(Math.ceil(pointsFinals / 15) / 3)}
               type={ShotType.person}
             />
           </div>
           <div className="finals-element finals-shots-rest">
             <ShotsCard
-              num={Math.ceil(pointsTotal / 15) % 3}
+              num={Math.ceil(pointsFinals / 15) % 3}
               type={ShotType.rest}
             />
           </div>
