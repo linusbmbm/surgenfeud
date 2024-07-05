@@ -25,11 +25,10 @@ function Finals() {
     "answersFinalsNumGiven",
     [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
   );
-  const visibilityAnswersFinalsOfFirstPerson =
-    useLocalStorageRead<AnswerVisibility>(
-      "visibilityAnswersFinalsOfFirstPerson",
-      AnswerVisibility.true
-    );
+  const visibilityAnswersFinals = useLocalStorageRead<AnswerVisibility[]>(
+    "visibilityAnswersFinals",
+    [AnswerVisibility.false]
+  );
 
   const pointsFinals = useLocalStorageRead<number>("pointsFinals", 0);
 
@@ -53,6 +52,10 @@ function Finals() {
     navigator(navigate);
   }, [navigate]);
 
+  useEffect(() => {
+    localStorage.removeItem("navigate");
+  }, []);
+
   return (
     <>
       <div
@@ -68,18 +71,18 @@ function Finals() {
 
           <div className="finals-element finals-answers">
             {answersFinals.map((round, index) => (
-              <React.Fragment key={index}>
+              <>
                 <AnswerCard
                   key={`1.${index}`}
                   answer={fixAnswer(answersFinalsNumGiven[index], round)}
-                  visibility={visibilityAnswersFinalsOfFirstPerson}
+                  visibility={visibilityAnswersFinals[index]}
                 />
                 <AnswerCard
                   key={`2.${index}`}
                   answer={fixAnswer(answersFinalsNumGiven[index + 5], round)}
-                  visibility={AnswerVisibility.true}
+                  visibility={visibilityAnswersFinals[index + 5]}
                 />
-              </React.Fragment>
+              </>
             ))}
           </div>
 

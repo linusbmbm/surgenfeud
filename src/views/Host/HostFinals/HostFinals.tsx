@@ -23,30 +23,34 @@ const HostFinals = () => {
       "answersFinalsNumGiven",
       [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
     );
-  const [
-    visibilityAnswersFinalsOfFirstPerson,
-    setVisibilityAnswersFinalsOfFirstPerson,
-  ] = useLocalStorageWrite<AnswerVisibility>(
-    "visibilityAnswersFinalsOfFirstPerson",
-    AnswerVisibility.true
-  );
+  const [visibilityAnswersFinals, setVisibilityAnswersFinals] =
+    useLocalStorageWrite<AnswerVisibility[]>(
+      "visibilityAnswersFinals",
+      [...Array(10)].map(() => AnswerVisibility.false)
+    );
 
   const [pointsFinals, setPointsFinals] = useLocalStorageWrite<number>(
     "pointsFinals",
     0
   );
 
-  const [, setNavigate] = useLocalStorageWrite<string>("navigate", "");
+  const [navigate, setNavigate] = useLocalStorageWrite<string>("navigate", "");
   const navigator: NavigateFunction = useNavigate();
 
   //Hooks
   useEffect(() => {
     for (let key in localStorage) {
-      if (key !== "roundNum") {
+      if (!["navigate", "roundNum", "finalsColor"].includes(key)) {
         localStorage.removeItem(key);
       }
     }
   }, []);
+
+  useEffect(() => {
+    if (navigate) {
+      navigator(`/host${navigate}`);
+    }
+  }, [navigate]);
 
   useEffect(() => {
     let newQuestionsFinals = [];
@@ -60,28 +64,34 @@ const HostFinals = () => {
 
     setQuestionsFinals(newQuestionsFinals);
     setAnswersFinals(newAnswersFinals);
+    setVisibilityAnswersFinals(
+      [...Array(10)].map(() => AnswerVisibility.false)
+    );
   }, [quiz, roundNum]);
 
   useEffect(() => {
-    setPointsFinals(() => {
-      let updatedPointsFinals: number = 0;
-      answersFinals.map((answerRound, index) => {
-        updatedPointsFinals +=
-          answersFinalsNumGiven[index] >= 0 && answersFinalsNumGiven[index] <= 9
-            ? answerRound[answersFinalsNumGiven[index]].answerValue
-            : 0;
-      });
-      answersFinals.map((answerRound, index) => {
-        const doubleIndex: number = index + answersFinals.length;
-        updatedPointsFinals +=
-          answersFinalsNumGiven[doubleIndex] >= 0 &&
-          answersFinalsNumGiven[doubleIndex] <= 9
-            ? answerRound[answersFinalsNumGiven[doubleIndex]].answerValue
-            : 0;
-      });
-      return updatedPointsFinals;
+    let newPointsFinals: number = 0;
+
+    answersFinals.map((answer, index) => {
+      if (
+        visibilityAnswersFinals[index] === AnswerVisibility.true &&
+        answer[answersFinalsNumGiven[index]].answerValue != undefined
+      ) {
+        newPointsFinals += answer[answersFinalsNumGiven[index]].answerValue;
+      }
     });
-  }, [answersFinals, answersFinalsNumGiven]);
+
+    answersFinals.map((answer, index) => {
+      if (
+        visibilityAnswersFinals[index + 5] === AnswerVisibility.true &&
+        answer[answersFinalsNumGiven[index + 5]].answerValue != undefined
+      ) {
+        newPointsFinals += answer[answersFinalsNumGiven[index + 5]].answerValue;
+      }
+    });
+
+    setPointsFinals(newPointsFinals);
+  }, [visibilityAnswersFinals]);
 
   useEffect(() => {
     setQuestionFinalsNum(
@@ -110,21 +120,35 @@ const HostFinals = () => {
   };
 
   const deleteLastAnswerNumGiven = () => {
+    const questionFinalsNumDelete =
+      questionFinalsNum !== -1 ? questionFinalsNum - 1 : 9;
+    let newvisibilityAnswersFinals = [...visibilityAnswersFinals];
+    newvisibilityAnswersFinals[questionFinalsNumDelete] =
+      AnswerVisibility.false;
+    setVisibilityAnswersFinals(newvisibilityAnswersFinals);
+
     let newAnswersFinalsNumGiven = [...answersFinalsNumGiven];
-
-    newAnswersFinalsNumGiven[
-      questionFinalsNum !== -1 ? questionFinalsNum - 1 : 9
-    ] = -1;
-
+    newAnswersFinalsNumGiven[questionFinalsNumDelete] = -1;
     setAnswersFinalsNumGiven(newAnswersFinalsNumGiven);
   };
 
   const hideAnswers = () => {
-    if (visibilityAnswersFinalsOfFirstPerson === AnswerVisibility.true) {
-      setVisibilityAnswersFinalsOfFirstPerson(AnswerVisibility.hidden);
-    } else {
-      setVisibilityAnswersFinalsOfFirstPerson(AnswerVisibility.true);
+    let newVisibilityAnswersFinals = [...visibilityAnswersFinals];
+
+    const newVisibilityFirstFiveAnswersFinals = newVisibilityAnswersFinals
+      .slice(0, 5)
+      .every(
+        (visibilityAnswerFinals) =>
+          visibilityAnswerFinals === AnswerVisibility.hidden
+      )
+      ? AnswerVisibility.true
+      : AnswerVisibility.hidden;
+
+    for (let index = 0; index < 5; index++) {
+      newVisibilityAnswersFinals[index] = newVisibilityFirstFiveAnswersFinals;
     }
+
+    setVisibilityAnswersFinals(newVisibilityAnswersFinals);
   };
 
   const goToGame = () => {
@@ -132,7 +156,6 @@ const HostFinals = () => {
       return prevRoundNum + 5;
     });
     setNavigate("/game");
-    navigator("/host/game");
   };
 
   const fixAnswer = (
@@ -145,6 +168,16 @@ const HostFinals = () => {
       ? "Falsche Antwort"
       : answers[answerNumGiven].answerText;
   };
+
+  const changeVisibilityAnswerFinals = (index: number) => {
+    let newVisibilityAnswersFinals = [...visibilityAnswersFinals];
+    newVisibilityAnswersFinals[index] =
+      newVisibilityAnswersFinals[index] === AnswerVisibility.true
+        ? AnswerVisibility.false
+        : AnswerVisibility.true;
+    setVisibilityAnswersFinals(newVisibilityAnswersFinals);
+  };
+
   return (
     <>
       <div className="host-finals">
@@ -161,35 +194,45 @@ const HostFinals = () => {
           <PointsCard points={Math.ceil(pointsFinals / 15) % 3} />
         </div>
         <div className="finals-answers-given">
-          <div className="finals-answers-given-person">
-            <label>Person 1:</label>
-            {answersFinals.map((round, index) => (
-              <span key={index}>
-                {fixAnswer(answersFinalsNumGiven[index], round)}
-              </span>
-            ))}
-          </div>
-          <div className="finals-answers-given-person">
-            <label>Person 2:</label>
-            {answersFinals.map((round, index) => (
-              <span key={index}>
-                {fixAnswer(answersFinalsNumGiven[index + 5], round)}
-              </span>
-            ))}
-          </div>
+          {answersFinals.map((round, index) => (
+            <>
+              <input
+                key={index}
+                type="button"
+                value={`${fixAnswer(answersFinalsNumGiven[index], round)} | ${
+                  visibilityAnswersFinals[index]
+                }`}
+                onClick={() => {
+                  changeVisibilityAnswerFinals(index);
+                }}
+              />
+              <input
+                key={index + 5}
+                type="button"
+                value={`${fixAnswer(
+                  answersFinalsNumGiven[index + 5],
+                  round
+                )} | ${visibilityAnswersFinals[index + 5]}`}
+                onClick={() => {
+                  changeVisibilityAnswerFinals(index + 5);
+                }}
+              />
+            </>
+          ))}
         </div>
         <div className="go-to-game">
           <input type="button" value="Spiel" onClick={goToGame} />
         </div>
         <div className="finals-question">
-          {(questionFinalsNum < 5 ? questionFinalsNum : questionFinalsNum - 5) +
-            1}{" "}
-          |{" "}
-          {
+          {`${
+            (questionFinalsNum < 5
+              ? questionFinalsNum
+              : questionFinalsNum - 5) + 1
+          } | ${
             questionsFinals[
               questionFinalsNum < 5 ? questionFinalsNum : questionFinalsNum - 5
             ]
-          }
+          }`}
         </div>
         <div className="wrong-finals-answer">
           <input
@@ -209,7 +252,7 @@ const HostFinals = () => {
         <div className="hide-finals-answers">
           <input
             type="button"
-            value={`Antworten verstecken | ${visibilityAnswersFinalsOfFirstPerson}`}
+            value={"Antworten verstecken"}
             onClick={hideAnswers}
           />
         </div>

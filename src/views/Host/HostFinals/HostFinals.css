@@ -35,14 +35,11 @@
 
 .finals-answers-given {
   grid-area: finals-answers-given;
-  display: flex;
-  justify-content: space-evenly;
-
-  .finals-answers-given-person {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  padding: 20px;
+  grid-gap: 15px;
 }
 
 .go-to-game {

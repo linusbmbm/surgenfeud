@@ -57,7 +57,7 @@ const Game = () => {
     false
   );
 
-  const navigate = useLocalStorageRead<string>("naviage", "");
+  const navigate = useLocalStorageRead<string>("navigate", "");
 
   const navigator: NavigateFunction = useNavigate();
 
@@ -65,6 +65,10 @@ const Game = () => {
   useEffect(() => {
     navigator(navigate);
   }, [navigate]);
+
+  useEffect(() => {
+    localStorage.removeItem("navigate");
+  }, []);
 
   return (
     <>

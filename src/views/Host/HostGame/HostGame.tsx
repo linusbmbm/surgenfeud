@@ -212,17 +212,22 @@ const HostGame = () => {
       return prevRoundNum + 1;
     });
     setNavigate("/finals");
-    navigator("/host/finals");
   };
 
   //Hooks
   useEffect(() => {
     for (let key in localStorage) {
-      if (key !== "roundNum") {
+      if (!["navigate", "roundNum"].includes(key)) {
         localStorage.removeItem(key);
       }
     }
   }, []);
+
+  useEffect(() => {
+    if (navigate) {
+      navigator(`/host${navigate}`);
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const newQuestion = Object.keys(quiz)[roundNum];
@@ -278,12 +283,16 @@ const HostGame = () => {
           <input
             type="button"
             name="showAnswerNumbers"
-            value="Zeige Antwortnummern"
+            value={`Zeige Antwortnummern | ${answers.length}`}
             onClick={showAnswerNumbers}
           />
         </div>
         <div className="show-wrongs">
-          <input type="button" value="Falsche Antwort" onClick={showWrongs} />
+          <input
+            type="button"
+            value={`Falsche Antwort | ${wrongNum}`}
+            onClick={showWrongs}
+          />
         </div>
         <div className="go-to-finals">
           <input type="button" value="Finale" onClick={goToFinals} />

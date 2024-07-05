@@ -16,7 +16,6 @@ interface Props {
 }
 
 const AnswerCard = ({ index, answer, visibility }: Props) => {
-  console.log(answer);
   const [answerText, setAnswerText] = useState<string>(answer.answerText);
   const [answerValue, setAnswerValue] = useState<string>(
     answer.answerValue.toString()
@@ -27,17 +26,18 @@ const AnswerCard = ({ index, answer, visibility }: Props) => {
   const prevVisibility = useRef<AnswerVisibility>();
 
   useEffect(() => {
-    if (visibility === AnswerVisibility.true) {
-      if (
-        prevVisibility.current != AnswerVisibility.true ||
-        answerText === ""
-      ) {
-        setAnswerText(answer.answerText);
-        setAnswerValue(answer.answerValue.toString());
-        setAnimationCorrectOrIncorrect(true);
-        setTimeout(() => setAnimationCorrectOrIncorrect(false), 700);
-      }
-    } else if (visibility === AnswerVisibility.hidden) {
+    if (
+      visibility === AnswerVisibility.true &&
+      prevVisibility.current != AnswerVisibility.true
+    ) {
+      setAnswerText(answer.answerText);
+      setAnswerValue(answer.answerValue.toString());
+      setAnimationCorrectOrIncorrect(true);
+      setTimeout(() => setAnimationCorrectOrIncorrect(false), 700);
+    } else if (
+      visibility === AnswerVisibility.hidden &&
+      prevVisibility.current != AnswerVisibility.hidden
+    ) {
       setAnimationHide(true);
       setTimeout(() => setAnimationHide(false), 700);
       setTimeout(() => setAnswerText("???"), 500);
@@ -47,7 +47,7 @@ const AnswerCard = ({ index, answer, visibility }: Props) => {
     prevVisibility.current = visibility;
   }, [answer, visibility]);
 
-  if (visibility === AnswerVisibility.false || answer.answerText === "") {
+  if (visibility === AnswerVisibility.false) {
     return <div className="answer"></div>;
   }
 
