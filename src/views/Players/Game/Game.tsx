@@ -1,14 +1,14 @@
-import "../../../styles.css";
+import "../../../../styles.css";
 import "./Game.css";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import Wrong from "../../components/Wrong/Wrong";
-import PointsCard from "../../components/PointsCard/PointsCard";
-import QuestionCard from "../../components/QuestionCard/QuestionCard";
-import AnswerCard from "../../components/AnswerCard/AnswerCard";
-import PointsFillCard from "../../components/PointsFillCard/PointsFillCard";
-import AnswerVisibility from "../../types/Enum_AnswerVisibility";
-import Interface_Answer from "../../types/Interface_Answer";
-import useLocalStorageRead from "../../helpers/useLocalStorageRead";
+import Wrong from "../../../components/Wrong/Wrong";
+import PointsCard from "../../../components/PointsCard/PointsCard";
+import QuestionCard from "../../../components/QuestionCard/QuestionCard";
+import AnswerCard from "../../../components/AnswerCard/AnswerCard";
+import PointsFillCard from "../../../components/PointsFillCard/PointsFillCard";
+import AnswerVisibility from "../../../types/Enum_AnswerVisibility";
+import Interface_Answer from "../../../types/Interface_Answer";
+import useLocalStorageRead from "../../../helpers/useLocalStorageRead";
 import { useEffect } from "react";
 
 declare module "react" {

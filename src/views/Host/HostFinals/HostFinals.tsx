@@ -1,12 +1,12 @@
 import "./HostFinals.css";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import datajson from "../../data/data.json";
-import useLocalStorageWrite from "../../helpers/useLocalStorageWrite";
-import AnswerVisibility from "../../types/Enum_AnswerVisibility";
-import Interface_Answer from "../../types/Interface_Answer";
+import datajson from "../../../data/data.json";
+import useLocalStorageWrite from "../../../helpers/useLocalStorageWrite";
+import AnswerVisibility from "../../../types/Enum_AnswerVisibility";
+import Interface_Answer from "../../../types/Interface_Answer";
 import { useEffect, useState } from "react";
-import Interface_QuestionAnswer from "../../types/Interface_QuestionAnswer";
-import PointsCard from "../../components/PointsCard/PointsCard";
+import Interface_QuestionAnswer from "../../../types/Interface_QuestionAnswer";
+import PointsCard from "../../../components/PointsCard/PointsCard";
 
 const HostFinals = () => {
   //Variables

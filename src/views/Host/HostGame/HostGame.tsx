@@ -1,13 +1,13 @@
 import "./HostGame.css";
 import { useEffect, useState } from "react";
-import datajson from "../../data/data.json";
-import PointsCard from "../../components/PointsCard/PointsCard";
-import AnswerVisibility from "../../types/Enum_AnswerVisibility";
-import Interface_QuestionAnswer from "../../types/Interface_QuestionAnswer";
+import datajson from "../../../data/data.json";
+import PointsCard from "../../../components/PointsCard/PointsCard";
+import AnswerVisibility from "../../../types/Enum_AnswerVisibility";
+import Interface_QuestionAnswer from "../../../types/Interface_QuestionAnswer";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import Interface_Answer from "../../types/Interface_Answer";
-import TeamColors from "../../components/TeamColors/TeamColors";
-import useLocalStorageWrite from "../../helpers/useLocalStorageWrite";
+import Interface_Answer from "../../../types/Interface_Answer";
+import TeamColors from "../../../components/TeamColors/TeamColors";
+import useLocalStorageWrite from "../../../helpers/useLocalStorageWrite";
 
 const HostGame = () => {
   //Variables

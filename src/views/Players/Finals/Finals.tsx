@@ -1,14 +1,14 @@
-import "../../../styles.css";
+import "../../../../styles.css";
 import "./Finals.css";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import ShotsCard from "../../components/ShotsCard/ShotsCard";
-import AnswerCard from "../../components/AnswerCard/AnswerCard";
-import PointsCard from "../../components/PointsCard/PointsCard";
-import AnswerVisibility from "../../types/Enum_AnswerVisibility";
-import ShotType from "../../types/Enum_ShotType";
-import useLocalStorageRead from "../../helpers/useLocalStorageRead";
-import Interface_Answer from "../../types/Interface_Answer";
+import ShotsCard from "../../../components/ShotsCard/ShotsCard";
+import AnswerCard from "../../../components/AnswerCard/AnswerCard";
+import PointsCard from "../../../components/PointsCard/PointsCard";
+import AnswerVisibility from "../../../types/Enum_AnswerVisibility";
+import ShotType from "../../../types/Enum_ShotType";
+import useLocalStorageRead from "../../../helpers/useLocalStorageRead";
+import Interface_Answer from "../../../types/Interface_Answer";
 
 function Finals() {
   //Variables

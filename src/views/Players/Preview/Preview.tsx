@@ -1,10 +1,10 @@
-import "../../../styles.css";
+import "../../../../styles.css";
 import "./Preview.css";
 import { useNavigate } from "react-router-dom";
-import LogoImage from "../../images/Logo.png";
-import PearImage from "../../images/Pear.png";
+import LogoImage from "../../../images/Logo.png";
+import PearImage from "../../../images/Pear.png";
 import { useEffect } from "react";
-import useLocalStorageRead from "../../helpers/useLocalStorageRead";
+import useLocalStorageRead from "../../../helpers/useLocalStorageRead";
 
 const Preview = () => {
   const navigate = useLocalStorageRead<string>("navigate", "");

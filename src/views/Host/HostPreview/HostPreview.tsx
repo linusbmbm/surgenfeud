@@ -1,5 +1,5 @@
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import useLocalStorageWrite from "../../helpers/useLocalStorageWrite";
+import useLocalStorageWrite from "../../../helpers/useLocalStorageWrite";
 import "./HostPreview.css";
 import { useEffect } from "react";
 

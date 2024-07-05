@@ -5,12 +5,12 @@ import {
   RouterProvider,
   useNavigate,
 } from "react-router-dom";
-import HostPreview from "./views/HostPreview/HostPreview";
-import Preview from "./views/Preview/Preview";
-import HostGame from "./views/HostGame/HostGame";
-import Game from "./views/Game/Game";
-import HostFinals from "./views/HostFinals/HostFinals";
-import Finals from "./views/Finals/Finals";
+import HostPreview from "./views/Host/HostPreview/HostPreview";
+import Preview from "./views/Players/Preview/Preview";
+import HostGame from "./views/Host/HostGame/HostGame";
+import Game from "./views/Players/Game/Game";
+import HostFinals from "./views/Host/HostFinals/HostFinals";
+import Finals from "./views/Players/Finals/Finals";
 
 const RedirectAndOpenNewTab = () => {
   const navigate = useNavigate();
