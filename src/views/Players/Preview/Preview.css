@@ -1,6 +1,4 @@
 .preview {
-  --dulle-color: rgba(255, 255, 255, 0.1);
-
   height: 76%;
   margin: 3%;
   padding: 3%;
@@ -13,86 +11,86 @@
   align-items: center;
   row-gap: 20px;
   cursor: default;
-}
 
-.game-name {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  column-gap: 25px;
-
-  .game-name-text {
-    font-size: 150px;
-    color: #fde6d2;
+  .game-name {
     display: flex;
-    column-gap: 50px;
+    align-items: center;
+    justify-content: center;
+    column-gap: 25px;
 
-    .game-name-text-first-word {
+    .game-name-text {
+      font-size: 150px;
+      color: #fde6d2;
       display: flex;
+      column-gap: 50px;
 
-      .game-name-text-first-word-letter0 {
-        animation: textUpDownFirstWordLetter0 4s infinite ease-in-out;
+      .game-name-text-first-word {
+        display: flex;
+
+        .game-name-text-first-word-letter0 {
+          animation: textUpDownFirstWordLetter0 4s infinite ease-in-out;
+        }
+
+        .game-name-text-first-word-letter1 {
+          animation: textUpDownFirstWordLetter1 4s infinite ease-in-out;
+        }
+
+        .game-name-text-first-word-letter2 {
+          animation: textUpDownFirstWordLetter2 4s infinite ease-in-out;
+        }
+
+        .game-name-text-first-word-letter3 {
+          animation: textUpDownFirstWordLetter3 4s infinite ease-in-out;
+        }
+
+        .game-name-text-first-word-letter4 {
+          animation: textUpDownFirstWordLetter4 4s infinite ease-in-out;
+        }
+
+        .game-name-text-first-word-letter5 {
+          animation: textUpDownFirstWordLetter5 4s infinite ease-in-out;
+        }
       }
 
-      .game-name-text-first-word-letter1 {
-        animation: textUpDownFirstWordLetter1 4s infinite ease-in-out;
-      }
+      .game-name-text-second-word {
+        display: flex;
 
-      .game-name-text-first-word-letter2 {
-        animation: textUpDownFirstWordLetter2 4s infinite ease-in-out;
-      }
+        .game-name-text-second-word-letter0 {
+          animation: textUpDownSecondWordLetter0 4s infinite ease-in-out;
+        }
 
-      .game-name-text-first-word-letter3 {
-        animation: textUpDownFirstWordLetter3 4s infinite ease-in-out;
-      }
+        .game-name-text-second-word-letter1 {
+          animation: textUpDownSecondWordLetter1 4s infinite ease-in-out;
+        }
 
-      .game-name-text-first-word-letter4 {
-        animation: textUpDownFirstWordLetter4 4s infinite ease-in-out;
-      }
+        .game-name-text-second-word-letter2 {
+          animation: textUpDownSecondWordLetter2 4s infinite ease-in-out;
+        }
 
-      .game-name-text-first-word-letter5 {
-        animation: textUpDownFirstWordLetter5 4s infinite ease-in-out;
+        .game-name-text-second-word-letter3 {
+          animation: textUpDownSecondWordLetter3 4s infinite ease-in-out;
+        }
       }
     }
 
-    .game-name-text-second-word {
-      display: flex;
-
-      .game-name-text-second-word-letter0 {
-        animation: textUpDownSecondWordLetter0 4s infinite ease-in-out;
-      }
-
-      .game-name-text-second-word-letter1 {
-        animation: textUpDownSecondWordLetter1 4s infinite ease-in-out;
-      }
-
-      .game-name-text-second-word-letter2 {
-        animation: textUpDownSecondWordLetter2 4s infinite ease-in-out;
-      }
-
-      .game-name-text-second-word-letter3 {
-        animation: textUpDownSecondWordLetter3 4s infinite ease-in-out;
-      }
+    .game-name-icon {
+      animation: iconGrowRotate 4s infinite ease-in-out;
     }
   }
 
-  .game-name-icon {
-    animation: iconGrowRotate 4s infinite ease-in-out;
+  .host-presents {
+    font-size: 32px;
+    text-align: center;
+    justify-content: center;
+    animation: textGrowShrink 4s infinite ease-in-out;
   }
-}
 
-.host-presents {
-  font-size: 32px;
-  text-align: center;
-  justify-content: center;
-  animation: textGrowShrink 4s infinite ease-in-out;
-}
-
-.host-name {
-  font-size: 64px;
-  text-align: center;
-  justify-content: center;
-  animation: nameGrowShrink 4s infinite ease-in-out;
+  .host-name {
+    font-size: 64px;
+    text-align: center;
+    justify-content: center;
+    animation: nameGrowShrink 4s infinite ease-in-out;
+  }
 }
 
 @keyframes textUpDownFirstWordLetter0 {

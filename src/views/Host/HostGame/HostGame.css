@@ -2,67 +2,103 @@
   height: 88%;
   padding: 3%;
   display: grid;
-  grid-template-rows: repeat(3, 1fr) 4fr;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr) 4fr 1fr;
+  grid-template-columns: 1fr repeat(3, 2fr) 1fr;
   grid-template-areas:
-    "points-left-team  points-left-team   points-now         points-now    points-right-team points-right-team"
-    "set-team-color    show-answer-number show-answer-number show-wrongs   show-wrongs       go-to-finals"
-    "previous-question show-question      show-question      show-question show-question     next-question"
-    "answers           answers            answers            answers       answers           answers";
+    "set-team-color     set-team-color     points-now go-to-finals      go-to-finals"
+    "previous-question  points-right-team  points-now     points-left-team  next-question"
+    "show-answer-number show-answer-number show-question  show-question     show-question"
+    "answers            answers            answers        answers           answers"
+    "show-wrongs        show-wrongs        show-wrongs    show-wrongs       show-wrongs";
   grid-gap: 20px;
 
-  input {
-    height: 100%;
-    width: 100%;
+  .blinking {
+    border-radius: 20px;
+    animation: blinking 1s infinite;
+  }
+
+  .set-team-color {
+    grid-area: set-team-color;
+  }
+
+  .go-to-finals {
+    grid-area: go-to-finals;
+  }
+
+  .previous-question {
+    grid-area: previous-question;
+  }
+
+  .points-right-team {
+    grid-area: points-right-team;
+    border-radius: 20px;
+  }
+
+  .points-now {
+    grid-area: points-now;
+  }
+
+  .points-left-team {
+    grid-area: points-left-team;
+    border-radius: 20px;
+  }
+
+  .next-question {
+    grid-area: next-question;
+  }
+
+  .show-answer-number {
+    grid-area: show-answer-number;
+
+    button {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 20%;
+    }
+  }
+
+  .show-question {
+    grid-area: show-question;
+
+    button {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 20%;
+    }
+  }
+
+  .answers {
+    grid-area: answers;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-auto-flow: column;
+    grid-gap: 15px;
+
+    button {
+      display: grid;
+      align-items: center;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .show-wrongs {
+    grid-area: show-wrongs;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2%;
+    }
   }
 }
 
-.points-left-team {
-  grid-area: points-left-team;
-}
-
-.points-now {
-  grid-area: points-now;
-}
-
-.points-right-team {
-  grid-area: points-right-team;
-}
-
-.set-team-color {
-  grid-area: set-team-color;
-}
-
-.show-answer-number {
-  grid-area: show-answer-number;
-}
-
-.show-wrongs {
-  grid-area: show-wrongs;
-}
-
-.go-to-finals {
-  grid-area: go-to-finals;
-}
-
-.previous-question {
-  grid-area: previous-question;
-}
-
-.show-question {
-  grid-area: show-question;
-}
-
-.next-question {
-  grid-area: next-question;
-}
-
-.answers {
-  grid-area: answers;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-auto-flow: column;
-  padding: 20px;
-  grid-gap: 15px;
+@keyframes blinking {
+  0%,
+  100% {
+  }
+  50% {
+    background-color: var(--dulle-color);
+  }
 }

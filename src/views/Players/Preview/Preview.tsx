@@ -1,4 +1,4 @@
-import "../../../../styles.css";
+import "/styles.css";
 import "./Preview.css";
 import { useNavigate } from "react-router-dom";
 import LogoImage from "../../../images/Logo.png";
@@ -9,6 +9,7 @@ import useLocalStorageRead from "../../../helpers/useLocalStorageRead";
 const Preview = () => {
   const navigate = useLocalStorageRead<string>("navigate", "");
   const navigator = useNavigate();
+
   const firstWord: string[] = ["S", "U", "R", "G", "E", "N"];
   const secondWord: string[] = ["F", "E", "U", "D"];
 

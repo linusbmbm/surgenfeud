@@ -1,3 +1,4 @@
+import "/styles.css";
 import "./HostGame.css";
 import { useEffect, useState } from "react";
 import datajson from "../../../data/data.json";
@@ -18,6 +19,8 @@ const HostGame = () => {
 
   const [visibilityTeamColors, setvisibilityTeamColors] =
     useState<boolean>(false);
+
+  const [stealPoints, setStealPoints] = useState<boolean>(false);
 
   const [roundPoints, setRoundPoints] = useState<number>(0);
   const [roundEnd, setRoundEnd] = useState<boolean>(false);
@@ -69,7 +72,6 @@ const HostGame = () => {
     [255, 255, 255]
   );
   const [navigate, setNavigate] = useLocalStorageWrite<string>("navigate", "");
-
   //functions
   const changeTeamColors = (
     newTeamRightColor: string,
@@ -78,22 +80,6 @@ const HostGame = () => {
     setTeamRightColor(hexToRgb(newTeamRightColor));
     setTeamLeftColor(hexToRgb(newTeamLeftColor));
     setvisibilityTeamColors(false);
-  };
-
-  const changeRound = (): void => {
-    setVisibilityAnswers((prevVisibilityAnswers) => {
-      const updatedVisibilityAnswers: AnswerVisibility[] = [
-        ...prevVisibilityAnswers,
-      ];
-      updatedVisibilityAnswers.map((_, mapIndex) => {
-        updatedVisibilityAnswers[mapIndex] = AnswerVisibility.false;
-      });
-      return updatedVisibilityAnswers;
-    });
-    setVisibilityQuestion(false);
-    setWrongNum(0);
-    setRoundPoints(0);
-    setRoundEnd(false);
   };
 
   const hexToRgb = (hex: string): [number, number, number] => {
@@ -109,11 +95,14 @@ const HostGame = () => {
   };
 
   const showWrongs = () => {
-    setWrongNum((prevWrongNum) => (wrongNum >= 3 ? 1 : prevWrongNum + 1));
+    setWrongNum((prevWrongNum) => (wrongNum < 3 ? prevWrongNum + 1 : 3));
     setVisibilityWrong(true);
     setTimeout(() => {
       setVisibilityWrong(false);
-    }, 1000);
+    }, 2000);
+    if (wrongNum >= 3) {
+      setStealPoints(false);
+    }
   };
 
   const showAnswerNumbers = () => {
@@ -152,6 +141,9 @@ const HostGame = () => {
           updatedVisibilityAnswers[index] = AnswerVisibility.true;
           return updatedVisibilityAnswers;
         });
+        if (wrongNum >= 3) {
+          setStealPoints(false);
+        }
       } else {
         setVisibilityAnswers((prevVisibilityAnswers) => {
           let updatedVisibilityAnswers: AnswerVisibility[] = [
@@ -166,19 +158,6 @@ const HostGame = () => {
 
   const pointsNowToRightTeam = () => {
     if (!roundEnd) {
-      setPointsTeamLeft((prevPoints) => prevPoints + pointsNow);
-      setRoundPoints(pointsNow);
-      setRoundEnd(true);
-    } else {
-      setRoundEnd(false);
-      setPointsTeamLeft((prevPoints) => prevPoints - roundPoints);
-      setPointsNow(roundPoints);
-      setRoundPoints(0);
-    }
-  };
-
-  const pointsNowToLeftTeam = () => {
-    if (!roundEnd) {
       setPointsTeamRight((prevPoints) => prevPoints + pointsNow);
       setRoundPoints(pointsNow);
       setRoundEnd(true);
@@ -190,18 +169,29 @@ const HostGame = () => {
     }
   };
 
+  const pointsNowToLeftTeam = () => {
+    if (!roundEnd) {
+      setPointsTeamLeft((prevPoints) => prevPoints + pointsNow);
+      setRoundPoints(pointsNow);
+      setRoundEnd(true);
+    } else {
+      setRoundEnd(false);
+      setPointsTeamLeft((prevPoints) => prevPoints - roundPoints);
+      setPointsNow(roundPoints);
+      setRoundPoints(0);
+    }
+  };
+
   const goToPreviousQuestion = () => {
     setRoundNum((prevRoundNum) => {
       return prevRoundNum >= 1 ? prevRoundNum - 1 : 0;
     });
-    changeRound();
   };
 
   const goToNextQuestion = () => {
     setRoundNum((prevRoundNum) => {
       return prevRoundNum + 1;
     });
-    changeRound();
   };
 
   const goToFinals = () => {
@@ -233,6 +223,11 @@ const HostGame = () => {
     const newQuestion = Object.keys(quiz)[roundNum];
     setQuestion(newQuestion);
     setAnswers(quiz[newQuestion]);
+    setVisibilityAnswers([...Array(10)].map(() => AnswerVisibility.false));
+    setVisibilityQuestion(false);
+    setWrongNum(0);
+    setRoundPoints(0);
+    setRoundEnd(false);
   }, [quiz, roundNum]);
 
   useEffect(() => {
@@ -251,6 +246,12 @@ const HostGame = () => {
     });
   }, [answers, visibilityAnswers, roundEnd]);
 
+  useEffect(() => {
+    if (wrongNum >= 3 && !stealPoints) {
+      setStealPoints(true);
+    }
+  }, [wrongNum]);
+
   return (
     <>
       <div className="host-game">
@@ -259,78 +260,166 @@ const HostGame = () => {
           visibility={visibilityTeamColors}
         />
 
-        <div className="points-left-team">
-          <input
-            type="button"
-            value={pointsTeamRight}
-            onClick={pointsNowToLeftTeam}
-          />
+        <div
+          className={`set-team-color ${
+            teamLeftColor.every((colorValue) => colorValue === 255) ||
+            teamRightColor.every((colorValue) => colorValue === 255)
+              ? "blinking"
+              : ""
+          }`}
+        >
+          <button onClick={setTeamColors}>Team Farben</button>
         </div>
+
+        <div
+          className={`go-to-finals ${
+            pointsTeamLeft >= 200 || pointsTeamRight >= 200 ? "blinking" : ""
+          }`}
+        >
+          <button onClick={goToFinals}>Finale</button>
+        </div>
+
+        <div className="previous-question">
+          <button onClick={goToPreviousQuestion}>Vorherige Frage</button>
+        </div>
+
+        <div
+          className={`points-right-team ${
+            !roundEnd &&
+            ((wrongNum >= 3 && !stealPoints) ||
+              visibilityAnswers.every(
+                (visibility) => visibility === AnswerVisibility.true
+              ))
+              ? "blinking"
+              : ""
+          }`}
+        >
+          <button
+            onClick={pointsNowToRightTeam}
+            style={{
+              border: `5px solid rgb(${teamRightColor[0]}, ${teamRightColor[1]}, ${teamRightColor[2]})`,
+            }}
+          >
+            {pointsTeamRight}
+          </button>
+        </div>
+
         <div className="points-now">
           <PointsCard points={pointsNow} />
         </div>
-        <div className="points-right-team">
-          <input
-            type="button"
-            value={pointsTeamLeft}
-            onClick={pointsNowToRightTeam}
-          />
+
+        <div
+          className={`points-left-team
+    ${
+      !roundEnd &&
+      ((wrongNum >= 3 && !stealPoints) ||
+        visibilityAnswers.every(
+          (visibility) => visibility === AnswerVisibility.true
+        ))
+        ? "blinking"
+        : ""
+    }`}
+        >
+          <button
+            onClick={pointsNowToLeftTeam}
+            style={{
+              border: `5px solid rgb(${teamLeftColor[0]}, ${teamLeftColor[1]}, ${teamLeftColor[2]})`,
+            }}
+          >
+            {pointsTeamLeft}
+          </button>
         </div>
-        <div className="set-team-color">
-          <input type="button" value="Team Farben" onClick={setTeamColors} />
+
+        <div
+          className={`next-question ${
+            roundEnd &&
+            visibilityAnswers.every(
+              (visibility) => visibility === AnswerVisibility.true
+            ) &&
+            pointsTeamLeft < 200 &&
+            pointsTeamRight < 200
+              ? "blinking"
+              : ""
+          }`}
+        >
+          <button onClick={goToNextQuestion}>Nächste Frage</button>
         </div>
-        <div className="show-answer-number">
-          <input
-            type="button"
-            name="showAnswerNumbers"
-            value={`Zeige Antwortnummern | ${answers.length}`}
-            onClick={showAnswerNumbers}
-          />
+
+        <div
+          className={`show-answer-number ${
+            visibilityAnswers.every(
+              (visibility) => visibility === AnswerVisibility.false
+            ) &&
+            !teamLeftColor.every((colorValue) => colorValue === 255) &&
+            !teamRightColor.every((colorValue) => colorValue === 255)
+              ? "blinking"
+              : ""
+          }`}
+        >
+          <button onClick={showAnswerNumbers}>
+            <span>Zeige Antworten-Anzahl</span>
+            <span>{answers.length}</span>
+          </button>
         </div>
-        <div className="show-wrongs">
-          <input
-            type="button"
-            value={`Falsche Antwort | ${wrongNum}`}
-            onClick={showWrongs}
-          />
+
+        <div
+          className={`show-question ${
+            visibilityAnswers.every(
+              (visibility) => visibility === AnswerVisibility.number
+            ) && visibilityQuestion === false
+              ? "blinking"
+              : ""
+          }`}
+        >
+          <button onClick={showQuestion}>
+            <span>{question}</span>
+            <span>{visibilityQuestion.toString()}</span>
+          </button>
         </div>
-        <div className="go-to-finals">
-          <input type="button" value="Finale" onClick={goToFinals} />
-        </div>
-        <div className="previous-question">
-          <input
-            type="button"
-            value="Vorherige Frage"
-            onClick={goToPreviousQuestion}
-          />
-        </div>
-        <div className="show-question">
-          <input
-            type="button"
-            value={`${question} | ${visibilityQuestion}`}
-            onClick={showQuestion}
-          />
-        </div>
-        <div className="next-question">
-          <input
-            type="button"
-            value="Nächste Frage"
-            onClick={goToNextQuestion}
-          />
-        </div>
-        <div className="answers">
+
+        <div
+          className={`answers ${
+            stealPoints ||
+            (roundEnd &&
+              !visibilityAnswers.every(
+                (visiblity) => visiblity === AnswerVisibility.true
+              ))
+              ? "blinking"
+              : ""
+          }`}
+        >
           {answers.map((answer, index) => (
-            <input
+            <button
               key={index}
-              type="button"
-              value={`${index + 1} | ${answer.answerText} | ${
-                answer.answerValue
-              } | ${visibilityAnswers[index]}`}
               onClick={() => {
                 changeVisibilityAnswer(index);
               }}
-            />
+              style={{
+                background:
+                  visibilityAnswers[index] === AnswerVisibility.true
+                    ? "rgba(255, 255, 255, 0.7)"
+                    : "",
+                color:
+                  visibilityAnswers[index] === AnswerVisibility.true
+                    ? "black"
+                    : "",
+              }}
+            >
+              <span>{index + 1}</span>
+              <span>{answer.answerText}</span>
+              <span>{answer.answerValue}</span>
+              <span>{visibilityAnswers[index]}</span>
+            </button>
           ))}
+        </div>
+
+        <div className="show-wrongs">
+          <button onClick={showWrongs}>
+            <span>
+              {stealPoints ? "PUNKTE KLAUEN MÖGLICH!" : "Falsche Antwort"}
+            </span>
+            <span>{stealPoints ? "" : wrongNum}</span>
+          </button>
         </div>
       </div>
     </>

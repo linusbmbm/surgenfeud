@@ -46,7 +46,7 @@ const TeamColors = ({ onSubmit, visibility }: Props) => {
           />
         </div>
       </div>
-      <input type="submit" value="Farben ändern" />
+      <button type="submit">Farben ändern</button>
     </form>
   );
 };

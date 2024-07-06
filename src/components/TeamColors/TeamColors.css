@@ -1,5 +1,5 @@
 form {
-  height: 90%;
+  height: 80%;
   width: 90%;
   position: absolute;
   top: 50%;
@@ -22,16 +22,9 @@ form {
     column-gap: 100px;
   }
 
-  input {
-    background-color: black;
-    border: 1px white solid;
-    color: white;
+  button {
+    height: 30%;
+    width: 50%;
     font-size: 64px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  input:hover {
-    background-color: rgba(255, 255, 255, 0.1);
   }
 }

@@ -1,12 +1,14 @@
+import "/styles.css";
+import "./HostPreview.css";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import useLocalStorageWrite from "../../../helpers/useLocalStorageWrite";
-import "./HostPreview.css";
 import { useEffect } from "react";
 
 const HostPreview = () => {
   const [navigate, setNavigate] = useLocalStorageWrite<string>("navigate", "");
   const navigator: NavigateFunction = useNavigate();
 
+  //Hooks
   useEffect(() => {
     localStorage.clear;
   }, []);
@@ -24,7 +26,7 @@ const HostPreview = () => {
   return (
     <>
       <div className="host-preview">
-        <input type="button" value="Start das Spiel" onClick={startGame} />
+        <button onClick={startGame}>Starte das Spiel</button>
       </div>
     </>
   );

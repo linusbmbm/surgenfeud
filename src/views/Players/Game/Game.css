@@ -1,102 +1,94 @@
 .game {
-  --dulle-color: rgba(255, 255, 255, 0.1);
   height: 88%;
   padding: 3%;
-}
 
-.wrongs {
-  z-index: 1;
-}
+  .wrongs {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  }
 
-.roundNum {
-  position: absolute;
-}
-
-.wrongs {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-}
-
-.game-elements {
-  height: 88%;
-  padding: 3%;
-  border: var(--dulle-color) 2px solid;
-  border-image: linear-gradient(
-      to right,
-      rgba(
-        var(--teamLeft-color-red),
-        var(--teamLeft-color-green),
-        var(--teamLeft-color-blue),
-        0.3
-      ),
-      rgba(
-        var(--teamRight-color-red),
-        var(--teamRight-color-green),
-        var(--teamRight-color-blue),
-        0.3
+  .game-elements {
+    height: 88%;
+    padding: 3%;
+    border: var(--dulle-color) 2px solid;
+    border-image: linear-gradient(
+        to right,
+        rgba(
+          var(--teamLeft-color-red),
+          var(--teamLeft-color-green),
+          var(--teamLeft-color-blue),
+          0.3
+        ),
+        rgba(
+          var(--teamRight-color-red),
+          var(--teamRight-color-green),
+          var(--teamRight-color-blue),
+          0.3
+        )
       )
-    )
-    1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 2fr 1fr 4fr;
-  grid-template-areas:
-    "pointsTeamLeft pointsNow pointsTeamRight"
-    "question       question  question"
-    "answers        answers   answers";
-  grid-gap: 20px;
-}
+      1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 2fr 1fr 4fr;
+    grid-template-areas:
+      "pointsTeamLeft pointsNow pointsTeamRight"
+      "question       question  question"
+      "answers        answers   answers";
+    grid-gap: 20px;
 
-.game-element {
-  border-radius: 20px;
-  background: linear-gradient(
-    to right,
-    rgba(
-      var(--teamLeft-color-red),
-      var(--teamLeft-color-green),
-      var(--teamLeft-color-blue),
-      var(--team-color-alpha)
-    ),
-    rgba(
-      var(--teamRight-color-red),
-      var(--teamRight-color-green),
-      var(--teamRight-color-blue),
-      var(--team-color-alpha)
-    )
-  );
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
-}
+    .game-element {
+      border-radius: 20px;
+      background: linear-gradient(
+        to right,
+        rgba(
+          var(--teamLeft-color-red),
+          var(--teamLeft-color-green),
+          var(--teamLeft-color-blue),
+          var(--team-color-alpha)
+        ),
+        rgba(
+          var(--teamRight-color-red),
+          var(--teamRight-color-green),
+          var(--teamRight-color-blue),
+          var(--team-color-alpha)
+        )
+      );
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
 
-.pointsTeamLeft {
-  grid-area: pointsTeamLeft;
-}
+    .pointsTeamLeft {
+      grid-area: pointsTeamLeft;
+    }
 
-.pointsNow {
-  grid-area: pointsNow;
-}
+    .pointsNow {
+      grid-area: pointsNow;
+    }
 
-.pointsTeamRight {
-  grid-area: pointsTeamRight;
-}
+    .pointsTeamRight {
+      grid-area: pointsTeamRight;
+    }
 
-.question {
-  grid-area: question;
-}
+    .question {
+      grid-area: question;
+    }
 
-.answers {
-  grid-area: answers;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-auto-flow: column;
-  padding: 20px;
-  grid-gap: 15px;
+    .answers {
+      grid-area: answers;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      grid-auto-flow: column;
+      padding: 20px;
+      grid-gap: 15px;
+    }
+  }
 }

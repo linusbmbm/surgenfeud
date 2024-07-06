@@ -1,4 +1,4 @@
-import "../../../../styles.css";
+import "/styles.css";
 import "./Finals.css";
 import { useEffect } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
@@ -65,11 +65,11 @@ function Finals() {
         }}
       >
         <div className="finals-elements">
-          <div className="finals-element finals-points">
+          <div className="finals-element points">
             <PointsCard points={pointsFinals} />
           </div>
 
-          <div className="finals-element finals-answers">
+          <div className="finals-element answers">
             {answersFinals.map((round, index) => (
               <>
                 <AnswerCard
@@ -86,19 +86,19 @@ function Finals() {
             ))}
           </div>
 
-          <div className="finals-element finals-shots-total">
+          <div className="finals-element shots-total">
             <ShotsCard
               num={Math.ceil(pointsFinals / 15)}
               type={ShotType.total}
             />
           </div>
-          <div className="finals-element finals-shots-person">
+          <div className="finals-element shots-person">
             <ShotsCard
               num={Math.floor(Math.ceil(pointsFinals / 15) / 3)}
               type={ShotType.person}
             />
           </div>
-          <div className="finals-element finals-shots-rest">
+          <div className="finals-element shots-rest">
             <ShotsCard
               num={Math.ceil(pointsFinals / 15) % 3}
               type={ShotType.rest}

@@ -1,4 +1,4 @@
-import "../../../../styles.css";
+import "/styles.css";
 import "./Game.css";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import Wrong from "../../../components/Wrong/Wrong";

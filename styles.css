@@ -1,4 +1,10 @@
 body {
+  --dulle-color: rgba(255, 255, 255, 0.1);
+  --dulle-text-color: rgb(255, 255, 255);
+  --dulle-color-hover: rgba(255, 255, 255, 0.2);
+  --dulle-color-diabled: rgb(10, 10, 10);
+  --dulle-text-color-disabled: rgb(100, 100, 100);
+
   background-color: rgb(20, 20, 20);
   color: rgb(255, 255, 255);
   font-family: "Roboto", sans-serif;
@@ -7,8 +13,31 @@ body {
   height: 100vh;
   margin: 0;
   overflow-y: hidden;
-}
 
-#root {
-  height: 100%;
+  button {
+    height: 100%;
+    width: 100%;
+    background-color: var(--dulle-color);
+    color: var(--dulle-text-color);
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: var(--dulle-color-hover);
+  }
+
+  button:disabled {
+    background-color: var(--dulle-color-diabled);
+    color: var(--dulle-text-color-disabled);
+    cursor: not-allowed;
+  }
+
+  #root {
+    height: 100%;
+  }
 }

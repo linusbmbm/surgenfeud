@@ -1,3 +1,4 @@
+import "/styles.css";
 import "./HostFinals.css";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import datajson from "../../../data/data.json";
@@ -21,7 +22,7 @@ const HostFinals = () => {
   const [answersFinalsNumGiven, setAnswersFinalsNumGiven] =
     useLocalStorageWrite<number[]>(
       "answersFinalsNumGiven",
-      [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+      [...Array(10)].map(() => -1)
     );
   const [visibilityAnswersFinals, setVisibilityAnswersFinals] =
     useLocalStorageWrite<AnswerVisibility[]>(
@@ -75,7 +76,7 @@ const HostFinals = () => {
     answersFinals.map((answer, index) => {
       if (
         visibilityAnswersFinals[index] === AnswerVisibility.true &&
-        answer[answersFinalsNumGiven[index]].answerValue != undefined
+        answer[answersFinalsNumGiven[index]] != undefined
       ) {
         newPointsFinals += answer[answersFinalsNumGiven[index]].answerValue;
       }
@@ -84,7 +85,7 @@ const HostFinals = () => {
     answersFinals.map((answer, index) => {
       if (
         visibilityAnswersFinals[index + 5] === AnswerVisibility.true &&
-        answer[answersFinalsNumGiven[index + 5]].answerValue != undefined
+        answer[answersFinalsNumGiven[index + 5]] != undefined
       ) {
         newPointsFinals += answer[answersFinalsNumGiven[index + 5]].answerValue;
       }
@@ -161,123 +162,233 @@ const HostFinals = () => {
   const fixAnswer = (
     answerNumGiven: number,
     answers: Interface_Answer[]
-  ): string => {
-    return answerNumGiven === -1
-      ? ""
-      : answerNumGiven === 10
-      ? "Falsche Antwort"
-      : answers[answerNumGiven].answerText;
+  ): Interface_Answer => {
+    let result: Interface_Answer;
+
+    if (answerNumGiven === -1) {
+      result = { answerText: "", answerValue: 0 };
+    } else if (answerNumGiven === 10) {
+      result = { answerText: "Falsch", answerValue: 0 };
+    } else {
+      result = answers[answerNumGiven];
+    }
+
+    return result;
   };
 
   const changeVisibilityAnswerFinals = (index: number) => {
     let newVisibilityAnswersFinals = [...visibilityAnswersFinals];
-    newVisibilityAnswersFinals[index] =
-      newVisibilityAnswersFinals[index] === AnswerVisibility.true
-        ? AnswerVisibility.false
-        : AnswerVisibility.true;
+    if (answersFinalsNumGiven[index] !== -1) {
+      newVisibilityAnswersFinals[index] =
+        newVisibilityAnswersFinals[index] === AnswerVisibility.true
+          ? AnswerVisibility.false
+          : AnswerVisibility.true;
+    }
     setVisibilityAnswersFinals(newVisibilityAnswersFinals);
   };
 
   return (
     <>
       <div className="host-finals">
+        <div className="go-to-game">
+          <button onClick={goToGame}>Spiel</button>
+        </div>
+
         <div className="finals-points">
           <PointsCard points={pointsFinals} />
         </div>
+
         <div className="shots-total">
           <PointsCard points={Math.ceil(pointsFinals / 15)} />
         </div>
+
         <div className="shots-person">
           <PointsCard points={Math.floor(Math.ceil(pointsFinals / 15) / 3)} />
         </div>
+
         <div className="shots-rest">
           <PointsCard points={Math.ceil(pointsFinals / 15) % 3} />
         </div>
-        <div className="finals-answers-given">
-          {answersFinals.map((round, index) => (
-            <>
-              <input
-                key={index}
-                type="button"
-                value={`${fixAnswer(answersFinalsNumGiven[index], round)} | ${
-                  visibilityAnswersFinals[index]
-                }`}
-                onClick={() => {
-                  changeVisibilityAnswerFinals(index);
-                }}
-              />
-              <input
-                key={index + 5}
-                type="button"
-                value={`${fixAnswer(
-                  answersFinalsNumGiven[index + 5],
-                  round
-                )} | ${visibilityAnswersFinals[index + 5]}`}
-                onClick={() => {
-                  changeVisibilityAnswerFinals(index + 5);
-                }}
-              />
-            </>
-          ))}
-        </div>
-        <div className="go-to-game">
-          <input type="button" value="Spiel" onClick={goToGame} />
-        </div>
+
         <div className="finals-question">
-          {`${
-            (questionFinalsNum < 5
+          <span>
+            {(questionFinalsNum < 5
               ? questionFinalsNum
-              : questionFinalsNum - 5) + 1
-          } | ${
-            questionsFinals[
-              questionFinalsNum < 5 ? questionFinalsNum : questionFinalsNum - 5
-            ]
-          }`}
-        </div>
-        <div className="wrong-finals-answer">
-          <input
-            type="button"
-            value="Falsche Antwort"
-            onClick={wrongAnswerGiven}
-          />
-        </div>
-        <div className="delete-finals-answer">
-          <input
-            type="button"
-            value="Letzte Antwort löschen"
-            onClick={deleteLastAnswerNumGiven}
-          />
+              : questionFinalsNum - 5) + 1}
+          </span>
+          <span>
+            {
+              questionsFinals[
+                questionFinalsNum < 5
+                  ? questionFinalsNum
+                  : questionFinalsNum - 5
+              ]
+            }
+          </span>
         </div>
 
-        <div className="hide-finals-answers">
-          <input
-            type="button"
-            value={"Antworten verstecken"}
-            onClick={hideAnswers}
-          />
-        </div>
-        <div className="host-finals-answers">
+        <div
+          className={`host-finals-answers ${
+            (visibilityAnswersFinals
+              .slice(0, 5)
+              .every((visibility) => visibility === AnswerVisibility.hidden) &&
+              answersFinalsNumGiven
+                .slice(5)
+                .every((numGiven) => numGiven === -1)) ||
+            answersFinalsNumGiven.every((numGiven) => numGiven === -1)
+              ? "blinking"
+              : ""
+          }`}
+        >
           {questionFinalsNum !== -1
             ? answersFinals[
                 questionFinalsNum < 5
                   ? questionFinalsNum
                   : questionFinalsNum - 5
               ].map((answer, index) => (
-                <input
-                  key={index}
-                  type="button"
-                  value={`${index + 1} | ${answer.answerText} | ${
-                    answer.answerValue
-                  }`}
+                <button
                   onClick={() => {
                     selectAnswerNum(index);
                   }}
                   disabled={
                     index === answersFinalsNumGiven[questionFinalsNum - 5]
                   }
-                />
+                >
+                  <span>{index + 1}</span>
+                  <span>{answer.answerText}</span>
+                  <span>{answer.answerValue}</span>
+                </button>
               ))
             : ""}
+        </div>
+
+        <div
+          className={`hide-finals-answers ${
+            (visibilityAnswersFinals
+              .slice(0, 5)
+              .every((visibility) => visibility === AnswerVisibility.true) &&
+              answersFinalsNumGiven
+                .slice(5)
+                .every((numGiven) => numGiven === -1)) ||
+            (visibilityAnswersFinals
+              .slice(0, 5)
+              .every((visibility) => visibility === AnswerVisibility.hidden) &&
+              answersFinalsNumGiven.slice(5).every((numGiven) => numGiven >= 0))
+              ? "blinking"
+              : ""
+          }`}
+        >
+          <button onClick={hideAnswers}>Antworten verstecken</button>
+        </div>
+
+        <div className="wrong-finals-answer">
+          <button onClick={wrongAnswerGiven}>Falsche Antwort</button>
+        </div>
+
+        <div className="delete-finals-answer">
+          <button onClick={deleteLastAnswerNumGiven}>
+            Letzte Antwort löschen
+          </button>
+        </div>
+
+        <div className="finals-overview">
+          <div
+            className={`finals-answers-given ${
+              answersFinalsNumGiven
+                .slice(0, 5)
+                .every((numGiven) => numGiven >= 0) &&
+              answersFinalsNumGiven
+                .slice(5)
+                .every((numGiven) => numGiven === -1) &&
+              visibilityAnswersFinals
+                .slice(0, 5)
+                .every((visibility) => visibility === AnswerVisibility.false)
+                ? "blinking"
+                : ""
+            }`}
+          >
+            {answersFinals.map((round, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  changeVisibilityAnswerFinals(index);
+                }}
+                style={{
+                  background:
+                    visibilityAnswersFinals[index] === AnswerVisibility.true
+                      ? "rgba(255, 255, 255, 0.7)"
+                      : "",
+                  color:
+                    visibilityAnswersFinals[index] === AnswerVisibility.true
+                      ? "black"
+                      : "",
+                }}
+              >
+                <span>{answersFinalsNumGiven[index] + 1}</span>
+                <span>
+                  {fixAnswer(answersFinalsNumGiven[index], round).answerText}
+                </span>
+                <span>
+                  {fixAnswer(answersFinalsNumGiven[index], round).answerValue}
+                </span>
+                <span>{visibilityAnswersFinals[index]}</span>
+              </button>
+            ))}
+          </div>
+          <div className="finals-questions">
+            {questionsFinals.map((question) => (
+              <span>{question}</span>
+            ))}
+          </div>
+          <div
+            className={`finals-answers-given ${
+              visibilityAnswersFinals
+                .slice(0, 5)
+                .every((visibility) => visibility === AnswerVisibility.true) &&
+              answersFinalsNumGiven
+                .slice(5)
+                .every((numGiven) => numGiven >= 0) &&
+              visibilityAnswersFinals
+                .slice(5)
+                .every((visibility) => visibility === AnswerVisibility.false)
+                ? "blinking"
+                : ""
+            }`}
+          >
+            {answersFinals.map((round, index) => (
+              <button
+                key={index + 5}
+                onClick={() => {
+                  changeVisibilityAnswerFinals(index + 5);
+                }}
+                style={{
+                  background:
+                    visibilityAnswersFinals[index + 5] === AnswerVisibility.true
+                      ? "rgba(255, 255, 255, 0.7)"
+                      : "",
+                  color:
+                    visibilityAnswersFinals[index + 5] === AnswerVisibility.true
+                      ? "black"
+                      : "",
+                }}
+              >
+                <span>{answersFinalsNumGiven[index + 5] + 1}</span>
+                <span>
+                  {
+                    fixAnswer(answersFinalsNumGiven[index + 5], round)
+                      .answerText
+                  }
+                </span>
+                <span>
+                  {
+                    fixAnswer(answersFinalsNumGiven[index + 5], round)
+                      .answerValue
+                  }
+                </span>
+                <span>{visibilityAnswersFinals[index + 5]}</span>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </>
