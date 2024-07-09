@@ -7,9 +7,9 @@ import QuestionCard from "../../../components/QuestionCard/QuestionCard";
 import AnswerCard from "../../../components/AnswerCard/AnswerCard";
 import PointsFillCard from "../../../components/PointsFillCard/PointsFillCard";
 import AnswerVisibility from "../../../types/Enum_AnswerVisibility";
-import Interface_Answer from "../../../types/Interface_Answer";
 import useLocalStorageRead from "../../../helpers/useLocalStorageRead";
 import { useEffect } from "react";
+import AnswerEntry from "../../../types/AnswerEntry.interface";
 
 declare module "react" {
   interface CSSProperties {
@@ -35,8 +35,8 @@ const Game = () => {
   );
 
   const question = useLocalStorageRead<string>("question", "");
-  const answers = useLocalStorageRead<Interface_Answer[]>("answers", [
-    { answerText: "", answerValue: 0 },
+  const answers = useLocalStorageRead<AnswerEntry[]>("answers", [
+    { text: "", value: 0 },
   ]);
 
   const pointsNow = useLocalStorageRead<number>("pointsNow", 0);
@@ -129,7 +129,7 @@ const Game = () => {
                 return (
                   <AnswerCard
                     key={index}
-                    answer={{ answerText: "", answerValue: 0 }}
+                    answer={{ text: "", value: 0 }}
                     visibility={AnswerVisibility.false}
                   />
                 );

@@ -4,21 +4,25 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 import datajson from "../../../data/data.json";
 import useLocalStorageWrite from "../../../helpers/useLocalStorageWrite";
 import AnswerVisibility from "../../../types/Enum_AnswerVisibility";
-import Interface_Answer from "../../../types/Interface_Answer";
 import { useEffect, useState } from "react";
-import Interface_QuestionAnswer from "../../../types/Interface_QuestionAnswer";
 import PointsCard from "../../../components/PointsCard/PointsCard";
+import QuestionEntry from "../../../types/QuestionEntry.interface";
+import AnswerEntry from "../../../types/AnswerEntry.interface";
+import QuestionDifficulty from "../../../types/QuestionDifficulty.interface";
 
 const HostFinals = () => {
   //Variables
-  const quiz: Interface_QuestionAnswer = datajson;
-  const [roundNum, setRoundNum] = useLocalStorageWrite<number>("roundNum", 0);
+  const quiz: QuestionEntry[] = datajson;
+  const [questionOrder, setQuestionOrder] = useLocalStorageWrite<number[]>(
+    "questionOrder",
+    [0]
+  );
 
   const [questionsFinals, setQuestionsFinals] = useState<string[]>([""]);
   const [questionFinalsNum, setQuestionFinalsNum] = useState<number>(0);
   const [answersFinals, setAnswersFinals] = useLocalStorageWrite<
-    Interface_Answer[][]
-  >("answersFinals", [[{ answerText: "", answerValue: 0 }]]);
+    AnswerEntry[][]
+  >("answersFinals", [[{ text: "", value: 0 }]]);
   const [answersFinalsNumGiven, setAnswersFinalsNumGiven] =
     useLocalStorageWrite<number[]>(
       "answersFinalsNumGiven",
@@ -38,13 +42,81 @@ const HostFinals = () => {
   const [navigate, setNavigate] = useLocalStorageWrite<string>("navigate", "");
   const navigator: NavigateFunction = useNavigate();
 
+  const manyAnswers: QuestionDifficulty = { topAnswerMin: 0, topAnswerMax: 25 };
+  const someAnswers: QuestionDifficulty = {
+    topAnswerMin: 25,
+    topAnswerMax: 40,
+  };
+  const fewAnswers: QuestionDifficulty = {
+    topAnswerMin: 40,
+    topAnswerMax: 101,
+  };
+
   //Hooks
   useEffect(() => {
     for (let key in localStorage) {
-      if (!["navigate", "roundNum", "finalsColor"].includes(key)) {
+      if (!["navigate", "questionOrder", "finalsColor"].includes(key)) {
         localStorage.removeItem(key);
       }
     }
+
+    let newQuestionOrder = [...questionOrder];
+    let newQuestionsFinals = [];
+    let newAnswersFinals = [];
+
+    [manyAnswers, someAnswers, fewAnswers, someAnswers, manyAnswers].map(
+      (questionDifficulty: QuestionDifficulty) => {
+        let newQuestionIndex: number = -1;
+
+        //assign
+        if (
+          getIndexForQuestionDifficulty(
+            newQuestionOrder,
+            questionDifficulty
+          ) !== -1
+        ) {
+          newQuestionIndex = getIndexForQuestionDifficulty(
+            newQuestionOrder,
+            questionDifficulty
+          );
+          //assign if no answer in Category left
+        } else if (
+          getIndexForQuestionDifficulty(newQuestionOrder, manyAnswers) !== -1
+        ) {
+          newQuestionIndex = getIndexForQuestionDifficulty(
+            newQuestionOrder,
+            manyAnswers
+          );
+        } else if (
+          getIndexForQuestionDifficulty(newQuestionOrder, someAnswers) !== -1
+        ) {
+          newQuestionIndex = getIndexForQuestionDifficulty(
+            newQuestionOrder,
+            someAnswers
+          );
+        } else if (
+          getIndexForQuestionDifficulty(newQuestionOrder, fewAnswers) !== -1
+        ) {
+          getIndexForQuestionDifficulty(newQuestionOrder, fewAnswers);
+        }
+
+        newQuestionOrder.push(newQuestionIndex);
+      }
+    );
+
+    for (let index = 1; index <= 5; index++) {
+      const newQuestionEntryFinals =
+        quiz[newQuestionOrder[newQuestionOrder.length - index]];
+      newQuestionsFinals.push(newQuestionEntryFinals.question);
+      newAnswersFinals.push(newQuestionEntryFinals.answers);
+    }
+
+    setQuestionOrder(newQuestionOrder);
+    setQuestionsFinals(newQuestionsFinals);
+    setAnswersFinals(newAnswersFinals);
+    setVisibilityAnswersFinals(
+      [...Array(10)].map(() => AnswerVisibility.false)
+    );
   }, []);
 
   useEffect(() => {
@@ -54,23 +126,6 @@ const HostFinals = () => {
   }, [navigate]);
 
   useEffect(() => {
-    let newQuestionsFinals = [];
-    let newAnswersFinals = [];
-
-    for (let index = 0; index < 5; index++) {
-      const newQuestionFinals = Object.keys(quiz)[roundNum + index];
-      newQuestionsFinals[index] = newQuestionFinals;
-      newAnswersFinals[index] = quiz[newQuestionFinals];
-    }
-
-    setQuestionsFinals(newQuestionsFinals);
-    setAnswersFinals(newAnswersFinals);
-    setVisibilityAnswersFinals(
-      [...Array(10)].map(() => AnswerVisibility.false)
-    );
-  }, [quiz, roundNum]);
-
-  useEffect(() => {
     let newPointsFinals: number = 0;
 
     answersFinals.map((answer, index) => {
@@ -78,7 +133,7 @@ const HostFinals = () => {
         visibilityAnswersFinals[index] === AnswerVisibility.true &&
         answer[answersFinalsNumGiven[index]] != undefined
       ) {
-        newPointsFinals += answer[answersFinalsNumGiven[index]].answerValue;
+        newPointsFinals += answer[answersFinalsNumGiven[index]].value;
       }
     });
 
@@ -87,7 +142,7 @@ const HostFinals = () => {
         visibilityAnswersFinals[index + 5] === AnswerVisibility.true &&
         answer[answersFinalsNumGiven[index + 5]] != undefined
       ) {
-        newPointsFinals += answer[answersFinalsNumGiven[index + 5]].answerValue;
+        newPointsFinals += answer[answersFinalsNumGiven[index + 5]].value;
       }
     });
 
@@ -99,6 +154,19 @@ const HostFinals = () => {
       answersFinalsNumGiven.findIndex((answerNum) => answerNum === -1)
     );
   }, [answersFinalsNumGiven]);
+
+  //Functions
+  const getIndexForQuestionDifficulty = (
+    questionOrderNow: typeof questionOrder,
+    questionDifficulty: QuestionDifficulty
+  ): number => {
+    return quiz.findIndex(
+      (questionEntry, questionEntryIndex) =>
+        !questionOrderNow.includes(questionEntryIndex) &&
+        questionEntry.answers[0].value >= questionDifficulty.topAnswerMin &&
+        questionEntry.answers[0].value < questionDifficulty.topAnswerMax
+    );
+  };
 
   const wrongAnswerGiven = () => {
     let newAnswersFinalsNumGiven = [...answersFinalsNumGiven];
@@ -153,22 +221,19 @@ const HostFinals = () => {
   };
 
   const goToGame = () => {
-    setRoundNum((prevRoundNum) => {
-      return prevRoundNum + 5;
-    });
     setNavigate("/game");
   };
 
   const fixAnswer = (
     answerNumGiven: number,
-    answers: Interface_Answer[]
-  ): Interface_Answer => {
-    let result: Interface_Answer;
+    answers: AnswerEntry[]
+  ): AnswerEntry => {
+    let result: AnswerEntry;
 
     if (answerNumGiven === -1) {
-      result = { answerText: "", answerValue: 0 };
+      result = { text: "", value: 0 };
     } else if (answerNumGiven === 10) {
-      result = { answerText: "Falsch", answerValue: 0 };
+      result = { text: "Falsch", value: 0 };
     } else {
       result = answers[answerNumGiven];
     }
@@ -186,6 +251,9 @@ const HostFinals = () => {
     }
     setVisibilityAnswersFinals(newVisibilityAnswersFinals);
   };
+
+  console.log(questionFinalsNum);
+  console.log(answersFinals);
 
   return (
     <>
@@ -255,8 +323,8 @@ const HostFinals = () => {
                   }
                 >
                   <span>{index + 1}</span>
-                  <span>{answer.answerText}</span>
-                  <span>{answer.answerValue}</span>
+                  <span>{answer.text}</span>
+                  <span>{answer.value}</span>
                 </button>
               ))
             : ""}
@@ -326,10 +394,10 @@ const HostFinals = () => {
               >
                 <span>{answersFinalsNumGiven[index] + 1}</span>
                 <span>
-                  {fixAnswer(answersFinalsNumGiven[index], round).answerText}
+                  {fixAnswer(answersFinalsNumGiven[index], round).text}
                 </span>
                 <span>
-                  {fixAnswer(answersFinalsNumGiven[index], round).answerValue}
+                  {fixAnswer(answersFinalsNumGiven[index], round).value}
                 </span>
                 <span>{visibilityAnswersFinals[index]}</span>
               </button>
@@ -374,16 +442,10 @@ const HostFinals = () => {
               >
                 <span>{answersFinalsNumGiven[index + 5] + 1}</span>
                 <span>
-                  {
-                    fixAnswer(answersFinalsNumGiven[index + 5], round)
-                      .answerText
-                  }
+                  {fixAnswer(answersFinalsNumGiven[index + 5], round).text}
                 </span>
                 <span>
-                  {
-                    fixAnswer(answersFinalsNumGiven[index + 5], round)
-                      .answerValue
-                  }
+                  {fixAnswer(answersFinalsNumGiven[index + 5], round).value}
                 </span>
                 <span>{visibilityAnswersFinals[index + 5]}</span>
               </button>

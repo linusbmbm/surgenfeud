@@ -3,13 +3,13 @@
   padding: 3%;
   display: grid;
   grid-template-rows: repeat(3, 1fr) 4fr 1fr;
-  grid-template-columns: 1fr repeat(3, 2fr) 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-    "set-team-color     set-team-color     points-now go-to-finals      go-to-finals"
-    "previous-question  points-right-team  points-now     points-left-team  next-question"
-    "show-answer-number show-answer-number show-question  show-question     show-question"
-    "answers            answers            answers        answers           answers"
-    "show-wrongs        show-wrongs        show-wrongs    show-wrongs       show-wrongs";
+    "set-team-color     set-team-color go-to-finals     go-to-finals"
+    "points-right-team  points-now     points-left-team question-navigator"
+    "show-answer-number show-question  show-question    show-question"
+    "answers            answers        answers          answers"
+    "show-wrongs        show-wrongs    show-wrongs      show-wrongs";
   grid-gap: 20px;
 
   .blinking {
@@ -23,10 +23,6 @@
 
   .go-to-finals {
     grid-area: go-to-finals;
-  }
-
-  .previous-question {
-    grid-area: previous-question;
   }
 
   .points-right-team {
@@ -43,8 +39,14 @@
     border-radius: 20px;
   }
 
-  .next-question {
-    grid-area: next-question;
+  .question-navigator {
+    grid-area: question-navigator;
+    display: flex;
+    flex-direction: column;
+    button {
+      height: auto;
+      border-radius: 0;
+    }
   }
 
   .show-answer-number {

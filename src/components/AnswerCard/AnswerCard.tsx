@@ -1,7 +1,7 @@
 import "./AnswerCard.css";
 import { useState, useEffect, useRef } from "react";
 import AnswerVisibility from "../../types/Enum_AnswerVisibility";
-import Interface_Answer from "../../types/Interface_Answer";
+import AnswerEntry from "../../types/AnswerEntry.interface";
 
 declare module "react" {
   interface CSSProperties {
@@ -11,14 +11,14 @@ declare module "react" {
 
 interface Props {
   index?: number;
-  answer: Interface_Answer;
+  answer: AnswerEntry;
   visibility: AnswerVisibility;
 }
 
 const AnswerCard = ({ index, answer, visibility }: Props) => {
-  const [answerText, setAnswerText] = useState<string>(answer.answerText);
+  const [answerText, setAnswerText] = useState<string>(answer.text);
   const [answerValue, setAnswerValue] = useState<string>(
-    answer.answerValue.toString()
+    answer.value.toString()
   );
   const [animationCorrectOrIncorrect, setAnimationCorrectOrIncorrect] =
     useState<boolean>(false);
@@ -30,8 +30,8 @@ const AnswerCard = ({ index, answer, visibility }: Props) => {
       visibility === AnswerVisibility.true &&
       prevVisibility.current != AnswerVisibility.true
     ) {
-      setAnswerText(answer.answerText);
-      setAnswerValue(answer.answerValue.toString());
+      setAnswerText(answer.text);
+      setAnswerValue(answer.value.toString());
       setAnimationCorrectOrIncorrect(true);
       setTimeout(() => setAnimationCorrectOrIncorrect(false), 700);
     } else if (

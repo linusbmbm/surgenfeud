@@ -8,7 +8,7 @@ import PointsCard from "../../../components/PointsCard/PointsCard";
 import AnswerVisibility from "../../../types/Enum_AnswerVisibility";
 import ShotType from "../../../types/Enum_ShotType";
 import useLocalStorageRead from "../../../helpers/useLocalStorageRead";
-import Interface_Answer from "../../../types/Interface_Answer";
+import AnswerEntry from "../../../types/AnswerEntry.interface";
 
 function Finals() {
   //Variables
@@ -17,10 +17,9 @@ function Finals() {
     [255, 255, 255]
   );
 
-  const answersFinals = useLocalStorageRead<Interface_Answer[][]>(
-    "answersFinals",
-    [[{ answerText: "", answerValue: 0 }]]
-  );
+  const answersFinals = useLocalStorageRead<AnswerEntry[][]>("answersFinals", [
+    [{ text: "", value: 0 }],
+  ]);
   const answersFinalsNumGiven = useLocalStorageRead<number[]>(
     "answersFinalsNumGiven",
     [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
@@ -38,12 +37,12 @@ function Finals() {
   //Functions
   const fixAnswer = (
     answerNumGiven: number,
-    answers: Interface_Answer[]
-  ): Interface_Answer => {
+    answers: AnswerEntry[]
+  ): AnswerEntry => {
     return answerNumGiven === -1
-      ? { answerText: "", answerValue: 0 }
+      ? { text: "", value: 0 }
       : answerNumGiven === 10
-      ? { answerText: "Nein, nein, nein!", answerValue: 0 }
+      ? { text: "Nein, nein, nein!", value: 0 }
       : answers[answerNumGiven];
   };
 
