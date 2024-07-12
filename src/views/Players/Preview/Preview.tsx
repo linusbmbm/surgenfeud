@@ -7,11 +7,13 @@ import { useEffect } from "react";
 import useLocalStorageRead from "../../../helpers/useLocalStorageRead";
 
 const Preview = () => {
-  const navigate = useLocalStorageRead<string>("navigate", "");
-  const navigator = useNavigate();
-
+  //Variables
   const firstWord: string[] = ["S", "U", "R", "G", "E", "N"];
   const secondWord: string[] = ["F", "E", "U", "D"];
+
+  const navigator = useNavigate();
+
+  const navigate = useLocalStorageRead<string>("navigate", "");
 
   //Hooks
   useEffect(() => {

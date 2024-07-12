@@ -1,32 +1,21 @@
 .answer {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr 20%;
+  grid-template-columns: 5fr 1fr;
   align-items: center;
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--dulle-color-darken);
   padding: 5px;
   transition: background-color 0.5s ease;
-}
-.answer-text {
-  padding: 5px;
-  text-align: center;
-}
 
-.answer-value {
-  padding: 5px;
-  border-left: 2px rgba(255, 255, 255, 0.2) solid;
-  text-align: center;
-}
-
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-1000%);
-    opacity: 0;
+  > * {
+    padding: 5px;
+    text-align: center;
+    border-right: 2px rgba(255, 255, 255, 0.2) solid;
   }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
+
+  :last-child {
+    border-right: none;
   }
 }
 
@@ -35,14 +24,11 @@
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--dulle-color-darken);
   padding: 5px;
-
-  span {
-    opacity: 0;
-    animation: slideInFromLeft 0.1s ease-out forwards;
-    animation-delay: calc(0.1s * var(--animation-delay));
-  }
+  opacity: 0;
+  animation: slideInFromLeft 0.5s ease-out forwards;
+  animation-delay: calc(0.3s * var(--animation-delay));
 }
 
 .animationCorrect {
@@ -53,6 +39,21 @@
 .animationInCorrect {
   background-color: red;
   transition: background-color 0.5s ease;
+}
+
+.animationHide {
+  animation: wobble 1s ease-in-out;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes wobble {
@@ -122,8 +123,4 @@
     transform: translateX(0);
     opacity: 1;
   }
-}
-
-.animationHide {
-  animation: wobble 1s ease-in-out;
 }

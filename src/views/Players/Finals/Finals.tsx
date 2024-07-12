@@ -12,27 +12,38 @@ import AnswerEntry from "../../../types/AnswerEntry.interface";
 
 function Finals() {
   //Variables
+  const navigator: NavigateFunction = useNavigate();
+
+  const navigate = useLocalStorageRead<string>("navigate", "");
   const finalsColor = useLocalStorageRead<[number, number, number]>(
     "finalsColor",
     [255, 255, 255]
   );
-
-  const answersFinals = useLocalStorageRead<AnswerEntry[][]>("answersFinals", [
-    [{ text: "", value: 0 }],
-  ]);
+  const pointsFinals = useLocalStorageRead<number>("pointsFinals", 0);
+  const visibilityAnswersFinals = useLocalStorageRead<AnswerVisibility[]>(
+    "visibilityAnswersFinals",
+    [AnswerVisibility.number]
+  );
   const answersFinalsNumGiven = useLocalStorageRead<number[]>(
     "answersFinalsNumGiven",
     [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
   );
-  const visibilityAnswersFinals = useLocalStorageRead<AnswerVisibility[]>(
-    "visibilityAnswersFinals",
-    [AnswerVisibility.false]
-  );
+  const answersFinals = useLocalStorageRead<AnswerEntry[][]>("answersFinals", [
+    [{ text: "", value: 0 }],
+  ]);
 
-  const pointsFinals = useLocalStorageRead<number>("pointsFinals", 0);
+  const calcShotsTotal: number = Math.ceil(pointsFinals / 15);
+  const calcShotsPerson: number = Math.floor(calcShotsTotal / 3);
+  const calcShotsRest: number = calcShotsTotal % 3;
 
-  const navigate = useLocalStorageRead<string>("navigate", "");
-  const navigator: NavigateFunction = useNavigate();
+  //Hooks
+  useEffect(() => {
+    localStorage.removeItem("navigate");
+  }, []);
+
+  useEffect(() => {
+    navigator(navigate);
+  }, [navigate]);
 
   //Functions
   const fixAnswer = (
@@ -41,19 +52,10 @@ function Finals() {
   ): AnswerEntry => {
     return answerNumGiven === -1
       ? { text: "", value: 0 }
-      : answerNumGiven === 10
+      : answerNumGiven === -2
       ? { text: "Nein, nein, nein!", value: 0 }
       : answers[answerNumGiven];
   };
-
-  //Hooks
-  useEffect(() => {
-    navigator(navigate);
-  }, [navigate]);
-
-  useEffect(() => {
-    localStorage.removeItem("navigate");
-  }, []);
 
   return (
     <>
@@ -86,22 +88,13 @@ function Finals() {
           </div>
 
           <div className="finals-element shots-total">
-            <ShotsCard
-              num={Math.ceil(pointsFinals / 15)}
-              type={ShotType.total}
-            />
+            <ShotsCard num={calcShotsTotal} type={ShotType.total} />
           </div>
           <div className="finals-element shots-person">
-            <ShotsCard
-              num={Math.floor(Math.ceil(pointsFinals / 15) / 3)}
-              type={ShotType.person}
-            />
+            <ShotsCard num={calcShotsPerson} type={ShotType.person} />
           </div>
           <div className="finals-element shots-rest">
-            <ShotsCard
-              num={Math.ceil(pointsFinals / 15) % 3}
-              type={ShotType.rest}
-            />
+            <ShotsCard num={calcShotsRest} type={ShotType.rest} />
           </div>
         </div>
       </div>

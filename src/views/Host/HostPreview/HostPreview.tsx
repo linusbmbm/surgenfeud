@@ -5,12 +5,14 @@ import useLocalStorageWrite from "../../../helpers/useLocalStorageWrite";
 import { useEffect } from "react";
 
 const HostPreview = () => {
-  const [navigate, setNavigate] = useLocalStorageWrite<string>("navigate", "");
+  //Variables
   const navigator: NavigateFunction = useNavigate();
+
+  const [navigate, setNavigate] = useLocalStorageWrite<string>("navigate", "");
 
   //Hooks
   useEffect(() => {
-    localStorage.clear;
+    localStorage.clear();
   }, []);
 
   useEffect(() => {
@@ -19,6 +21,7 @@ const HostPreview = () => {
     }
   }, [navigate]);
 
+  //Button Functions
   const startGame = () => {
     setNavigate("/game");
   };

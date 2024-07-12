@@ -48,13 +48,13 @@ const AnswerCard = ({ index, answer, visibility }: Props) => {
   }, [answer, visibility]);
 
   if (visibility === AnswerVisibility.false) {
-    return <div className="answer"></div>;
+    return null;
   }
 
   if (visibility === AnswerVisibility.number) {
     return (
-      <div className="answer-number">
-        <span style={{ "--animation-delay": index }}>{index}</span>
+      <div className="answer-number" style={{ "--animation-delay": index }}>
+        {index}
       </div>
     );
   }
@@ -62,12 +62,12 @@ const AnswerCard = ({ index, answer, visibility }: Props) => {
   if (visibility === AnswerVisibility.hidden) {
     return (
       <div className="answer">
-        <div className={`answer-text ${animationHide ? "animationHide" : ""}`}>
-          <span>{answerText}</span>
-        </div>
-        <div className={`answer-value ${animationHide ? "animationHide" : ""}`}>
-          <span>{answerValue}</span>
-        </div>
+        <span className={animationHide ? "animationHide" : ""}>
+          {answerText}
+        </span>
+        <span className={animationHide ? "animationHide" : ""}>
+          {answerValue}
+        </span>
       </div>
     );
   }
@@ -83,12 +83,8 @@ const AnswerCard = ({ index, answer, visibility }: Props) => {
             : ""
         }`}
       >
-        <div className="answer-text">
-          <span>{answerText}</span>
-        </div>
-        <div className="answer-value">
-          <span>{answerValue}</span>
-        </div>
+        <span>{answerText}</span>
+        <span>{answerValue}</span>
       </div>
     );
   }

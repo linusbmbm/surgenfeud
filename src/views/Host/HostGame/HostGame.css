@@ -42,10 +42,24 @@
   .question-navigator {
     grid-area: question-navigator;
     display: flex;
-    flex-direction: column;
-    button {
-      height: auto;
-      border-radius: 0;
+    align-items: center;
+    column-gap: 5px;
+
+    .previous-question-navigator {
+      flex: 0;
+      align-self: stretch;
+    }
+
+    .next-question-picker {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .next-question-navigator {
+      flex: 0;
+      align-self: stretch;
     }
   }
 
@@ -72,7 +86,8 @@
   .answers {
     grid-area: answers;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
     grid-template-rows: repeat(5, 1fr);
     grid-auto-flow: column;
     grid-gap: 15px;

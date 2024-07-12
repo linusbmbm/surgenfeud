@@ -4,6 +4,7 @@ body {
   --dulle-color-hover: rgba(255, 255, 255, 0.2);
   --dulle-color-diabled: rgb(10, 10, 10);
   --dulle-text-color-disabled: rgb(100, 100, 100);
+  --dulle-color-darken: rgba(0, 0, 0, 0.3);
 
   background-color: rgb(20, 20, 20);
   color: rgb(255, 255, 255);

@@ -25,50 +25,46 @@ declare module "react" {
 
 const Game = () => {
   //Variables
+  const navigator: NavigateFunction = useNavigate();
+
+  const navigate = useLocalStorageRead<string>("navigate", "");
   const teamLeftColor = useLocalStorageRead<[number, number, number]>(
     "teamLeftColor",
     [255, 255, 255]
   );
+  const pointsTeamLeft = useLocalStorageRead<number>("pointsTeamLeft", 0);
+  const pointsNow = useLocalStorageRead<number>("pointsNow", 0);
   const teamRightColor = useLocalStorageRead<[number, number, number]>(
     "teamRightColor",
     [255, 255, 255]
   );
-
-  const question = useLocalStorageRead<string>("question", "");
-  const answers = useLocalStorageRead<AnswerEntry[]>("answers", [
-    { text: "", value: 0 },
-  ]);
-
-  const pointsNow = useLocalStorageRead<number>("pointsNow", 0);
-  const pointsTeamLeft = useLocalStorageRead<number>("pointsTeamLeft", 0);
   const pointsTeamRight = useLocalStorageRead<number>("pointsTeamRight", 0);
-  const wrongNum = useLocalStorageRead<number>("wrongNum", 0);
-
   const visibilityQuestion = useLocalStorageRead<boolean>(
     "visibilityQuestion",
     false
   );
+  const question = useLocalStorageRead<string>("question", "");
   const visibilityAnswers = useLocalStorageRead<AnswerVisibility[]>(
     "visibilityAnswers",
     Array.from({ length: 10 }, () => AnswerVisibility.false)
   );
+  const answers = useLocalStorageRead<AnswerEntry[]>("answers", [
+    { text: "", value: 0 },
+  ]);
   const visibilityWrong = useLocalStorageRead<boolean>(
     "visibilityWrong",
     false
   );
-
-  const navigate = useLocalStorageRead<string>("navigate", "");
-
-  const navigator: NavigateFunction = useNavigate();
+  const wrongNum = useLocalStorageRead<number>("wrongNum", 0);
 
   //Hooks
   useEffect(() => {
-    navigator(navigate);
-  }, [navigate]);
-
-  useEffect(() => {
     localStorage.removeItem("navigate");
   }, []);
+
+  useEffect(() => {
+    navigator(navigate);
+  }, [navigate]);
 
   return (
     <>
@@ -99,7 +95,7 @@ const Game = () => {
             <PointsFillCard points={pointsTeamLeft} color={teamLeftColor} />
           </div>
 
-          <div className="game-element pointsNow">
+          <div className="pointsNow">
             <PointsCard points={pointsNow} />
           </div>
 
@@ -107,33 +103,23 @@ const Game = () => {
             <PointsFillCard points={pointsTeamRight} color={teamRightColor} />
           </div>
 
-          <div className="game-element question">
+          <div className="question">
             <QuestionCard
               questionText={question}
               visibility={visibilityQuestion}
             />
           </div>
 
-          <div className="game-element answers">
-            {[...Array(10)].map((_, index) => {
-              if (answers[index] != undefined) {
-                return (
-                  <AnswerCard
-                    key={index}
-                    index={index + 1}
-                    answer={answers[index]}
-                    visibility={visibilityAnswers[index]}
-                  />
-                );
-              } else {
-                return (
-                  <AnswerCard
-                    key={index}
-                    answer={{ text: "", value: 0 }}
-                    visibility={AnswerVisibility.false}
-                  />
-                );
-              }
+          <div className="answers">
+            {answers.map((answer, index) => {
+              return (
+                <AnswerCard
+                  key={index}
+                  index={index + 1}
+                  answer={answer}
+                  visibility={visibilityAnswers[index]}
+                />
+              );
             })}
           </div>
         </div>

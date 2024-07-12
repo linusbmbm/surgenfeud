@@ -42,7 +42,7 @@
       "answers        answers   answers";
     grid-gap: 20px;
 
-    .game-element {
+    > * {
       border-radius: 20px;
       background: linear-gradient(
         to right,
@@ -59,14 +59,11 @@
           var(--team-color-alpha)
         )
       );
-      width: 100%;
-      height: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
     }
 
     .pointsTeamLeft {
       grid-area: pointsTeamLeft;
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .pointsNow {
@@ -75,6 +72,7 @@
 
     .pointsTeamRight {
       grid-area: pointsTeamRight;
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .question {
@@ -84,7 +82,8 @@
     .answers {
       grid-area: answers;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
       grid-template-rows: repeat(5, 1fr);
       grid-auto-flow: column;
       padding: 20px;

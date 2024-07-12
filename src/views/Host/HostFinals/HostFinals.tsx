@@ -9,38 +9,39 @@ import PointsCard from "../../../components/PointsCard/PointsCard";
 import QuestionEntry from "../../../types/QuestionEntry.interface";
 import AnswerEntry from "../../../types/AnswerEntry.interface";
 import QuestionDifficulty from "../../../types/QuestionDifficulty.interface";
+import blinkingIf from "../../../helpers/blinkingIf";
 
 const HostFinals = () => {
   //Variables
+  const navigator: NavigateFunction = useNavigate();
+
   const quiz: QuestionEntry[] = datajson;
+
+  const [questionsFinals, setQuestionsFinals] = useState<string[]>([""]);
+  const [questionFinalsNum, setQuestionFinalsNum] = useState<number>(0);
+
+  const [navigate, setNavigate] = useLocalStorageWrite<string>("navigate", "");
+  const [pointsFinals, setPointsFinals] = useLocalStorageWrite<number>(
+    "pointsFinals",
+    0
+  );
   const [questionOrder, setQuestionOrder] = useLocalStorageWrite<number[]>(
     "questionOrder",
     [0]
   );
-
-  const [questionsFinals, setQuestionsFinals] = useState<string[]>([""]);
-  const [questionFinalsNum, setQuestionFinalsNum] = useState<number>(0);
-  const [answersFinals, setAnswersFinals] = useLocalStorageWrite<
-    AnswerEntry[][]
-  >("answersFinals", [[{ text: "", value: 0 }]]);
+  const [visibilityAnswersFinals, setVisibilityAnswersFinals] =
+    useLocalStorageWrite<AnswerVisibility[]>(
+      "visibilityAnswersFinals",
+      [...Array(10)].map(() => AnswerVisibility.number)
+    );
   const [answersFinalsNumGiven, setAnswersFinalsNumGiven] =
     useLocalStorageWrite<number[]>(
       "answersFinalsNumGiven",
       [...Array(10)].map(() => -1)
     );
-  const [visibilityAnswersFinals, setVisibilityAnswersFinals] =
-    useLocalStorageWrite<AnswerVisibility[]>(
-      "visibilityAnswersFinals",
-      [...Array(10)].map(() => AnswerVisibility.false)
-    );
-
-  const [pointsFinals, setPointsFinals] = useLocalStorageWrite<number>(
-    "pointsFinals",
-    0
-  );
-
-  const [navigate, setNavigate] = useLocalStorageWrite<string>("navigate", "");
-  const navigator: NavigateFunction = useNavigate();
+  const [answersFinals, setAnswersFinals] = useLocalStorageWrite<
+    AnswerEntry[][]
+  >("answersFinals", [[{ text: "", value: 0 }]]);
 
   const manyAnswers: QuestionDifficulty = { topAnswerMin: 0, topAnswerMax: 25 };
   const someAnswers: QuestionDifficulty = {
@@ -51,6 +52,15 @@ const HostFinals = () => {
     topAnswerMin: 40,
     topAnswerMax: 101,
   };
+
+  const calcShotsTotal: number = Math.ceil(pointsFinals / 15);
+  const calcShotsPerson: number = Math.floor(calcShotsTotal / 3);
+  const calcShotsRest: number = calcShotsTotal % 3;
+  const fixQuestionFinalsNum: number =
+    questionFinalsNum < 5 ? questionFinalsNum : questionFinalsNum - 5;
+  const questionExists: boolean =
+    questionFinalsNum !== -1 &&
+    answersFinals[fixQuestionFinalsNum] != undefined;
 
   //Hooks
   useEffect(() => {
@@ -67,7 +77,7 @@ const HostFinals = () => {
     [manyAnswers, someAnswers, fewAnswers, someAnswers, manyAnswers].map(
       (questionDifficulty: QuestionDifficulty) => {
         let newQuestionIndex: number = -1;
-
+        newQuestionIndex = 0;
         //assign
         if (
           getIndexForQuestionDifficulty(
@@ -115,7 +125,7 @@ const HostFinals = () => {
     setQuestionsFinals(newQuestionsFinals);
     setAnswersFinals(newAnswersFinals);
     setVisibilityAnswersFinals(
-      [...Array(10)].map(() => AnswerVisibility.false)
+      [...Array(10)].map(() => AnswerVisibility.number)
     );
   }, []);
 
@@ -156,6 +166,23 @@ const HostFinals = () => {
   }, [answersFinalsNumGiven]);
 
   //Functions
+  const fixAnswer = (
+    answerNumGiven: number,
+    answers: AnswerEntry[]
+  ): AnswerEntry => {
+    let result: AnswerEntry;
+
+    if (answerNumGiven === -1) {
+      result = { text: "", value: 0 };
+    } else if (answerNumGiven === -2) {
+      result = { text: "Falsch", value: 0 };
+    } else {
+      result = answers[answerNumGiven];
+    }
+
+    return result;
+  };
+
   const getIndexForQuestionDifficulty = (
     questionOrderNow: typeof questionOrder,
     questionDifficulty: QuestionDifficulty
@@ -168,14 +195,66 @@ const HostFinals = () => {
     );
   };
 
-  const wrongAnswerGiven = () => {
-    let newAnswersFinalsNumGiven = [...answersFinalsNumGiven];
+  const hostAnswersFinalsBlinking = (): string => {
+    const blinkingCondition: boolean =
+      (visibilityAnswersFinals
+        .slice(0, 5)
+        .every((visibility) => visibility === AnswerVisibility.hidden) &&
+        answersFinalsNumGiven.slice(5).every((numGiven) => numGiven === -1)) ||
+      answersFinalsNumGiven.every((numGiven) => numGiven === -1);
+    return blinkingIf(blinkingCondition);
+  };
 
-    if (questionFinalsNum !== -1) {
-      newAnswersFinalsNumGiven[questionFinalsNum] = 10;
-    }
+  const hideFinalsAnswersBlinking = (): string => {
+    const blinkingCondition: boolean =
+      (visibilityAnswersFinals
+        .slice(0, 5)
+        .every((visibility) => visibility === AnswerVisibility.true) &&
+        answersFinalsNumGiven.slice(5).every((numGiven) => numGiven === -1)) ||
+      (visibilityAnswersFinals
+        .slice(0, 5)
+        .every((visibility) => visibility === AnswerVisibility.hidden) &&
+        answersFinalsNumGiven.slice(5).every((numGiven) => numGiven >= 0));
+    return blinkingIf(blinkingCondition);
+  };
 
-    setAnswersFinalsNumGiven(newAnswersFinalsNumGiven);
+  const finalsAnswersGivenFirstPersonBlinking = (): string => {
+    const blinkingCondition: boolean =
+      answersFinalsNumGiven.slice(0, 5).every((numGiven) => numGiven >= 0) &&
+      answersFinalsNumGiven.slice(5).every((numGiven) => numGiven === -1) &&
+      visibilityAnswersFinals
+        .slice(0, 5)
+        .every((visibility) => visibility === AnswerVisibility.number);
+    return blinkingIf(blinkingCondition);
+  };
+
+  const finalsAnswersGivenSecondPersonBlinking = (): string => {
+    const blinkingCondition: boolean =
+      visibilityAnswersFinals
+        .slice(0, 5)
+        .every((visibility) => visibility === AnswerVisibility.true) &&
+      answersFinalsNumGiven.slice(5).every((numGiven) => numGiven >= 0) &&
+      visibilityAnswersFinals
+        .slice(5)
+        .every((visibility) => visibility === AnswerVisibility.number);
+    return blinkingIf(blinkingCondition);
+  };
+
+  const answerBackground = (index: number): string => {
+    return visibilityAnswersFinals[index] === AnswerVisibility.true
+      ? "rgba(255, 255, 255, 0.7)"
+      : "";
+  };
+
+  const answerColor = (index: number): string => {
+    return visibilityAnswersFinals[index] === AnswerVisibility.true
+      ? "black"
+      : "";
+  };
+
+  //Button Functions
+  const goToGame = () => {
+    setNavigate("/game");
   };
 
   const selectAnswerNum = (index: number) => {
@@ -185,19 +264,6 @@ const HostFinals = () => {
       newAnswersFinalsNumGiven[questionFinalsNum] = index;
     }
 
-    setAnswersFinalsNumGiven(newAnswersFinalsNumGiven);
-  };
-
-  const deleteLastAnswerNumGiven = () => {
-    const questionFinalsNumDelete =
-      questionFinalsNum !== -1 ? questionFinalsNum - 1 : 9;
-    let newvisibilityAnswersFinals = [...visibilityAnswersFinals];
-    newvisibilityAnswersFinals[questionFinalsNumDelete] =
-      AnswerVisibility.false;
-    setVisibilityAnswersFinals(newvisibilityAnswersFinals);
-
-    let newAnswersFinalsNumGiven = [...answersFinalsNumGiven];
-    newAnswersFinalsNumGiven[questionFinalsNumDelete] = -1;
     setAnswersFinalsNumGiven(newAnswersFinalsNumGiven);
   };
 
@@ -220,25 +286,27 @@ const HostFinals = () => {
     setVisibilityAnswersFinals(newVisibilityAnswersFinals);
   };
 
-  const goToGame = () => {
-    setNavigate("/game");
-  };
+  const wrongAnswerGiven = () => {
+    let newAnswersFinalsNumGiven = [...answersFinalsNumGiven];
 
-  const fixAnswer = (
-    answerNumGiven: number,
-    answers: AnswerEntry[]
-  ): AnswerEntry => {
-    let result: AnswerEntry;
-
-    if (answerNumGiven === -1) {
-      result = { text: "", value: 0 };
-    } else if (answerNumGiven === 10) {
-      result = { text: "Falsch", value: 0 };
-    } else {
-      result = answers[answerNumGiven];
+    if (questionFinalsNum !== -1) {
+      newAnswersFinalsNumGiven[questionFinalsNum] = -2;
     }
 
-    return result;
+    setAnswersFinalsNumGiven(newAnswersFinalsNumGiven);
+  };
+
+  const deleteLastAnswerNumGiven = () => {
+    const questionFinalsNumDelete =
+      questionFinalsNum !== -1 ? questionFinalsNum - 1 : 9;
+    let newvisibilityAnswersFinals = [...visibilityAnswersFinals];
+    newvisibilityAnswersFinals[questionFinalsNumDelete] =
+      AnswerVisibility.number;
+    setVisibilityAnswersFinals(newvisibilityAnswersFinals);
+
+    let newAnswersFinalsNumGiven = [...answersFinalsNumGiven];
+    newAnswersFinalsNumGiven[questionFinalsNumDelete] = -1;
+    setAnswersFinalsNumGiven(newAnswersFinalsNumGiven);
   };
 
   const changeVisibilityAnswerFinals = (index: number) => {
@@ -252,9 +320,6 @@ const HostFinals = () => {
     setVisibilityAnswersFinals(newVisibilityAnswersFinals);
   };
 
-  console.log(questionFinalsNum);
-  console.log(answersFinals);
-
   return (
     <>
       <div className="host-finals">
@@ -267,54 +332,27 @@ const HostFinals = () => {
         </div>
 
         <div className="shots-total">
-          <PointsCard points={Math.ceil(pointsFinals / 15)} />
+          <PointsCard points={calcShotsTotal} />
         </div>
 
         <div className="shots-person">
-          <PointsCard points={Math.floor(Math.ceil(pointsFinals / 15) / 3)} />
+          <PointsCard points={calcShotsPerson} />
         </div>
 
         <div className="shots-rest">
-          <PointsCard points={Math.ceil(pointsFinals / 15) % 3} />
+          <PointsCard points={calcShotsRest} />
         </div>
 
         <div className="finals-question">
-          <span>
-            {(questionFinalsNum < 5
-              ? questionFinalsNum
-              : questionFinalsNum - 5) + 1}
-          </span>
-          <span>
-            {
-              questionsFinals[
-                questionFinalsNum < 5
-                  ? questionFinalsNum
-                  : questionFinalsNum - 5
-              ]
-            }
-          </span>
+          <span>{fixQuestionFinalsNum + 1}</span>
+          <span>{questionsFinals[fixQuestionFinalsNum]}</span>
         </div>
 
-        <div
-          className={`host-finals-answers ${
-            (visibilityAnswersFinals
-              .slice(0, 5)
-              .every((visibility) => visibility === AnswerVisibility.hidden) &&
-              answersFinalsNumGiven
-                .slice(5)
-                .every((numGiven) => numGiven === -1)) ||
-            answersFinalsNumGiven.every((numGiven) => numGiven === -1)
-              ? "blinking"
-              : ""
-          }`}
-        >
-          {questionFinalsNum !== -1
-            ? answersFinals[
-                questionFinalsNum < 5
-                  ? questionFinalsNum
-                  : questionFinalsNum - 5
-              ].map((answer, index) => (
+        <div className={`host-finals-answers ${hostAnswersFinalsBlinking}`}>
+          {questionExists
+            ? answersFinals[fixQuestionFinalsNum].map((answer, index) => (
                 <button
+                  id={index.toString()}
                   onClick={() => {
                     selectAnswerNum(index);
                   }}
@@ -330,22 +368,7 @@ const HostFinals = () => {
             : ""}
         </div>
 
-        <div
-          className={`hide-finals-answers ${
-            (visibilityAnswersFinals
-              .slice(0, 5)
-              .every((visibility) => visibility === AnswerVisibility.true) &&
-              answersFinalsNumGiven
-                .slice(5)
-                .every((numGiven) => numGiven === -1)) ||
-            (visibilityAnswersFinals
-              .slice(0, 5)
-              .every((visibility) => visibility === AnswerVisibility.hidden) &&
-              answersFinalsNumGiven.slice(5).every((numGiven) => numGiven >= 0))
-              ? "blinking"
-              : ""
-          }`}
-        >
+        <div className={`hide-finals-answers ${hideFinalsAnswersBlinking()}`}>
           <button onClick={hideAnswers}>Antworten verstecken</button>
         </div>
 
@@ -361,19 +384,7 @@ const HostFinals = () => {
 
         <div className="finals-overview">
           <div
-            className={`finals-answers-given ${
-              answersFinalsNumGiven
-                .slice(0, 5)
-                .every((numGiven) => numGiven >= 0) &&
-              answersFinalsNumGiven
-                .slice(5)
-                .every((numGiven) => numGiven === -1) &&
-              visibilityAnswersFinals
-                .slice(0, 5)
-                .every((visibility) => visibility === AnswerVisibility.false)
-                ? "blinking"
-                : ""
-            }`}
+            className={`finals-answers-given ${finalsAnswersGivenFirstPersonBlinking()}`}
           >
             {answersFinals.map((round, index) => (
               <button
@@ -382,14 +393,8 @@ const HostFinals = () => {
                   changeVisibilityAnswerFinals(index);
                 }}
                 style={{
-                  background:
-                    visibilityAnswersFinals[index] === AnswerVisibility.true
-                      ? "rgba(255, 255, 255, 0.7)"
-                      : "",
-                  color:
-                    visibilityAnswersFinals[index] === AnswerVisibility.true
-                      ? "black"
-                      : "",
+                  background: answerBackground(index),
+                  color: answerColor(index),
                 }}
               >
                 <span>{answersFinalsNumGiven[index] + 1}</span>
@@ -409,19 +414,7 @@ const HostFinals = () => {
             ))}
           </div>
           <div
-            className={`finals-answers-given ${
-              visibilityAnswersFinals
-                .slice(0, 5)
-                .every((visibility) => visibility === AnswerVisibility.true) &&
-              answersFinalsNumGiven
-                .slice(5)
-                .every((numGiven) => numGiven >= 0) &&
-              visibilityAnswersFinals
-                .slice(5)
-                .every((visibility) => visibility === AnswerVisibility.false)
-                ? "blinking"
-                : ""
-            }`}
+            className={`finals-answers-given ${finalsAnswersGivenSecondPersonBlinking()}`}
           >
             {answersFinals.map((round, index) => (
               <button
@@ -430,14 +423,8 @@ const HostFinals = () => {
                   changeVisibilityAnswerFinals(index + 5);
                 }}
                 style={{
-                  background:
-                    visibilityAnswersFinals[index + 5] === AnswerVisibility.true
-                      ? "rgba(255, 255, 255, 0.7)"
-                      : "",
-                  color:
-                    visibilityAnswersFinals[index + 5] === AnswerVisibility.true
-                      ? "black"
-                      : "",
+                  background: answerBackground(index + 5),
+                  color: answerColor(index + 5),
                 }}
               >
                 <span>{answersFinalsNumGiven[index + 5] + 1}</span>
