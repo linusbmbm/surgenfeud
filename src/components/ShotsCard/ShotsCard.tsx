@@ -3,7 +3,7 @@ import shotImage from "../../images/Shot.png";
 import drinkingPersonImage from "../../images/DrinkingPerson.png";
 import BlessLeftImage from "../../images/BlessLeft.png";
 import BlessRightImage from "../../images/BlessRight.png";
-import ShotType from "../../types/Enum_ShotType";
+import ShotType from "../../types/ShotType.enum";
 
 interface Props {
   type: ShotType;

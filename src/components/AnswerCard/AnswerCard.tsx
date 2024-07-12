@@ -1,6 +1,6 @@
 import "./AnswerCard.css";
 import { useState, useEffect, useRef } from "react";
-import AnswerVisibility from "../../types/Enum_AnswerVisibility";
+import AnswerVisibility from "../../types/AnswerVisibility.enum";
 import AnswerEntry from "../../types/AnswerEntry.interface";
 
 declare module "react" {

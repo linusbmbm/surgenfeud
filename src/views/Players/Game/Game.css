@@ -16,7 +16,7 @@
   .game-elements {
     height: 88%;
     padding: 3%;
-    border: var(--dulle-color) 2px solid;
+    border: var(--surgen-color) 2px solid;
     border-image: linear-gradient(
         to right,
         rgba(

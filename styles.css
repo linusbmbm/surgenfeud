@@ -1,10 +1,10 @@
 body {
-  --dulle-color: rgba(255, 255, 255, 0.1);
-  --dulle-text-color: rgb(255, 255, 255);
-  --dulle-color-hover: rgba(255, 255, 255, 0.2);
-  --dulle-color-diabled: rgb(10, 10, 10);
-  --dulle-text-color-disabled: rgb(100, 100, 100);
-  --dulle-color-darken: rgba(0, 0, 0, 0.3);
+  --surgen-color: rgba(255, 255, 255, 0.1);
+  --surgen-text-color: rgb(255, 255, 255);
+  --surgen-color-hover: rgba(255, 255, 255, 0.2);
+  --surgen-color-diabled: rgb(10, 10, 10);
+  --surgen-text-color-disabled: rgb(100, 100, 100);
+  --surgen-color-darken: rgba(0, 0, 0, 0.3);
 
   background-color: rgb(20, 20, 20);
   color: rgb(255, 255, 255);
@@ -18,8 +18,8 @@ body {
   button {
     height: 100%;
     width: 100%;
-    background-color: var(--dulle-color);
-    color: var(--dulle-text-color);
+    background-color: var(--surgen-color);
+    color: var(--surgen-text-color);
     font-family: "Roboto", sans-serif;
     font-size: 20px;
     line-height: 1.5;
@@ -29,12 +29,12 @@ body {
   }
 
   button:hover {
-    background-color: var(--dulle-color-hover);
+    background-color: var(--surgen-color-hover);
   }
 
   button:disabled {
-    background-color: var(--dulle-color-diabled);
-    color: var(--dulle-text-color-disabled);
+    background-color: var(--surgen-color-diabled);
+    color: var(--surgen-text-color-disabled);
     cursor: not-allowed;
   }
 

@@ -37,7 +37,7 @@
     to top,
     rgb(var(--fill-color-red), var(--fill-color-green), var(--fill-color-blue))
       calc(var(--points-percent) * 1%),
-    var(--dulle-color) calc(var(--points-percent-gradient) * 1%)
+    var(--surgen-color) calc(var(--points-percent-gradient) * 1%)
   );
   border: 2px solid
     rgb(var(--fill-color-red), var(--fill-color-green), var(--fill-color-blue));

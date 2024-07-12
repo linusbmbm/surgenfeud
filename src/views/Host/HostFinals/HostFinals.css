@@ -83,7 +83,7 @@
       span {
         display: flex;
         align-items: center;
-        border-bottom: 1px var(--dulle-color) solid;
+        border-bottom: 1px var(--surgen-color) solid;
       }
 
       span:last-child {
@@ -110,6 +110,6 @@
   100% {
   }
   50% {
-    background-color: var(--dulle-color);
+    background-color: var(--surgen-color);
   }
 }

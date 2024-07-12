@@ -3,7 +3,7 @@ import "./HostFinals.css";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import datajson from "../../../data/data.json";
 import useLocalStorageWrite from "../../../helpers/useLocalStorageWrite";
-import AnswerVisibility from "../../../types/Enum_AnswerVisibility";
+import AnswerVisibility from "../../../types/AnswerVisibility.enum";
 import { useEffect, useState } from "react";
 import PointsCard from "../../../components/PointsCard/PointsCard";
 import QuestionEntry from "../../../types/QuestionEntry.interface";

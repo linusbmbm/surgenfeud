@@ -5,8 +5,8 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 import ShotsCard from "../../../components/ShotsCard/ShotsCard";
 import AnswerCard from "../../../components/AnswerCard/AnswerCard";
 import PointsCard from "../../../components/PointsCard/PointsCard";
-import AnswerVisibility from "../../../types/Enum_AnswerVisibility";
-import ShotType from "../../../types/Enum_ShotType";
+import AnswerVisibility from "../../../types/AnswerVisibility.enum";
+import ShotType from "../../../types/ShotType.enum";
 import useLocalStorageRead from "../../../helpers/useLocalStorageRead";
 import AnswerEntry from "../../../types/AnswerEntry.interface";
 

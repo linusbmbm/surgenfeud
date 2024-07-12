@@ -3,7 +3,7 @@ import "./HostGame.css";
 import { useEffect, useState } from "react";
 import datajson from "../../../data/data.json";
 import PointsCard from "../../../components/PointsCard/PointsCard";
-import AnswerVisibility from "../../../types/Enum_AnswerVisibility";
+import AnswerVisibility from "../../../types/AnswerVisibility.enum";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import TeamColors from "../../../components/TeamColors/TeamColors";
 import useLocalStorageWrite from "../../../helpers/useLocalStorageWrite";

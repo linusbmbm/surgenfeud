@@ -6,7 +6,7 @@
   .finals-elements {
     height: 88%;
     padding: 3%;
-    border: var(--dulle-color) 2px solid;
+    border: var(--surgen-color) 2px solid;
     display: grid;
     grid-template-columns: 4fr repeat(2, 1fr);
     grid-template-rows: 3fr 3fr 8fr;
@@ -18,7 +18,7 @@
 
     .finals-element {
       border-radius: 20px;
-      background-color: var(--dulle-color);
+      background-color: var(--surgen-color);
       width: 100%;
       height: 100%;
       align-content: center;

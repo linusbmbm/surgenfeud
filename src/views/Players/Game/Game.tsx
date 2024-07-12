@@ -6,7 +6,7 @@ import PointsCard from "../../../components/PointsCard/PointsCard";
 import QuestionCard from "../../../components/QuestionCard/QuestionCard";
 import AnswerCard from "../../../components/AnswerCard/AnswerCard";
 import PointsFillCard from "../../../components/PointsFillCard/PointsFillCard";
-import AnswerVisibility from "../../../types/Enum_AnswerVisibility";
+import AnswerVisibility from "../../../types/AnswerVisibility.enum";
 import useLocalStorageRead from "../../../helpers/useLocalStorageRead";
 import { useEffect } from "react";
 import AnswerEntry from "../../../types/AnswerEntry.interface";
