@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import PointsCard from "../../../components/PointsCard/PointsCard";
 import QuestionEntry from "../../../types/QuestionEntry.interface";
 import AnswerEntry from "../../../types/AnswerEntry.interface";
-import QuestionDifficulty from "../../../types/QuestionDifficulty.interface";
 import blinkingIf from "../../../helpers/blinkingIf";
 
 const HostFinals = () => {
@@ -16,6 +15,12 @@ const HostFinals = () => {
   const navigator: NavigateFunction = useNavigate();
 
   const quiz: QuestionEntry[] = datajson;
+  const specialQuestions: string[] = [
+    "Nenne eine bekannte Weltstadt.",
+    "Nenne einen Grund für Streitigkeiten zwischen Kindern.",
+    "Nenne ein Schulfach, das den meisten Schülern gefällt.",
+    "Nenne eine beliebte Urlaubsaktivität für Abenteuerlustige.",
+  ];
 
   const [questionsFinals, setQuestionsFinals] = useState<string[]>([""]);
   const [questionFinalsNum, setQuestionFinalsNum] = useState<number>(0);
@@ -43,16 +48,6 @@ const HostFinals = () => {
     AnswerEntry[][]
   >("answersFinals", [[{ text: "", value: 0 }]]);
 
-  const manyAnswers: QuestionDifficulty = { topAnswerMin: 0, topAnswerMax: 25 };
-  const someAnswers: QuestionDifficulty = {
-    topAnswerMin: 25,
-    topAnswerMax: 40,
-  };
-  const fewAnswers: QuestionDifficulty = {
-    topAnswerMin: 40,
-    topAnswerMax: 101,
-  };
-
   const calcShotsTotal: number = Math.ceil(pointsFinals / 15);
   const calcShotsPerson: number = Math.floor(calcShotsTotal / 3);
   const calcShotsRest: number = calcShotsTotal % 3;
@@ -74,45 +69,16 @@ const HostFinals = () => {
     let newQuestionsFinals = [];
     let newAnswersFinals = [];
 
-    [manyAnswers, someAnswers, fewAnswers, someAnswers, manyAnswers].map(
-      (questionDifficulty: QuestionDifficulty) => {
-        let newQuestionIndex: number = -1;
-        newQuestionIndex = 0;
-        //assign
-        if (
-          getIndexForQuestionDifficulty(
-            newQuestionOrder,
-            questionDifficulty
-          ) !== -1
-        ) {
-          newQuestionIndex = getIndexForQuestionDifficulty(
-            newQuestionOrder,
-            questionDifficulty
-          );
-          //assign if no answer in Category left
-        } else if (
-          getIndexForQuestionDifficulty(newQuestionOrder, manyAnswers) !== -1
-        ) {
-          newQuestionIndex = getIndexForQuestionDifficulty(
-            newQuestionOrder,
-            manyAnswers
-          );
-        } else if (
-          getIndexForQuestionDifficulty(newQuestionOrder, someAnswers) !== -1
-        ) {
-          newQuestionIndex = getIndexForQuestionDifficulty(
-            newQuestionOrder,
-            someAnswers
-          );
-        } else if (
-          getIndexForQuestionDifficulty(newQuestionOrder, fewAnswers) !== -1
-        ) {
-          getIndexForQuestionDifficulty(newQuestionOrder, fewAnswers);
-        }
-
-        newQuestionOrder.push(newQuestionIndex);
+    for (let index = 0; index < 5; index++) {
+      let newQuestionIndex: number = -1;
+      newQuestionIndex = 0;
+      //assign
+      if (generateQuestionIndex(newQuestionOrder) !== -1) {
+        newQuestionIndex = generateQuestionIndex(newQuestionOrder);
       }
-    );
+
+      newQuestionOrder.push(newQuestionIndex);
+    }
 
     for (let index = 1; index <= 5; index++) {
       const newQuestionEntryFinals =
@@ -183,15 +149,13 @@ const HostFinals = () => {
     return result;
   };
 
-  const getIndexForQuestionDifficulty = (
-    questionOrderNow: typeof questionOrder,
-    questionDifficulty: QuestionDifficulty
+  const generateQuestionIndex = (
+    questionOrderNow: typeof questionOrder
   ): number => {
     return quiz.findIndex(
       (questionEntry, questionEntryIndex) =>
         !questionOrderNow.includes(questionEntryIndex) &&
-        questionEntry.answers[0].value >= questionDifficulty.topAnswerMin &&
-        questionEntry.answers[0].value < questionDifficulty.topAnswerMax
+        !specialQuestions.includes(questionEntry.question)
     );
   };
 
@@ -214,13 +178,13 @@ const HostFinals = () => {
       (visibilityAnswersFinals
         .slice(0, 5)
         .every((visibility) => visibility === AnswerVisibility.hidden) &&
-        answersFinalsNumGiven.slice(5).every((numGiven) => numGiven >= 0));
+        answersFinalsNumGiven.slice(5).every((numGiven) => numGiven !== -1));
     return blinkingIf(blinkingCondition);
   };
 
   const finalsAnswersGivenFirstPersonBlinking = (): string => {
     const blinkingCondition: boolean =
-      answersFinalsNumGiven.slice(0, 5).every((numGiven) => numGiven >= 0) &&
+      answersFinalsNumGiven.slice(0, 5).every((numGiven) => numGiven !== -1) &&
       answersFinalsNumGiven.slice(5).every((numGiven) => numGiven === -1) &&
       visibilityAnswersFinals
         .slice(0, 5)
@@ -233,7 +197,7 @@ const HostFinals = () => {
       visibilityAnswersFinals
         .slice(0, 5)
         .every((visibility) => visibility === AnswerVisibility.true) &&
-      answersFinalsNumGiven.slice(5).every((numGiven) => numGiven >= 0) &&
+      answersFinalsNumGiven.slice(5).every((numGiven) => numGiven !== -1) &&
       visibilityAnswersFinals
         .slice(5)
         .every((visibility) => visibility === AnswerVisibility.number);
@@ -350,22 +314,32 @@ const HostFinals = () => {
 
         <div className={`host-finals-answers ${hostAnswersFinalsBlinking}`}>
           {questionExists
-            ? answersFinals[fixQuestionFinalsNum].map((answer, index) => (
-                <button
-                  id={index.toString()}
-                  onClick={() => {
-                    selectAnswerNum(index);
-                  }}
-                  disabled={
-                    index === answersFinalsNumGiven[questionFinalsNum - 5]
-                  }
-                >
-                  <span>{index + 1}</span>
-                  <span>{answer.text}</span>
-                  <span>{answer.value}</span>
-                </button>
-              ))
+            ? answersFinals[fixQuestionFinalsNum]
+                .filter((answer) => answer.value > 1)
+                .map((answer, index) => (
+                  <button
+                    id={index.toString()}
+                    onClick={() => {
+                      selectAnswerNum(index);
+                    }}
+                    disabled={
+                      index === answersFinalsNumGiven[questionFinalsNum - 5]
+                    }
+                  >
+                    <span>{index + 1}</span>
+                    <span>{answer.text}</span>
+                    <span>{answer.value}</span>
+                  </button>
+                ))
             : ""}
+        </div>
+
+        <div className="answers-one-person">
+          {answersFinals[fixQuestionFinalsNum]
+            ?.filter((answer) => answer.value === 1)
+            .map((answer) => (
+              <span>{answer.text}</span>
+            ))}
         </div>
 
         <div className={`hide-finals-answers ${hideFinalsAnswersBlinking()}`}>

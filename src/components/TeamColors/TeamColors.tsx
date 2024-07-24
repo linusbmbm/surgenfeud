@@ -33,6 +33,17 @@ const TeamColors = ({ onSubmit, visibility }: Props) => {
       <div className="team-colors">
         <div className="team1-color">
           <CirclePicker
+            colors={[
+              "#FF0000",
+              "#008000",
+              "#0000FF",
+              "#800080",
+              "#FFA500",
+              "#4169E1",
+              "#FFFF00",
+              "#40E0D0",
+              "#FF1493",
+            ]}
             circleSize={50}
             color={newTeam1Color}
             onChangeComplete={handleChangeCompleteTeam1Color}
@@ -40,6 +51,17 @@ const TeamColors = ({ onSubmit, visibility }: Props) => {
         </div>
         <div className="team2-color">
           <CirclePicker
+            colors={[
+              "#FF0000",
+              "#008000",
+              "#0000FF",
+              "#800080",
+              "#FFA500",
+              "#4169E1",
+              "#FFFF00",
+              "#40E0D0",
+              "#FF1493",
+            ]}
             circleSize={50}
             color={newTeam2Color}
             onChangeComplete={handleChangeCompleteTeam2Color}

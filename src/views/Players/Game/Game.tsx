@@ -111,16 +111,18 @@ const Game = () => {
           </div>
 
           <div className="answers">
-            {answers.map((answer, index) => {
-              return (
-                <AnswerCard
-                  key={index}
-                  index={index + 1}
-                  answer={answer}
-                  visibility={visibilityAnswers[index]}
-                />
-              );
-            })}
+            {answers
+              .filter((answer) => answer.value > 1)
+              .map((answer, index) => {
+                return (
+                  <AnswerCard
+                    key={index}
+                    index={index + 1}
+                    answer={answer}
+                    visibility={visibilityAnswers[index]}
+                  />
+                );
+              })}
           </div>
         </div>
       </div>

@@ -9,7 +9,6 @@ import TeamColors from "../../../components/TeamColors/TeamColors";
 import useLocalStorageWrite from "../../../helpers/useLocalStorageWrite";
 import AnswerEntry from "../../../types/AnswerEntry.interface";
 import QuestionEntry from "../../../types/QuestionEntry.interface";
-import QuestionDifficulty from "../../../types/QuestionDifficulty.interface";
 import blinkingIf from "../../../helpers/blinkingIf";
 
 const HostGame = () => {
@@ -17,18 +16,11 @@ const HostGame = () => {
   const navigator: NavigateFunction = useNavigate();
 
   const quiz: QuestionEntry[] = datajson;
-  const manyAnswers: QuestionDifficulty = { topAnswerMin: 0, topAnswerMax: 25 };
-  const someAnswers: QuestionDifficulty = {
-    topAnswerMin: 25,
-    topAnswerMax: 40,
-  };
-  const fewAnswers: QuestionDifficulty = {
-    topAnswerMin: 40,
-    topAnswerMax: 101,
-  };
   const specialQuestions: string[] = [
-    "Nenne etwas vor dem du als Kind Angst hattest",
-    "Nenne etwas, das du mit Äypten in Verbindung bringst",
+    "Nenne eine bekannte Weltstadt.",
+    "Nenne einen Grund für Streitigkeiten zwischen Kindern.",
+    "Nenne ein Schulfach, das den meisten Schülern gefällt.",
+    "Nenne eine beliebte Urlaubsaktivität für Abenteuerlustige.",
   ];
 
   const [visibilityTeamColors, setvisibilityTeamColors] =
@@ -69,12 +61,7 @@ const HostGame = () => {
   );
   const [visibilityAnswers, setVisibilityAnswers] = useLocalStorageWrite<
     AnswerVisibility[]
-  >(
-    "visibilityAnswers",
-    [...Array(10)].map(() => {
-      return AnswerVisibility.false;
-    })
-  );
+  >("visibilityAnswers", [AnswerVisibility.false]);
   const [answers, setAnswers] = useLocalStorageWrite<AnswerEntry[]>(
     "answers",
     quiz[questionOrder[roundNum]]?.answers
@@ -113,7 +100,15 @@ const HostGame = () => {
     if (questionOrder[roundNum] !== -1) {
       setQuestion(quiz[questionOrder[roundNum]].question);
       setAnswers(quiz[questionOrder[roundNum]].answers);
-      setVisibilityAnswers([...Array(10)].map(() => AnswerVisibility.false));
+      setVisibilityAnswers(
+        [
+          ...Array(
+            quiz[questionOrder[roundNum]].answers.filter(
+              (answer) => answer.value > 1
+            ).length
+          ),
+        ].fill(AnswerVisibility.false)
+      );
       setVisibilityQuestion(false);
       setWrongNum(0);
       setRoundPoints(0);
@@ -211,16 +206,15 @@ const HostGame = () => {
     return blinkingIf(blinkingCondition);
   };
 
-  const answersLeftFor = (questionDifficulty: QuestionDifficulty): number => {
+  const questionsLeft = (): number => {
     return quiz.filter(
       (questionEntry, questionEntryIndex) =>
         !questionOrder.includes(questionEntryIndex) &&
-        questionEntry.answers[0].value >= questionDifficulty.topAnswerMin &&
-        questionEntry.answers[0].value < questionDifficulty.topAnswerMax
+        !specialQuestions.includes(questionEntry.question)
     ).length;
   };
 
-  const answersLeftForSpecialAnswers = (): number => {
+  const specialQuestionsLeft = (): number => {
     return quiz.filter(
       (questionEntry, questionEntryIndex) =>
         !questionOrder.includes(questionEntryIndex) &&
@@ -312,13 +306,13 @@ const HostGame = () => {
         )
       ) {
         setVisibilityAnswers(
-          answers.map(() => {
+          visibilityAnswers.map(() => {
             return AnswerVisibility.false;
           })
         );
       } else {
         setVisibilityAnswers(
-          answers.map(() => {
+          visibilityAnswers.map(() => {
             return AnswerVisibility.number;
           })
         );
@@ -361,34 +355,35 @@ const HostGame = () => {
     }
   };
 
-  const setAndGoToNextQuestion = ({
-    topAnswerMin = 0,
-    topAnswerMax = 101,
-  }: QuestionDifficulty) => {
+  const setAndGoToNextQuestion = () => {
     let newQuestionOrder = [...questionOrder];
 
     if (questionOrder[roundNum + 1] !== undefined) {
       newQuestionOrder.splice(roundNum + 1);
     }
+    newQuestionOrder.push(
+      quiz.findIndex(
+        (questionEntry, questionEntryIndex) =>
+          !newQuestionOrder.includes(questionEntryIndex) &&
+          !specialQuestions.includes(questionEntry.question)
+      )
+    );
 
-    if (topAnswerMin === 0 && topAnswerMax === 101) {
-      newQuestionOrder.push(
-        quiz.findIndex(
-          (questionEntry, questionEntryIndex) =>
-            !newQuestionOrder.includes(questionEntryIndex) &&
-            specialQuestions.includes(questionEntry.question)
-        )
-      );
-    } else {
-      newQuestionOrder.push(
-        quiz.findIndex(
-          (questionEntry, questionEntryIndex) =>
-            !newQuestionOrder.includes(questionEntryIndex) &&
-            questionEntry.answers[0].value >= topAnswerMin &&
-            questionEntry.answers[0].value < topAnswerMax
-        )
-      );
-    }
+    setQuestionOrder(newQuestionOrder);
+
+    goToNextQuestion();
+  };
+
+  const SetAndGoToNextSpecialQuestion = () => {
+    let newQuestionOrder = [...questionOrder];
+
+    newQuestionOrder.push(
+      quiz.findIndex(
+        (questionEntry, questionEntryIndex) =>
+          !newQuestionOrder.includes(questionEntryIndex) &&
+          specialQuestions.includes(questionEntry.question)
+      )
+    );
 
     setQuestionOrder(newQuestionOrder);
 
@@ -456,33 +451,11 @@ const HostGame = () => {
           <div
             className={`next-question-picker ${nextQuestionPickerBlinking()}`}
           >
-            <button
-              onClick={() => {
-                setAndGoToNextQuestion(manyAnswers);
-              }}
-            >
-              {`Viele ${answersLeftFor(manyAnswers)}`}
+            <button onClick={setAndGoToNextQuestion}>
+              {`Neue Frage ${questionsLeft()}`}
             </button>
-            <button
-              onClick={() => {
-                setAndGoToNextQuestion(someAnswers);
-              }}
-            >
-              {`Einige ${answersLeftFor(someAnswers)}`}
-            </button>
-            <button
-              onClick={() => {
-                setAndGoToNextQuestion(fewAnswers);
-              }}
-            >
-              {`Wenige ${answersLeftFor(fewAnswers)}`}
-            </button>
-            <button
-              onClick={() => {
-                setAndGoToNextQuestion({ topAnswerMin: 0, topAnswerMax: 101 });
-              }}
-            >
-              {`Spezial ${answersLeftForSpecialAnswers()}`}
+            <button onClick={SetAndGoToNextSpecialQuestion}>
+              {`Spezial-Frage ${specialQuestionsLeft()}`}
             </button>
           </div>
 
@@ -496,7 +469,7 @@ const HostGame = () => {
         <div className={`show-answer-number ${showAnswerNumberBlinking()}`}>
           <button onClick={showAnswerNumbers}>
             <span>Zeige Antworten-Anzahl</span>
-            <span>{answers.length}</span>
+            <span>{answers.filter((answer) => answer.value > 1).length}</span>
           </button>
         </div>
 
@@ -508,23 +481,25 @@ const HostGame = () => {
         </div>
 
         <div className={`answers ${answersBlinking()}`}>
-          {answers.map((answer, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                changeVisibilityAnswer(index);
-              }}
-              style={{
-                background: answerBackground(index),
-                color: answerColor(index),
-              }}
-            >
-              <span>{index + 1}</span>
-              <span>{answer.text}</span>
-              <span>{answer.value}</span>
-              <span>{visibilityAnswers[index]}</span>
-            </button>
-          ))}
+          {answers
+            .filter((answer) => answer.value > 1)
+            .map((answer, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  changeVisibilityAnswer(index);
+                }}
+                style={{
+                  background: answerBackground(index),
+                  color: answerColor(index),
+                }}
+              >
+                <span>{index + 1}</span>
+                <span>{answer.text}</span>
+                <span>{answer.value}</span>
+                <span>{visibilityAnswers[index]}</span>
+              </button>
+            ))}
         </div>
 
         <div className="show-wrongs">
@@ -534,6 +509,14 @@ const HostGame = () => {
             </span>
             <span>{stealPoints ? "" : wrongNum}</span>
           </button>
+        </div>
+
+        <div className="answers-one-person">
+          {answers
+            .filter((answer) => answer.value === 1)
+            .map((answer) => (
+              <span>{answer.text}</span>
+            ))}
         </div>
       </div>
     </>
