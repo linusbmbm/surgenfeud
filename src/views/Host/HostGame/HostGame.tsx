@@ -26,6 +26,8 @@ const HostGame = () => {
   const [visibilityTeamColors, setvisibilityTeamColors] =
     useState<boolean>(false);
   const [stealPoints, setStealPoints] = useState<boolean>(false);
+  const [stealPointsCorrectAnswers, setStealPointsCorrectAnswers] =
+    useState<number>(0);
   const [roundEnd, setRoundEnd] = useState<boolean>(false);
   const [roundPoints, setRoundPoints] = useState<number>(0);
 
@@ -138,6 +140,7 @@ const HostGame = () => {
   useEffect(() => {
     if (wrongNum >= 3 && !stealPoints) {
       setStealPoints(true);
+      setStealPointsCorrectAnswers(0);
     }
   }, [wrongNum]);
 
@@ -358,8 +361,12 @@ const HostGame = () => {
           updatedVisibilityAnswers[index] = AnswerVisibility.true;
           return updatedVisibilityAnswers;
         });
-        if (wrongNum >= 3) {
-          setStealPoints(false);
+        if (stealPoints) {
+          const newStealPointsCorrectAnswers = stealPointsCorrectAnswers + 1;
+          if (newStealPointsCorrectAnswers >= 2) {
+            setStealPoints(false);
+          }
+          setStealPointsCorrectAnswers(newStealPointsCorrectAnswers);
         }
       } else {
         setVisibilityAnswers((prevVisibilityAnswers) => {
@@ -552,7 +559,9 @@ const HostGame = () => {
         <div className="show-wrongs">
           <button onClick={showWrongs}>
             <span>
-              {stealPoints ? "PUNKTE KLAUEN MÖGLICH!" : "Falsche Antwort"}
+              {stealPoints
+                ? `PUNKTE KLAUEN MÖGLICH! ${stealPointsCorrectAnswers} / 2`
+                : "Falsche Antwort"}
             </span>
             <span>{stealPoints ? "" : wrongNum}</span>
           </button>

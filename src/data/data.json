@@ -2,7 +2,7 @@
   {
     "question": "Nenne etwas, vor dem man als Kind Angst hat.",
     "answers": [
-      { "text": "Spinnen", "value": 26 },
+      { "text": "Spinnen", "value": 27 },
       { "text": "Dunkelheit", "value": 19 },
       { "text": "Geister", "value": 15 },
       { "text": "Tiere", "value": 9 },
@@ -11,15 +11,15 @@
       { "text": "Keller", "value": 4 },
       { "text": "Schwarzer Mann", "value": 2 },
       { "text": "Wald", "value": 2 },
-      { "text": "Schule", "value": 2 },
       { "text": "Donner", "value": 2 },
-      { "text": "Feuer", "value": 1 },
       { "text": "Große Menschen", "value": 1 },
+      { "text": "Zahnarzt", "value": 1 },
       { "text": "Höhe", "value": 1 },
-      { "text": "Leuchtturm", "value": 1 },
-      { "text": "Lieferantenwagen", "value": 1 },
       { "text": "Tod", "value": 1 },
-      { "text": "Zahnarzt", "value": 1 }
+      { "text": "Lieferantenwagen", "value": 1 },
+      { "text": "Schule", "value": 1 },
+      { "text": "Leuchtturm", "value": 1 },
+      { "text": "Feuer", "value": 1 }
     ]
   },
   {
@@ -27,7 +27,7 @@
     "answers": [
       { "text": "Thomas Müller", "value": 22 },
       { "text": "Toni Kroos", "value": 15 },
-      { "text": "Manuel Neuer", "value": 11 },
+      { "text": "Manuel Neuer", "value": 12 },
       { "text": "Joshua Kimmich", "value": 4 },
       { "text": "Niklas Füllkrug", "value": 3 },
       { "text": "Florian Wirtz", "value": 3 },
@@ -39,32 +39,31 @@
       { "text": "Mesut Özil", "value": 2 },
       { "text": "Jamal Musiala", "value": 2 },
       { "text": "Emre Can", "value": 2 },
-      { "text": "Antonio Rüdiger", "value": 1 },
-      { "text": "David Raum", "value": 1 },
-      { "text": "Franz Beckenbauer", "value": 1 },
+      { "text": "Marco Reus", "value": 1 },
       { "text": "Helmut Rahn", "value": 1 },
-      { "text": "İlkay Gündoğan", "value": 1 },
+      { "text": "Uwe Seeler", "value": 1 },
       { "text": "Jens Lehmann", "value": 1 },
       { "text": "Jérôme Boateng", "value": 1 },
-      { "text": "Jürgen Klinsmann", "value": 1 },
-      { "text": "Leroy Sane", "value": 1 },
-      { "text": "Marco Reus", "value": 1 },
-      { "text": "Mario Götze", "value": 1 },
       { "text": "Michael Ballack", "value": 1 },
-      { "text": "Oliver Bierhoff", "value": 1 },
-      { "text": "Oliver Kahn", "value": 1 },
-      { "text": "Per Mertesacker", "value": 1 },
-      { "text": "Philipp Lahm", "value": 1 },
-      { "text": "Sepp Maier", "value": 1 },
+      { "text": "Antonio Rüdiger", "value": 1 },
+      { "text": "Mario Götze", "value": 1 },
       { "text": "Timo Werner", "value": 1 },
-      { "text": "Uwe Seeler", "value": 1 }
+      { "text": "Sepp Maier", "value": 1 },
+      { "text": "Per Mertesacker", "value": 1 },
+      { "text": "Oliver Kahn", "value": 1 },
+      { "text": "Oliver Bierhoff", "value": 1 },
+      { "text": "Franz Beckenbauer", "value": 1 },
+      { "text": "David Raum", "value": 1 },
+      { "text": "İlkay Gündoğan", "value": 1 },
+      { "text": "Jürgen Klinsmann", "value": 1 },
+      { "text": "Philipp Lahm", "value": 1 }
     ]
   },
   {
     "question": "Nenne etwas, das man im Kühlschrank findet.",
     "answers": [
-      { "text": "Milch", "value": 30 },
-      { "text": "Bier", "value": 16 },
+      { "text": "Milch", "value": 31 },
+      { "text": "Bier", "value": 15 },
       { "text": "Käse", "value": 14 },
       { "text": "Aufschnitt", "value": 11 },
       { "text": "Butter", "value": 9 },
@@ -91,10 +90,10 @@
       { "text": "Wärmflasche", "value": 2 },
       { "text": "Stiefel", "value": 2 },
       { "text": "Pullover", "value": 2 },
-      { "text": "Essen", "value": 1 },
       { "text": "Schneehose", "value": 1 },
-      { "text": "Socken", "value": 1 },
-      { "text": "Thermo", "value": 1 }
+      { "text": "Thermo", "value": 1 },
+      { "text": "Essen", "value": 1 },
+      { "text": "Socken", "value": 1 }
     ]
   },
   {
@@ -107,12 +106,12 @@
       { "text": "Schlafen", "value": 8 },
       { "text": "Essen", "value": 5 },
       { "text": "Couch", "value": 4 },
-      { "text": "Freunde treffen", "value": 1 },
       { "text": "Garten", "value": 1 },
+      { "text": "Freunde treffen", "value": 1 },
+      { "text": "Lesen", "value": 1 },
       { "text": "Heim fahren", "value": 1 },
       { "text": "Kaffee trinken", "value": 1 },
-      { "text": "Lärm", "value": 1 },
-      { "text": "Lesen", "value": 1 }
+      { "text": "Lärm", "value": 1 }
     ]
   },
   {
@@ -120,19 +119,19 @@
     "answers": [
       { "text": "Etui", "value": 28 },
       { "text": "Stifte", "value": 19 },
-      { "text": "Bücher", "value": 14 },
+      { "text": "Bücher", "value": 15 },
       { "text": "Hefte", "value": 11 },
-      { "text": "Pausenbrot", "value": 7 },
+      { "text": "Pausenbrot", "value": 6 },
       { "text": "Lineal", "value": 4 },
       { "text": "Füller", "value": 3 },
       { "text": "Drogen", "value": 3 },
       { "text": "Block", "value": 3 },
       { "text": "Tablet", "value": 2 },
       { "text": "Mappe", "value": 2 },
-      { "text": "Laptop", "value": 1 },
       { "text": "Radiergummi", "value": 1 },
-      { "text": "Zeugnis", "value": 1 },
-      { "text": "Zirkel", "value": 1 }
+      { "text": "Laptop", "value": 1 },
+      { "text": "Zirkel", "value": 1 },
+      { "text": "Zeugnis", "value": 1 }
     ]
   },
   {
@@ -145,9 +144,9 @@
       { "text": "Aufmerksamkeit", "value": 8 },
       { "text": "Menschen", "value": 8 },
       { "text": "Gleiches Essen", "value": 2 },
-      { "text": "Mücken", "value": 1 },
+      { "text": "Staub", "value": 1 },
       { "text": "Müssen still sein", "value": 1 },
-      { "text": "Staub", "value": 1 }
+      { "text": "Mücken", "value": 1 }
     ]
   },
   {
@@ -172,37 +171,37 @@
       { "text": "Vergifteter Apfel", "value": 2 },
       { "text": "Dornröschen", "value": 2 },
       { "text": "Erbse", "value": 2 },
-      { "text": "Aschenputtel", "value": 1 },
       { "text": "Brotkrümmel", "value": 1 },
-      { "text": "drei Haselnüsse", "value": 1 },
-      { "text": "Fliegender Teppich", "value": 1 },
-      { "text": "Gerechtigkeit", "value": 1 },
-      { "text": "Krone", "value": 1 },
-      { "text": "Lügen", "value": 1 },
       { "text": "Rosen", "value": 1 },
-      { "text": "Tragödie", "value": 1 }
+      { "text": "drei Haselnüsse", "value": 1 },
+      { "text": "Aschenputtel", "value": 1 },
+      { "text": "Fliegender Teppich", "value": 1 },
+      { "text": "Tragödie", "value": 1 },
+      { "text": "Lügen", "value": 1 },
+      { "text": "Gerechtigkeit", "value": 1 },
+      { "text": "Krone", "value": 1 }
     ]
   },
   {
     "question": "Nenne ein Schulfach, das den meisten Schülern gefällt.",
     "answers": [
-      { "text": "Sport", "value": 95 },
-      { "text": "Deutsch", "value": 6 },
+      { "text": "Sport", "value": 74 },
+      { "text": "Deutsch", "value": 7 },
       { "text": "Mathe", "value": 5 },
       { "text": "Kunst", "value": 5 },
       { "text": "Erdkunde", "value": 2 },
       { "text": "Englisch", "value": 2 },
-      { "text": "Biologie", "value": 1 },
-      { "text": "Chemie", "value": 1 },
       { "text": "Gibt es nicht", "value": 1 },
+      { "text": "Musik", "value": 1 },
+      { "text": "Biologie", "value": 1 },
       { "text": "Informatik", "value": 1 },
-      { "text": "Musik", "value": 1 }
+      { "text": "Chemie", "value": 1 }
     ]
   },
   {
     "question": "Nenne etwas, das man im Urlaub dabei haben sollte.",
     "answers": [
-      { "text": "Sonnencreme", "value": 33 },
+      { "text": "Sonnencreme", "value": 34 },
       { "text": "Badekleidung", "value": 13 },
       { "text": "Sonnenbrille", "value": 12 },
       { "text": "Geld", "value": 8 },
@@ -214,21 +213,20 @@
       { "text": "Zahnbürste", "value": 3 },
       { "text": "Drogen", "value": 2 },
       { "text": "Strandtuch", "value": 2 },
-      { "text": "Autoschlüssel", "value": 1 },
-      { "text": "Fahrrad", "value": 1 },
-      { "text": "Freundin", "value": 1 },
-      { "text": "Ladeteil", "value": 1 },
-      { "text": "Musikbox", "value": 1 },
-      { "text": "Schnorchel", "value": 1 },
       { "text": "Sonnenschirm", "value": 1 },
+      { "text": "Freundin", "value": 1 },
+      { "text": "Schnorchel", "value": 1 },
+      { "text": "Fahrrad", "value": 1 },
       { "text": "Unterhosen", "value": 1 },
-      { "text": "Waschzeug", "value": 1 }
+      { "text": "Waschzeug", "value": 1 },
+      { "text": "Autoschlüssel", "value": 1 },
+      { "text": "Musikbox", "value": 1 }
     ]
   },
   {
     "question": "Nenne einen Grund für Streitigkeiten zwischen Kindern.",
     "answers": [
-      { "text": "Spielzeug", "value": 51 },
+      { "text": "Spielzeug", "value": 32 },
       { "text": "Eifersucht", "value": 15 },
       { "text": "Süßigkeiten", "value": 13 },
       { "text": "Etwas weggenommen", "value": 12 },
@@ -240,22 +238,21 @@
       { "text": "Fernbedienung", "value": 2 },
       { "text": "Konkurrenz", "value": 2 },
       { "text": "Gewalt", "value": 2 },
-      { "text": "Alter", "value": 1 },
       { "text": "Beleidigung", "value": 1 },
-      { "text": "Etwas kaputt gemacht", "value": 1 },
-      { "text": "Lügen", "value": 1 },
       { "text": "Schlafenszeit", "value": 1 },
-      { "text": "Verbote", "value": 1 }
+      { "text": "Verbote", "value": 1 },
+      { "text": "Lügen", "value": 1 },
+      { "text": "Alter", "value": 1 }
     ]
   },
   {
     "question": "Nenne ein Lebensmittel, das man immer im Haus haben sollte.",
     "answers": [
       { "text": "Brot", "value": 20 },
-      { "text": "Nudeln", "value": 12 },
+      { "text": "Nudeln", "value": 13 },
       { "text": "Wasser", "value": 11 },
-      { "text": "Bier", "value": 10 },
       { "text": "Milch", "value": 9 },
+      { "text": "Bier", "value": 9 },
       { "text": "Zucker", "value": 6 },
       { "text": "Mehl", "value": 4 },
       { "text": "Butter", "value": 3 },
@@ -266,21 +263,21 @@
       { "text": "Salat", "value": 2 },
       { "text": "Eier", "value": 2 },
       { "text": "Äpfel", "value": 1 },
+      { "text": "Tee", "value": 1 },
       { "text": "Eis", "value": 1 },
-      { "text": "Jogurt", "value": 1 },
       { "text": "Kaffee", "value": 1 },
-      { "text": "Öl", "value": 1 },
-      { "text": "Reis", "value": 1 },
-      { "text": "Schokolade", "value": 1 },
       { "text": "Senf", "value": 1 },
-      { "text": "Tee", "value": 1 }
+      { "text": "Reis", "value": 1 },
+      { "text": "Jogurt", "value": 1 },
+      { "text": "Öl", "value": 1 },
+      { "text": "Schokolade", "value": 1 }
     ]
   },
   {
     "question": "Nenne ein weihnachtliches Gebäck.",
     "answers": [
-      { "text": "Spekulatius", "value": 31 },
-      { "text": "Lebkuchen", "value": 18 },
+      { "text": "Spekulatius", "value": 30 },
+      { "text": "Lebkuchen", "value": 19 },
       { "text": "Plätzchen", "value": 16 },
       { "text": "Zimtsterne", "value": 9 },
       { "text": "Spritzgebäck", "value": 9 },
@@ -291,40 +288,40 @@
       { "text": "Crêpes", "value": 1 },
       { "text": "Kuchen", "value": 1 },
       { "text": "Nussecken", "value": 1 },
-      { "text": "Oblaten", "value": 1 },
-      { "text": "Zimtschnecken", "value": 1 }
+      { "text": "Zimtschnecken", "value": 1 },
+      { "text": "Oblaten", "value": 1 }
     ]
   },
   {
     "question": "Nenne einen beliebten Superhelden.",
     "answers": [
-      { "text": "Superman", "value": 47 },
-      { "text": "Batman", "value": 17 },
+      { "text": "Superman", "value": 48 },
+      { "text": "Batman", "value": 16 },
       { "text": "Spiderman", "value": 13 },
       { "text": "Iron Man", "value": 6 },
       { "text": "Tarzan", "value": 4 },
       { "text": "Captain America", "value": 3 },
       { "text": "Hulk", "value": 2 },
-      { "text": "Captain Kirk", "value": 1 },
-      { "text": "Captain Marvel", "value": 1 },
-      { "text": "Deadpool", "value": 1 },
       { "text": "Optimus Prime", "value": 1 },
-      { "text": "Pippi Langstrumpf", "value": 1 },
+      { "text": "Captain Marvel", "value": 1 },
       { "text": "Robin Hood", "value": 1 },
+      { "text": "Pippi Langstrumpf", "value": 1 },
+      { "text": "Captain Kirk", "value": 1 },
+      { "text": "Deadpool", "value": 1 },
       { "text": "Wonder Woman", "value": 1 }
     ]
   },
   {
     "question": "Nenne einen Grund zum Kauf eines neuen Handys",
     "answers": [
-      { "text": "Kaputt", "value": 41 },
+      { "text": "Kaputt", "value": 42 },
       { "text": "Displayschaden", "value": 13 },
       { "text": "Veraltet", "value": 10 },
       { "text": "Schlechter Akku", "value": 9 },
       { "text": "Neue Funktionen", "value": 5 },
       { "text": "Prestige", "value": 4 },
-      { "text": "Speicherplatz", "value": 3 },
       { "text": "Vertrag ausgelaufen", "value": 3 },
+      { "text": "Speicherplatz", "value": 2 },
       { "text": "Lust", "value": 2 },
       { "text": "Zweithandy", "value": 2 },
       { "text": "Trend", "value": 2 },
@@ -336,62 +333,61 @@
   {
     "question": "Nenne einen typischen Vorsatz für das neue Jahr.",
     "answers": [
-      { "text": "Abnehmen", "value": 39 },
+      { "text": "Abnehmen", "value": 40 },
       { "text": "Mehr Sport", "value": 33 },
       { "text": "Aufhören zu rauchen", "value": 10 },
       { "text": "Weniger trinken", "value": 5 },
-      { "text": "Gesünder ernähren", "value": 5 },
+      { "text": "Gesünder ernähren", "value": 4 },
       { "text": "Fitnessstudio", "value": 4 },
-      { "text": "Besserer Mensch werden", "value": 1 },
-      { "text": "Mehr Geld verdienen", "value": 1 },
+      { "text": "So bleiben wie man ist", "value": 1 },
       { "text": "Raus aus Komfortzone", "value": 1 },
-      { "text": "So bleiben wie man ist", "value": 1 }
+      { "text": "Mehr Geld verdienen", "value": 1 },
+      { "text": "Besserer Mensch werden", "value": 1 }
     ]
   },
   {
     "question": "Nenne einen bekannten Autor oder Autorin.",
     "answers": [
       { "text": "J.K. Rowling", "value": 22 },
+      { "text": "Sebastian Fitzek", "value": 9 },
       { "text": "Astrid Lindgren", "value": 9 },
-      { "text": "Sebastian Fitzek", "value": 8 },
       { "text": "Johann-Wolfgang von Goethe", "value": 6 },
       { "text": "Ken Follett", "value": 6 },
       { "text": "William Shakespeare", "value": 4 },
       { "text": "Stephen King", "value": 4 },
       { "text": "Coleen Hoover", "value": 2 },
-      { "text": "Ben Brown", "value": 1 },
-      { "text": "Charlotte Link", "value": 1 },
-      { "text": "Colleen Hoover", "value": 1 },
-      { "text": "Daniel Kehlmann", "value": 1 },
-      { "text": "David R. Hawkins", "value": 1 },
-      { "text": "Edgar Allan Poe", "value": 1 },
-      { "text": "Elyas M'Barek", "value": 1 },
-      { "text": "Frank Schätzing", "value": 1 },
-      { "text": "Franz Kafka", "value": 1 },
-      { "text": "Frederick Stocken", "value": 1 },
-      { "text": "Friedrich Schiller", "value": 1 },
-      { "text": "Gebrüder Grimm", "value": 1 },
-      { "text": "George Orwell", "value": 1 },
-      { "text": "George R.R. Martin", "value": 1 },
-      { "text": "Gotthold Ephraim Lessing", "value": 1 },
-      { "text": "Günter Grass", "value": 1 },
-      { "text": "Heinrich Böll", "value": 1 },
-      { "text": "Heinrich Heine", "value": 1 },
-      { "text": "Hermann Hesse", "value": 1 },
-      { "text": "Ingrid Noll", "value": 1 },
-      { "text": "J.R.R. Tolkien", "value": 1 },
-      { "text": "John Griffin", "value": 1 },
-      { "text": "John Grisham", "value": 1 },
       { "text": "Jussi Adler Olson", "value": 1 },
-      { "text": "Karel Čapek", "value": 1 },
-      { "text": "Karl May", "value": 1 },
+      { "text": "Gebrüder Grimm", "value": 1 },
+      { "text": "Ingrid Noll", "value": 1 },
+      { "text": "David R. Hawkins", "value": 1 },
+      { "text": "Günter Grass", "value": 1 },
+      { "text": "Friedrich Schiller", "value": 1 },
+      { "text": "Heinrich Böll", "value": 1 },
+      { "text": "Elyas M'Barek", "value": 1 },
+      { "text": "Frederick Stocken", "value": 1 },
+      { "text": "Gotthold Ephraim Lessing", "value": 1 },
+      { "text": "George Orwell", "value": 1 },
       { "text": "Klaus-Peter Wolf", "value": 1 },
-      { "text": "Max Frisch", "value": 1 },
-      { "text": "Michael Ende", "value": 1 },
-      { "text": "Nele Neuhaus", "value": 1 },
       { "text": "Noah Gordon", "value": 1 },
+      { "text": "Hermann Hesse", "value": 1 },
+      { "text": "John Griffin", "value": 1 },
+      { "text": "Volker Klüpfel", "value": 1 },
+      { "text": "Karel Čapek", "value": 1 },
+      { "text": "J.R.R. Tolkien", "value": 1 },
+      { "text": "Daniel Kehlmann", "value": 1 },
+      { "text": "Frank Schätzing", "value": 1 },
+      { "text": "Edgar Allan Poe", "value": 1 },
+      { "text": "George R.R. Martin", "value": 1 },
+      { "text": "Nele Neuhaus", "value": 1 },
+      { "text": "Ben Brown", "value": 1 },
+      { "text": "Max Frisch", "value": 1 },
+      { "text": "Colleen Hoover", "value": 1 },
+      { "text": "Michael Ende", "value": 1 },
+      { "text": "Franz Kafka", "value": 1 },
+      { "text": "Charlotte Link", "value": 1 },
       { "text": "Sibylle Berg", "value": 1 },
-      { "text": "Volker Klüpfel", "value": 1 }
+      { "text": "Karl May", "value": 1 },
+      { "text": "Heinrich Heine", "value": 1 }
     ]
   },
   {
@@ -399,16 +395,16 @@
     "answers": [
       { "text": "Verschlafen", "value": 44 },
       { "text": "Stau", "value": 27 },
-      { "text": "Verspätung", "value": 9 },
+      { "text": "Verspätung", "value": 8 },
+      { "text": "Ausgefallen", "value": 5 },
       { "text": "Verpasst", "value": 5 },
-      { "text": "Ausgefallen", "value": 4 },
       { "text": "Reifen platt", "value": 3 },
       { "text": "Kater", "value": 2 },
-      { "text": "Alter Frau über die Straße geholfen", "value": 1 },
       { "text": "Auto zugefroren", "value": 1 },
-      { "text": "Durchfall", "value": 1 },
-      { "text": "Keinen Parkplatz gefunden", "value": 1 },
       { "text": "Unfall", "value": 1 },
+      { "text": "Alter Frau über die Straße geholfen", "value": 1 },
+      { "text": "Keinen Parkplatz gefunden", "value": 1 },
+      { "text": "Durchfall", "value": 1 },
       { "text": "von Polizei angehalten", "value": 1 }
     ]
   },
@@ -416,10 +412,10 @@
     "question": "Nenne eine beliebte Urlaubsaktivität für Abenteuerlustige.",
     "answers": [
       { "text": "Wandern", "value": 28 },
-      { "text": "Klettern", "value": 38 },
+      { "text": "Klettern", "value": 18 },
       { "text": "Rafting", "value": 10 },
-      { "text": "Bergsteigen", "value": 7 },
-      { "text": "Surfen", "value": 6 },
+      { "text": "Surfen", "value": 7 },
+      { "text": "Bergsteigen", "value": 6 },
       { "text": "Canyoning", "value": 4 },
       { "text": "Fallschirmspringen", "value": 4 },
       { "text": "Schwimmen", "value": 3 },
@@ -430,18 +426,18 @@
       { "text": "Skifahren", "value": 2 },
       { "text": "Reisen", "value": 2 },
       { "text": "Geocaching", "value": 1 },
+      { "text": "Zip-Line", "value": 1 },
       { "text": "Party", "value": 1 },
-      { "text": "Quad fahren", "value": 1 },
       { "text": "Safari", "value": 1 },
-      { "text": "Zip-Line", "value": 1 }
+      { "text": "Quad fahren", "value": 1 }
     ]
   },
   {
     "question": "Nenne ein aktives Staatsoberhaupt.",
     "answers": [
       { "text": "Olaf Scholz", "value": 43 },
-      { "text": "Joe Biden", "value": 17 },
-      { "text": "Wladimir Putin", "value": 16 },
+      { "text": "Wladimir Putin", "value": 17 },
+      { "text": "Joe Biden", "value": 16 },
       { "text": "Frank-Walter Steinmeier", "value": 8 },
       { "text": "Emmanuel Macron", "value": 6 },
       { "text": "Kim Jong-Un", "value": 4 },
@@ -466,12 +462,12 @@
       { "text": "Sex", "value": 2 },
       { "text": "Lärm", "value": 2 },
       { "text": "Toilette", "value": 2 },
+      { "text": "Wechseljahre", "value": 1 },
+      { "text": "Schlafstörung", "value": 1 },
+      { "text": "zu wenig Bewegung", "value": 1 },
       { "text": "Nicht müde", "value": 1 },
       { "text": "Partner schnarcht", "value": 1 },
-      { "text": "Schlafstörung", "value": 1 },
-      { "text": "schlechtes Bett", "value": 1 },
-      { "text": "Wechseljahre", "value": 1 },
-      { "text": "zu wenig Bewegung", "value": 1 }
+      { "text": "schlechtes Bett", "value": 1 }
     ]
   },
   {
@@ -480,8 +476,8 @@
       { "text": "Hecke", "value": 20 },
       { "text": "Lautstärke", "value": 18 },
       { "text": "Lärm", "value": 11 },
-      { "text": "Baumwuchs", "value": 9 },
       { "text": "Zaun", "value": 9 },
+      { "text": "Baumwuchs", "value": 8 },
       { "text": "Parkplatz", "value": 6 },
       { "text": "Laute Musik", "value": 5 },
       { "text": "Gartenarbeit", "value": 4 },
@@ -489,35 +485,36 @@
       { "text": "Haustiere", "value": 3 },
       { "text": "Rasen mähen", "value": 3 },
       { "text": "Flurputz", "value": 2 },
-      { "text": "Grillen", "value": 1 },
-      { "text": "Lästern", "value": 1 },
       { "text": "Nicht gefegt", "value": 1 },
-      { "text": "Nichtigkeiten", "value": 1 },
+      { "text": "Wegerecht", "value": 1 },
+      { "text": "Grillen", "value": 1 },
       { "text": "Sex mit der Nachbarsfrau", "value": 1 },
-      { "text": "Wäsche", "value": 1 },
-      { "text": "Wegerecht", "value": 1 }
+      { "text": "Nichtigkeiten", "value": 1 },
+      { "text": "Lästern", "value": 1 },
+      { "text": "Mülltonnen rausstellen", "value": 1 },
+      { "text": "Wäsche", "value": 1 }
     ]
   },
   {
     "question": "Nenne einen bekannten Sportwettbewerb.",
     "answers": [
-      { "text": "Olympische Spiele", "value": 25 },
-      { "text": "Europameisterschaft", "value": 24 },
+      { "text": "Olympische Spiele", "value": 26 },
+      { "text": "Europameisterschaft", "value": 23 },
       { "text": "Weltmeisterschaft", "value": 19 },
       { "text": "Bundesliga", "value": 13 },
       { "text": "Champions League", "value": 4 },
       { "text": "Formel 1", "value": 2 },
       { "text": "Wimbledon", "value": 2 },
-      { "text": "ATP Tennistunier Halle", "value": 1 },
-      { "text": "Baltik Cup", "value": 1 },
+      { "text": "Vierschanzentournee", "value": 1 },
       { "text": "Bundesjugendspiele", "value": 1 },
       { "text": "Elfmeterturnier", "value": 1 },
-      { "text": "Iron Man", "value": 1 },
-      { "text": "Ironman", "value": 1 },
-      { "text": "Marathon", "value": 1 },
       { "text": "Ruhrtallauf", "value": 1 },
+      { "text": "Iron Man", "value": 1 },
+      { "text": "Marathon", "value": 1 },
       { "text": "Tour de France", "value": 1 },
-      { "text": "Vierschanzentournee", "value": 1 }
+      { "text": "Baltik Cup", "value": 1 },
+      { "text": "ATP Tennistunier Halle", "value": 1 },
+      { "text": "Ironman", "value": 1 }
     ]
   },
   {
@@ -533,16 +530,16 @@
       { "text": "Musik", "value": 2 },
       { "text": "Tiefgang", "value": 2 },
       { "text": "Abenteuer", "value": 1 },
-      { "text": "Blut", "value": 1 },
-      { "text": "Charaktere", "value": 1 },
-      { "text": "Dramatik", "value": 1 },
+      { "text": "Rettung", "value": 1 },
       { "text": "Fantasy", "value": 1 },
+      { "text": "Story", "value": 1 },
+      { "text": "Dramatik", "value": 1 },
+      { "text": "Unter 2 Stunden", "value": 1 },
+      { "text": "Blut", "value": 1 },
       { "text": "Horror", "value": 1 },
       { "text": "Kameraführung", "value": 1 },
-      { "text": "Realität", "value": 1 },
-      { "text": "Rettung", "value": 1 },
-      { "text": "Story", "value": 1 },
-      { "text": "Unter 2 Stunden", "value": 1 }
+      { "text": "Charaktere", "value": 1 },
+      { "text": "Realität", "value": 1 }
     ]
   },
   {
@@ -557,13 +554,13 @@
       { "text": "Kölner Dom", "value": 3 },
       { "text": "Notre Dame", "value": 3 },
       { "text": "Louvre", "value": 2 },
-      { "text": "Adonisstatue", "value": 1 },
       { "text": "Bismarckturm", "value": 1 },
       { "text": "Chinesische Mauer", "value": 1 },
-      { "text": "Karlsbrücke", "value": 1 },
-      { "text": "Kolosseum", "value": 1 },
+      { "text": "Adonisstatue", "value": 1 },
       { "text": "Lübecker Tor", "value": 1 },
-      { "text": "Vasa-Museum", "value": 1 }
+      { "text": "Kolosseum", "value": 1 },
+      { "text": "Vasa-Museum", "value": 1 },
+      { "text": "Karlsbrücke", "value": 1 }
     ]
   },
   {
@@ -576,51 +573,51 @@
       { "text": "Jugoslawien Krieg", "value": 3 },
       { "text": "Vietnam-Krieg", "value": 2 },
       { "text": "100-jähriger Krieg", "value": 2 },
-      { "text": "Vietnam Krieg", "value": 1 },
       { "text": "Napoleonanischer Krieg", "value": 1 },
       { "text": "Krieg der Sterne", "value": 1 },
-      { "text": "Kabeljaukrieg", "value": 1 },
-      { "text": "Golfkrieg", "value": 1 },
       { "text": "Amerikanischer Bürgerkrieg", "value": 1 },
-      { "text": "Afghanistan Krieg", "value": 1 }
+      { "text": "Afghanistan Krieg", "value": 1 },
+      { "text": "Golfkrieg", "value": 1 },
+      { "text": "Vietnam Krieg", "value": 1 },
+      { "text": "Kabeljaukrieg", "value": 1 }
     ]
   },
   {
     "question": "Nenne einen bekannten Wissenschaftler oder Wissenschaftlerin.",
     "answers": [
-      { "text": "Albert Einstein", "value": 62 },
+      { "text": "Albert Einstein", "value": 61 },
       { "text": "Stephen Hawking", "value": 11 },
+      { "text": "Isaac Newton", "value": 6 },
       { "text": "Marie Curie", "value": 6 },
-      { "text": "Isaac Newton", "value": 5 },
       { "text": "Christian Drosten", "value": 2 },
-      { "text": "Alexander von Humboldt", "value": 1 },
-      { "text": "Dr. Dofenschmirtz", "value": 1 },
+      { "text": "Werner Heisenberg", "value": 1 },
       { "text": "Ferdinand Sauerbruch", "value": 1 },
-      { "text": "James Cogdell", "value": 1 },
-      { "text": "Max Planck", "value": 1 },
-      { "text": "Nikolaus Kopernikus", "value": 1 },
       { "text": "Otto Hahn", "value": 1 },
-      { "text": "Robert Oppenheimer", "value": 1 },
-      { "text": "Thomas Edison", "value": 1 },
       { "text": "Ugur Sahin", "value": 1 },
-      { "text": "Werner Heisenberg", "value": 1 }
+      { "text": "James Cogdell", "value": 1 },
+      { "text": "Nikolaus Kopernikus", "value": 1 },
+      { "text": "Alexander von Humboldt", "value": 1 },
+      { "text": "Max Planck", "value": 1 },
+      { "text": "Dr. Dofenschmirtz", "value": 1 },
+      { "text": "Thomas Edison", "value": 1 },
+      { "text": "Robert Oppenheimer", "value": 1 }
     ]
   },
   {
     "question": "Was ist ein essenzieller Bestandteil der Morgenroutine?",
     "answers": [
-      { "text": "Zähne putzen", "value": 65 },
+      { "text": "Zähne putzen", "value": 66 },
       { "text": "Kaffee trinken", "value": 10 },
       { "text": "Duschen", "value": 9 },
       { "text": "Aufstehen", "value": 4 },
       { "text": "Toilette", "value": 3 },
-      { "text": "Frühstücken", "value": 3 },
-      { "text": "Gesichtscreme", "value": 1 },
+      { "text": "Frühstücken", "value": 2 },
+      { "text": "Rauchen", "value": 1 },
       { "text": "Hund füttern", "value": 1 },
       { "text": "Rasieren", "value": 1 },
-      { "text": "Rauchen", "value": 1 },
-      { "text": "Schminken", "value": 1 },
-      { "text": "Wichsen", "value": 1 }
+      { "text": "Wichsen", "value": 1 },
+      { "text": "Gesichtscreme", "value": 1 },
+      { "text": "Schminken", "value": 1 }
     ]
   },
   {
@@ -632,44 +629,44 @@
       { "text": "Essen", "value": 3 },
       { "text": "Wildwasserbahn", "value": 2 },
       { "text": "Tiere ansehen", "value": 2 },
-      { "text": "Alles ausprobieren", "value": 1 },
-      { "text": "Anstehen", "value": 1 },
-      { "text": "Free Fall Tower", "value": 1 },
       { "text": "Frühschoppen", "value": 1 },
-      { "text": "Zugucken", "value": 1 }
+      { "text": "Alles ausprobieren", "value": 1 },
+      { "text": "Zugucken", "value": 1 },
+      { "text": "Free Fall Tower", "value": 1 },
+      { "text": "Anstehen", "value": 1 }
     ]
   },
   {
     "question": "Nenne eine bekannte Weltstadt.",
     "answers": [
-      { "text": "Paris", "value": 26 },
+      { "text": "Paris", "value": 27 },
       { "text": "New York", "value": 24 },
       { "text": "Berlin", "value": 13 },
-      { "text": "London", "value": 8 },
-      { "text": "Rom", "value": 27 },
+      { "text": "Rom", "value": 7 },
+      { "text": "London", "value": 7 },
       { "text": "Tokio", "value": 4 },
       { "text": "Prag", "value": 2 },
       { "text": "Dubai", "value": 2 },
       { "text": "Frömern", "value": 2 },
       { "text": "Singapur", "value": 2 },
       { "text": "Hamburg", "value": 2 },
-      { "text": "Barcelona", "value": 1 },
-      { "text": "Budapest", "value": 1 },
-      { "text": "Gelsenkirchen", "value": 1 },
-      { "text": "Genf", "value": 1 },
+      { "text": "Madrid", "value": 1 },
       { "text": "Gizeh", "value": 1 },
+      { "text": "Genf", "value": 1 },
+      { "text": "Gelsenkirchen", "value": 1 },
       { "text": "Hongkong", "value": 1 },
       { "text": "Istanbul", "value": 1 },
-      { "text": "Madrid", "value": 1 }
+      { "text": "Budapest", "value": 1 },
+      { "text": "Barcelona", "value": 1 }
     ]
   },
   {
     "question": "Nenne ein Tier, das man bei einem Besuch im Zoo sieht.",
     "answers": [
       { "text": "Elefant", "value": 26 },
-      { "text": "Löwe", "value": 23 },
+      { "text": "Löwe", "value": 24 },
       { "text": "Giraffe", "value": 12 },
-      { "text": "Affe", "value": 12 },
+      { "text": "Affe", "value": 11 },
       { "text": "Tiger", "value": 7 },
       { "text": "Pinguin", "value": 4 },
       { "text": "Zebra", "value": 2 },
@@ -677,12 +674,12 @@
       { "text": "Delfin", "value": 2 },
       { "text": "Flamingo", "value": 2 },
       { "text": "Erdmännchen", "value": 2 },
+      { "text": "Papagei", "value": 1 },
+      { "text": "Mensch", "value": 1 },
+      { "text": "Walross", "value": 1 },
       { "text": "Ameisenbär", "value": 1 },
       { "text": "Esel", "value": 1 },
-      { "text": "Krokodil", "value": 1 },
-      { "text": "Mensch", "value": 1 },
-      { "text": "Papagei", "value": 1 },
-      { "text": "Walross", "value": 1 }
+      { "text": "Krokodil", "value": 1 }
     ]
   }
 ]
