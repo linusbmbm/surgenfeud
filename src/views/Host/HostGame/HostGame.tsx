@@ -260,6 +260,30 @@ const HostGame = () => {
     return visibilityAnswers[index] === AnswerVisibility.true ? "black" : "";
   };
 
+  const showAnswerNumberBackground = (): string => {
+    return visibilityAnswers.every(
+      (visibility) => visibility === AnswerVisibility.number
+    )
+      ? "rgba(255, 255, 255, 0.7)"
+      : "";
+  };
+
+  const showAnswerNumberColor = (): string => {
+    return visibilityAnswers.every(
+      (visibility) => visibility === AnswerVisibility.number
+    )
+      ? "black"
+      : "";
+  };
+
+  const showQuestionBackground = (): string => {
+    return visibilityQuestion === true ? "rgba(255, 255, 255, 0.7)" : "";
+  };
+
+  const showQuestionColor = (): string => {
+    return visibilityQuestion === true ? "black" : "";
+  };
+
   //Button Functions
   const setTeamColors = () => {
     setvisibilityTeamColors(!visibilityTeamColors);
@@ -361,13 +385,19 @@ const HostGame = () => {
     if (questionOrder[roundNum + 1] !== undefined) {
       newQuestionOrder.splice(roundNum + 1);
     }
-    newQuestionOrder.push(
-      quiz.findIndex(
-        (questionEntry, questionEntryIndex) =>
-          !newQuestionOrder.includes(questionEntryIndex) &&
-          !specialQuestions.includes(questionEntry.question)
-      )
+
+    const eligibleQuestions = quiz.filter(
+      (questionEntry, questionEntryIndex) =>
+        !newQuestionOrder.includes(questionEntryIndex) &&
+        !specialQuestions.includes(questionEntry.question)
     );
+
+    const randomQuestionIndex = Math.floor(
+      Math.random() * eligibleQuestions.length
+    );
+    const randomQuestion = eligibleQuestions[randomQuestionIndex];
+
+    newQuestionOrder.push(quiz.indexOf(randomQuestion));
 
     setQuestionOrder(newQuestionOrder);
 
@@ -399,6 +429,13 @@ const HostGame = () => {
     setVisibilityWrong(true);
     setTimeout(() => {
       setVisibilityWrong(false);
+      if (
+        visibilityAnswers.every(
+          (visibilityAnswer) => visibilityAnswer !== AnswerVisibility.true
+        )
+      ) {
+        setWrongNum(0);
+      }
     }, 2000);
     if (wrongNum >= 3) {
       setStealPoints(false);
@@ -467,16 +504,27 @@ const HostGame = () => {
         </div>
 
         <div className={`show-answer-number ${showAnswerNumberBlinking()}`}>
-          <button onClick={showAnswerNumbers}>
+          <button
+            onClick={showAnswerNumbers}
+            style={{
+              background: showAnswerNumberBackground(),
+              color: showAnswerNumberColor(),
+            }}
+          >
             <span>Zeige Antworten-Anzahl</span>
             <span>{answers.filter((answer) => answer.value > 1).length}</span>
           </button>
         </div>
 
         <div className={`show-question ${showQuestionBlinking()}`}>
-          <button onClick={showQuestion}>
-            <span>{question}</span>
-            <span>{visibilityQuestion.toString()}</span>
+          <button
+            onClick={showQuestion}
+            style={{
+              background: showQuestionBackground(),
+              color: showQuestionColor(),
+            }}
+          >
+            {question}
           </button>
         </div>
 
@@ -497,7 +545,6 @@ const HostGame = () => {
                 <span>{index + 1}</span>
                 <span>{answer.text}</span>
                 <span>{answer.value}</span>
-                <span>{visibilityAnswers[index]}</span>
               </button>
             ))}
         </div>

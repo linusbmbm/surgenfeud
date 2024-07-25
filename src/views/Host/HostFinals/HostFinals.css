@@ -2,15 +2,14 @@
   height: 88%;
   padding: 3%;
   display: grid;
-  grid-template-rows: repeat(5, 1fr) 3fr;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr 2fr 1fr 1fr 5fr;
+  grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas:
-    "go-to-game          finals-points        shots-total          shots-person         shots-rest"
-    "finals-question     finals-question      finals-question      finals-question      finals-question"
-    "finals-answers      finals-answers       finals-answers       finals-answers       finals-answers"
-    "answers-one-person  answers-one-person   answers-one-person   answers-one-person   answers-one-person"
-    "hide-finals-answers wrong-finals-answer  wrong-finals-answer  wrong-finals-answer  delete-finals-answer"
-    "finals-overview     finals-overview      finals-overview      finals-overview      finals-overview ";
+    "go-to-game          finals-question      result"
+    "finals-answers      finals-answers       finals-answers"
+    "answers-one-person  answers-one-person   answers-one-person"
+    "hide-finals-answers wrong-finals-answer  delete-finals-answer"
+    "finals-overview     finals-overview      finals-overview ";
   grid-gap: 20px;
 
   .blinking {
@@ -22,20 +21,14 @@
     grid-area: go-to-game;
   }
 
-  .finals-points {
-    grid-area: finals-points;
+  .finals-question {
+    grid-area: finals-question;
   }
 
-  .shots-total {
-    grid-area: shots-total;
-  }
-
-  .shots-person {
-    grid-area: shots-person;
-  }
-
-  .shots-rest {
-    grid-area: shots-rest;
+  .result {
+    grid-area: result;
+    display: flex;
+    justify-content: space-between;
   }
 
   .finals-question {
@@ -43,19 +36,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2%;
+    gap: 1%;
   }
 
   .host-finals-answers {
     grid-area: finals-answers;
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 1%;
 
     button {
+      width: max-content;
+      height: max-content;
+      padding: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
     }
   }
 

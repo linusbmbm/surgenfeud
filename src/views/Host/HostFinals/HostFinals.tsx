@@ -291,25 +291,27 @@ const HostFinals = () => {
           <button onClick={goToGame}>Spiel</button>
         </div>
 
-        <div className="finals-points">
-          <PointsCard points={pointsFinals} />
-        </div>
-
-        <div className="shots-total">
-          <PointsCard points={calcShotsTotal} />
-        </div>
-
-        <div className="shots-person">
-          <PointsCard points={calcShotsPerson} />
-        </div>
-
-        <div className="shots-rest">
-          <PointsCard points={calcShotsRest} />
-        </div>
-
         <div className="finals-question">
           <span>{fixQuestionFinalsNum + 1}</span>
           <span>{questionsFinals[fixQuestionFinalsNum]}</span>
+        </div>
+
+        <div className="result">
+          <div className="finals-points">
+            <PointsCard points={pointsFinals} />
+          </div>
+
+          <div className="shots-total">
+            <PointsCard points={calcShotsTotal} />
+          </div>
+
+          <div className="shots-person">
+            <PointsCard points={calcShotsPerson} />
+          </div>
+
+          <div className="shots-rest">
+            <PointsCard points={calcShotsRest} />
+          </div>
         </div>
 
         <div className={`host-finals-answers ${hostAnswersFinalsBlinking}`}>
@@ -326,9 +328,7 @@ const HostFinals = () => {
                       index === answersFinalsNumGiven[questionFinalsNum - 5]
                     }
                   >
-                    <span>{index + 1}</span>
-                    <span>{answer.text}</span>
-                    <span>{answer.value}</span>
+                    {answer.text}
                   </button>
                 ))
             : ""}
