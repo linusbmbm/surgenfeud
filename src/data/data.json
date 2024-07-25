@@ -185,7 +185,7 @@
   {
     "question": "Nenne ein Schulfach, das den meisten Schülern gefällt.",
     "answers": [
-      { "text": "Sport", "value": 74 },
+      { "text": "Sport", "value": 94 },
       { "text": "Deutsch", "value": 7 },
       { "text": "Mathe", "value": 5 },
       { "text": "Kunst", "value": 5 },
@@ -226,7 +226,7 @@
   {
     "question": "Nenne einen Grund für Streitigkeiten zwischen Kindern.",
     "answers": [
-      { "text": "Spielzeug", "value": 32 },
+      { "text": "Spielzeug", "value": 52 },
       { "text": "Eifersucht", "value": 15 },
       { "text": "Süßigkeiten", "value": 13 },
       { "text": "Etwas weggenommen", "value": 12 },
@@ -412,7 +412,7 @@
     "question": "Nenne eine beliebte Urlaubsaktivität für Abenteuerlustige.",
     "answers": [
       { "text": "Wandern", "value": 28 },
-      { "text": "Klettern", "value": 18 },
+      { "text": "Klettern", "value": 38 },
       { "text": "Rafting", "value": 10 },
       { "text": "Surfen", "value": 7 },
       { "text": "Bergsteigen", "value": 6 },
@@ -642,7 +642,7 @@
       { "text": "Paris", "value": 27 },
       { "text": "New York", "value": 24 },
       { "text": "Berlin", "value": 13 },
-      { "text": "Rom", "value": 7 },
+      { "text": "Rom", "value": 27 },
       { "text": "London", "value": 7 },
       { "text": "Tokio", "value": 4 },
       { "text": "Prag", "value": 2 },
